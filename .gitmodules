@@ -1,0 +1,6 @@
+[submodule "submodule/Spring"]
+	path = submodule/Spring
+	url = https://github.com/MengTo/Spring.git
+[submodule "submodule/SnapKit"]
+	path = submodule/SnapKit
+	url = https://github.com/SnapKit/SnapKit.git
