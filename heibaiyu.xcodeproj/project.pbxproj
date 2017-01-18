@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		A4ACAC321E2F6A9E00E7BE41 /* cxx */ = {
 			isa = PBXGroup;
 			children = (
+				2344E4811E2FDAE900867A71 /* typemap.h */,
 				A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */,
 				A4ACAC341E2F6BE800E7BE41 /* buffer_yi.h */,
 				A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */,
