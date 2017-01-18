@@ -12,6 +12,7 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
+		A4ACAC221E2F5F8500E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAC211E2F5F8500E7BE41 /* libev.a */; };
 		A4D1014B1E2E3880007F374C /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D101491E2E3880007F374C /* libleveldb.a */; };
 		A4D1014C1E2E3880007F374C /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D1014A1E2E3880007F374C /* libmemenv.a */; };
 		A4D1024A1E2E389A007F374C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D102481E2E389A007F374C /* libcrypto.a */; };
@@ -26,6 +27,10 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4ACAC1D1E2F5F8500E7BE41 /* ev++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ev++.h"; sourceTree = "<group>"; };
+		A4ACAC1E1E2F5F8500E7BE41 /* ev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ev.h; sourceTree = "<group>"; };
+		A4ACAC1F1E2F5F8500E7BE41 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		A4ACAC211E2F5F8500E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
 		A4D1013A1E2E3880007F374C /* c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c.h; sourceTree = "<group>"; };
 		A4D1013B1E2E3880007F374C /* cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cache.h; sourceTree = "<group>"; };
 		A4D1013C1E2E3880007F374C /* comparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comparator.h; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D1024B1E2E389A007F374C /* libssl.a in Frameworks */,
+				A4ACAC221E2F5F8500E7BE41 /* libev.a in Frameworks */,
 				A4D1014B1E2E3880007F374C /* libleveldb.a in Frameworks */,
 				A4D1024A1E2E389A007F374C /* libcrypto.a in Frameworks */,
 				A4D1014C1E2E3880007F374C /* libmemenv.a in Frameworks */,
@@ -174,9 +180,37 @@
 			name = submodule;
 			sourceTree = "<group>";
 		};
+		A4ACAC1B1E2F5F8500E7BE41 /* libev */ = {
+			isa = PBXGroup;
+			children = (
+				A4ACAC1C1E2F5F8500E7BE41 /* include */,
+				A4ACAC201E2F5F8500E7BE41 /* lib */,
+			);
+			path = libev;
+			sourceTree = "<group>";
+		};
+		A4ACAC1C1E2F5F8500E7BE41 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A4ACAC1D1E2F5F8500E7BE41 /* ev++.h */,
+				A4ACAC1E1E2F5F8500E7BE41 /* ev.h */,
+				A4ACAC1F1E2F5F8500E7BE41 /* event.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A4ACAC201E2F5F8500E7BE41 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A4ACAC211E2F5F8500E7BE41 /* libev.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		A4D100A61E2E2BAA007F374C /* staticlib */ = {
 			isa = PBXGroup;
 			children = (
+				A4ACAC1B1E2F5F8500E7BE41 /* libev */,
 				A4D101FA1E2E389A007F374C /* openssl */,
 				A4D101381E2E3880007F374C /* leveldb */,
 			);
@@ -535,6 +569,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/staticlib/openssl/lib",
 					"$(PROJECT_DIR)/staticlib/leveldb/lib",
+					"$(PROJECT_DIR)/staticlib/libev/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -553,6 +588,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/staticlib/openssl/lib",
 					"$(PROJECT_DIR)/staticlib/leveldb/lib",
+					"$(PROJECT_DIR)/staticlib/libev/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
