@@ -73,9 +73,6 @@
 [submodule "submodule/SwiftyAttributes"]
 	path = submodule/SwiftyAttributes
 	url = https://github.com/eddiekaiger/SwiftyAttributes.git
-[submodule "submodule/swift-protobuf"]
-	path = submodule/swift-protobuf
-	url = https://github.com/apple/swift-protobuf.git
 [submodule "submodule/injectionforxcode"]
 	path = submodule/injectionforxcode
 	url = https://github.com/johnno1962/injectionforxcode.git
