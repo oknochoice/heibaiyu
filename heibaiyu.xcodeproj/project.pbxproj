@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
+		2344E4841E313A6B00867A71 /* chat_message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chat_message.pb.swift; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
+				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
@@ -442,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */,
 				A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
