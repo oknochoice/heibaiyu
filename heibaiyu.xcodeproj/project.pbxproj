@@ -19,6 +19,7 @@
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
 		A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD151E2F80EE00E7BE41 /* libmemenv.a */; };
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
+		A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAD241E3094C000E7BE41 /* net_yi.cxx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,8 @@
 		A4ACAD1A1E2F80EE00E7BE41 /* table_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_builder.h; sourceTree = "<group>"; };
 		A4ACAD1B1E2F80EE00E7BE41 /* write_batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_batch.h; sourceTree = "<group>"; };
 		A4ACAD221E2F8E5C00E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
+		A4ACAD241E3094C000E7BE41 /* net_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cxx; sourceTree = "<group>"; };
+		A4ACAD251E3094C000E7BE41 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 		A4ACAC321E2F6A9E00E7BE41 /* cxx */ = {
 			isa = PBXGroup;
 			children = (
+				A4ACAD241E3094C000E7BE41 /* net_yi.cxx */,
+				A4ACAD251E3094C000E7BE41 /* net_yi.h */,
 				2344E4811E2FDAE900867A71 /* typemap.h */,
 				A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */,
 				A4ACAC341E2F6BE800E7BE41 /* buffer_yi.h */,
@@ -437,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */,
 				A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				A4ACAC3C1E2F6BE800E7BE41 /* buffer_yi.cxx in Sources */,
