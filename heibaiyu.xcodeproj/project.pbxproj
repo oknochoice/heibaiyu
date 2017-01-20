@@ -13,6 +13,9 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
+		A4A66CDE1E31E36A001A25D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CDD1E31E36A001A25D7 /* main.m */; };
+		A4A66CE01E31E3F8001A25D7 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */; };
+		A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4ACAC3C1E2F6BE800E7BE41 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */; };
 		A4ACAC3E1E2F6BE800E7BE41 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
@@ -33,6 +36,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */,
+				A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +53,8 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4A66CDD1E31E36A001A25D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
 		A4ACAC341E2F6BE800E7BE41 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cxx; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
+				A4A66CE01E31E3F8001A25D7 /* Eureka.framework in Frameworks */,
 				A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
@@ -176,6 +183,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */,
 				A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */,
 			);
 			name = framework;
@@ -207,6 +215,7 @@
 				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
+				A4A66CDD1E31E36A001A25D7 /* main.m */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
 				A402B73E1E2DF84200DA2C56 /* Assets.xcassets */,
 				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
@@ -479,6 +488,7 @@
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				A4ACAC3C1E2F6BE800E7BE41 /* buffer_yi.cxx in Sources */,
 				A4ACAC3E1E2F6BE800E7BE41 /* lib_client.cxx in Sources */,
+				A4A66CDE1E31E36A001A25D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
