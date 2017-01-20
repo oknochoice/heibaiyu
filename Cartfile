@@ -1,1 +1,2 @@
 github "apple/swift-protobuf" "0.9.26"
+github "xmartlabs/Eureka" ~> 2.0.0

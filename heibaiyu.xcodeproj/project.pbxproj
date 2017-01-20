@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
-		2344E51B1E314B4600867A71 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E51A1E314B4600867A71 /* SwiftProtobuf.framework */; };
-		2344E51C1E314B4600867A71 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E51A1E314B4600867A71 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2344E51F1E314B5600867A71 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E51E1E314B5600867A71 /* SwiftProtobuf.framework */; };
-		2344E5201E314B5600867A71 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E51E1E314B5600867A71 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -25,17 +21,18 @@
 		A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD151E2F80EE00E7BE41 /* libmemenv.a */; };
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
 		A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAD241E3094C000E7BE41 /* net_yi.cxx */; };
+		A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */; };
+		A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2344E51D1E314B4600867A71 /* Embed Frameworks */ = {
+		A4F330421E31BBC500F2ED1B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2344E51C1E314B4600867A71 /* SwiftProtobuf.framework in Embed Frameworks */,
-				2344E5201E314B5600867A71 /* SwiftProtobuf.framework in Embed Frameworks */,
+				A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,8 +42,6 @@
 /* Begin PBXFileReference section */
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
 		2344E4841E313A6B00867A71 /* chat_message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chat_message.pb.swift; sourceTree = "<group>"; };
-		2344E51A1E314B4600867A71 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
-		2344E51E1E314B5600867A71 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/watchOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +153,7 @@
 		A4ACAD221E2F8E5C00E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
 		A4ACAD241E3094C000E7BE41 /* net_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cxx; sourceTree = "<group>"; };
 		A4ACAD251E3094C000E7BE41 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
+		A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,12 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
-				2344E51B1E314B4600867A71 /* SwiftProtobuf.framework in Frameworks */,
+				A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
-				2344E51F1E314B5600867A71 /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +176,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				2344E51E1E314B5600867A71 /* SwiftProtobuf.framework */,
-				2344E51A1E314B4600867A71 /* SwiftProtobuf.framework */,
+				A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */,
 			);
 			name = framework;
 			sourceTree = "<group>";
@@ -405,7 +399,7 @@
 				A402B7301E2DF84200DA2C56 /* Sources */,
 				A402B7311E2DF84200DA2C56 /* Frameworks */,
 				A402B7321E2DF84200DA2C56 /* Resources */,
-				2344E51D1E314B4600867A71 /* Embed Frameworks */,
+				A4F330421E31BBC500F2ED1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -613,7 +607,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
@@ -646,7 +639,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
