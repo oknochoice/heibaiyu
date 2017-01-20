@@ -16,14 +16,16 @@
 		A4A66CDE1E31E36A001A25D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CDD1E31E36A001A25D7 /* main.m */; };
 		A4A66CE01E31E3F8001A25D7 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */; };
 		A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4ACAC3C1E2F6BE800E7BE41 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */; };
-		A4ACAC3E1E2F6BE800E7BE41 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */; };
+		A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE41E31E6CB001A25D7 /* SignupController.swift */; };
+		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
+		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
+		A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cxx */; };
+		A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cxx */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
 		A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD81E2F7DC300E7BE41 /* libssl.a */; };
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
 		A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD151E2F80EE00E7BE41 /* libmemenv.a */; };
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
-		A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAD241E3094C000E7BE41 /* net_yi.cxx */; };
 		A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */; };
 		A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -55,10 +57,14 @@
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4A66CDD1E31E36A001A25D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
-		A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
-		A4ACAC341E2F6BE800E7BE41 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
-		A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cxx; sourceTree = "<group>"; };
-		A4ACAC381E2F6BE800E7BE41 /* lib_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_client.h; sourceTree = "<group>"; };
+		A4A66CE41E31E6CB001A25D7 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
+		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
+		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
+		A4A66CEB1E322B64001A25D7 /* lib_client.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cxx; sourceTree = "<group>"; };
+		A4A66CEC1E322B64001A25D7 /* lib_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_client.h; sourceTree = "<group>"; };
+		A4A66CED1E322B64001A25D7 /* net_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cxx; sourceTree = "<group>"; };
+		A4A66CEE1E322B64001A25D7 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
 		A4ACAC3A1E2F6BE800E7BE41 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
 		A4ACACB31E2F7DC300E7BE41 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		A4ACACB41E2F7DC300E7BE41 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
@@ -157,8 +163,6 @@
 		A4ACAD1A1E2F80EE00E7BE41 /* table_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_builder.h; sourceTree = "<group>"; };
 		A4ACAD1B1E2F80EE00E7BE41 /* write_batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_batch.h; sourceTree = "<group>"; };
 		A4ACAD221E2F8E5C00E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
-		A4ACAD241E3094C000E7BE41 /* net_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cxx; sourceTree = "<group>"; };
-		A4ACAD251E3094C000E7BE41 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
 		A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,14 +216,8 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
-				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
-				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
-				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
-				A4A66CDD1E31E36A001A25D7 /* main.m */,
-				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
-				A402B73E1E2DF84200DA2C56 /* Assets.xcassets */,
-				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
-				A402B7431E2DF84200DA2C56 /* Info.plist */,
+				A4A66CE31E31E662001A25D7 /* user */,
+				A4A66CE21E31E63C001A25D7 /* main */,
 			);
 			path = heibaiyu;
 			sourceTree = "<group>";
@@ -231,17 +229,41 @@
 			name = submodule;
 			sourceTree = "<group>";
 		};
+		A4A66CE21E31E63C001A25D7 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A402B73E1E2DF84200DA2C56 /* Assets.xcassets */,
+				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
+				A402B7431E2DF84200DA2C56 /* Info.plist */,
+				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
+				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
+				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
+				A4A66CDD1E31E36A001A25D7 /* main.m */,
+				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		A4A66CE31E31E662001A25D7 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				A4A66CE41E31E6CB001A25D7 /* SignupController.swift */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		A4ACAC321E2F6A9E00E7BE41 /* cxx */ = {
 			isa = PBXGroup;
 			children = (
-				A4ACAD241E3094C000E7BE41 /* net_yi.cxx */,
-				A4ACAD251E3094C000E7BE41 /* net_yi.h */,
+				A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */,
+				A4A66CEA1E322B64001A25D7 /* buffer_yi.h */,
+				A4A66CEB1E322B64001A25D7 /* lib_client.cxx */,
+				A4A66CEC1E322B64001A25D7 /* lib_client.h */,
+				A4A66CED1E322B64001A25D7 /* net_yi.cxx */,
+				A4A66CEE1E322B64001A25D7 /* net_yi.h */,
 				2344E4811E2FDAE900867A71 /* typemap.h */,
-				A4ACAC331E2F6BE800E7BE41 /* buffer_yi.cxx */,
-				A4ACAC341E2F6BE800E7BE41 /* buffer_yi.h */,
-				A4ACAC371E2F6BE800E7BE41 /* lib_client.cxx */,
-				A4ACAC381E2F6BE800E7BE41 /* lib_client.h */,
 				A4ACAC3A1E2F6BE800E7BE41 /* macro.h */,
+				A4A66CE61E3228D1001A25D7 /* root-ca.crt */,
 			);
 			path = cxx;
 			sourceTree = "<group>";
@@ -472,6 +494,7 @@
 				A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */,
 				A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */,
 				A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */,
+				A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,12 +506,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
-				A4ACAD261E3094C000E7BE41 /* net_yi.cxx in Sources */,
 				A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */,
+				A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */,
+				A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */,
+				A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
-				A4ACAC3C1E2F6BE800E7BE41 /* buffer_yi.cxx in Sources */,
-				A4ACAC3E1E2F6BE800E7BE41 /* lib_client.cxx in Sources */,
 				A4A66CDE1E31E36A001A25D7 /* main.m in Sources */,
+				A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
