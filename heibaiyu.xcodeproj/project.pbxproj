@@ -40,7 +40,10 @@
 		2344E5561E332C5900867A71 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5361E332C5900867A71 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2344E5581E33433700867A71 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5571E33433700867A71 /* Diff.framework */; };
 		2344E5591E33433700867A71 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5571E33433700867A71 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2344E5601E334B4500867A71 /* IBAnimatable in Resources */ = {isa = PBXBuildFile; fileRef = 2344E55F1E334B4500867A71 /* IBAnimatable */; };
+		23BBE2A61E33B6F10097E2F0 /* Interpolate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */; };
+		23BBE2A71E33B6F10097E2F0 /* Interpolate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23BBE2A91E33B7340097E2F0 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A81E33B7340097E2F0 /* Stellar.framework */; };
+		23BBE2AA1E33B7340097E2F0 /* Stellar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A81E33B7340097E2F0 /* Stellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -70,6 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				23BBE2AA1E33B7340097E2F0 /* Stellar.framework in Embed Frameworks */,
 				2344E53C1E332C5900867A71 /* Device.framework in Embed Frameworks */,
 				2344E5591E33433700867A71 /* Diff.framework in Embed Frameworks */,
 				2344E53E1E332C5900867A71 /* EasyTipView.framework in Embed Frameworks */,
@@ -81,6 +85,7 @@
 				2344E54C1E332C5900867A71 /* ReactiveKit.framework in Embed Frameworks */,
 				A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */,
 				2344E5481E332C5900867A71 /* NavigationStack.framework in Embed Frameworks */,
+				23BBE2A71E33B6F10097E2F0 /* Interpolate.framework in Embed Frameworks */,
 				2344E54E1E332C5900867A71 /* SnapKit.framework in Embed Frameworks */,
 				2344E5521E332C5900867A71 /* SwiftyBeaver.framework in Embed Frameworks */,
 				2344E5541E332C5900867A71 /* SwiftyTimer.framework in Embed Frameworks */,
@@ -113,7 +118,8 @@
 		2344E5351E332C5900867A71 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
 		2344E5361E332C5900867A71 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		2344E5571E33433700867A71 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
-		2344E55F1E334B4500867A71 /* IBAnimatable */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IBAnimatable; path = submodule/IBAnimatable/IBAnimatable; sourceTree = "<group>"; };
+		23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interpolate.framework; path = Carthage/Build/iOS/Interpolate.framework; sourceTree = "<group>"; };
+		23BBE2A81E33B7340097E2F0 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +258,9 @@
 				2344E5491E332C5900867A71 /* PhoneNumberKit.framework in Frameworks */,
 				2344E5451E332C5900867A71 /* LTMorphingLabel.framework in Frameworks */,
 				2344E5551E332C5900867A71 /* Whisper.framework in Frameworks */,
+				23BBE2A91E33B7340097E2F0 /* Stellar.framework in Frameworks */,
 				2344E53D1E332C5900867A71 /* EasyTipView.framework in Frameworks */,
+				23BBE2A61E33B6F10097E2F0 /* Interpolate.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
 				2344E5371E332C5900867A71 /* ActiveLabel.framework in Frameworks */,
 				2344E5581E33433700867A71 /* Diff.framework in Frameworks */,
@@ -269,6 +277,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				23BBE2A81E33B7340097E2F0 /* Stellar.framework */,
+				23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */,
 				2344E5271E332C5900867A71 /* ActiveLabel.framework */,
 				2344E5281E332C5900867A71 /* Bond.framework */,
 				2344E5571E33433700867A71 /* Diff.framework */,
@@ -323,7 +333,6 @@
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
-				2344E55F1E334B4500867A71 /* IBAnimatable */,
 			);
 			name = submodule;
 			sourceTree = "<group>";
@@ -594,7 +603,6 @@
 				A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */,
 				A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */,
 				A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */,
-				2344E5601E334B4500867A71 /* IBAnimatable in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,7 +753,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
 					"$(PROJECT_DIR)/staticlib/libev",
-					"$(PROJECT_DIR)/submodule/IBAnimatable/IBAnimatableo",
+					"$(PROJECT_DIR)/submodule/Spring/Spring",
 				);
 				INFOPLIST_FILE = heibaiyu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -778,7 +786,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
 					"$(PROJECT_DIR)/staticlib/libev",
-					"$(PROJECT_DIR)/submodule/IBAnimatable/IBAnimatableo",
+					"$(PROJECT_DIR)/submodule/Spring/Spring",
 				);
 				INFOPLIST_FILE = heibaiyu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

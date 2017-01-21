@@ -16,3 +16,6 @@
 [submodule "submodule/Blurable"]
 	path = submodule/Blurable
 	url = https://github.com/FlexMonkey/Blurable.git
+[submodule "submodule/EasyAnimation"]
+	path = submodule/EasyAnimation
+	url = https://github.com/icanzilb/EasyAnimation.git
