@@ -19,3 +19,6 @@
 [submodule "submodule/EasyAnimation"]
 	path = submodule/EasyAnimation
 	url = https://github.com/icanzilb/EasyAnimation.git
+[submodule "submodule/Material"]
+	path = submodule/Material
+	url = https://github.com/CosmicMind/Material.git

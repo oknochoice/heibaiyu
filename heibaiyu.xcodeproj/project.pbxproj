@@ -44,6 +44,8 @@
 		23BBE2A71E33B6F10097E2F0 /* Interpolate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23BBE2A91E33B7340097E2F0 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A81E33B7340097E2F0 /* Stellar.framework */; };
 		23BBE2AA1E33B7340097E2F0 /* Stellar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2A81E33B7340097E2F0 /* Stellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23BBE2AC1E33C5A80097E2F0 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2AB1E33C5A80097E2F0 /* DynamicColor.framework */; };
+		23BBE2AD1E33C5A80097E2F0 /* DynamicColor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23BBE2AB1E33C5A80097E2F0 /* DynamicColor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -91,6 +93,7 @@
 				2344E5541E332C5900867A71 /* SwiftyTimer.framework in Embed Frameworks */,
 				2344E5381E332C5900867A71 /* ActiveLabel.framework in Embed Frameworks */,
 				A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */,
+				23BBE2AD1E33C5A80097E2F0 /* DynamicColor.framework in Embed Frameworks */,
 				2344E54A1E332C5900867A71 /* PhoneNumberKit.framework in Embed Frameworks */,
 				2344E53A1E332C5900867A71 /* Bond.framework in Embed Frameworks */,
 			);
@@ -120,6 +123,7 @@
 		2344E5571E33433700867A71 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interpolate.framework; path = Carthage/Build/iOS/Interpolate.framework; sourceTree = "<group>"; };
 		23BBE2A81E33B7340097E2F0 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
+		23BBE2AB1E33C5A80097E2F0 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				2344E5511E332C5900867A71 /* SwiftyBeaver.framework in Frameworks */,
 				2344E54B1E332C5900867A71 /* ReactiveKit.framework in Frameworks */,
 				A4A66CE01E31E3F8001A25D7 /* Eureka.framework in Frameworks */,
+				23BBE2AC1E33C5A80097E2F0 /* DynamicColor.framework in Frameworks */,
 				A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */,
 				2344E5471E332C5900867A71 /* NavigationStack.framework in Frameworks */,
 				2344E54F1E332C5900867A71 /* SwiftyAttributes.framework in Frameworks */,
@@ -277,6 +282,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				23BBE2AB1E33C5A80097E2F0 /* DynamicColor.framework */,
 				23BBE2A81E33B7340097E2F0 /* Stellar.framework */,
 				23BBE2A51E33B6F10097E2F0 /* Interpolate.framework */,
 				2344E5271E332C5900867A71 /* ActiveLabel.framework */,
