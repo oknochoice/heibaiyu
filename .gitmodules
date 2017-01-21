@@ -97,9 +97,6 @@
 [submodule "submodule/SwiftyBeaver"]
 	path = submodule/SwiftyBeaver
 	url = https://github.com/SwiftyBeaver/SwiftyBeaver.git
-[submodule "submodule/IBAnimatable"]
-	path = submodule/IBAnimatable
-	url = https://github.com/IBAnimatable/IBAnimatable.git
 [submodule "submodule/Material"]
 	path = submodule/Material
 	url = https://github.com/CosmicMind/Material.git
