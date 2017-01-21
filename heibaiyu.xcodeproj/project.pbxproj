@@ -8,8 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
-		2344E5251E33152500867A71 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5241E33152500867A71 /* TextFieldEffects.framework */; };
-		2344E5261E33152500867A71 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5241E33152500867A71 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5371E332C5900867A71 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5271E332C5900867A71 /* ActiveLabel.framework */; };
+		2344E5381E332C5900867A71 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5271E332C5900867A71 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5391E332C5900867A71 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5281E332C5900867A71 /* Bond.framework */; };
+		2344E53A1E332C5900867A71 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5281E332C5900867A71 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E53B1E332C5900867A71 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5291E332C5900867A71 /* Device.framework */; };
+		2344E53C1E332C5900867A71 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5291E332C5900867A71 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E53D1E332C5900867A71 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52A1E332C5900867A71 /* EasyTipView.framework */; };
+		2344E53E1E332C5900867A71 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52A1E332C5900867A71 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E53F1E332C5900867A71 /* FillableLoaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52B1E332C5900867A71 /* FillableLoaders.framework */; };
+		2344E5401E332C5900867A71 /* FillableLoaders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52B1E332C5900867A71 /* FillableLoaders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5411E332C5900867A71 /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52C1E332C5900867A71 /* Format.framework */; };
+		2344E5421E332C5900867A71 /* Format.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52C1E332C5900867A71 /* Format.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5451E332C5900867A71 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52E1E332C5900867A71 /* LTMorphingLabel.framework */; };
+		2344E5461E332C5900867A71 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52E1E332C5900867A71 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5471E332C5900867A71 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52F1E332C5900867A71 /* NavigationStack.framework */; };
+		2344E5481E332C5900867A71 /* NavigationStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E52F1E332C5900867A71 /* NavigationStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5491E332C5900867A71 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5301E332C5900867A71 /* PhoneNumberKit.framework */; };
+		2344E54A1E332C5900867A71 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5301E332C5900867A71 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E54B1E332C5900867A71 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5311E332C5900867A71 /* ReactiveKit.framework */; };
+		2344E54C1E332C5900867A71 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5311E332C5900867A71 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E54D1E332C5900867A71 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5321E332C5900867A71 /* SnapKit.framework */; };
+		2344E54E1E332C5900867A71 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5321E332C5900867A71 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E54F1E332C5900867A71 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5331E332C5900867A71 /* SwiftyAttributes.framework */; };
+		2344E5501E332C5900867A71 /* SwiftyAttributes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5331E332C5900867A71 /* SwiftyAttributes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5511E332C5900867A71 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5341E332C5900867A71 /* SwiftyBeaver.framework */; };
+		2344E5521E332C5900867A71 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5341E332C5900867A71 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5531E332C5900867A71 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5351E332C5900867A71 /* SwiftyTimer.framework */; };
+		2344E5541E332C5900867A71 /* SwiftyTimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5351E332C5900867A71 /* SwiftyTimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5551E332C5900867A71 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5361E332C5900867A71 /* Whisper.framework */; };
+		2344E5561E332C5900867A71 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5361E332C5900867A71 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5581E33433700867A71 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5571E33433700867A71 /* Diff.framework */; };
+		2344E5591E33433700867A71 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5571E33433700867A71 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2344E5601E334B4500867A71 /* IBAnimatable in Resources */ = {isa = PBXBuildFile; fileRef = 2344E55F1E334B4500867A71 /* IBAnimatable */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -39,9 +70,24 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2344E53C1E332C5900867A71 /* Device.framework in Embed Frameworks */,
+				2344E5591E33433700867A71 /* Diff.framework in Embed Frameworks */,
+				2344E53E1E332C5900867A71 /* EasyTipView.framework in Embed Frameworks */,
+				2344E5421E332C5900867A71 /* Format.framework in Embed Frameworks */,
+				2344E5561E332C5900867A71 /* Whisper.framework in Embed Frameworks */,
+				2344E5501E332C5900867A71 /* SwiftyAttributes.framework in Embed Frameworks */,
+				2344E5461E332C5900867A71 /* LTMorphingLabel.framework in Embed Frameworks */,
+				2344E5401E332C5900867A71 /* FillableLoaders.framework in Embed Frameworks */,
+				2344E54C1E332C5900867A71 /* ReactiveKit.framework in Embed Frameworks */,
 				A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */,
-				2344E5261E33152500867A71 /* TextFieldEffects.framework in Embed Frameworks */,
+				2344E5481E332C5900867A71 /* NavigationStack.framework in Embed Frameworks */,
+				2344E54E1E332C5900867A71 /* SnapKit.framework in Embed Frameworks */,
+				2344E5521E332C5900867A71 /* SwiftyBeaver.framework in Embed Frameworks */,
+				2344E5541E332C5900867A71 /* SwiftyTimer.framework in Embed Frameworks */,
+				2344E5381E332C5900867A71 /* ActiveLabel.framework in Embed Frameworks */,
 				A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */,
+				2344E54A1E332C5900867A71 /* PhoneNumberKit.framework in Embed Frameworks */,
+				2344E53A1E332C5900867A71 /* Bond.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,7 +97,23 @@
 /* Begin PBXFileReference section */
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
 		2344E4841E313A6B00867A71 /* chat_message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chat_message.pb.swift; sourceTree = "<group>"; };
-		2344E5241E33152500867A71 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = Carthage/Build/iOS/TextFieldEffects.framework; sourceTree = "<group>"; };
+		2344E5271E332C5900867A71 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
+		2344E5281E332C5900867A71 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		2344E5291E332C5900867A71 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
+		2344E52A1E332C5900867A71 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
+		2344E52B1E332C5900867A71 /* FillableLoaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FillableLoaders.framework; path = Carthage/Build/iOS/FillableLoaders.framework; sourceTree = "<group>"; };
+		2344E52C1E332C5900867A71 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
+		2344E52E1E332C5900867A71 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
+		2344E52F1E332C5900867A71 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
+		2344E5301E332C5900867A71 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		2344E5311E332C5900867A71 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		2344E5321E332C5900867A71 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		2344E5331E332C5900867A71 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributes.framework; path = Carthage/Build/iOS/SwiftyAttributes.framework; sourceTree = "<group>"; };
+		2344E5341E332C5900867A71 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		2344E5351E332C5900867A71 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
+		2344E5361E332C5900867A71 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
+		2344E5571E33433700867A71 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
+		2344E55F1E334B4500867A71 /* IBAnimatable */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IBAnimatable; path = submodule/IBAnimatable/IBAnimatable; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,13 +238,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
+				2344E5511E332C5900867A71 /* SwiftyBeaver.framework in Frameworks */,
+				2344E54B1E332C5900867A71 /* ReactiveKit.framework in Frameworks */,
 				A4A66CE01E31E3F8001A25D7 /* Eureka.framework in Frameworks */,
 				A4F3304A1E31BDA200F2ED1B /* SwiftProtobuf.framework in Frameworks */,
+				2344E5471E332C5900867A71 /* NavigationStack.framework in Frameworks */,
+				2344E54F1E332C5900867A71 /* SwiftyAttributes.framework in Frameworks */,
+				2344E5411E332C5900867A71 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
+				2344E53B1E332C5900867A71 /* Device.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
+				2344E5491E332C5900867A71 /* PhoneNumberKit.framework in Frameworks */,
+				2344E5451E332C5900867A71 /* LTMorphingLabel.framework in Frameworks */,
+				2344E5551E332C5900867A71 /* Whisper.framework in Frameworks */,
+				2344E53D1E332C5900867A71 /* EasyTipView.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
-				2344E5251E33152500867A71 /* TextFieldEffects.framework in Frameworks */,
+				2344E5371E332C5900867A71 /* ActiveLabel.framework in Frameworks */,
+				2344E5581E33433700867A71 /* Diff.framework in Frameworks */,
+				2344E5531E332C5900867A71 /* SwiftyTimer.framework in Frameworks */,
+				2344E53F1E332C5900867A71 /* FillableLoaders.framework in Frameworks */,
+				2344E5391E332C5900867A71 /* Bond.framework in Frameworks */,
+				2344E54D1E332C5900867A71 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +269,22 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				2344E5241E33152500867A71 /* TextFieldEffects.framework */,
+				2344E5271E332C5900867A71 /* ActiveLabel.framework */,
+				2344E5281E332C5900867A71 /* Bond.framework */,
+				2344E5571E33433700867A71 /* Diff.framework */,
+				2344E5291E332C5900867A71 /* Device.framework */,
+				2344E52A1E332C5900867A71 /* EasyTipView.framework */,
+				2344E52B1E332C5900867A71 /* FillableLoaders.framework */,
+				2344E52C1E332C5900867A71 /* Format.framework */,
+				2344E52E1E332C5900867A71 /* LTMorphingLabel.framework */,
+				2344E52F1E332C5900867A71 /* NavigationStack.framework */,
+				2344E5301E332C5900867A71 /* PhoneNumberKit.framework */,
+				2344E5311E332C5900867A71 /* ReactiveKit.framework */,
+				2344E5321E332C5900867A71 /* SnapKit.framework */,
+				2344E5331E332C5900867A71 /* SwiftyAttributes.framework */,
+				2344E5341E332C5900867A71 /* SwiftyBeaver.framework */,
+				2344E5351E332C5900867A71 /* SwiftyTimer.framework */,
+				2344E5361E332C5900867A71 /* Whisper.framework */,
 				A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */,
 				A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */,
 			);
@@ -231,6 +323,7 @@
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
+				2344E55F1E334B4500867A71 /* IBAnimatable */,
 			);
 			name = submodule;
 			sourceTree = "<group>";
@@ -501,6 +594,7 @@
 				A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */,
 				A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */,
 				A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */,
+				2344E5601E334B4500867A71 /* IBAnimatable in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +745,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
 					"$(PROJECT_DIR)/staticlib/libev",
+					"$(PROJECT_DIR)/submodule/IBAnimatable/IBAnimatableo",
 				);
 				INFOPLIST_FILE = heibaiyu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -683,6 +778,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
 					"$(PROJECT_DIR)/staticlib/libev",
+					"$(PROJECT_DIR)/submodule/IBAnimatable/IBAnimatableo",
 				);
 				INFOPLIST_FILE = heibaiyu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

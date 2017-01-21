@@ -1,3 +1,18 @@
 [submodule "submodule/injectionforxcode"]
 	path = submodule/injectionforxcode
 	url = https://github.com/johnno1962/injectionforxcode.git
+[submodule "submodule/Spring"]
+	path = submodule/Spring
+	url = https://github.com/MengTo/Spring.git
+[submodule "submodule/SwiftGen"]
+	path = submodule/SwiftGen
+	url = https://github.com/AliSoftware/SwiftGen.git
+[submodule "submodule/NMessenger"]
+	path = submodule/NMessenger
+	url = https://github.com/eBay/NMessenger.git
+[submodule "submodule/Instructions"]
+	path = submodule/Instructions
+	url = https://github.com/ephread/Instructions.git
+[submodule "submodule/Blurable"]
+	path = submodule/Blurable
+	url = https://github.com/FlexMonkey/Blurable.git
