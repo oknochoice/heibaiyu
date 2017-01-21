@@ -3,3 +3,4 @@ github "xmartlabs/Eureka" ~> 2.0.0
 github "raulriera/TextFieldEffects"
 github "Ramotion/navigation-stack"
 github "IBanimatable/IBAnimatable"
+github "SwiftyBeaver/SwiftyBeaver"

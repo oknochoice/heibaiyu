@@ -94,9 +94,6 @@
 [submodule "submodule/Whisper"]
 	path = submodule/Whisper
 	url = https://github.com/hyperoslo/Whisper.git
-[submodule "submodule/SwiftyBeaver"]
-	path = submodule/SwiftyBeaver
-	url = https://github.com/SwiftyBeaver/SwiftyBeaver.git
 [submodule "submodule/Material"]
 	path = submodule/Material
 	url = https://github.com/CosmicMind/Material.git
