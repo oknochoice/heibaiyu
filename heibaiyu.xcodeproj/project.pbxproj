@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
+		2344E5251E33152500867A71 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5241E33152500867A71 /* TextFieldEffects.framework */; };
+		2344E5261E33152500867A71 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2344E5241E33152500867A71 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
@@ -38,6 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A4F3304B1E31BDA200F2ED1B /* SwiftProtobuf.framework in Embed Frameworks */,
+				2344E5261E33152500867A71 /* TextFieldEffects.framework in Embed Frameworks */,
 				A4A66CE11E31E3F8001A25D7 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -48,6 +51,7 @@
 /* Begin PBXFileReference section */
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
 		2344E4841E313A6B00867A71 /* chat_message.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chat_message.pb.swift; sourceTree = "<group>"; };
+		2344E5241E33152500867A71 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = Carthage/Build/iOS/TextFieldEffects.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
+				2344E5251E33152500867A71 /* TextFieldEffects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +192,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2344E5241E33152500867A71 /* TextFieldEffects.framework */,
 				A4A66CDF1E31E3F8001A25D7 /* Eureka.framework */,
 				A4F330491E31BDA200F2ED1B /* SwiftProtobuf.framework */,
 			);

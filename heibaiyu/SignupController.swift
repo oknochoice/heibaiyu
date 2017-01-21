@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Eureka
 
-class SignupController: FormViewController {
+class SignupController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
