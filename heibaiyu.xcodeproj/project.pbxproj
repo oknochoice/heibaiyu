@@ -27,27 +27,51 @@
 		A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7C1E349079001A25D7 /* RBBBlockBasedArray.swift */; };
 		A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */; };
 		A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */; };
-		A4A66E4E1E34C78D001A25D7 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E391E34C78D001A25D7 /* ActiveLabel.framework */; };
-		A4A66E4F1E34C78D001A25D7 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3A1E34C78D001A25D7 /* Bond.framework */; };
-		A4A66E501E34C78D001A25D7 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3B1E34C78D001A25D7 /* Device.framework */; };
-		A4A66E511E34C78D001A25D7 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3C1E34C78D001A25D7 /* Diff.framework */; };
-		A4A66E521E34C78D001A25D7 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3D1E34C78D001A25D7 /* DynamicColor.framework */; };
-		A4A66E531E34C78D001A25D7 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3E1E34C78D001A25D7 /* EasyTipView.framework */; };
-		A4A66E541E34C78D001A25D7 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E3F1E34C78D001A25D7 /* Eureka.framework */; };
-		A4A66E551E34C78D001A25D7 /* FillableLoaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E401E34C78D001A25D7 /* FillableLoaders.framework */; };
-		A4A66E561E34C78D001A25D7 /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E411E34C78D001A25D7 /* Format.framework */; };
-		A4A66E571E34C78D001A25D7 /* Interpolate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E421E34C78D001A25D7 /* Interpolate.framework */; };
-		A4A66E581E34C78D001A25D7 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E431E34C78D001A25D7 /* LTMorphingLabel.framework */; };
-		A4A66E591E34C78D001A25D7 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E441E34C78D001A25D7 /* NavigationStack.framework */; };
-		A4A66E5A1E34C78D001A25D7 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E451E34C78D001A25D7 /* PhoneNumberKit.framework */; };
-		A4A66E5B1E34C78D001A25D7 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E461E34C78D001A25D7 /* ReactiveKit.framework */; };
-		A4A66E5C1E34C78D001A25D7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E471E34C78D001A25D7 /* SnapKit.framework */; };
-		A4A66E5D1E34C78D001A25D7 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E481E34C78D001A25D7 /* Stellar.framework */; };
-		A4A66E5E1E34C78D001A25D7 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E491E34C78D001A25D7 /* SwiftProtobuf.framework */; };
-		A4A66E5F1E34C78D001A25D7 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E4A1E34C78D001A25D7 /* SwiftyAttributes.framework */; };
-		A4A66E601E34C78D001A25D7 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E4B1E34C78D001A25D7 /* SwiftyBeaver.framework */; };
-		A4A66E611E34C78D001A25D7 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E4C1E34C78D001A25D7 /* SwiftyTimer.framework */; };
-		A4A66E621E34C78D001A25D7 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E4D1E34C78D001A25D7 /* Whisper.framework */; };
+		A4A66E791E34CB5E001A25D7 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E631E34CB5D001A25D7 /* ActiveLabel.framework */; };
+		A4A66E7A1E34CB5E001A25D7 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E631E34CB5D001A25D7 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E7B1E34CB5E001A25D7 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E641E34CB5D001A25D7 /* Bond.framework */; };
+		A4A66E7C1E34CB5E001A25D7 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E641E34CB5D001A25D7 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E7D1E34CB5E001A25D7 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E651E34CB5D001A25D7 /* Device.framework */; };
+		A4A66E7E1E34CB5E001A25D7 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E651E34CB5D001A25D7 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E7F1E34CB5E001A25D7 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E661E34CB5D001A25D7 /* Diff.framework */; };
+		A4A66E801E34CB5E001A25D7 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E661E34CB5D001A25D7 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E811E34CB5E001A25D7 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */; };
+		A4A66E821E34CB5E001A25D7 /* DynamicColor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E831E34CB5E001A25D7 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */; };
+		A4A66E841E34CB5E001A25D7 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E851E34CB5E001A25D7 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E691E34CB5E001A25D7 /* Eureka.framework */; };
+		A4A66E861E34CB5E001A25D7 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E691E34CB5E001A25D7 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E871E34CB5E001A25D7 /* FillableLoaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */; };
+		A4A66E881E34CB5E001A25D7 /* FillableLoaders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E891E34CB5E001A25D7 /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6B1E34CB5E001A25D7 /* Format.framework */; };
+		A4A66E8A1E34CB5E001A25D7 /* Format.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6B1E34CB5E001A25D7 /* Format.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E8B1E34CB5E001A25D7 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */; };
+		A4A66E8C1E34CB5E001A25D7 /* IBAnimatable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E8D1E34CB5E001A25D7 /* Interpolate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */; };
+		A4A66E8E1E34CB5E001A25D7 /* Interpolate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E8F1E34CB5E001A25D7 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */; };
+		A4A66E901E34CB5E001A25D7 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E911E34CB5E001A25D7 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */; };
+		A4A66E921E34CB5E001A25D7 /* NavigationStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E931E34CB5E001A25D7 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E701E34CB5E001A25D7 /* PhoneNumberKit.framework */; };
+		A4A66E941E34CB5E001A25D7 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E701E34CB5E001A25D7 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E951E34CB5E001A25D7 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E711E34CB5E001A25D7 /* ReactiveKit.framework */; };
+		A4A66E961E34CB5E001A25D7 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E711E34CB5E001A25D7 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E971E34CB5E001A25D7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E721E34CB5E001A25D7 /* SnapKit.framework */; };
+		A4A66E981E34CB5E001A25D7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E721E34CB5E001A25D7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E991E34CB5E001A25D7 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E731E34CB5E001A25D7 /* Stellar.framework */; };
+		A4A66E9A1E34CB5E001A25D7 /* Stellar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E731E34CB5E001A25D7 /* Stellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E9B1E34CB5E001A25D7 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E741E34CB5E001A25D7 /* SwiftProtobuf.framework */; };
+		A4A66E9C1E34CB5E001A25D7 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E741E34CB5E001A25D7 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E9D1E34CB5E001A25D7 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E751E34CB5E001A25D7 /* SwiftyAttributes.framework */; };
+		A4A66E9E1E34CB5E001A25D7 /* SwiftyAttributes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E751E34CB5E001A25D7 /* SwiftyAttributes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66E9F1E34CB5E001A25D7 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E761E34CB5E001A25D7 /* SwiftyBeaver.framework */; };
+		A4A66EA01E34CB5E001A25D7 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E761E34CB5E001A25D7 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66EA11E34CB5E001A25D7 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E771E34CB5E001A25D7 /* SwiftyTimer.framework */; };
+		A4A66EA21E34CB5E001A25D7 /* SwiftyTimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E771E34CB5E001A25D7 /* SwiftyTimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66EA31E34CB5E001A25D7 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E781E34CB5E001A25D7 /* Whisper.framework */; };
+		A4A66EA41E34CB5E001A25D7 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E781E34CB5E001A25D7 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4A66EA71E34D0F3001A25D7 /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
 		A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD81E2F7DC300E7BE41 /* libssl.a */; };
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
@@ -62,6 +86,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A4A66E9E1E34CB5E001A25D7 /* SwiftyAttributes.framework in Embed Frameworks */,
+				A4A66E7E1E34CB5E001A25D7 /* Device.framework in Embed Frameworks */,
+				A4A66E961E34CB5E001A25D7 /* ReactiveKit.framework in Embed Frameworks */,
+				A4A66E861E34CB5E001A25D7 /* Eureka.framework in Embed Frameworks */,
+				A4A66E8A1E34CB5E001A25D7 /* Format.framework in Embed Frameworks */,
+				A4A66EA01E34CB5E001A25D7 /* SwiftyBeaver.framework in Embed Frameworks */,
+				A4A66E8E1E34CB5E001A25D7 /* Interpolate.framework in Embed Frameworks */,
+				A4A66E921E34CB5E001A25D7 /* NavigationStack.framework in Embed Frameworks */,
+				A4A66E941E34CB5E001A25D7 /* PhoneNumberKit.framework in Embed Frameworks */,
+				A4A66EA41E34CB5E001A25D7 /* Whisper.framework in Embed Frameworks */,
+				A4A66EA21E34CB5E001A25D7 /* SwiftyTimer.framework in Embed Frameworks */,
+				A4A66E981E34CB5E001A25D7 /* SnapKit.framework in Embed Frameworks */,
+				A4A66E8C1E34CB5E001A25D7 /* IBAnimatable.framework in Embed Frameworks */,
+				A4A66E901E34CB5E001A25D7 /* LTMorphingLabel.framework in Embed Frameworks */,
+				A4A66E881E34CB5E001A25D7 /* FillableLoaders.framework in Embed Frameworks */,
+				A4A66E9A1E34CB5E001A25D7 /* Stellar.framework in Embed Frameworks */,
+				A4A66E841E34CB5E001A25D7 /* EasyTipView.framework in Embed Frameworks */,
+				A4A66E9C1E34CB5E001A25D7 /* SwiftProtobuf.framework in Embed Frameworks */,
+				A4A66E7A1E34CB5E001A25D7 /* ActiveLabel.framework in Embed Frameworks */,
+				A4A66E7C1E34CB5E001A25D7 /* Bond.framework in Embed Frameworks */,
+				A4A66E801E34CB5E001A25D7 /* Diff.framework in Embed Frameworks */,
+				A4A66E821E34CB5E001A25D7 /* DynamicColor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,27 +142,29 @@
 		A4A66D7C1E349079001A25D7 /* RBBBlockBasedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBBlockBasedArray.swift; sourceTree = "<group>"; };
 		A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBLinearInterpolation.swift; sourceTree = "<group>"; };
 		A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBSpringAnimation.swift; sourceTree = "<group>"; };
-		A4A66E391E34C78D001A25D7 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
-		A4A66E3A1E34C78D001A25D7 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
-		A4A66E3B1E34C78D001A25D7 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
-		A4A66E3C1E34C78D001A25D7 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
-		A4A66E3D1E34C78D001A25D7 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
-		A4A66E3E1E34C78D001A25D7 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
-		A4A66E3F1E34C78D001A25D7 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
-		A4A66E401E34C78D001A25D7 /* FillableLoaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FillableLoaders.framework; path = Carthage/Build/iOS/FillableLoaders.framework; sourceTree = "<group>"; };
-		A4A66E411E34C78D001A25D7 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
-		A4A66E421E34C78D001A25D7 /* Interpolate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interpolate.framework; path = Carthage/Build/iOS/Interpolate.framework; sourceTree = "<group>"; };
-		A4A66E431E34C78D001A25D7 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
-		A4A66E441E34C78D001A25D7 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
-		A4A66E451E34C78D001A25D7 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
-		A4A66E461E34C78D001A25D7 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
-		A4A66E471E34C78D001A25D7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		A4A66E481E34C78D001A25D7 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
-		A4A66E491E34C78D001A25D7 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
-		A4A66E4A1E34C78D001A25D7 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributes.framework; path = Carthage/Build/iOS/SwiftyAttributes.framework; sourceTree = "<group>"; };
-		A4A66E4B1E34C78D001A25D7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		A4A66E4C1E34C78D001A25D7 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
-		A4A66E4D1E34C78D001A25D7 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
+		A4A66E631E34CB5D001A25D7 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
+		A4A66E641E34CB5D001A25D7 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		A4A66E651E34CB5D001A25D7 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
+		A4A66E661E34CB5D001A25D7 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
+		A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
+		A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
+		A4A66E691E34CB5E001A25D7 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FillableLoaders.framework; path = Carthage/Build/iOS/FillableLoaders.framework; sourceTree = "<group>"; };
+		A4A66E6B1E34CB5E001A25D7 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
+		A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBAnimatable.framework; path = Carthage/Build/iOS/IBAnimatable.framework; sourceTree = "<group>"; };
+		A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interpolate.framework; path = Carthage/Build/iOS/Interpolate.framework; sourceTree = "<group>"; };
+		A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
+		A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
+		A4A66E701E34CB5E001A25D7 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		A4A66E711E34CB5E001A25D7 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		A4A66E721E34CB5E001A25D7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		A4A66E731E34CB5E001A25D7 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
+		A4A66E741E34CB5E001A25D7 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		A4A66E751E34CB5E001A25D7 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributes.framework; path = Carthage/Build/iOS/SwiftyAttributes.framework; sourceTree = "<group>"; };
+		A4A66E761E34CB5E001A25D7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		A4A66E771E34CB5E001A25D7 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
+		A4A66E781E34CB5E001A25D7 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
+		A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryCode.plist; sourceTree = "<group>"; };
 		A4ACAC3A1E2F6BE800E7BE41 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
 		A4ACACB31E2F7DC300E7BE41 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		A4ACACB41E2F7DC300E7BE41 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
@@ -222,32 +270,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A66E991E34CB5E001A25D7 /* Stellar.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
-				A4A66E5B1E34C78D001A25D7 /* ReactiveKit.framework in Frameworks */,
-				A4A66E511E34C78D001A25D7 /* Diff.framework in Frameworks */,
-				A4A66E4E1E34C78D001A25D7 /* ActiveLabel.framework in Frameworks */,
-				A4A66E591E34C78D001A25D7 /* NavigationStack.framework in Frameworks */,
-				A4A66E561E34C78D001A25D7 /* Format.framework in Frameworks */,
-				A4A66E5F1E34C78D001A25D7 /* SwiftyAttributes.framework in Frameworks */,
-				A4A66E621E34C78D001A25D7 /* Whisper.framework in Frameworks */,
+				A4A66E9B1E34CB5E001A25D7 /* SwiftProtobuf.framework in Frameworks */,
+				A4A66EA31E34CB5E001A25D7 /* Whisper.framework in Frameworks */,
+				A4A66E7F1E34CB5E001A25D7 /* Diff.framework in Frameworks */,
+				A4A66EA11E34CB5E001A25D7 /* SwiftyTimer.framework in Frameworks */,
+				A4A66E791E34CB5E001A25D7 /* ActiveLabel.framework in Frameworks */,
+				A4A66E971E34CB5E001A25D7 /* SnapKit.framework in Frameworks */,
+				A4A66E891E34CB5E001A25D7 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
-				A4A66E521E34C78D001A25D7 /* DynamicColor.framework in Frameworks */,
+				A4A66E811E34CB5E001A25D7 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
-				A4A66E501E34C78D001A25D7 /* Device.framework in Frameworks */,
-				A4A66E5A1E34C78D001A25D7 /* PhoneNumberKit.framework in Frameworks */,
-				A4A66E531E34C78D001A25D7 /* EasyTipView.framework in Frameworks */,
-				A4A66E601E34C78D001A25D7 /* SwiftyBeaver.framework in Frameworks */,
-				A4A66E581E34C78D001A25D7 /* LTMorphingLabel.framework in Frameworks */,
-				A4A66E5E1E34C78D001A25D7 /* SwiftProtobuf.framework in Frameworks */,
+				A4A66E7D1E34CB5E001A25D7 /* Device.framework in Frameworks */,
+				A4A66E9D1E34CB5E001A25D7 /* SwiftyAttributes.framework in Frameworks */,
+				A4A66E8D1E34CB5E001A25D7 /* Interpolate.framework in Frameworks */,
+				A4A66E8B1E34CB5E001A25D7 /* IBAnimatable.framework in Frameworks */,
+				A4A66E831E34CB5E001A25D7 /* EasyTipView.framework in Frameworks */,
+				A4A66E9F1E34CB5E001A25D7 /* SwiftyBeaver.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
-				A4A66E571E34C78D001A25D7 /* Interpolate.framework in Frameworks */,
-				A4A66E541E34C78D001A25D7 /* Eureka.framework in Frameworks */,
-				A4A66E551E34C78D001A25D7 /* FillableLoaders.framework in Frameworks */,
-				A4A66E5D1E34C78D001A25D7 /* Stellar.framework in Frameworks */,
-				A4A66E4F1E34C78D001A25D7 /* Bond.framework in Frameworks */,
+				A4A66E851E34CB5E001A25D7 /* Eureka.framework in Frameworks */,
+				A4A66E911E34CB5E001A25D7 /* NavigationStack.framework in Frameworks */,
+				A4A66E931E34CB5E001A25D7 /* PhoneNumberKit.framework in Frameworks */,
+				A4A66E871E34CB5E001A25D7 /* FillableLoaders.framework in Frameworks */,
+				A4A66E951E34CB5E001A25D7 /* ReactiveKit.framework in Frameworks */,
+				A4A66E7B1E34CB5E001A25D7 /* Bond.framework in Frameworks */,
+				A4A66E8F1E34CB5E001A25D7 /* LTMorphingLabel.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
-				A4A66E5C1E34C78D001A25D7 /* SnapKit.framework in Frameworks */,
-				A4A66E611E34C78D001A25D7 /* SwiftyTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,27 +306,28 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				A4A66E391E34C78D001A25D7 /* ActiveLabel.framework */,
-				A4A66E3A1E34C78D001A25D7 /* Bond.framework */,
-				A4A66E3B1E34C78D001A25D7 /* Device.framework */,
-				A4A66E3C1E34C78D001A25D7 /* Diff.framework */,
-				A4A66E3D1E34C78D001A25D7 /* DynamicColor.framework */,
-				A4A66E3E1E34C78D001A25D7 /* EasyTipView.framework */,
-				A4A66E3F1E34C78D001A25D7 /* Eureka.framework */,
-				A4A66E401E34C78D001A25D7 /* FillableLoaders.framework */,
-				A4A66E411E34C78D001A25D7 /* Format.framework */,
-				A4A66E421E34C78D001A25D7 /* Interpolate.framework */,
-				A4A66E431E34C78D001A25D7 /* LTMorphingLabel.framework */,
-				A4A66E441E34C78D001A25D7 /* NavigationStack.framework */,
-				A4A66E451E34C78D001A25D7 /* PhoneNumberKit.framework */,
-				A4A66E461E34C78D001A25D7 /* ReactiveKit.framework */,
-				A4A66E471E34C78D001A25D7 /* SnapKit.framework */,
-				A4A66E481E34C78D001A25D7 /* Stellar.framework */,
-				A4A66E491E34C78D001A25D7 /* SwiftProtobuf.framework */,
-				A4A66E4A1E34C78D001A25D7 /* SwiftyAttributes.framework */,
-				A4A66E4B1E34C78D001A25D7 /* SwiftyBeaver.framework */,
-				A4A66E4C1E34C78D001A25D7 /* SwiftyTimer.framework */,
-				A4A66E4D1E34C78D001A25D7 /* Whisper.framework */,
+				A4A66E631E34CB5D001A25D7 /* ActiveLabel.framework */,
+				A4A66E641E34CB5D001A25D7 /* Bond.framework */,
+				A4A66E651E34CB5D001A25D7 /* Device.framework */,
+				A4A66E661E34CB5D001A25D7 /* Diff.framework */,
+				A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */,
+				A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */,
+				A4A66E691E34CB5E001A25D7 /* Eureka.framework */,
+				A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */,
+				A4A66E6B1E34CB5E001A25D7 /* Format.framework */,
+				A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */,
+				A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */,
+				A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */,
+				A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */,
+				A4A66E701E34CB5E001A25D7 /* PhoneNumberKit.framework */,
+				A4A66E711E34CB5E001A25D7 /* ReactiveKit.framework */,
+				A4A66E721E34CB5E001A25D7 /* SnapKit.framework */,
+				A4A66E731E34CB5E001A25D7 /* Stellar.framework */,
+				A4A66E741E34CB5E001A25D7 /* SwiftProtobuf.framework */,
+				A4A66E751E34CB5E001A25D7 /* SwiftyAttributes.framework */,
+				A4A66E761E34CB5E001A25D7 /* SwiftyBeaver.framework */,
+				A4A66E771E34CB5E001A25D7 /* SwiftyTimer.framework */,
+				A4A66E781E34CB5E001A25D7 /* Whisper.framework */,
 			);
 			name = framework;
 			sourceTree = "<group>";
@@ -322,6 +372,7 @@
 		A4A66CE21E31E63C001A25D7 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */,
 				A402B73E1E2DF84200DA2C56 /* Assets.xcassets */,
 				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
 				A402B7431E2DF84200DA2C56 /* Info.plist */,
@@ -613,6 +664,7 @@
 				A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */,
 				A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */,
 				A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */,
+				A4A66EA71E34D0F3001A25D7 /* CountryCode.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

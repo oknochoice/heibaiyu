@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Eureka
+import PhoneNumberKit
 
-class SignupController: UIViewController {
+class SignupController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        form = form
+            +++ Section(header: "输入你的手机号", footer: "目前限定中国+86号段")
     }
 
     override func didReceiveMemoryWarning() {
