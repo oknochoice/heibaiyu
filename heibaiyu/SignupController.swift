@@ -7,23 +7,23 @@
 //
 
 import UIKit
-import Eureka
 import PhoneNumberKit
 
-class SignupController: FormViewController {
+class SignupController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        form = form
-            +++ Section(header: "输入你的手机号", footer: "目前限定中国+86号段")
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
     
-
+  func injected() {
+    print("I've been injected: \(self)")
+  }
+  
     /*
     // MARK: - Navigation
 

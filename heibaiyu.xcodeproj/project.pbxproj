@@ -13,7 +13,6 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
-		A4A66CDE1E31E36A001A25D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CDD1E31E36A001A25D7 /* main.m */; };
 		A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE41E31E6CB001A25D7 /* SignupController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
@@ -39,14 +38,10 @@
 		A4A66E821E34CB5E001A25D7 /* DynamicColor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4A66E831E34CB5E001A25D7 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */; };
 		A4A66E841E34CB5E001A25D7 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4A66E851E34CB5E001A25D7 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E691E34CB5E001A25D7 /* Eureka.framework */; };
-		A4A66E861E34CB5E001A25D7 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E691E34CB5E001A25D7 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4A66E871E34CB5E001A25D7 /* FillableLoaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */; };
 		A4A66E881E34CB5E001A25D7 /* FillableLoaders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4A66E891E34CB5E001A25D7 /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6B1E34CB5E001A25D7 /* Format.framework */; };
 		A4A66E8A1E34CB5E001A25D7 /* Format.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6B1E34CB5E001A25D7 /* Format.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4A66E8B1E34CB5E001A25D7 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */; };
-		A4A66E8C1E34CB5E001A25D7 /* IBAnimatable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4A66E8D1E34CB5E001A25D7 /* Interpolate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */; };
 		A4A66E8E1E34CB5E001A25D7 /* Interpolate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4A66E8F1E34CB5E001A25D7 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */; };
@@ -89,7 +84,6 @@
 				A4A66E9E1E34CB5E001A25D7 /* SwiftyAttributes.framework in Embed Frameworks */,
 				A4A66E7E1E34CB5E001A25D7 /* Device.framework in Embed Frameworks */,
 				A4A66E961E34CB5E001A25D7 /* ReactiveKit.framework in Embed Frameworks */,
-				A4A66E861E34CB5E001A25D7 /* Eureka.framework in Embed Frameworks */,
 				A4A66E8A1E34CB5E001A25D7 /* Format.framework in Embed Frameworks */,
 				A4A66EA01E34CB5E001A25D7 /* SwiftyBeaver.framework in Embed Frameworks */,
 				A4A66E8E1E34CB5E001A25D7 /* Interpolate.framework in Embed Frameworks */,
@@ -98,7 +92,6 @@
 				A4A66EA41E34CB5E001A25D7 /* Whisper.framework in Embed Frameworks */,
 				A4A66EA21E34CB5E001A25D7 /* SwiftyTimer.framework in Embed Frameworks */,
 				A4A66E981E34CB5E001A25D7 /* SnapKit.framework in Embed Frameworks */,
-				A4A66E8C1E34CB5E001A25D7 /* IBAnimatable.framework in Embed Frameworks */,
 				A4A66E901E34CB5E001A25D7 /* LTMorphingLabel.framework in Embed Frameworks */,
 				A4A66E881E34CB5E001A25D7 /* FillableLoaders.framework in Embed Frameworks */,
 				A4A66E9A1E34CB5E001A25D7 /* Stellar.framework in Embed Frameworks */,
@@ -124,7 +117,6 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4A66CDD1E31E36A001A25D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4A66CE41E31E6CB001A25D7 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
@@ -148,10 +140,8 @@
 		A4A66E661E34CB5D001A25D7 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
-		A4A66E691E34CB5E001A25D7 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FillableLoaders.framework; path = Carthage/Build/iOS/FillableLoaders.framework; sourceTree = "<group>"; };
 		A4A66E6B1E34CB5E001A25D7 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
-		A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBAnimatable.framework; path = Carthage/Build/iOS/IBAnimatable.framework; sourceTree = "<group>"; };
 		A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interpolate.framework; path = Carthage/Build/iOS/Interpolate.framework; sourceTree = "<group>"; };
 		A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
@@ -285,11 +275,9 @@
 				A4A66E7D1E34CB5E001A25D7 /* Device.framework in Frameworks */,
 				A4A66E9D1E34CB5E001A25D7 /* SwiftyAttributes.framework in Frameworks */,
 				A4A66E8D1E34CB5E001A25D7 /* Interpolate.framework in Frameworks */,
-				A4A66E8B1E34CB5E001A25D7 /* IBAnimatable.framework in Frameworks */,
 				A4A66E831E34CB5E001A25D7 /* EasyTipView.framework in Frameworks */,
 				A4A66E9F1E34CB5E001A25D7 /* SwiftyBeaver.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
-				A4A66E851E34CB5E001A25D7 /* Eureka.framework in Frameworks */,
 				A4A66E911E34CB5E001A25D7 /* NavigationStack.framework in Frameworks */,
 				A4A66E931E34CB5E001A25D7 /* PhoneNumberKit.framework in Frameworks */,
 				A4A66E871E34CB5E001A25D7 /* FillableLoaders.framework in Frameworks */,
@@ -312,10 +300,8 @@
 				A4A66E661E34CB5D001A25D7 /* Diff.framework */,
 				A4A66E671E34CB5E001A25D7 /* DynamicColor.framework */,
 				A4A66E681E34CB5E001A25D7 /* EasyTipView.framework */,
-				A4A66E691E34CB5E001A25D7 /* Eureka.framework */,
 				A4A66E6A1E34CB5E001A25D7 /* FillableLoaders.framework */,
 				A4A66E6B1E34CB5E001A25D7 /* Format.framework */,
-				A4A66E6C1E34CB5E001A25D7 /* IBAnimatable.framework */,
 				A4A66E6D1E34CB5E001A25D7 /* Interpolate.framework */,
 				A4A66E6E1E34CB5E001A25D7 /* LTMorphingLabel.framework */,
 				A4A66E6F1E34CB5E001A25D7 /* NavigationStack.framework */,
@@ -379,7 +365,6 @@
 				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
-				A4A66CDD1E31E36A001A25D7 /* main.m */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
 			);
 			name = main;
@@ -686,7 +671,6 @@
 				A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
-				A4A66CDE1E31E36A001A25D7 /* main.m in Sources */,
 				A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
