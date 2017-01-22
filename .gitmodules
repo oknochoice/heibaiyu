@@ -10,9 +10,6 @@
 [submodule "submodule/NMessenger"]
 	path = submodule/NMessenger
 	url = https://github.com/eBay/NMessenger.git
-[submodule "submodule/Instructions"]
-	path = submodule/Instructions
-	url = https://github.com/ephread/Instructions.git
 [submodule "submodule/Blurable"]
 	path = submodule/Blurable
 	url = https://github.com/FlexMonkey/Blurable.git
