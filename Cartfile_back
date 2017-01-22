@@ -19,3 +19,6 @@ github "AugustRush/Stellar"
 github "marmelroy/Interpolate"
 github "yannickl/DynamicColor" >= 3.2.1
 github "marmelroy/PhoneNumberKit"
+
+#ios only
+github "ephread/Instructions" ~> 0.5
