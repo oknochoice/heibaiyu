@@ -13,6 +13,8 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
+		A47A62C11E35B43500E80F32 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62BF1E35B43500E80F32 /* genColors.swift */; };
+		A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62C01E35B43500E80F32 /* genStoryboards.swift */; };
 		A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE41E31E6CB001A25D7 /* SignupController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
@@ -117,6 +119,8 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A47A62BF1E35B43500E80F32 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = SOURCE_ROOT; };
+		A47A62C01E35B43500E80F32 /* genStoryboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genStoryboards.swift; sourceTree = SOURCE_ROOT; };
 		A4A66CE41E31E6CB001A25D7 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
@@ -363,6 +367,8 @@
 				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
 				A402B7431E2DF84200DA2C56 /* Info.plist */,
 				2344E4841E313A6B00867A71 /* chat_message.pb.swift */,
+				A47A62BF1E35B43500E80F32 /* genColors.swift */,
+				A47A62C01E35B43500E80F32 /* genStoryboards.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
@@ -661,6 +667,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
+				A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */,
 				A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */,
@@ -669,6 +676,7 @@
 				A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */,
 				A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */,
+				A47A62C11E35B43500E80F32 /* genColors.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */,
@@ -800,6 +808,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Commander",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/GenumKit",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
@@ -834,6 +846,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Commander",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/GenumKit",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
