@@ -20,10 +20,6 @@ class SignupController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
     
-  func injected() {
-    print("I've been injected: \(self)")
-  }
-  
     /*
     // MARK: - Navigation
 
