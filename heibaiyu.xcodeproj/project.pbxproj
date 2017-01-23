@@ -812,6 +812,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/GenumKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
@@ -850,6 +851,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/GenumKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
+					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
