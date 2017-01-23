@@ -48,14 +48,19 @@
 		23A881A41E3673FF0023B421 /* SwiftyTimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; };
 		23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23A881D51E3687270023B421 /* messageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D11E3687270023B421 /* messageController.swift */; };
+		23A881D61E3687270023B421 /* SigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D31E3687270023B421 /* SigninController.swift */; };
+		23A881D71E3687270023B421 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D41E3687270023B421 /* SignupController.swift */; };
+		23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; };
+		23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; };
+		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
-		A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7391E2DF84200DA2C56 /* ViewController.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
 		A47A62C11E35B43500E80F32 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62BF1E35B43500E80F32 /* genColors.swift */; };
 		A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62C01E35B43500E80F32 /* genStoryboards.swift */; };
-		A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE41E31E6CB001A25D7 /* SignupController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cxx */; };
@@ -86,9 +91,11 @@
 				23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */,
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
 				23A8818C1E3673FF0023B421 /* Eureka.framework in Embed Frameworks */,
+				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
 				23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */,
 				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
 				23A881981E3673FF0023B421 /* ReactiveKit.framework in Embed Frameworks */,
+				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
 				23A881961E3673FF0023B421 /* PhoneNumberKit.framework in Embed Frameworks */,
 				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
@@ -132,16 +139,19 @@
 		23A8817C1E3673FF0023B421 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
 		23A8817E1E3673FF0023B421 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
+		23A881D11E3687270023B421 /* messageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageController.swift; sourceTree = "<group>"; };
+		23A881D31E3687270023B421 /* SigninController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
+		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		23A881D81E368B340023B421 /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
+		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A402B7391E2DF84200DA2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A402B73C1E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47A62BF1E35B43500E80F32 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = SOURCE_ROOT; };
 		A47A62C01E35B43500E80F32 /* genStoryboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genStoryboards.swift; sourceTree = SOURCE_ROOT; };
-		A4A66CE41E31E6CB001A25D7 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
@@ -274,6 +284,7 @@
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				23A881951E3673FF0023B421 /* PhoneNumberKit.framework in Frameworks */,
+				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
@@ -285,6 +296,7 @@
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
 				23A8818B1E3673FF0023B421 /* Eureka.framework in Frameworks */,
 				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
+				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
 				23A881811E3673FF0023B421 /* Bond.framework in Frameworks */,
 				23A881971E3673FF0023B421 /* ReactiveKit.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
@@ -298,6 +310,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				23A881D81E368B340023B421 /* Chatto.framework */,
+				23A881D91E368B340023B421 /* ChattoAdditions.framework */,
 				23A8816B1E3673FF0023B421 /* ActiveLabel.framework */,
 				23A8816C1E3673FF0023B421 /* Bond.framework */,
 				23A8816D1E3673FF0023B421 /* Device.framework */,
@@ -320,6 +334,23 @@
 				23A8817E1E3673FF0023B421 /* Whisper.framework */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		23A881D01E3687270023B421 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				23A881D11E3687270023B421 /* messageController.swift */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		23A881D21E3687270023B421 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				23A881D31E3687270023B421 /* SigninController.swift */,
+				23A881D41E3687270023B421 /* SignupController.swift */,
+			);
+			path = user;
 			sourceTree = "<group>";
 		};
 		A402B72B1E2DF84200DA2C56 = {
@@ -345,7 +376,8 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
-				A4A66CE31E31E662001A25D7 /* user */,
+				23A881D01E3687270023B421 /* message */,
+				23A881D21E3687270023B421 /* user */,
 				A4A66CE21E31E63C001A25D7 /* main */,
 			);
 			path = heibaiyu;
@@ -370,18 +402,9 @@
 				A47A62BF1E35B43500E80F32 /* genColors.swift */,
 				A47A62C01E35B43500E80F32 /* genStoryboards.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
-				A402B7391E2DF84200DA2C56 /* ViewController.swift */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		A4A66CE31E31E662001A25D7 /* user */ = {
-			isa = PBXGroup;
-			children = (
-				A4A66CE41E31E6CB001A25D7 /* SignupController.swift */,
-			);
-			name = user;
 			sourceTree = "<group>";
 		};
 		A4A66D741E349079001A25D7 /* EasyAnimation */ = {
@@ -667,15 +690,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
+				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
-				A402B73A1E2DF84200DA2C56 /* ViewController.swift in Sources */,
 				A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */,
 				A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */,
 				A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */,
+				23A881D51E3687270023B421 /* messageController.swift in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */,
-				A4A66CE51E31E6CB001A25D7 /* SignupController.swift in Sources */,
+				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A47A62C11E35B43500E80F32 /* genColors.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
