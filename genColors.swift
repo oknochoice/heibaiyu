@@ -24,24 +24,24 @@ extension Color {
 
 // swiftlint:disable type_body_length
 enum ColorName {
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#d50021"></span>
-  /// Alpha: 100% <br/> (0xd50021ff)
-  case lipstick
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#7f7f7f"></span>
-  /// Alpha: 100% <br/> (0x7f7f7fff)
-  case warmGrey
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#cecece"></span>
-  /// Alpha: 100% <br/> (0xcececeff)
-  case white
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#1aae2c"></span>
+  /// Alpha: 100% <br/> (0x1aae2cff)
+  case congqian
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#02245e"></span>
+  /// Alpha: 100% <br/> (0x02245eff)
+  case huaqin
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#fda819"></span>
+  /// Alpha: 100% <br/> (0xfda819ff)
+  case tenghuang
 
   var rgbaValue: UInt32 {
     switch self {
-    case .lipstick:
-      return 0xd50021ff
-    case .warmGrey:
-      return 0x7f7f7fff
-    case .white:
-      return 0xcececeff
+    case .congqian:
+      return 0x1aae2cff
+    case .huaqin:
+      return 0x02245eff
+    case .tenghuang:
+      return 0xfda819ff
     }
   }
 

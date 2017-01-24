@@ -16,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let signup = StoryboardScene.Main.instantiateSignupController()
-        window?.rootViewController = signup
+        
+        let rootvc = StoryboardScene.Main.instantiateTabbarController()
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        let barAppearace = UINavigationBar.appearance()
+        barAppearace.barTintColor = UIColor(named: .huaqin)
+        barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        window?.rootViewController = rootvc
         return true
     }
 

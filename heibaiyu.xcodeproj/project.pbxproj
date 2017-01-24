@@ -61,6 +61,7 @@
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
 		A47A62C11E35B43500E80F32 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62BF1E35B43500E80F32 /* genColors.swift */; };
 		A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62C01E35B43500E80F32 /* genStoryboards.swift */; };
+		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cxx */; };
@@ -152,6 +153,7 @@
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47A62BF1E35B43500E80F32 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = SOURCE_ROOT; };
 		A47A62C01E35B43500E80F32 /* genStoryboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genStoryboards.swift; sourceTree = SOURCE_ROOT; };
+		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				23A881D31E3687270023B421 /* SigninController.swift */,
 				23A881D41E3687270023B421 /* SignupController.swift */,
+				A47A62D61E36F50500E80F32 /* friendsController.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -376,11 +379,19 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
+				A47A62DA1E37245E00E80F32 /* netdb */,
 				23A881D01E3687270023B421 /* message */,
 				23A881D21E3687270023B421 /* user */,
 				A4A66CE21E31E63C001A25D7 /* main */,
 			);
 			path = heibaiyu;
+			sourceTree = "<group>";
+		};
+		A47A62DA1E37245E00E80F32 /* netdb */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = netdb;
 			sourceTree = "<group>";
 		};
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
@@ -690,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
+				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,

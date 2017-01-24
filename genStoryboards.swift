@@ -49,9 +49,18 @@ struct StoryboardScene {
   enum Main: String, StoryboardSceneType {
     static let storyboardName = "Main"
 
-    static func initialViewController() -> heibaiyu.ViewController {
-      guard let vc = storyboard().instantiateInitialViewController() as? heibaiyu.ViewController else {
+    static func initialViewController() -> heibaiyu.SigninController {
+      guard let vc = storyboard().instantiateInitialViewController() as? heibaiyu.SigninController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+
+    case signinControllerScene = "SigninController"
+    static func instantiateSigninController() -> heibaiyu.SigninController {
+      guard let vc = StoryboardScene.Main.signinControllerScene.viewController() as? heibaiyu.SigninController
+      else {
+        fatalError("ViewController 'SigninController' is not of the expected class heibaiyu.SigninController.")
       }
       return vc
     }
@@ -61,6 +70,15 @@ struct StoryboardScene {
       guard let vc = StoryboardScene.Main.signupControllerScene.viewController() as? heibaiyu.SignupController
       else {
         fatalError("ViewController 'SignupController' is not of the expected class heibaiyu.SignupController.")
+      }
+      return vc
+    }
+
+    case tabbarControllerScene = "tabbarController"
+    static func instantiateTabbarController() -> UITabBarController {
+      guard let vc = StoryboardScene.Main.tabbarControllerScene.viewController() as? UITabBarController
+      else {
+        fatalError("ViewController 'tabbarController' is not of the expected class UITabBarController.")
       }
       return vc
     }
