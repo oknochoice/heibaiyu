@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Whisper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+let murmur = Murmur(title: "net connected")
+      show(whistle: murmur)
         let rootvc = StoryboardScene.Main.instantiateSignupController()
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         let barAppearace = UINavigationBar.appearance()

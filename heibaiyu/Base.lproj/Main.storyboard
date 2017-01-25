@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JlN-mh-iBP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JlN-mh-iBP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -112,6 +112,9 @@
                                 <state key="normal">
                                     <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="wgj-2c-2P5" eventType="touchUpInside" id="oid-TR-Tgt"/>
+                                </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-kN-Uuj">
                                 <rect key="frame" x="145.5" y="241" width="20" height="20"/>
@@ -302,7 +305,7 @@
             <objects>
                 <navigationController id="GE1-5v-d0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="消息" id="hzF-nC-zYQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AZE-uK-xEb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AZE-uK-xEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.20392157137393951" blue="0.44705882668495178" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -355,7 +358,7 @@
             <objects>
                 <navigationController id="UpG-TA-qBU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="联系人" id="3sE-G4-nIT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ame-N2-V7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ame-N2-V7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.2039215714" blue="0.44705882670000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

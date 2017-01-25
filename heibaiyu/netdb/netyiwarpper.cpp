@@ -11,14 +11,15 @@
 #include <stdint.h>
 #include "net_yi.h"
 #include "buffer_yi.h"
+#include <string>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
  static netyi * netyic;
   
-  int openyi_net(netyi::IsConnectSuccess isSuccess) {
-    netyic = new netyi();
+  int openyi_net(char * certpath, netyi::IsConnectSuccess isSuccess) {
+    netyic = new netyi(std::string(certpath));
     netyic->net_connect(isSuccess);
     return 0;
   }

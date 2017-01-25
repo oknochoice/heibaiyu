@@ -55,6 +55,7 @@
 		23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; };
 		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23AF4A6E1E38E08C00DE812C /* netClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF4A6D1E38E08C00DE812C /* netClient.swift */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
@@ -147,6 +148,7 @@
 		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		23A881D81E368B340023B421 /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
 		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
+		23AF4A6D1E38E08C00DE812C /* netClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = netClient.swift; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B73C1E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			children = (
 				A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */,
 				A468CEEF1E3892990017D266 /* netyiwarpper.h */,
+				23AF4A6D1E38E08C00DE812C /* netClient.swift */,
 			);
 			path = netdb;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */,
+				23AF4A6E1E38E08C00DE812C /* netClient.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */,
 				A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */,

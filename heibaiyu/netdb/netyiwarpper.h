@@ -18,7 +18,7 @@ extern "C" {
   
   typedef void (*IsConnectSuccess)(bool);
   
-  int openyi_net(IsConnectSuccess isSuccess);
+  int openyi_net(char * certpath, IsConnectSuccess isSuccess);
   
   int closeyi_net() ;
   

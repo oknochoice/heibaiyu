@@ -32,6 +32,8 @@ struct Write_IO {
   SSL * ssl;
 };
 
+static std::string client_rootcert_path;
+
 static std::shared_ptr<Read_CB> sp_read_cb_;
 static Read_IO * read_io_;
 static Write_IO * write_io_;
@@ -118,7 +120,8 @@ void configure_sslctx(SSL_CTX * ctx, SSL ** ssl) {
   const long flags = SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION;
   SSL_CTX_set_options(ctx, flags);
 
-  if ( 1 != SSL_CTX_load_verify_locations(ctx, "root-ca.crt", NULL)) {
+  
+  if ( 1 != SSL_CTX_load_verify_locations(ctx, client_rootcert_path.c_str(), NULL)) {
     ERR_print_errors_fp(stderr);
     throw std::system_error(std::error_code(60005, std::generic_category()),
         "could load location ca failure");
@@ -291,8 +294,9 @@ static void init_io() {
 
 }
 
-void create_client(Read_CB && read_cb) {
+void create_client(std::string certpath, Read_CB && read_cb) {
   YILOG_TRACE ("func: {}. ", __func__);
+  client_rootcert_path = certpath;
   std::thread t([&](){
     YILOG_TRACE ("func: {}, thread start.", __func__);
     init_io();

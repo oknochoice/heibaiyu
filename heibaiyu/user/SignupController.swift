@@ -13,6 +13,9 @@ class SignupController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+  }
+  @IBAction func signup(_ sender: UIButton) {
     var signup = Chat_Register()
     signup.countryCode = "86"
     signup.phoneNo = "18514020000"

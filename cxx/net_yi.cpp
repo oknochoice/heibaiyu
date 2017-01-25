@@ -12,7 +12,8 @@ enum Session_ID : int32_t {
   user_noti = -4
 };
 
-netyi::netyi() {
+netyi::netyi(std::string certpath):
+  certpath_(certpath){
   YILOG_TRACE ("func: {}", __func__);
 
 }
@@ -26,7 +27,7 @@ netyi::~netyi() {
  * */
 void netyi::net_connect(IsConnectSuccess isSuccess) {
   YILOG_TRACE ("func: {}", __func__);
-  create_client([&](Buffer_SP sp){
+  create_client(certpath_, [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
     switch(sp->datatype()) {
       case ChatType::loginnoti:

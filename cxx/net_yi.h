@@ -17,7 +17,7 @@ public:
   typedef void (*IsConnectSuccess)(bool);
     
 
-  netyi();
+  netyi(std::string certpath);
   ~netyi();
   /*
    * leveldb keys suggest
@@ -31,7 +31,7 @@ public:
   /*
    * net user
    * */
-  void net_connect(IsConnectSuccess isSuccess);
+  void net_connect (IsConnectSuccess isSuccess);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);
@@ -56,6 +56,7 @@ private:
       Buffer_SP sp, CB_Func_Mutiple && func);
   bool call_map(const int32_t sessionid, Buffer_SP sp);
 private:
+  std::string certpath_;
   std::mutex sessionid_map_mutex_;
   std::map<int32_t, CB_Func_Mutiple> sessionid_cbfunc_map_;
 };
