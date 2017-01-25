@@ -383,5 +383,36 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
   }
   return writed;
 }
+  
+  void buffer::encoding(const uint8_t type, const char* header, const int32_t length) {
+    
+      if (unlikely(length > 1024 - PADDING_LENGTH || length == 0)) {
+        throw std::system_error(std::error_code(20011, std::generic_category()),
+            "Malformed Length");
+      }
+
+      current_pos_ += SESSIONID_LENGTH;
+      memcpy(current_pos_, &type, 1);
+      ++current_pos_;
+      auto current_end = encoding_var_length(current_pos_, length);
+      long varLength_length = current_end - current_pos_;
+      current_pos_ = current_end;
+      memcpy(current_pos_, header, length);
+      remain_data_length_ =
+        SESSIONID_LENGTH + 1 + varLength_length + length;
+      current_pos_ += length;
+      // set buffer 
+      end_pos_ = current_pos_;
+      current_pos_ = header_pos_;
+      data_type_ = type;
+      // session_id_ send set
+      YILOG_TRACE ("func: {}, type: {}, length: {}",
+          __func__, type, any.ByteSize());
+  }
+  std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, const char* header, const int32_t length) {
+    auto buf = std::make_shared<yijian::buffer>();
+    buf->encoding(type, header, length);
+    return buf;
+  }
 }
 

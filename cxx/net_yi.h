@@ -2,8 +2,8 @@
 #define NET_YI_H
 
 #include "macro.h"
-#include <string>
 #include "lib_client.h"
+#include <string>
 #include <functional>
 #include <map>
 #include <mutex>
@@ -14,6 +14,8 @@ public:
   typedef std::function<void(uint8_t type, const char * header,
       const int32_t length, bool * isStop)> 
     CB_Func_Mutiple;
+  typedef void (*IsConnectSuccess)(bool);
+    
 
   netyi();
   ~netyi();
@@ -29,7 +31,7 @@ public:
   /*
    * net user
    * */
-  void net_connect();
+  void net_connect(IsConnectSuccess isSuccess);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);

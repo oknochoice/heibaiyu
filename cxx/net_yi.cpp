@@ -24,7 +24,7 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect() {
+void netyi::net_connect(IsConnectSuccess isSuccess) {
   YILOG_TRACE ("func: {}", __func__);
   create_client([&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
@@ -57,7 +57,7 @@ void netyi::net_connect() {
       default:
       call_map(sp->session_id(), sp);
     }
-
+      isSuccess(true);
   });
 }
 

@@ -63,9 +63,9 @@
 		A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62C01E35B43500E80F32 /* genStoryboards.swift */; };
 		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
-		A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */; };
-		A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cxx */; };
-		A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cxx */; };
+		A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */; };
+		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
+		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
 		A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */; };
 		A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D771E349079001A25D7 /* EasyAnimation.swift */; };
 		A4A66D811E349079001A25D7 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66D781E349079001A25D7 /* Info-tvOS.plist */; };
@@ -75,6 +75,8 @@
 		A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */; };
 		A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */; };
 		A4A66EA71E34D0F3001A25D7 /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */; };
+		A4A6DE3D1E3877EE003871B1 /* netyiwarpper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */; };
+		A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A6DE441E388B74003871B1 /* libstdc++.tbd */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
 		A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD81E2F7DC300E7BE41 /* libssl.a */; };
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
@@ -151,15 +153,16 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A468CEEF1E3892990017D266 /* netyiwarpper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = netyiwarpper.h; sourceTree = "<group>"; };
 		A47A62BF1E35B43500E80F32 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = SOURCE_ROOT; };
 		A47A62C01E35B43500E80F32 /* genStoryboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genStoryboards.swift; sourceTree = SOURCE_ROOT; };
 		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
-		A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
+		A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cpp; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
-		A4A66CEB1E322B64001A25D7 /* lib_client.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cxx; sourceTree = "<group>"; };
+		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
 		A4A66CEC1E322B64001A25D7 /* lib_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_client.h; sourceTree = "<group>"; };
-		A4A66CED1E322B64001A25D7 /* net_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cxx; sourceTree = "<group>"; };
+		A4A66CED1E322B64001A25D7 /* net_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cpp; sourceTree = "<group>"; };
 		A4A66CEE1E322B64001A25D7 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
 		A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAAnimationFuture.swift; sourceTree = "<group>"; };
 		A4A66D761E349079001A25D7 /* EasyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAnimation.h; sourceTree = "<group>"; };
@@ -171,6 +174,10 @@
 		A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBLinearInterpolation.swift; sourceTree = "<group>"; };
 		A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBSpringAnimation.swift; sourceTree = "<group>"; };
 		A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryCode.plist; sourceTree = "<group>"; };
+		A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = netyiwarpper.cpp; sourceTree = "<group>"; };
+		A4A6DE401E387A26003871B1 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
+		A4A6DE421E3886C6003871B1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A4A6DE441E388B74003871B1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		A4ACAC3A1E2F6BE800E7BE41 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
 		A4ACACB31E2F7DC300E7BE41 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		A4ACACB41E2F7DC300E7BE41 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
@@ -276,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
 				23A881A31E3673FF0023B421 /* SwiftyTimer.framework in Frameworks */,
 				23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
@@ -365,6 +373,7 @@
 				A4D100A61E2E2BAA007F374C /* staticlib */,
 				A402B7361E2DF84200DA2C56 /* heibaiyu */,
 				A402B7351E2DF84200DA2C56 /* Products */,
+				A4A6DE411E3886C6003871B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,6 +399,8 @@
 		A47A62DA1E37245E00E80F32 /* netdb */ = {
 			isa = PBXGroup;
 			children = (
+				A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */,
+				A468CEEF1E3892990017D266 /* netyiwarpper.h */,
 			);
 			path = netdb;
 			sourceTree = "<group>";
@@ -414,6 +425,7 @@
 				A47A62C01E35B43500E80F32 /* genStoryboards.swift */,
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
+				A4A6DE401E387A26003871B1 /* bridging-header.h */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -443,14 +455,23 @@
 			path = RBBSpringAnimation;
 			sourceTree = "<group>";
 		};
+		A4A6DE411E3886C6003871B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4A6DE441E388B74003871B1 /* libstdc++.tbd */,
+				A4A6DE421E3886C6003871B1 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4ACAC321E2F6A9E00E7BE41 /* cxx */ = {
 			isa = PBXGroup;
 			children = (
-				A4A66CE91E322B64001A25D7 /* buffer_yi.cxx */,
+				A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */,
 				A4A66CEA1E322B64001A25D7 /* buffer_yi.h */,
-				A4A66CEB1E322B64001A25D7 /* lib_client.cxx */,
+				A4A66CEB1E322B64001A25D7 /* lib_client.cpp */,
 				A4A66CEC1E322B64001A25D7 /* lib_client.h */,
-				A4A66CED1E322B64001A25D7 /* net_yi.cxx */,
+				A4A66CED1E322B64001A25D7 /* net_yi.cpp */,
 				A4A66CEE1E322B64001A25D7 /* net_yi.h */,
 				2344E4811E2FDAE900867A71 /* typemap.h */,
 				A4ACAC3A1E2F6BE800E7BE41 /* macro.h */,
@@ -709,13 +730,14 @@
 				A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */,
 				A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */,
 				23A881D51E3687270023B421 /* messageController.swift in Sources */,
-				A4A66CF01E322B64001A25D7 /* lib_client.cxx in Sources */,
-				A4A66CF11E322B64001A25D7 /* net_yi.cxx in Sources */,
+				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
+				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
+				A4A6DE3D1E3877EE003871B1 /* netyiwarpper.cpp in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A47A62C11E35B43500E80F32 /* genColors.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
-				A4A66CEF1E322B64001A25D7 /* buffer_yi.cxx in Sources */,
+				A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +860,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WXN2XA3VYP;
@@ -867,6 +891,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -877,6 +902,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = WXN2XA3VYP;
@@ -906,6 +933,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
