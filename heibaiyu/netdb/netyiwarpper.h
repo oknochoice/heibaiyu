@@ -13,7 +13,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-  typedef void (*Net_CB)(uint8_t type, const char * header,
+  typedef void (*Net_CB)(uint8_t type, const uint8_t * header,
     const int32_t length, bool * isStop);
   
   typedef void (*IsConnectSuccess)(bool);
@@ -22,11 +22,11 @@ extern "C" {
   
   int closeyi_net() ;
   
-  int netyi_signup_login_conect(const uint8_t type, const char * header, const int32_t length,
+  int netyi_signup_login_conect(const uint8_t type, const uint8_t * header, const int32_t length,
                                 Net_CB callback);
-  int netyi_logout_disconnect(const uint8_t type, const char * header, const int32_t length,
+  int netyi_logout_disconnect(const uint8_t type, const uint8_t * header, const int32_t length,
                               Net_CB callback);
-  int netyi_send(const uint8_t type, const char * header, const int32_t length,
+  int netyi_send(const uint8_t type, const uint8_t * header, const int32_t length,
                  Net_CB callback);
   int netyi_unread_msg_noti(Net_CB callback) ;
   int netyi_userinfo_noti(Net_CB callback);

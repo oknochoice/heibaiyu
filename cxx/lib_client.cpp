@@ -9,8 +9,8 @@
 #include <thread>
 #include "typemap.h"
 
-#define HOST_NAME "www.iching.com"
-#define HOST_PORT "5555"
+#define HOST_NAME "yijian.imwork.net"
+#define HOST_PORT "57432"
 
 struct Read_IO {
   // watcher

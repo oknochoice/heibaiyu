@@ -13,6 +13,23 @@ class SignupController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    var signup = Chat_Register()
+    signup.countryCode = "86"
+    signup.phoneNo = "18514020000"
+    signup.nickname = "yijian_ios_client_1"
+    signup.password = "123456"
+    signup.verifycode = "1234"
+    
+    do {
+      var data = try signup.serializeProtobuf()
+      let p = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
+      data.copyBytes(to: p, count: data.count)
+      netyi_signup_login_conect(1, p, Int32(data.count), { (type, header, length, isStop) in
+        print(header)
+      })
+    } catch {
+      print(error)
+    }
   }
 
   override func didReceiveMemoryWarning() {

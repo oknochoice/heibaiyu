@@ -11,7 +11,7 @@
 class netyi {
 public:
   // call will stop if isStop not set false
-  typedef std::function<void(uint8_t type, const char * header,
+  typedef std::function<void(uint8_t type, const uint8_t * header,
       const int32_t length, bool * isStop)> 
     CB_Func_Mutiple;
   typedef void (*IsConnectSuccess)(bool);

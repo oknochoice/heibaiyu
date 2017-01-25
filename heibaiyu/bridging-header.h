@@ -10,5 +10,6 @@
 #define bridging_header_h
 
 #include "netdb/netyiwarpper.h"
+#include "typemap.h"
 
 #endif /* bridging_header_h */
