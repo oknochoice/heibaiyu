@@ -384,8 +384,8 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
   return writed;
 }
   
-  void buffer::encoding(const uint8_t type, const char* header, const int32_t length) {
-    
+  void buffer::encoding(const uint8_t type,  std::string & data) {
+    auto length = data.length();
       if (unlikely(length > 1024 - PADDING_LENGTH || length == 0)) {
         throw std::system_error(std::error_code(20011, std::generic_category()),
             "Malformed Length");
@@ -397,7 +397,7 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
       auto current_end = encoding_var_length(current_pos_, length);
       long varLength_length = current_end - current_pos_;
       current_pos_ = current_end;
-      memcpy(current_pos_, header, length);
+      memcpy(current_pos_, data.c_str(), length);
       remain_data_length_ =
         SESSIONID_LENGTH + 1 + varLength_length + length;
       current_pos_ += length;
@@ -409,9 +409,9 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
       YILOG_TRACE ("func: {}, type: {}, length: {}",
           __func__, type, any.ByteSize());
   }
-  std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, const char* header, const int32_t length) {
+  std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, std::string data) {
     auto buf = std::make_shared<yijian::buffer>();
-    buf->encoding(type, header, length);
+    buf->encoding(type, data);
     return buf;
   }
 }

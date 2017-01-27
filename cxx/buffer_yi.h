@@ -112,8 +112,8 @@ void buffer::data_encoding_current_addpos(std::size_t length) {
     template <typename Proto>
     static std::shared_ptr<buffer> Buffer(Proto && any);
 */
-    void encoding(const uint8_t type, const char* header, const int32_t length);
-    static std::shared_ptr<buffer> Buffer(const uint8_t type, const char* header, const int32_t length);
+    void encoding(const uint8_t type, std::string & data);
+    static std::shared_ptr<buffer> Buffer(const uint8_t type, std::string data);
 //private:
     
     std::pair<uint32_t, char *>

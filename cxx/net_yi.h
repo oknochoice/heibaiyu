@@ -11,11 +11,9 @@
 class netyi {
 public:
   // call will stop if isStop not set false
-  typedef std::function<void(uint8_t type, const uint8_t * header,
-      const int32_t length, bool * isStop)> 
+  typedef std::function<void(uint8_t type, std::string & data, bool * isStop)>
     CB_Func_Mutiple;
-  typedef void (*IsConnectSuccess)(bool);
-    
+  
 
   netyi(std::string certpath);
   ~netyi();
@@ -31,7 +29,7 @@ public:
   /*
    * net user
    * */
-  void net_connect (IsConnectSuccess isSuccess);
+  void net_connect (ConnectNoti isSuccess);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);

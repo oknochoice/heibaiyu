@@ -8,24 +8,42 @@
 
 import UIKit
 import Whisper
+import SwiftyBeaver
+let blog = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let connectNoti = Notification.Name("client_connect")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-let murmur = Murmur(title: "net connected")
-      show(whistle: murmur)
-        let rootvc = StoryboardScene.Main.instantiateSignupController()
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        let barAppearace = UINavigationBar.appearance()
-        barAppearace.barTintColor = UIColor(named: .huaqin)
-        barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        window?.rootViewController = rootvc
-        return true
+      // log
+      let console = ConsoleDestination()  // log to Xcode Console
+      let file = FileDestination()  // log to default swiftybeaver.log file
+      let cloud = SBPlatformDestination(appID: "0G8Zdw", appSecret: "fUztpslboizfwDw968gabnktxe4homhx", encryptionKey: "9tPMxajdieYxscqnncnnq6bhxyrpD0ai") // to cloud
+      console.format = "$DHH:mm:ss$d $L $M"
+      file.format = "$DHH:mm:ss$d $L $M"
+      cloud.format = "$DHH:mm:ss$d $L $M"
+      blog.addDestination(console)
+      blog.addDestination(file)
+      blog.addDestination(cloud)
+      blog.verbose("blog is ok")
+      // netyi config
+      var mainpath = Bundle.main.bundlePath
+      mainpath.append("/root-ca.crt")
+      netyiwarpper.openyi_netWithcert(mainpath) {
+        NotificationCenter.default.post(name: self.connectNoti, object: nil, userInfo:nil)
+      }
+      // root vc
+      let rootvc = StoryboardScene.Main.instantiateSignupController()
+      UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+      let barAppearace = UINavigationBar.appearance()
+      barAppearace.barTintColor = UIColor(named: .huaqin)
+      barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+      window?.rootViewController = rootvc
+      return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

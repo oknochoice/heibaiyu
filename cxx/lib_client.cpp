@@ -294,26 +294,30 @@ static void init_io() {
 
 }
 
-void create_client(std::string certpath, Read_CB && read_cb) {
+static ConnectNoti connectNoti_;
+void create_client(std::string certpath, Read_CB && read_cb, ConnectNoti connectNoti) {
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
+  connectNoti_ = connectNoti;
   std::thread t([&](){
     YILOG_TRACE ("func: {}, thread start.", __func__);
     init_io();
     sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
-    std::unique_lock<std::mutex> ul(ev_c_mutex_);
-    ev_c_isWait_ = false;
-    ev_c_var_.notify_one();
-    ul.unlock();
+    //std::unique_lock<std::mutex> ul(ev_c_mutex_);
+    //ev_c_isWait_ = false;
+    //ev_c_var_.notify_one();
+    //ul.unlock();
+    if (connectNoti_ != nullptr) {
+      connectNoti_();
+    }
     ev_run(loop(), 0);
     YILOG_TRACE("exit thread");
   });
   t.detach();
-  std::unique_lock<std::mutex> cul(ev_c_mutex_);
-  ev_c_var_.wait(cul, [&](){
-        return !ev_c_isWait_;
-      });
-
+  //std::unique_lock<std::mutex> cul(ev_c_mutex_);
+  //ev_c_var_.wait(cul, [&](){
+  //      return !ev_c_isWait_;
+  //    });
 }
 
 void client_send(Buffer_SP sp_buffer,

@@ -13,9 +13,11 @@
 
 typedef std::shared_ptr<yijian::buffer> Buffer_SP;
 typedef std::function<void(Buffer_SP)> Read_CB;
+//typedef void (*IsConnectSuccess)();
+typedef std::function<void()> ConnectNoti;
 
 // main thread call, read_cb subthread callback
-void create_client(std::string certpath, Read_CB && read_cb);
+void create_client(std::string certpath, Read_CB && read_cb, ConnectNoti connectNoti);
 // main thread call
 void client_send(Buffer_SP sp_buffer, uint16_t * sessionid);
 void clear_client();

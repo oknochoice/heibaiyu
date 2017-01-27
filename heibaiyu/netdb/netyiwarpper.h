@@ -9,30 +9,25 @@
 #ifndef netyiwarpper_h
 #define netyiwarpper_h
 
-#include <stdint.h>
-#ifdef __cplusplus
-extern "C" {
-#endif
-  typedef void (*Net_CB)(uint8_t type, const uint8_t * header,
-    const int32_t length, bool * isStop);
-  
-  typedef void (*IsConnectSuccess)(bool);
-  
-  int openyi_net(char * certpath, IsConnectSuccess isSuccess);
-  
-  int closeyi_net() ;
-  
-  int netyi_signup_login_conect(const uint8_t type, const uint8_t * header, const int32_t length,
-                                Net_CB callback);
-  int netyi_logout_disconnect(const uint8_t type, const uint8_t * header, const int32_t length,
-                              Net_CB callback);
-  int netyi_send(const uint8_t type, const uint8_t * header, const int32_t length,
-                 Net_CB callback);
-  int netyi_unread_msg_noti(Net_CB callback) ;
-  int netyi_userinfo_noti(Net_CB callback);
-  
-#ifdef __cplusplus
-}
-#endif
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+NS_ASSUME_NONNULL_BEGIN
+@interface netyiwarpper : NSObject
 
+typedef void (^Net_CB)(uint8_t type, NSString * data, bool * isStop);
+
+typedef void (^IsConnectSuccess)();
+  
++ (BOOL)openyi_netWithcert:(NSString *)certpath with:(IsConnectSuccess)isSuccess;
++ (BOOL)closeyi_net;
++ (BOOL)netyi_signup_login_connectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback;
++ (BOOL)netyi_logout_disconnectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback;
++ (BOOL)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback;
++ (BOOL)netyi_unread_msg_notiWith:(Net_CB)callback;
++ (BOOL)netyi_userinfo_notiWith:(Net_CB)callback;
+
+@end
+NS_ASSUME_NONNULL_END
+
+  
 #endif /* netyiwarpper_h */

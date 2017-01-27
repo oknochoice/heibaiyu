@@ -25,7 +25,7 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect(IsConnectSuccess isSuccess) {
+void netyi::net_connect(ConnectNoti isSuccess) {
   YILOG_TRACE ("func: {}", __func__);
   create_client(certpath_, [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
@@ -58,8 +58,7 @@ void netyi::net_connect(IsConnectSuccess isSuccess) {
       default:
       call_map(sp->session_id(), sp);
     }
-      isSuccess(true);
-  });
+  }, isSuccess);
 }
 
 
@@ -134,7 +133,8 @@ bool netyi::call_map(const int32_t sessionid, Buffer_SP sp) {
   ul.unlock();
   if (lfunc) {
     bool isStop = true;
-    lfunc(sp->datatype(), reinterpret_cast<const uint8_t*>(sp->data()), (int)sp->data_size(), &isStop);
+    auto data = std::string(sp->data(), sp->data_size());
+    lfunc(sp->datatype(), data, &isStop);
     isCalled = true;
     if (isStop) {
       std::unique_lock<std::mutex> ul(sessionid_map_mutex_);

@@ -55,7 +55,6 @@
 		23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; };
 		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23AF4A6E1E38E08C00DE812C /* netClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF4A6D1E38E08C00DE812C /* netClient.swift */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
@@ -76,7 +75,7 @@
 		A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */; };
 		A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */; };
 		A4A66EA71E34D0F3001A25D7 /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */; };
-		A4A6DE3D1E3877EE003871B1 /* netyiwarpper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */; };
+		A4A6DE3D1E3877EE003871B1 /* netyiwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4A6DE3C1E3877EE003871B1 /* netyiwarpper.mm */; };
 		A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A6DE441E388B74003871B1 /* libstdc++.tbd */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
 		A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD81E2F7DC300E7BE41 /* libssl.a */; };
@@ -148,7 +147,6 @@
 		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		23A881D81E368B340023B421 /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
 		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
-		23AF4A6D1E38E08C00DE812C /* netClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = netClient.swift; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B73C1E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,7 +174,7 @@
 		A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBLinearInterpolation.swift; sourceTree = "<group>"; };
 		A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBSpringAnimation.swift; sourceTree = "<group>"; };
 		A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryCode.plist; sourceTree = "<group>"; };
-		A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = netyiwarpper.cpp; sourceTree = "<group>"; };
+		A4A6DE3C1E3877EE003871B1 /* netyiwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netyiwarpper.mm; sourceTree = "<group>"; };
 		A4A6DE401E387A26003871B1 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		A4A6DE421E3886C6003871B1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A4A6DE441E388B74003871B1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -401,9 +399,8 @@
 		A47A62DA1E37245E00E80F32 /* netdb */ = {
 			isa = PBXGroup;
 			children = (
-				A4A6DE3C1E3877EE003871B1 /* netyiwarpper.cpp */,
+				A4A6DE3C1E3877EE003871B1 /* netyiwarpper.mm */,
 				A468CEEF1E3892990017D266 /* netyiwarpper.h */,
-				23AF4A6D1E38E08C00DE812C /* netClient.swift */,
 			);
 			path = netdb;
 			sourceTree = "<group>";
@@ -728,7 +725,6 @@
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A47A62C21E35B43500E80F32 /* genStoryboards.swift in Sources */,
-				23AF4A6E1E38E08C00DE812C /* netClient.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */,
 				A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */,
@@ -736,7 +732,7 @@
 				23A881D51E3687270023B421 /* messageController.swift in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
-				A4A6DE3D1E3877EE003871B1 /* netyiwarpper.cpp in Sources */,
+				A4A6DE3D1E3877EE003871B1 /* netyiwarpper.mm in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A47A62C11E35B43500E80F32 /* genColors.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
