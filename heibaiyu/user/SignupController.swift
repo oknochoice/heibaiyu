@@ -12,6 +12,12 @@ import SwiftyBeaver
 
 class SignupController: UIViewController {
 
+  @IBOutlet weak var phoneno: UITextField!
+  @IBOutlet weak var verifycode: UITextField!
+  @IBOutlet weak var indicator: UIActivityIndicatorView!
+  @IBOutlet weak var signup: UIButton!
+  var abc:String?
+		
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -28,11 +34,6 @@ class SignupController: UIViewController {
       var data = try signup.serializeProtobuf()
       let p = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
       data.copyBytes(to: p, count: data.count)
-      /*
-      netyi_signup_login_conect(1, p, Int32(data.count), { (type, header, length, isStop) in
-        print(header)
-      })
- */
       let sdata = String(data: data, encoding: String.Encoding.utf8)
       netyiwarpper.netyi_signup_login_connect(with: 1, data: sdata!, cb: { (type, data, isStop) in
         blog.debug(data)
