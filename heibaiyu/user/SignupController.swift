@@ -16,13 +16,26 @@ class SignupController: UIViewController {
   @IBOutlet weak var verifycode: UITextField!
   @IBOutlet weak var indicator: UIActivityIndicatorView!
   @IBOutlet weak var signup: UIButton!
+  @IBOutlet weak var signupTitle: UILabel!
+  
+  @IBOutlet weak var verifyHeight: NSLayoutConstraint!
+  
   var abc:String?
 		
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
+    initui()
+    
   }
+  
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
+  
   @IBAction func signup(_ sender: UIButton) {
+    return
     var signup = Chat_Register()
     signup.countryCode = "86"
     signup.phoneNo = "18514020004"
@@ -43,11 +56,21 @@ class SignupController: UIViewController {
     }
   }
 
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+  // MARK: - textfield
+  
+  @IBAction func phonenoDidChanged(_ sender: UITextField) {
   }
+  
+  // MARK: -
+  func initui() {
+    signup.greenbackWhiteword()
+    verifyHeight.constant = 0
+    indicator.hidesWhenStopped = true
+    signupTitle.text = L10n.signupGetVerifycode.description
+  }
+  func getVerifycode() {
     
+  }
     /*
     // MARK: - Navigation
 

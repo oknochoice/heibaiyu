@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  heibaiyu
+
+  Created by yijian on 1/29/17.
+  Copyright © 2017 yijian. All rights reserved.
+*/
+
+/* 注册
+ */
+"signup_signup" = "注册";
+"signup_getVerifycode" = "获取验证码";
+"signup_sendVerifycode" = "发送验证码";
+

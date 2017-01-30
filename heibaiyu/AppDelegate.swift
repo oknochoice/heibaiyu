@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       blog.addDestination(file)
       blog.addDestination(cloud)
       blog.verbose("blog is ok")
+      // bundle language
+      Bundle.setLanguage("zh-Hans")
       // netyi config
       var mainpath = Bundle.main.bundlePath
       mainpath.append("/root-ca.crt")

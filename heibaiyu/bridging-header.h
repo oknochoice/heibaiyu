@@ -11,5 +11,6 @@
 
 #include "netdb/netyiwarpper.h"
 #include "typemap.h"
+#include "NSBundle+language.h"
 
 #endif /* bridging_header_h */
