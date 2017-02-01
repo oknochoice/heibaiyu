@@ -7,25 +7,32 @@
 //
 
 import UIKit
-import PhoneNumberKit
 import SwiftyBeaver
+import DynamicColor
+import Whisper
 
 class SignupController: UIViewController {
 
   @IBOutlet weak var phoneno: UITextField!
+  @IBOutlet weak var password: UITextField!
   @IBOutlet weak var verifycode: UITextField!
-  @IBOutlet weak var indicator: UIActivityIndicatorView!
-  @IBOutlet weak var signup: UIButton!
-  @IBOutlet weak var signupTitle: UILabel!
+  
+  @IBOutlet weak var signup: IndicatorButton!
+  
+  @IBOutlet weak var verifyButton: UIButton!
   
   @IBOutlet weak var verifyHeight: NSLayoutConstraint!
   
-  var abc:String?
+  
+  var countdownTimer: SwiftCountDownTimer!
 		
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     initui()
+    countdownInit()
+    verifyButton.addTarget(self, action: #selector(self.reGetVerifycode), for: UIControlEvents.touchUpInside)
     
   }
   
@@ -34,42 +41,78 @@ class SignupController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
   
+  
+  
   @IBAction func signup(_ sender: UIButton) {
-    return
-    var signup = Chat_Register()
-    signup.countryCode = "86"
-    signup.phoneNo = "18514020004"
-    signup.nickname = "yijian_ios_client_1"
-    signup.password = "123456"
-    signup.verifycode = "1234"
     
-    do {
-      var data = try signup.serializeProtobuf()
-      let p = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
-      data.copyBytes(to: p, count: data.count)
-      let sdata = String(data: data, encoding: String.Encoding.utf8)
-      netyiwarpper.netyi_signup_login_connect(with: 1, data: sdata!, cb: { (type, data, isStop) in
-        blog.debug(data)
-      })
-    } catch {
-      print(error)
+    if signup.title(for: UIControlState.normal) == L10n.signupSignup {
+      if password.text!.lengthOfBytes(using: .utf8) < 6 {
+        let mur = Murmur(title: L10n.signupPasswordLimit, backgroundColor: UIColor(named: .tenghuang), titleColor: .white, font: UIFont.systemFont(ofSize: 12), action: nil)
+        Whisper.show(whistle: mur, action: .show(1.5))
+        return
+      }else {
+        getVerifycode()
+      }
+    }else {
+      var signup = Chat_Register()
+      signup.countryCode = "86"
+      signup.phoneNo = phoneno.text!
+      signup.nickname = phoneno.text!
+      signup.password = password.text!
+      signup.verifycode = verifycode.text!
+      
+      do {
+        let data = try signup.serializeProtobuf()
+        let sdata = String(data: data, encoding: String.Encoding.utf8)
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: sdata!, cb: { (type, indata, isStop) in
+          //blog.debug(data)
+          do {
+            let signupRes = try Chat_RegisterRes(protobuf: indata.data(using: .utf8)!)
+            print(try signupRes.serializeJSON())
+          } catch {
+            print(error)
+          }
+        })
+      } catch {
+        print(error)
+      }
     }
   }
-
-  // MARK: - textfield
   
-  @IBAction func phonenoDidChanged(_ sender: UITextField) {
+  func countdownInit() {
+    countdownTimer = SwiftCountDownTimer(interval: .fromSeconds(1), times: 10, handler: { (timer, lefttime) in
+      if 0 == lefttime {
+        self.verifyButton.isEnabled = true
+        self.verifyButton.setTitle(L10n.signupRegetVerifycode, for: UIControlState.normal)
+      }else {
+        self.verifyButton.isEnabled = false
+        self.verifyButton.setTitle("\(lefttime)s", for: UIControlState.disabled)
+      }
+    })
   }
   
   // MARK: -
   func initui() {
     signup.greenbackWhiteword()
+    signup.title(title: L10n.signupSignup)
     verifyHeight.constant = 0
-    indicator.hidesWhenStopped = true
-    signupTitle.text = L10n.signupGetVerifycode.description
+  }
+  func reGetVerifycode() {
+    countdownTimer.reCountDown()
+    countdownTimer.start()
   }
   func getVerifycode() {
-    
+    signup.startAnimation()
+    phoneno.isEnabled = false
+    password.isEnabled = false
+    password.isSecureTextEntry = true
+    let delay = DispatchTime.now() + .seconds(3)
+    DispatchQueue.main.asyncAfter(deadline: delay) { 
+      self.signup.title(title: L10n.signupSendVerifycode)
+      self.verifyHeight.constant = 30
+      self.signup.stopAnimation()
+      self.countdownTimer.start()
+    }
   }
     /*
     // MARK: - Navigation

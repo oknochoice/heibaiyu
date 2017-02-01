@@ -15,6 +15,9 @@
 		2373E15A1E3F293F0055136C /* NSBundle+language.m in Sources */ = {isa = PBXBuildFile; fileRef = 2373E1591E3F293F0055136C /* NSBundle+language.m */; };
 		2373E15C1E3F361B0055136C /* button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E15B1E3F361B0055136C /* button.swift */; };
 		2373E15E1E3F4EB80055136C /* image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E15D1E3F4EB80055136C /* image.swift */; };
+		2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E1941E40A1C60055136C /* SwiftTimer.swift */; };
+		2373E19D1E40A7920055136C /* nettype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19C1E40A7920055136C /* nettype.swift */; };
+		2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19F1E4175E40055136C /* IndicatorButton.swift */; };
 		23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; };
 		23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881831E3673FF0023B421 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; };
@@ -33,8 +36,6 @@
 		23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881741E3673FF0023B421 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; };
 		23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881951E3673FF0023B421 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881761E3673FF0023B421 /* PhoneNumberKit.framework */; };
-		23A881961E3673FF0023B421 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881761E3673FF0023B421 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881971E3673FF0023B421 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881771E3673FF0023B421 /* ReactiveKit.framework */; };
 		23A881981E3673FF0023B421 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881771E3673FF0023B421 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881991E3673FF0023B421 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881781E3673FF0023B421 /* SnapKit.framework */; };
@@ -47,8 +48,6 @@
 		23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881A11E3673FF0023B421 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817C1E3673FF0023B421 /* SwiftyBeaver.framework */; };
 		23A881A21E3673FF0023B421 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817C1E3673FF0023B421 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881A31E3673FF0023B421 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */; };
-		23A881A41E3673FF0023B421 /* SwiftyTimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; };
 		23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881D51E3687270023B421 /* messageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D11E3687270023B421 /* messageController.swift */; };
@@ -100,7 +99,6 @@
 				23A881981E3673FF0023B421 /* ReactiveKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
-				23A881961E3673FF0023B421 /* PhoneNumberKit.framework in Embed Frameworks */,
 				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
 				23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */,
 				23A8818A1E3673FF0023B421 /* EasyTipView.framework in Embed Frameworks */,
@@ -108,7 +106,6 @@
 				23A881A21E3673FF0023B421 /* SwiftyBeaver.framework in Embed Frameworks */,
 				23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */,
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
-				23A881A41E3673FF0023B421 /* SwiftyTimer.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
@@ -129,6 +126,10 @@
 		2373E1591E3F293F0055136C /* NSBundle+language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+language.m"; sourceTree = "<group>"; };
 		2373E15B1E3F361B0055136C /* button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = button.swift; sourceTree = "<group>"; };
 		2373E15D1E3F4EB80055136C /* image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = image.swift; sourceTree = "<group>"; };
+		2373E1931E40A1C60055136C /* SwiftTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftTimer.h; sourceTree = "<group>"; };
+		2373E1941E40A1C60055136C /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
+		2373E19C1E40A7920055136C /* nettype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nettype.swift; sourceTree = "<group>"; };
+		2373E19F1E4175E40055136C /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		23A8816B1E3673FF0023B421 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
 		23A8816D1E3673FF0023B421 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		23A8816E1E3673FF0023B421 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
@@ -138,14 +139,12 @@
 		23A881731E3673FF0023B421 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
 		23A881741E3673FF0023B421 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		23A881751E3673FF0023B421 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
-		23A881761E3673FF0023B421 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		23A881771E3673FF0023B421 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		23A881781E3673FF0023B421 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		23A881791E3673FF0023B421 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
 		23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 		23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributes.framework; path = Carthage/Build/iOS/SwiftyAttributes.framework; sourceTree = "<group>"; };
 		23A8817C1E3673FF0023B421 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
 		23A8817E1E3673FF0023B421 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		23A881D11E3687270023B421 /* messageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageController.swift; sourceTree = "<group>"; };
 		23A881D31E3687270023B421 /* SigninController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
@@ -287,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
-				23A881A31E3673FF0023B421 /* SwiftyTimer.framework in Frameworks */,
 				23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
@@ -296,7 +294,6 @@
 				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
-				23A881951E3673FF0023B421 /* PhoneNumberKit.framework in Frameworks */,
 				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
@@ -332,14 +329,12 @@
 				23A881731E3673FF0023B421 /* Format.framework */,
 				23A881741E3673FF0023B421 /* LTMorphingLabel.framework */,
 				23A881751E3673FF0023B421 /* NavigationStack.framework */,
-				23A881761E3673FF0023B421 /* PhoneNumberKit.framework */,
 				23A881771E3673FF0023B421 /* ReactiveKit.framework */,
 				23A881781E3673FF0023B421 /* SnapKit.framework */,
 				23A881791E3673FF0023B421 /* Stellar.framework */,
 				23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */,
 				23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */,
 				23A8817C1E3673FF0023B421 /* SwiftyBeaver.framework */,
-				23A8817D1E3673FF0023B421 /* SwiftyTimer.framework */,
 				23A8817E1E3673FF0023B421 /* Whisper.framework */,
 			);
 			name = framework;
@@ -354,6 +349,32 @@
 				2373E15D1E3F4EB80055136C /* image.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		2373E18D1E40A1AB0055136C /* SwiftTimer */ = {
+			isa = PBXGroup;
+			children = (
+				2373E18E1E40A1C60055136C /* Sources */,
+			);
+			name = SwiftTimer;
+			sourceTree = "<group>";
+		};
+		2373E18E1E40A1C60055136C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2373E1931E40A1C60055136C /* SwiftTimer.h */,
+				2373E1941E40A1C60055136C /* SwiftTimer.swift */,
+			);
+			name = Sources;
+			path = submodule/SwiftTimer/Sources;
+			sourceTree = "<group>";
+		};
+		2373E19E1E4175990055136C /* customview */ = {
+			isa = PBXGroup;
+			children = (
+				2373E19F1E4175E40055136C /* IndicatorButton.swift */,
+			);
+			path = customview;
 			sourceTree = "<group>";
 		};
 		23A881D01E3687270023B421 /* message */ = {
@@ -398,6 +419,7 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
+				2373E19E1E4175990055136C /* customview */,
 				2373E1571E3F293F0055136C /* extension */,
 				A47A62DA1E37245E00E80F32 /* netdb */,
 				23A881D01E3687270023B421 /* message */,
@@ -410,6 +432,7 @@
 		A47A62DA1E37245E00E80F32 /* netdb */ = {
 			isa = PBXGroup;
 			children = (
+				2373E19C1E40A7920055136C /* nettype.swift */,
 				A4A6DE3C1E3877EE003871B1 /* netyiwarpper.mm */,
 				A468CEEF1E3892990017D266 /* netyiwarpper.h */,
 			);
@@ -419,6 +442,7 @@
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
+				2373E18D1E40A1AB0055136C /* SwiftTimer */,
 				A4A66D741E349079001A25D7 /* EasyAnimation */,
 			);
 			name = submodule;
@@ -735,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2373E19D1E40A7920055136C /* nettype.swift in Sources */,
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
@@ -751,7 +776,9 @@
 				2373E15A1E3F293F0055136C /* NSBundle+language.m in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
+				2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */,
 				A4A6DE3D1E3877EE003871B1 /* netyiwarpper.mm in Sources */,
+				2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,

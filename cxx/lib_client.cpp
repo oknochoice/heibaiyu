@@ -299,10 +299,10 @@ void create_client(std::string certpath, Read_CB && read_cb, ConnectNoti connect
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
   connectNoti_ = connectNoti;
+  sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
   std::thread t([&](){
     YILOG_TRACE ("func: {}, thread start.", __func__);
     init_io();
-    sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
     //std::unique_lock<std::mutex> ul(ev_c_mutex_);
     //ev_c_isWait_ = false;
     //ev_c_var_.notify_one();

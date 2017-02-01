@@ -35,35 +35,35 @@ static netyi * netyic;
 + (BOOL)netyi_signup_login_connectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
   netyic->signup_login_connect(yijian::buffer::Buffer(type, std::string([data UTF8String])),
      [=](uint8_t type, std::string & data, bool * isStop){
-       callback(type, [NSString stringWithCString:data.c_str() encoding: [NSString defaultCStringEncoding]], isStop);
+       callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
   return true;
 }
 + (BOOL)netyi_logout_disconnectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
   netyic->logout_disconnect(yijian::buffer::Buffer(type, std::string([data UTF8String])),
      [=](uint8_t type, std::string & data, bool * isStop){
-       callback(type, [NSString stringWithCString:data.c_str() encoding: [NSString defaultCStringEncoding]], isStop);
+       callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
   return true;
 }
 + (BOOL)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
   netyic->send_buffer(yijian::buffer::Buffer(type, std::string([data UTF8String])),
      [=](uint8_t type, std::string & data, bool * isStop){
-       callback(type, [NSString stringWithCString:data.c_str() encoding: [NSString defaultCStringEncoding]], isStop);
+       callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
   return true;
 }
 + (BOOL)netyi_unread_msg_notiWith:(Net_CB)callback {
   netyic->acceptUnreadMsg(
      [=](uint8_t type, std::string & data, bool * isStop){
-       callback(type, [NSString stringWithCString:data.c_str() encoding: [NSString defaultCStringEncoding]], isStop);
+       callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
   return true;
 }
 + (BOOL)netyi_userinfo_notiWith:(Net_CB)callback {
   netyic->userInfoNoti(
      [=](uint8_t type, std::string & data, bool * isStop){
-       callback(type, [NSString stringWithCString:data.c_str() encoding: [NSString defaultCStringEncoding]], isStop);
+       callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
   return true;
 }

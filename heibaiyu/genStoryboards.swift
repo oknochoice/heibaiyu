@@ -49,8 +49,8 @@ struct StoryboardScene {
   enum Main: String, StoryboardSceneType {
     static let storyboardName = "Main"
 
-    static func initialViewController() -> heibaiyu.SigninController {
-      guard let vc = storyboard().instantiateInitialViewController() as? heibaiyu.SigninController else {
+    static func initialViewController() -> UITabBarController {
+      guard let vc = storyboard().instantiateInitialViewController() as? UITabBarController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
       }
       return vc

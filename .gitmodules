@@ -19,3 +19,9 @@
 [submodule "submodule/EasyAnimation"]
 	path = submodule/EasyAnimation
 	url = https://github.com/icanzilb/EasyAnimation.git
+[submodule "submodule/SwiftTimer"]
+	path = submodule/SwiftTimer
+	url = https://github.com/100mango/SwiftTimer.git
+[submodule "submodule/RealCustomButton"]
+	path = submodule/RealCustomButton
+	url = https://github.com/liaoshaolim/RealCustomButton.git
