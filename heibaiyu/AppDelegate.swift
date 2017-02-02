@@ -9,12 +9,22 @@
 import UIKit
 import Whisper
 import SwiftyBeaver
+import SwiftyTimer
 let blog = SwiftyBeaver.self
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+  
+  var netyi_ts: Int = 0
+#if DEBUG
+  let pingtime: Int = 15
+#else
+  let pingtime: Int = 90
+#endif
+		
 
     let connectNoti = Notification.Name("client_connect")
 
@@ -33,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // bundle language
       Bundle.setLanguage("zh-Hans")
       // netyi config
+      NotificationCenter.default.addObserver(self, selector: #selector(pingpong), name: self.connectNoti, object: nil)
       var mainpath = Bundle.main.bundlePath
       mainpath.append("/root-ca.crt")
       netyiwarpper.openyi_netWithcert(mainpath) {
@@ -47,7 +58,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window?.rootViewController = rootvc
       return true
     }
-
+  
+  func pingpong() {
+    netyi_ts = netyiwarpper.netyi_ts()
+    let now_ts = Date().timeIntervalSince1970
+    let diff_ts = now_ts - Double(netyi_ts)
+    var send_ts = DispatchTime.now()
+    
+    if diff_ts > Double(pingtime - 5) {
+      send_ts = DispatchTime.now() + DispatchTimeInterval.seconds(pingtime)
+      var ping = Chat_Ping()
+      ping.msg = "ping"
+      do {
+        let data = try ping.serializeProtobuf()
+        netyiwarpper.netyi_ping(String(data: data, encoding: .utf8)!)
+      } catch {
+        print(error)
+      }
+    }else {
+      send_ts = DispatchTime.now() + DispatchTimeInterval.seconds(pingtime) - DispatchTimeInterval.fromSeconds(diff_ts)
+    }
+    DispatchQueue.main.asyncAfter(deadline: send_ts) {
+      self.pingpong()
+    }
+  }
+  
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -68,6 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+      netyiwarpper.closeyi_net()
     }
 
 

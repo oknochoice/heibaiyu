@@ -8,6 +8,7 @@
 #include <netinet/tcp.h>
 #include <thread>
 #include "typemap.h"
+#include <time.h>
 
 #define HOST_NAME "yijian.imwork.net"
 #define HOST_PORT "57432"
@@ -37,9 +38,12 @@ static std::string client_rootcert_path;
 static std::shared_ptr<Read_CB> sp_read_cb_;
 static Read_IO * read_io_;
 static Write_IO * write_io_;
+static std::atomic_long recent_ts_;
+/*
 static std::mutex ev_c_mutex_;
 static bool ev_c_isWait_ = true;
 static std::condition_variable ev_c_var_;
+ */
 
 struct ev_loop * loop() {
 
@@ -200,6 +204,8 @@ void connection_read_callback (struct ev_loop * loop,
       YILOG_INFO ("func: {}. set sessionid", __func__);
       read_io_->sessionid = io->buffer_sp->session_id();
     }
+    time_t t = time(NULL);
+    recent_ts_.store(t);
     (*sp_read_cb_)(io->buffer_sp);
     io->buffer_sp.reset(new yijian::buffer());
   }
@@ -353,5 +359,9 @@ void clear_client() {
   free(write_asyn_watcher());
 }
 
-
+long getRecentTS() {
+  YILOG_TRACE ("func: {}. ", __func__);
+  long ts = recent_ts_.load();
+  return ts;
+}
 

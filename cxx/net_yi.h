@@ -16,6 +16,7 @@ public:
   
 
   netyi(std::string certpath);
+  long recentTS();
   ~netyi();
   /*
    * leveldb keys suggest
@@ -35,8 +36,10 @@ public:
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(key, bool)
   void logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func);
+  // none
+  void ping_pong(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(sessionid, bool)
-  void send_buffer(Buffer_SP sp, CB_Func_Mutiple && func);
+  void send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func);
   /*
    * net noti
    *
@@ -49,7 +52,8 @@ public:
 
 private:
   void put_map(const int32_t sessionid, CB_Func_Mutiple && func);
-  void put_map_send(Buffer_SP sp, CB_Func_Mutiple && func);
+  void put_map_send(Buffer_SP sp, CB_Func_Mutiple && func,
+                    int32_t * sessionid = nullptr);
   void put_map_send(const int32_t sessionid, 
       Buffer_SP sp, CB_Func_Mutiple && func);
   bool call_map(const int32_t sessionid, Buffer_SP sp);

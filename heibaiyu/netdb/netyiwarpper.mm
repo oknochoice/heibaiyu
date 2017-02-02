@@ -12,6 +12,7 @@
 #include "net_yi.h"
 #include "buffer_yi.h"
 #include <string>
+#include "typemap.h"
 
 static netyi * netyic;
 
@@ -26,6 +27,12 @@ static netyi * netyic;
   netyic = new netyi(std::string([certpath UTF8String]));
   netyic->net_connect(isSuccess);
   return true;
+}
++ (long)netyi_ts {
+  return netyic->recentTS();
+}
++ (void)netyi_ping:(NSString*)data {
+  netyic->ping_pong(yijian::buffer::Buffer(ChatType::ping, std::string([data UTF8String])), nullptr);
 }
 + (BOOL)closeyi_net {
   delete netyic;
@@ -47,7 +54,9 @@ static netyi * netyic;
   return true;
 }
 + (BOOL)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
-  netyic->send_buffer(yijian::buffer::Buffer(type, std::string([data UTF8String])),
+  // 用来查看消息丢失 重发
+  int32_t temp_session = 0;
+  netyic->send_buffer(yijian::buffer::Buffer(type, std::string([data UTF8String])), &temp_session,
      [=](uint8_t type, std::string & data, bool * isStop){
        callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });

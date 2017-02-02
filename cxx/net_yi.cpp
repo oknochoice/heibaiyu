@@ -9,13 +9,18 @@ enum Session_ID : int32_t {
   regist_login_connect = -1,
   logout_disconnect = -2,
   accept_unread_msg = -3,
-  user_noti = -4
+  user_noti = -4,
+  ping_pong = -5
 };
 
 netyi::netyi(std::string certpath):
   certpath_(certpath){
   YILOG_TRACE ("func: {}", __func__);
 
+}
+long netyi::recentTS() {
+  YILOG_TRACE ("func: {}", __func__);
+  return getRecentTS();
 }
 
 netyi::~netyi() {
@@ -73,7 +78,12 @@ void netyi::logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func) {
   put_map_send(Session_ID::logout_disconnect, sp,
       std::forward<CB_Func_Mutiple>(func));
 }
-void netyi::send_buffer(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::ping_pong(Buffer_SP sp, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(Session_ID::ping_pong, sp,
+               std::forward<CB_Func_Mutiple>(func));
+}
+void netyi::send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
   put_map_send(sp,
       std::forward<CB_Func_Mutiple>(func));
@@ -104,11 +114,14 @@ void netyi::put_map(const int32_t sessionid, CB_Func_Mutiple && func) {
   std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
   sessionid_cbfunc_map_[sessionid] = func;
 }
-void netyi::put_map_send(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::put_map_send(Buffer_SP sp, CB_Func_Mutiple && func, int32_t * sessionid) {
   YILOG_TRACE ("func: {}", __func__);
   std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
   uint16_t temp_session;
   client_send(sp, &temp_session);
+  if (likely(nullptr != sessionid)) {
+    *sessionid = temp_session;
+  }
   YILOG_TRACE ("func: {}, sessionid: {}", __func__, temp_session);
   sessionid_cbfunc_map_[temp_session] = func;
 }
@@ -137,8 +150,10 @@ bool netyi::call_map(const int32_t sessionid, Buffer_SP sp) {
     lfunc(sp->datatype(), data, &isStop);
     isCalled = true;
     if (isStop) {
-      std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
-      sessionid_cbfunc_map_.erase(it);
+      if (sessionid >= 0) {
+        std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
+        sessionid_cbfunc_map_.erase(it);
+      }
     }
   }
   return isCalled;

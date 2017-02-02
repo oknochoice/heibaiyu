@@ -54,5 +54,7 @@ enum ChatType: UInt8 {
    queryaddfriendinfo = 44,
    queryaddfriendinfores = 45,
    serverconnect = 42,// outer
-   serverdisconnect = 43// outer
+   serverdisconnect = 43,// outer
+  ping = 46,
+  pong = 47
 }

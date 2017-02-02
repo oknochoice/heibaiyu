@@ -19,6 +19,8 @@ typedef void (^Net_CB)(uint8_t type, NSString * data, bool * isStop);
 typedef void (^IsConnectSuccess)();
   
 + (BOOL)openyi_netWithcert:(NSString *)certpath with:(IsConnectSuccess)isSuccess;
++ (long)netyi_ts;
++ (void)netyi_ping:(NSString*)data;
 + (BOOL)closeyi_net;
 + (BOOL)netyi_signup_login_connectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback;
 + (BOOL)netyi_logout_disconnectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback;
