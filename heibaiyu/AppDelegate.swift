@@ -61,6 +61,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  func restartNetyi() {
+    netyiwarpper.closeyi_net()
+    // restart net reachable
+    reachable.stopNotifier()
+    do {
+      try reachable.startNotifier()
+    } catch {
+      blog.debug(error)
+    }
+  }
+  
   func reachableCheck(note: NSNotification) {
     let reachability = note.object as! Reachability
     if reachability.isReachable {
@@ -73,14 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }) { (err_no, err_msg) in
         blog.debug((err_no, err_msg))
         if (60010 != err_no) {
-          netyiwarpper.closeyi_net()
-          // restart net reachable
-          reachability.stopNotifier()
-          do {
-            try self.reachable.startNotifier()
-          } catch {
-            blog.debug(error)
-          }
+          self.restartNetyi()
         }
       }
       if isAlreadyConnected {
