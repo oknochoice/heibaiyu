@@ -18,6 +18,8 @@
 		2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E1941E40A1C60055136C /* SwiftTimer.swift */; };
 		2373E19D1E40A7920055136C /* nettype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19C1E40A7920055136C /* nettype.swift */; };
 		2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19F1E4175E40055136C /* IndicatorButton.swift */; };
+		238D43E81E45C73000DB9F03 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43E71E45C73000DB9F03 /* Reachability.framework */; };
+		238D43E91E45C73000DB9F03 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43E71E45C73000DB9F03 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; };
 		23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881831E3673FF0023B421 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; };
@@ -36,8 +38,6 @@
 		23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881741E3673FF0023B421 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; };
 		23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881971E3673FF0023B421 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881771E3673FF0023B421 /* ReactiveKit.framework */; };
-		23A881981E3673FF0023B421 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881771E3673FF0023B421 /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881991E3673FF0023B421 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881781E3673FF0023B421 /* SnapKit.framework */; };
 		23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881781E3673FF0023B421 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881791E3673FF0023B421 /* Stellar.framework */; };
@@ -96,7 +96,6 @@
 				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
 				23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */,
 				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
-				23A881981E3673FF0023B421 /* ReactiveKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
 				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
@@ -105,6 +104,7 @@
 				23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */,
 				23A881A21E3673FF0023B421 /* SwiftyBeaver.framework in Embed Frameworks */,
 				23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */,
+				238D43E91E45C73000DB9F03 /* Reachability.framework in Embed Frameworks */,
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
@@ -130,6 +130,7 @@
 		2373E1941E40A1C60055136C /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
 		2373E19C1E40A7920055136C /* nettype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nettype.swift; sourceTree = "<group>"; };
 		2373E19F1E4175E40055136C /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
+		238D43E71E45C73000DB9F03 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		23A8816B1E3673FF0023B421 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
 		23A8816D1E3673FF0023B421 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		23A8816E1E3673FF0023B421 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
@@ -139,7 +140,6 @@
 		23A881731E3673FF0023B421 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
 		23A881741E3673FF0023B421 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		23A881751E3673FF0023B421 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
-		23A881771E3673FF0023B421 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		23A881781E3673FF0023B421 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		23A881791E3673FF0023B421 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
 		23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
@@ -304,9 +304,9 @@
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
+				238D43E81E45C73000DB9F03 /* Reachability.framework in Frameworks */,
 				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
 				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
-				23A881971E3673FF0023B421 /* ReactiveKit.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
 				23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */,
 			);
@@ -318,6 +318,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				238D43E71E45C73000DB9F03 /* Reachability.framework */,
 				23A881D81E368B340023B421 /* Chatto.framework */,
 				23A881D91E368B340023B421 /* ChattoAdditions.framework */,
 				23A8816B1E3673FF0023B421 /* ActiveLabel.framework */,
@@ -329,7 +330,6 @@
 				23A881731E3673FF0023B421 /* Format.framework */,
 				23A881741E3673FF0023B421 /* LTMorphingLabel.framework */,
 				23A881751E3673FF0023B421 /* NavigationStack.framework */,
-				23A881771E3673FF0023B421 /* ReactiveKit.framework */,
 				23A881781E3673FF0023B421 /* SnapKit.framework */,
 				23A881791E3673FF0023B421 /* Stellar.framework */,
 				23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */,

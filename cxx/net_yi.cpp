@@ -23,6 +23,10 @@ long netyi::recentTS() {
   return getRecentTS();
 }
 
+void netyi::setNetIsReachable(bool isReachable) {
+  YILOG_TRACE ("func: {}", __func__);
+  client_setNet_isConnect(isReachable);
+}
 netyi::~netyi() {
   YILOG_TRACE ("func: {}", __func__);
   clear_client();
@@ -30,7 +34,7 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect(ConnectNoti isSuccess) {
+void netyi::net_connect(ConnectNoti isSuccess, Error_CB error) {
   YILOG_TRACE ("func: {}", __func__);
   create_client(certpath_, [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
@@ -63,7 +67,7 @@ void netyi::net_connect(ConnectNoti isSuccess) {
       default:
       call_map(sp->session_id(), sp);
     }
-  }, isSuccess);
+  }, isSuccess, error);
 }
 
 

@@ -252,28 +252,19 @@
                                     <constraint firstAttribute="width" constant="200" id="u5H-Wv-ggo"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JD-gD-dfm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JD-gD-dfm" customClass="IndicatorButton" customModule="heibaiyu" customModuleProvider="target">
                                 <rect key="frame" x="87" y="246" width="200" height="44"/>
                                 <color key="backgroundColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="kVZ-xJ-biM"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" title="登录">
                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signin:" destination="RKX-5Z-zk8" eventType="touchUpInside" id="Rcv-FG-n04"/>
+                                </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jv3-m6-nx0">
-                                <rect key="frame" x="144" y="258" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Jv3-m6-nx0" secondAttribute="height" multiplier="1:1" id="ddm-f6-ifh"/>
-                                </constraints>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rte-eg-JcA">
-                                <rect key="frame" x="169" y="258" width="35" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hye-et-AHv">
                                 <rect key="frame" x="295" y="623" width="80" height="44"/>
                                 <constraints>
@@ -288,21 +279,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rte-eg-JcA" firstAttribute="centerY" secondItem="4JD-gD-dfm" secondAttribute="centerY" id="1i9-uN-VDe"/>
                             <constraint firstItem="bun-va-O9i" firstAttribute="top" secondItem="hye-et-AHv" secondAttribute="bottom" id="4sV-Zr-J5E"/>
                             <constraint firstAttribute="trailing" secondItem="hye-et-AHv" secondAttribute="trailing" id="4xn-Cu-GLi"/>
                             <constraint firstItem="4JD-gD-dfm" firstAttribute="top" secondItem="pmT-eW-m5Y" secondAttribute="bottom" constant="20" id="9L8-5J-tUC"/>
                             <constraint firstItem="4JD-gD-dfm" firstAttribute="centerX" secondItem="giT-0i-vrf" secondAttribute="centerX" id="IGT-T2-vtG"/>
-                            <constraint firstItem="rte-eg-JcA" firstAttribute="bottom" secondItem="Jv3-m6-nx0" secondAttribute="bottom" id="PAk-dW-BKA"/>
                             <constraint firstItem="4JD-gD-dfm" firstAttribute="width" secondItem="pmT-eW-m5Y" secondAttribute="width" id="Q5e-hU-sfn"/>
-                            <constraint firstItem="rte-eg-JcA" firstAttribute="centerX" secondItem="4JD-gD-dfm" secondAttribute="centerX" id="ULf-JS-hTp"/>
-                            <constraint firstItem="Jv3-m6-nx0" firstAttribute="width" secondItem="Jv3-m6-nx0" secondAttribute="height" multiplier="1:1" id="cit-ty-2oZ"/>
                             <constraint firstItem="pmT-eW-m5Y" firstAttribute="centerX" secondItem="giT-0i-vrf" secondAttribute="centerX" id="dDE-6F-K5V"/>
-                            <constraint firstItem="rte-eg-JcA" firstAttribute="leading" secondItem="Jv3-m6-nx0" secondAttribute="trailing" constant="5" id="guy-Kc-jLr"/>
-                            <constraint firstItem="rte-eg-JcA" firstAttribute="top" secondItem="Jv3-m6-nx0" secondAttribute="top" id="jaS-G9-eh1"/>
                             <constraint firstItem="pmT-eW-m5Y" firstAttribute="top" secondItem="giT-0i-vrf" secondAttribute="top" constant="66" id="sNE-I0-lDZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="gcH-f2-FRT" id="p4o-qI-m1D"/>
+                        <outlet property="phoneno" destination="dTf-5J-q9R" id="YQP-AM-ePa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rk7-7f-TCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

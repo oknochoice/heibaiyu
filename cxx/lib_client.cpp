@@ -39,6 +39,9 @@ static std::shared_ptr<Read_CB> sp_read_cb_;
 static Read_IO * read_io_;
 static Write_IO * write_io_;
 static std::atomic_long recent_ts_;
+static std::atomic_bool isNetReachable_;
+static ConnectNoti connectNoti_;
+static Error_CB error_cb_;
 /*
 static std::mutex ev_c_mutex_;
 static bool ev_c_isWait_ = true;
@@ -221,8 +224,11 @@ void connection_read_callback (struct ev_loop * loop,
         e.code().value() == 20008) {
       // close node
     }
-    throw std::system_error(std::error_code(60000, std::generic_category()),
-        "need close client and restart");
+    // need close client and resetart
+    error_cb_(60000, "system error need restart");
+  }catch(...) {
+    printf("unknow error");
+    error_cb_(60011, "system error need restart");
   }
 
 }
@@ -232,23 +238,28 @@ void connection_write_callback (struct ev_loop * loop,
 
   YILOG_TRACE ("func: {}. ", __func__);
 
-  // converse to usable io
-  Write_IO * io = reinterpret_cast<Write_IO*>(ww);
+  try {
+    // converse to usable io
+    Write_IO * io = reinterpret_cast<Write_IO*>(ww);
 
-  // write to socket
-  // if write finish stop write, start read.
-  std::unique_lock<std::mutex> ul(io->buffers_p_mutex);
-  if (!io->buffers_p.empty()) {
-    auto p = io->buffers_p.front();
-    ul.unlock();
-    if (p->socket_write(io->ssl)) {
-      ul.lock();
-      io->buffers_p.pop();
+    // write to socket
+    // if write finish stop write, start read.
+    std::unique_lock<std::mutex> ul(io->buffers_p_mutex);
+    if (!io->buffers_p.empty()) {
+      auto p = io->buffers_p.front();
       ul.unlock();
+      if (p->socket_write(io->ssl)) {
+        ul.lock();
+        io->buffers_p.pop();
+        ul.unlock();
+      }
+    }else {
+      YILOG_TRACE ("func: {}. stop write", __func__);
+      ev_io_stop(loop, ww);
     }
-  }else {
-    YILOG_TRACE ("func: {}. stop write", __func__);
-    ev_io_stop(loop, ww);
+    
+  } catch (std::system_error & e) {
+    error_cb_(e.code().value(), e.what());
   }
   YILOG_TRACE ("func: {}. write finish", __func__);
 }
@@ -300,24 +311,32 @@ static void init_io() {
 
 }
 
-static ConnectNoti connectNoti_;
-void create_client(std::string certpath, Read_CB && read_cb, ConnectNoti connectNoti) {
+void create_client(std::string certpath, Read_CB && read_cb,
+                   ConnectNoti connectNoti, Error_CB error_cb) {
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
   connectNoti_ = connectNoti;
+  error_cb_ = error_cb;
   sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
   std::thread t([&](){
     YILOG_TRACE ("func: {}, thread start.", __func__);
-    init_io();
-    //std::unique_lock<std::mutex> ul(ev_c_mutex_);
-    //ev_c_isWait_ = false;
-    //ev_c_var_.notify_one();
-    //ul.unlock();
-    if (connectNoti_ != nullptr) {
-      connectNoti_();
+    try {
+      init_io();
+      //std::unique_lock<std::mutex> ul(ev_c_mutex_);
+      //ev_c_isWait_ = false;
+      //ev_c_var_.notify_one();
+      //ul.unlock();
+      if (connectNoti_ != nullptr) {
+        connectNoti_();
+      }
+      ev_run(loop(), 0);
+      YILOG_TRACE("exit thread");
+    } catch (std::system_error & error) {
+      if (error_cb_) {
+        error_cb_(error.code().value(), error.what());
+      }
     }
-    ev_run(loop(), 0);
-    YILOG_TRACE("exit thread");
+    
   });
   t.detach();
   //std::unique_lock<std::mutex> cul(ev_c_mutex_);
@@ -330,17 +349,26 @@ void client_send(Buffer_SP sp_buffer,
     uint16_t * sessionid) {
   YILOG_TRACE ("func: {}. ", __func__);
   
-  auto sid = read_io_->sessionid++;
-  YILOG_INFO("send sessionid {}", sid);
-  if (nullptr != sessionid) {
-    *sessionid = sid;
+  if (!isNetReachable_.load()) {
+    error_cb_(60010, "net is not reachable");
+    return;
   }
-  sp_buffer->set_sessionid(sid);
-  std::unique_lock<std::mutex> ul(write_io_->buffers_p_mutex);
-  write_io_->buffers_p.push(sp_buffer);
-  auto watcher = write_asyn_watcher();
   
-  ev_async_send(loop(), watcher);
+  try {
+    auto sid = read_io_->sessionid++;
+    YILOG_INFO("send sessionid {}", sid);
+    if (nullptr != sessionid) {
+      *sessionid = sid;
+    }
+    sp_buffer->set_sessionid(sid);
+    std::unique_lock<std::mutex> ul(write_io_->buffers_p_mutex);
+    write_io_->buffers_p.push(sp_buffer);
+    auto watcher = write_asyn_watcher();
+  
+    ev_async_send(loop(), watcher);
+  } catch (std::system_error & e) {
+    error_cb_(e.code().value(), e.what());
+  }
 
 }
 
@@ -365,3 +393,7 @@ long getRecentTS() {
   return ts;
 }
 
+void client_setNet_isConnect(bool isConnect) {
+  YILOG_TRACE ("func: {}. ", __func__);
+  isNetReachable_.store(isConnect);
+}

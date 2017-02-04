@@ -17,6 +17,7 @@ public:
 
   netyi(std::string certpath);
   long recentTS();
+  void setNetIsReachable(bool isReachable);
   ~netyi();
   /*
    * leveldb keys suggest
@@ -30,7 +31,7 @@ public:
   /*
    * net user
    * */
-  void net_connect (ConnectNoti isSuccess);
+  void net_connect (ConnectNoti isSuccess, Error_CB error);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);

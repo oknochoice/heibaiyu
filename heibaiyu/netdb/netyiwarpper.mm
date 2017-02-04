@@ -14,7 +14,7 @@
 #include <string>
 #include "typemap.h"
 
-static netyi * netyic;
+static netyi * netyic = nullptr;
 
 @interface netyiwarpper ()
 
@@ -23,10 +23,17 @@ static netyi * netyic;
 @end
 
 @implementation netyiwarpper
-+ (BOOL)openyi_netWithcert:(NSString *)certpath with:(IsConnectSuccess)isSuccess {
-  netyic = new netyi(std::string([certpath UTF8String]));
-  netyic->net_connect(isSuccess);
-  return true;
++ (BOOL)openyi_netWithcert:(NSString *)certpath with:(IsConnectSuccess)isSuccess with:(Error_Block)error {
+  if (netyic) {
+    return true;
+  }else {
+    netyic = new netyi(std::string([certpath UTF8String]));
+    netyic->setNetIsReachable(true);
+    netyic->net_connect(isSuccess, [=](int error_no, std::string error_msg) {
+      error(error_no, [NSString stringWithCString:error_msg.c_str() encoding:NSUTF8StringEncoding]);
+    });
+    return false;
+  }
 }
 + (long)netyi_ts {
   return netyic->recentTS();
@@ -34,9 +41,14 @@ static netyi * netyic;
 + (void)netyi_ping:(NSString*)data {
   netyic->ping_pong(yijian::buffer::Buffer(ChatType::ping, std::string([data UTF8String])), nullptr);
 }
++ (void)netyi_net_isConnect:(BOOL)isConnect {
+  if (netyic) {
+    netyic->setNetIsReachable(isConnect);
+  }
+}
 + (BOOL)closeyi_net {
   delete netyic;
-  return 0;
+  netyic = nullptr;
   return true;
 }
 + (BOOL)netyi_signup_login_connectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
@@ -53,14 +65,14 @@ static netyi * netyic;
   });
   return true;
 }
-+ (BOOL)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
++ (int32_t)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
   // 用来查看消息丢失 重发
   int32_t temp_session = 0;
   netyic->send_buffer(yijian::buffer::Buffer(type, std::string([data UTF8String])), &temp_session,
      [=](uint8_t type, std::string & data, bool * isStop){
        callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
   });
-  return true;
+  return temp_session;
 }
 + (BOOL)netyi_unread_msg_notiWith:(Net_CB)callback {
   netyic->acceptUnreadMsg(
