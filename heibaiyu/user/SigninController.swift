@@ -36,7 +36,7 @@ class SigninController: UIViewController {
         
       })
     } catch {
-      print(error)
+      blog.debug(error)
     }
   }
     override func didReceiveMemoryWarning() {

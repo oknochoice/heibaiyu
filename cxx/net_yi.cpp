@@ -18,10 +18,6 @@ netyi::netyi(std::string certpath):
   YILOG_TRACE ("func: {}", __func__);
 
 }
-long netyi::recentTS() {
-  YILOG_TRACE ("func: {}", __func__);
-  return getRecentTS();
-}
 
 void netyi::setNetIsReachable(bool isReachable) {
   YILOG_TRACE ("func: {}", __func__);
@@ -34,9 +30,10 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect(ConnectNoti isSuccess, Error_CB error) {
+void netyi::net_connect(Buffer_SP sp, ConnectNoti isSuccess, Error_CB error) {
   YILOG_TRACE ("func: {}", __func__);
-  create_client(certpath_, [&](Buffer_SP sp){
+  create_client(certpath_, sp, 
+    [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
     switch(sp->datatype()) {
       case ChatType::loginnoti:
@@ -82,11 +79,7 @@ void netyi::logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func) {
   put_map_send(Session_ID::logout_disconnect, sp,
       std::forward<CB_Func_Mutiple>(func));
 }
-void netyi::ping_pong(Buffer_SP sp, CB_Func_Mutiple && func) {
-  YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::ping_pong, sp,
-               std::forward<CB_Func_Mutiple>(func));
-}
+
 void netyi::send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
   put_map_send(sp,

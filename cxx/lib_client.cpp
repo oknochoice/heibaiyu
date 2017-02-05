@@ -13,6 +13,12 @@
 #define HOST_NAME "yijian.imwork.net"
 #define HOST_PORT "57432"
 
+#ifdef DEBUG
+#define PingTime 15
+#else
+#define PingTime 100
+#endif
+
 struct Read_IO {
   // watcher
   ev_io io;
@@ -38,10 +44,13 @@ static std::string client_rootcert_path;
 static std::shared_ptr<Read_CB> sp_read_cb_;
 static Read_IO * read_io_;
 static Write_IO * write_io_;
-static std::atomic_long recent_ts_;
-static std::atomic_bool isNetReachable_;
 static ConnectNoti connectNoti_;
 static Error_CB error_cb_;
+static std::atomic_long recent_ts_;
+static std::atomic_bool isNetReachable_;
+static std::atomic_bool isRunloopComplete_;
+static Buffer_SP ping_;
+static struct ev_timer * ping_timer_;
 /*
 static std::mutex ev_c_mutex_;
 static bool ev_c_isWait_ = true;
@@ -179,6 +188,23 @@ void configure_sslctx(SSL_CTX * ctx, SSL ** ssl) {
   SSL_CTX_set_mode(ctx, SSL_MODE_AUTO_RETRY);
 }
 
+// call back
+
+void pingtime_cb(EV_P_ ev_timer * w, int revents) {
+  ev_timer_stop(loop, w);
+  long recent = recent_ts_.load();
+  long now = time(NULL);
+  long dif = now - recent;
+  if (dif - 2 >= PingTime) {
+    ping_->makeReWrite();
+    client_send(ping_, nullptr);
+    ev_timer_set(w, PingTime, 0.);
+  }else {
+    ev_timer_set(w, dif, 0.);
+  }
+  ev_timer_start(loop, w);
+}
+
 void start_write_callback (struct ev_loop * loop,  ev_async * r, int revents) {
   
   YILOG_TRACE ("func: {}. ", __func__);
@@ -224,10 +250,12 @@ void connection_read_callback (struct ev_loop * loop,
         e.code().value() == 20008) {
       // close node
     }
+    ev_io_stop(loop, rw);
     // need close client and resetart
     error_cb_(60000, "system error need restart");
   }catch(...) {
     printf("unknow error");
+    ev_io_stop(loop, rw);
     error_cb_(60011, "system error need restart");
   }
 
@@ -273,6 +301,11 @@ static void init_io() {
   ev_set_priority(async_io, EV_MAXPRI);
   ev_async_start(loop(), async_io);
   YILOG_TRACE("ev_async init Success");
+  
+  // timer
+  ping_timer_ = (struct ev_timer*)malloc(sizeof(struct ev_timer));
+  ev_timer_init(ping_timer_, pingtime_cb, PingTime, 0.);
+  ev_timer_start(loop(), ping_timer_);
 
   // Connection_IO watcher for client
   read_io_ = new Read_IO();
@@ -311,12 +344,15 @@ static void init_io() {
 
 }
 
-void create_client(std::string certpath, Read_CB && read_cb,
+void create_client(std::string certpath, Buffer_SP ping,
+                   Read_CB && read_cb,
                    ConnectNoti connectNoti, Error_CB error_cb) {
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
   connectNoti_ = connectNoti;
   error_cb_ = error_cb;
+  ping_ = ping;
+  isRunloopComplete_.store(false);
   sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
   std::thread t([&](){
     YILOG_TRACE ("func: {}, thread start.", __func__);
@@ -329,6 +365,7 @@ void create_client(std::string certpath, Read_CB && read_cb,
       if (connectNoti_ != nullptr) {
         connectNoti_();
       }
+      isRunloopComplete_.store(true);
       ev_run(loop(), 0);
       YILOG_TRACE("exit thread");
     } catch (std::system_error & error) {
@@ -350,18 +387,34 @@ void client_send(Buffer_SP sp_buffer,
   YILOG_TRACE ("func: {}. ", __func__);
   
   if (!isNetReachable_.load()) {
-    error_cb_(60010, "net is not reachable");
+    if (error_cb_) {
+      error_cb_(60010, "net is not reachable");
+    }
+    return;
+  }
+  
+  if (!isRunloopComplete_.load()) {
+    if (error_cb_) {
+      error_cb_(60012, "wait configure runloop finish");
+    }
     return;
   }
   
   try {
-    auto sid = read_io_->sessionid++;
+    std::unique_lock<std::mutex> ul(write_io_->buffers_p_mutex);
+    uint16_t sid = 0;
+    if (missing_check(sp_buffer->datatype())) {
+      if (read_io_->sessionid == MaxSessionID) {
+        sid = read_io_->sessionid = MinSessionID;
+      }else {
+        sid = read_io_->sessionid++;
+      }
+    }
     YILOG_INFO("send sessionid {}", sid);
     if (nullptr != sessionid) {
       *sessionid = sid;
     }
     sp_buffer->set_sessionid(sid);
-    std::unique_lock<std::mutex> ul(write_io_->buffers_p_mutex);
     write_io_->buffers_p.push(sp_buffer);
     auto watcher = write_asyn_watcher();
   
@@ -385,12 +438,6 @@ void clear_client() {
   delete read_io_;
   delete write_io_;
   free(write_asyn_watcher());
-}
-
-long getRecentTS() {
-  YILOG_TRACE ("func: {}. ", __func__);
-  long ts = recent_ts_.load();
-  return ts;
 }
 
 void client_setNet_isConnect(bool isConnect) {

@@ -18,13 +18,12 @@ typedef std::function<void()> ConnectNoti;
 typedef std::function<void(int error_no, std::string error_msg)> Error_CB;
 
 // main thread call, read_cb subthread callback
-void create_client(std::string certpath, Read_CB && read_cb,
+void create_client(std::string certpath, Buffer_SP ping,
+                   Read_CB && read_cb,
                    ConnectNoti connectNoti, Error_CB error_cb);
 // main thread call
 void client_send(Buffer_SP sp_buffer, uint16_t * sessionid);
 void clear_client();
-// timestamp second
-long getRecentTS();
 // set net is connect
 void client_setNet_isConnect(bool isConnect);
 

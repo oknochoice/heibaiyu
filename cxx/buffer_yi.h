@@ -49,6 +49,7 @@ public:
     //bool socket_write(int sfd);
     bool socket_read(SSL * ssl);
     bool socket_write(SSL * ssl);
+    void makeReWrite();
 
     // socket read fixed length 
     // first set length second read
@@ -133,6 +134,8 @@ private:
     bool isFinish_ = false;
 
     uint8_t data_type_;
+    std::size_t data_encode_length_;
+    std::size_t data_length_;
 
     Message_Type buffer_type_;
 
@@ -140,6 +143,7 @@ private:
     char * end_pos_;
     char * data_pos_;
     char * current_pos_;
+    
 
     uint16_t session_id_;
 

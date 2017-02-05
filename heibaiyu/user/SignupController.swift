@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyBeaver
 import DynamicColor
 import Whisper
 
@@ -47,7 +46,7 @@ class SignupController: UIViewController {
     
     if signup.title(for: UIControlState.normal) == L10n.signupSignup {
       if password.text!.lengthOfBytes(using: .utf8) < 6 {
-        let mur = Murmur(title: L10n.signupPasswordLimit, backgroundColor: UIColor(named: .tenghuang), titleColor: .white, font: UIFont.systemFont(ofSize: 12), action: nil)
+        let mur = Murmur(title: L10n.signupPasswordLimit, backcolor: UIColor(named: .tenghuang))
         Whisper.show(whistle: mur, action: .show(1.5))
         return
       }else {
@@ -68,13 +67,14 @@ class SignupController: UIViewController {
           //blog.debug(data)
           do {
             let signupRes = try Chat_RegisterRes(protobuf: indata.data(using: .utf8)!)
-            print(try signupRes.serializeJSON())
+            let json = try signupRes.serializeJSON()
+            blog.debug(json)
           } catch {
-            print(error)
+            blog.debug(error)
           }
         })
       } catch {
-        print(error)
+        blog.debug(error)
       }
     }
   }

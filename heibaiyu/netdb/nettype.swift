@@ -9,7 +9,8 @@
 import Foundation
 
 enum ChatType: UInt8 {
-  case error = 0,
+  case localError = 255,
+    error = 0,
    registor = 1,
    registorres = 2,
    login = 3,

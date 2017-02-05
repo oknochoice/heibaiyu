@@ -14,9 +14,7 @@ public:
   typedef std::function<void(uint8_t type, std::string & data, bool * isStop)>
     CB_Func_Mutiple;
   
-
   netyi(std::string certpath);
-  long recentTS();
   void setNetIsReachable(bool isReachable);
   ~netyi();
   /*
@@ -31,14 +29,12 @@ public:
   /*
    * net user
    * */
-  void net_connect (ConnectNoti isSuccess, Error_CB error);
+  void net_connect (Buffer_SP sp, ConnectNoti isSuccess, Error_CB error);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(key, bool)
   void logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func);
-  // none
-  void ping_pong(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(sessionid, bool)
   void send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func);
   /*

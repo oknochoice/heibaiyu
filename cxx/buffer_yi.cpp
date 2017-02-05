@@ -109,12 +109,14 @@ bool buffer::socket_read(SSL * sfd) {
       data_type_ =  *(header_pos_ + SESSIONID_LENGTH);
       // var_length
       auto pair = decoding_var_length(header_pos_ + SESSIONID_LENGTH + MSG_TYPE_LENGTH);
+      data_length_ = pair.first;
+      data_encode_length_ = pair.second - data_pos_;
       data_pos_ = pair.second;
 
       YILOG_TRACE ("func: {}, type: {}, length: {}", 
           __func__, data_type_, pair.first);
 
-      int readed = PADDING_LENGTH - (pair.second - header_pos_);
+      long readed = PADDING_LENGTH - (pair.second - header_pos_);
 
       remain_data_length_ = pair.first - readed;
       isParseFinish_ = true;
@@ -197,7 +199,8 @@ char * buffer::data() {
 
 std::size_t buffer::data_size() {
   YILOG_TRACE("func: {}", __func__);
-  return end_pos_ - data_pos_;
+  //return end_pos_ - data_pos_;
+  return data_length_;
 }
 
 
@@ -383,36 +386,43 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
   }
   return writed;
 }
+void buffer::makeReWrite() {
+  current_pos_ = header_pos_;
+  remain_data_length_ =
+    SESSIONID_LENGTH + 1 + data_encode_length_ + data_length_;
+}
   
-  void buffer::encoding(const uint8_t type,  std::string & data) {
-    auto length = data.length();
-      if (unlikely(length > 1024 - PADDING_LENGTH || length == 0)) {
-        throw std::system_error(std::error_code(20011, std::generic_category()),
-            "Malformed Length");
-      }
+void buffer::encoding(const uint8_t type,  std::string & data) {
+  data_length_ = data.length();
+  if (unlikely(data_length_ > 1024 - PADDING_LENGTH || data_length_ == 0)) {
+    throw std::system_error(std::error_code(20011, std::generic_category()),
+        "Malformed Length");
+  }
 
-      current_pos_ += SESSIONID_LENGTH;
-      memcpy(current_pos_, &type, 1);
-      ++current_pos_;
-      auto current_end = encoding_var_length(current_pos_, length);
-      long varLength_length = current_end - current_pos_;
-      current_pos_ = current_end;
-      memcpy(current_pos_, data.c_str(), length);
-      remain_data_length_ =
-        SESSIONID_LENGTH + 1 + varLength_length + length;
-      current_pos_ += length;
-      // set buffer 
-      end_pos_ = current_pos_;
-      current_pos_ = header_pos_;
-      data_type_ = type;
-      // session_id_ send set
-      YILOG_TRACE ("func: {}, type: {}, length: {}",
-          __func__, type, any.ByteSize());
-  }
-  std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, std::string data) {
-    auto buf = std::make_shared<yijian::buffer>();
-    buf->encoding(type, data);
-    return buf;
-  }
+  current_pos_ += SESSIONID_LENGTH;
+  memcpy(current_pos_, &type, 1);
+  ++current_pos_;
+  auto current_end = encoding_var_length(current_pos_, data_length_);
+  data_encode_length_ = current_end - current_pos_;
+  data_pos_ = current_pos_ = current_end;
+  memcpy(current_pos_, data.c_str(), data_length_);
+  remain_data_length_ =
+    SESSIONID_LENGTH + 1 + data_encode_length_ + data_length_;
+  current_pos_ += data_length_;
+  // set buffer 
+  end_pos_ = current_pos_;
+  current_pos_ = header_pos_;
+  data_type_ = type;
+  // session_id_ send set
+  YILOG_TRACE ("func: {}, type: {}, length: {}",
+      __func__, type, any.ByteSize());
+}
+  
+std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, std::string data) {
+  auto buf = std::make_shared<yijian::buffer>();
+  buf->encoding(type, data);
+  return buf;
+}
+  
 }
 

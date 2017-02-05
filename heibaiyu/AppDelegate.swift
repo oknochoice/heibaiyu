@@ -8,10 +8,10 @@
 
 import UIKit
 import Whisper
-import SwiftyBeaver
+import XCGLogger
 import SwiftyTimer
 import Reachability
-let blog = SwiftyBeaver.self
+let blog = XCGLogger.default
 
 
 @UIApplicationMain
@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   var netyi_ts: Int = 0
-#if DEBUG
-  let pingtime: Int = 15
-#else
-  let pingtime: Int = 90
-#endif
 		
 
   let connectNoti = Notification.Name("client_connect")
@@ -32,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // log
+    let blogpath = Bundle.main.resourcePath?.appending("xcglog")
+    blog.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .debug)
+    /*
     let console = ConsoleDestination()  // log to Xcode Console
     let file = FileDestination()  // log to default swiftybeaver.log file
     let cloud = SBPlatformDestination(appID: "0G8Zdw", appSecret: "fUztpslboizfwDw968gabnktxe4homhx", encryptionKey: "9tPMxajdieYxscqnncnnq6bhxyrpD0ai") // to cloud
@@ -42,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     blog.addDestination(file)
     blog.addDestination(cloud)
     blog.verbose("blog is ok")
+ */
     // bundle language
     Bundle.setLanguage("zh-Hans")
     // net whether reachable
@@ -61,8 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  func restartNetyi() {
-    netyiwarpper.closeyi_net()
+  func restartNetyi(force:Bool) {
+    if force {
+      netyiwarpper.closeyi_net()
+    }
+    NotificationCenter.default.removeObserver(self, name: self.connectNoti, object: nil)
     // restart net reachable
     reachable.stopNotifier()
     do {
@@ -74,56 +76,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func reachableCheck(note: NSNotification) {
     let reachability = note.object as! Reachability
-    if reachability.isReachable {
-      // netyi config
-      NotificationCenter.default.addObserver(self, selector: #selector(pingpong), name: self.connectNoti, object: nil)
-      var mainpath = Bundle.main.bundlePath
-      mainpath.append("/root-ca.crt")
-      let isAlreadyConnected = netyiwarpper.openyi_netWithcert(mainpath, with: {
-        NotificationCenter.default.post(name: self.connectNoti, object: nil, userInfo:nil)
-      }) { (err_no, err_msg) in
-        blog.debug((err_no, err_msg))
-        if (60010 != err_no) {
-          self.restartNetyi()
+    DispatchQueue.main.async { [weak self] in
+      if reachability.isReachable {
+        // netyi config
+        var mainpath = Bundle.main.bundlePath
+        mainpath.append("/root-ca.crt")
+        if netyiwarpper.netyi_isOpened() {
+          blog.debug("netyi is already open")
+        }else {
+          var ping = Chat_Ping()
+          ping.msg = "ping"
+          var ping_string = String()
+          do {
+            let data = try ping.serializeProtobuf()
+            ping_string = String(data: data, encoding: .utf8)!
+          }catch {
+            blog.debug(error)
+          }
+          netyiwarpper.openyi_netWithcert(mainpath, with: ping_string, with: { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+              NotificationCenter.default.post(name: (self?.connectNoti)!, object: nil, userInfo:nil)
+            }
+          }) { [weak self] (err_no, err_msg) in
+            DispatchQueue.main.async { [weak self] in
+              blog.debug((err_no, err_msg))
+              if (60010 != err_no ||
+                60012 != err_no) {
+                self?.restartNetyi(force: true)
+              }
+            }
+          }
+          netyiwarpper.netyi_net_isConnect(true)
         }
-      }
-      if isAlreadyConnected {
-        NotificationCenter.default.post(name: self.connectNoti, object: nil, userInfo:nil)
-      }
-      netyiwarpper.netyi_net_isConnect(true)
-      //
-      if reachability.isReachableViaWiFi {
-        blog.debug("Reachable via WiFi")
+        //
+        if reachability.isReachableViaWiFi {
+          blog.debug("Reachable via WiFi")
+        } else {
+          blog.debug("Reachable via Cellular")
+        }
       } else {
-        blog.debug("Reachable via Cellular")
+        netyiwarpper.netyi_net_isConnect(false)
+        blog.debug("Network not reachable")
       }
-    } else {
-      netyiwarpper.netyi_net_isConnect(false)
-      blog.debug("Network not reachable")
-    }
-  }
-  
-  func pingpong() {
-    netyi_ts = netyiwarpper.netyi_ts()
-    let now_ts = Date().timeIntervalSince1970
-    let diff_ts = now_ts - Double(netyi_ts)
-    var send_ts = DispatchTime.now()
-    
-    if diff_ts > Double(pingtime - 5) {
-      send_ts = DispatchTime.now() + DispatchTimeInterval.seconds(pingtime)
-      var ping = Chat_Ping()
-      ping.msg = "ping"
-      do {
-        let data = try ping.serializeProtobuf()
-        netyiwarpper.netyi_ping(String(data: data, encoding: .utf8)!)
-      } catch {
-        blog.debug(error)
-      }
-    }else {
-      send_ts = DispatchTime.now() + DispatchTimeInterval.seconds(pingtime) - DispatchTimeInterval.fromSeconds(diff_ts)
-    }
-    DispatchQueue.main.asyncAfter(deadline: send_ts) {
-      self.pingpong()
     }
   }
   
