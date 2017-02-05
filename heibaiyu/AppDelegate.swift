@@ -60,17 +60,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  func restartNetyi(force:Bool) {
-    if force {
-      netyiwarpper.closeyi_net()
-    }
-    NotificationCenter.default.removeObserver(self, name: self.connectNoti, object: nil)
-    // restart net reachable
-    reachable.stopNotifier()
-    do {
-      try reachable.startNotifier()
-    } catch {
-      blog.debug(error)
+  func startNetyi() {
+    // netyi config
+    var mainpath = Bundle.main.bundlePath
+    mainpath.append("/root-ca.crt")
+    if netyiwarpper.netyi_isOpened() {
+      blog.debug("netyi is already open")
+    }else {
+      var ping = Chat_Ping()
+      ping.msg = "ping"
+      var ping_string = String()
+      do {
+        let data = try ping.serializeProtobuf()
+        ping_string = String(data: data, encoding: .utf8)!
+      }catch {
+        blog.debug(error)
+      }
+      netyiwarpper.openyi_netWithcert(mainpath, with: ping_string, with: { [weak self] in
+        DispatchQueue.main.async { [weak self] in
+          NotificationCenter.default.post(name: (self?.connectNoti)!, object: self!, userInfo:nil)
+        }
+      }) {  (err_no, err_msg) in
+        DispatchQueue.main.async {
+          blog.debug((err_no, err_msg))
+          if (60010 != err_no ||
+            60012 != err_no) {
+            netyiwarpper.closeyi_net();
+          }
+        }
+      }
+      netyiwarpper.netyi_net_isConnect(true)
     }
   }
   
@@ -78,36 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let reachability = note.object as! Reachability
     DispatchQueue.main.async { [weak self] in
       if reachability.isReachable {
-        // netyi config
-        var mainpath = Bundle.main.bundlePath
-        mainpath.append("/root-ca.crt")
-        if netyiwarpper.netyi_isOpened() {
-          blog.debug("netyi is already open")
-        }else {
-          var ping = Chat_Ping()
-          ping.msg = "ping"
-          var ping_string = String()
-          do {
-            let data = try ping.serializeProtobuf()
-            ping_string = String(data: data, encoding: .utf8)!
-          }catch {
-            blog.debug(error)
-          }
-          netyiwarpper.openyi_netWithcert(mainpath, with: ping_string, with: { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-              NotificationCenter.default.post(name: (self?.connectNoti)!, object: nil, userInfo:nil)
-            }
-          }) { [weak self] (err_no, err_msg) in
-            DispatchQueue.main.async { [weak self] in
-              blog.debug((err_no, err_msg))
-              if (60010 != err_no ||
-                60012 != err_no) {
-                self?.restartNetyi(force: true)
-              }
-            }
-          }
-          netyiwarpper.netyi_net_isConnect(true)
-        }
+        self!.startNetyi();
         //
         if reachability.isReachableViaWiFi {
           blog.debug("Reachable via WiFi")
