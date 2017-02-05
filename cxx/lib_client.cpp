@@ -433,11 +433,13 @@ void clear_client() {
   close(read_io_->io.fd);
   ev_io_stop(loop(), &read_io_->io);
   ev_io_stop(loop(), &write_io_->io);
+  ev_timer_stop(loop(), ping_timer_);
   ev_async_stop(loop(), write_asyn_watcher());
   ev_loop_destroy(loop());
   delete read_io_;
   delete write_io_;
   free(write_asyn_watcher());
+  free(ping_timer_);
 }
 
 void client_setNet_isConnect(bool isConnect) {

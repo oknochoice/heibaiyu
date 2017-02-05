@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }) {  (err_no, err_msg) in
         DispatchQueue.main.async {
           blog.debug((err_no, err_msg))
-          if (60010 != err_no ||
+          if (60010 != err_no &&
             60012 != err_no) {
             netyiwarpper.closeyi_net();
           }
