@@ -191,6 +191,7 @@ void configure_sslctx(SSL_CTX * ctx, SSL ** ssl) {
 // call back
 
 void pingtime_cb(EV_P_ ev_timer * w, int revents) {
+  YILOG_TRACE("func: {}", __func__);
   ev_timer_stop(loop, w);
   long recent = recent_ts_.load();
   long now = time(NULL);
@@ -209,11 +210,20 @@ void start_write_callback (struct ev_loop * loop,  ev_async * r, int revents) {
   
   YILOG_TRACE ("func: {}. ", __func__);
   //ev_io_start(loop, &read_io_->io);
-  ev_io_start(loop, &write_io_->io);
+  
+  if (!isRunloopComplete_.load()) {
+    ev_io_stop(loop, &read_io_->io);
+    ev_io_stop(loop, &write_io_->io);
+    ev_timer_stop(loop, ping_timer_);
+    ev_async_stop(loop, write_asyn_watcher());
+    ev_loop_destroy(loop);
+  }else {
+    ev_io_start(loop, &write_io_->io);
+  }
 
 }
 
-void connection_read_callback (struct ev_loop * loop, 
+void connection_read_callback (struct ev_loop * loop,
     ev_io * rw, int revents) {
 
   YILOG_TRACE ("func: {}. ", __func__);
@@ -367,6 +377,10 @@ void create_client(std::string certpath, Buffer_SP ping,
       }
       isRunloopComplete_.store(true);
       ev_run(loop(), 0);
+      delete read_io_;
+      delete write_io_;
+      free(write_asyn_watcher());
+      free(ping_timer_);
       YILOG_TRACE("exit thread");
     } catch (std::system_error & error) {
       if (error_cb_) {
@@ -417,7 +431,6 @@ void client_send(Buffer_SP sp_buffer,
     sp_buffer->set_sessionid(sid);
     write_io_->buffers_p.push(sp_buffer);
     auto watcher = write_asyn_watcher();
-  
     ev_async_send(loop(), watcher);
   } catch (std::system_error & e) {
     error_cb_(e.code().value(), e.what());
@@ -427,19 +440,12 @@ void client_send(Buffer_SP sp_buffer,
 
 void clear_client() {
   YILOG_TRACE ("func: {}. ", __func__);
+  isRunloopComplete_.store(false);
   SSL_free(read_io_->ssl);
   SSL_CTX_free(sslctx());
   cleanup_openssl();
-  close(read_io_->io.fd);
-  ev_io_stop(loop(), &read_io_->io);
-  ev_io_stop(loop(), &write_io_->io);
-  ev_timer_stop(loop(), ping_timer_);
-  ev_async_stop(loop(), write_asyn_watcher());
-  ev_loop_destroy(loop());
-  delete read_io_;
-  delete write_io_;
-  free(write_asyn_watcher());
-  free(ping_timer_);
+  auto watcher = write_asyn_watcher();
+  ev_async_send(loop(), watcher);
 }
 
 void client_setNet_isConnect(bool isConnect) {

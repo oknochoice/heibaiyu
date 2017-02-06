@@ -33,17 +33,41 @@ public:
 // c++11 thread-safe
 void initConsoleLog();
 
+#ifdef DEBUG
+#define YILOG_ON
+#endif
+
 #ifdef YILOG_ON
 #define YILOG_STR_H(x) #x
 #define YILOG_STR_HELPER(x) YILOG_STR_H(x)
-#define YILOG_TRACE(...)
-#define YILOG_DEBUG(...)
+#define YILOG_TRACE(...) \
+do{ \
+time_t timer; \
+char buffer[26]; \
+struct tm* tm_info; \
+time(&timer); \
+tm_info = localtime(&timer); \
+strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info); \
+fprintf(stderr, "[%s]%s (%s, line %d): ", buffer, __func__, __FILE__, __LINE__); \
+fprintf(stderr, "\n");} while(0)
+
+#define YILOG_DEBUG(...) \
+do{ \
+time_t timer; \
+char buffer[26]; \
+struct tm* tm_info; \
+time(&timer); \
+tm_info = localtime(&timer); \
+strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info); \
+fprintf(stderr, "[%s]%s (%s, line %d): ", buffer, __func__, __FILE__, __LINE__); \
+fprintf(stderr, __VA_ARGS__);           \
+fprintf(stderr, "\n");} while(0)
 #define YILOG_INFO(...)
 #define YILOG_WARN(...)
 #define YILOG_ERROR(...)
 #define YILOG_CRITICAL(...)
 #else
-#define YILOG_TRACE(...)
+#define YILOG_TRACE(...) 
 #define YILOG_DEBUG(...)
 #define YILOG_INFO(...)
 #define YILOG_WARN(...)

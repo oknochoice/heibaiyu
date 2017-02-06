@@ -39,7 +39,6 @@ void buffer::reset() {
 buffer::~buffer() {
 
   YILOG_TRACE("func: {}", __func__);
-  YILOG_DEBUG("func: {}", __func__);
 
   free(header_pos_);
 
@@ -84,11 +83,9 @@ bool buffer::socket_read(SSL * sfd) {
       current_pos_ += readed;
       parse_length_ -= readed;
       int loopCount = current_pos_ - header_pos_ - SESSIONID_LENGTH - MSG_TYPE_LENGTH;
-      YILOG_DEBUG ("loopCount:{}", loopCount);
       if (loopCount > 0) {
         for (int i = 0; i < loopCount; ++i) {
           uint8_t checkbit = *(header_pos_ + SESSIONID_LENGTH + VAR_LENGTH + i);
-          YILOG_DEBUG ("checkbit:{}", checkbit);
           if (checkbit >> 7 == 0) {
             isParseMsgReaded_ = true;
             break;
@@ -103,7 +100,6 @@ bool buffer::socket_read(SSL * sfd) {
       YILOG_TRACE ("func: {}, parse header", __func__);
       // session id
       uint16_t session_net = *reinterpret_cast<uint16_t*>(header_pos_);
-      YILOG_DEBUG ("session id : {}", session_net);
       session_id_ = ntohs(session_net);
       // type
       data_type_ =  *(header_pos_ + SESSIONID_LENGTH);
@@ -208,9 +204,9 @@ uint16_t buffer::session_id() {
   return session_id_;
 }
 void buffer::set_sessionid(uint16_t sessionid) {
+  YILOG_TRACE("func: {}", __func__);
   uint16_t sessionid_l= htons(sessionid);
   memcpy(header_pos_, &sessionid_l, 2);
-  YILOG_DEBUG ("session id : {}", *reinterpret_cast<uint16_t*>(header_pos_));
   session_id_ = sessionid;
 }
 
