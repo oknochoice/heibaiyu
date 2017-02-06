@@ -13,7 +13,6 @@ import SwiftyTimer
 import Reachability
 let blog = XCGLogger.default
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,19 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // log
     let blogpath = Bundle.main.resourcePath?.appending("xcglog")
+    //let blogpath = "/Users/jiwei.wang/Desktop/xcglog"
+#if DEBUG
     blog.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .debug)
+#else
+    blog.setup(level: .none, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .none)
+#endif
     /*
     let console = ConsoleDestination()  // log to Xcode Console
     let file = FileDestination()  // log to default swiftybeaver.log file
     let cloud = SBPlatformDestination(appID: "0G8Zdw", appSecret: "fUztpslboizfwDw968gabnktxe4homhx", encryptionKey: "9tPMxajdieYxscqnncnnq6bhxyrpD0ai") // to cloud
-    console.format = "$DHH:mm:ss$d $L $M"
-    file.format = "$DHH:mm:ss$d $L $M"
-    cloud.format = "$DHH:mm:ss$d $L $M"
+    console.format = "$C$F$c$DHH:mm:ss$d $T $L $M$c"
+    file.format = "$C$DHH:mm:ss$d $T $L $M$c"
+    cloud.format = "$C$DHH:mm:ss$d $T $L $M$c"
     blog.addDestination(console)
     blog.addDestination(file)
     blog.addDestination(cloud)
-    blog.verbose("blog is ok")
  */
+    blog.verbose("blog is ok")
     // bundle language
     Bundle.setLanguage("zh-Hans")
     // net whether reachable
@@ -60,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  func startNetyi() {
+  func startNetyi() throws {
     // netyi config
     var mainpath = Bundle.main.bundlePath
     mainpath.append("/root-ca.crt")
@@ -69,14 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }else {
       var ping = Chat_Ping()
       ping.msg = "ping"
-      var ping_string = String()
-      do {
-        let data = try ping.serializeProtobuf()
-        ping_string = String(data: data, encoding: .utf8)!
-      }catch {
-        blog.debug(error)
-      }
-      netyiwarpper.openyi_netWithcert(mainpath, with: ping_string, with: { [weak self] in
+      let data = try ping.serializeProtobuf()
+      netyiwarpper.openyi_netWithcert(mainpath, with: data, with: { [weak self] in
         DispatchQueue.main.async { [weak self] in
           NotificationCenter.default.post(name: (self?.connectNoti)!, object: self!, userInfo:nil)
         }
@@ -96,17 +94,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func reachableCheck(note: NSNotification) {
     let reachability = note.object as! Reachability
     DispatchQueue.main.async { [weak self] in
-      if reachability.isReachable {
-        self!.startNetyi();
-        //
-        if reachability.isReachableViaWiFi {
-          blog.debug("Reachable via WiFi")
+      do {
+        if reachability.isReachable {
+          try self!.startNetyi();
+          //
+          if reachability.isReachableViaWiFi {
+            blog.debug("Reachable via WiFi")
+          } else {
+            blog.debug("Reachable via Cellular")
+          }
         } else {
-          blog.debug("Reachable via Cellular")
+          netyiwarpper.netyi_net_isConnect(false)
+          blog.debug("Network not reachable")
         }
-      } else {
-        netyiwarpper.netyi_net_isConnect(false)
-        blog.debug("Network not reachable")
+      }catch {
+        print(error)
       }
     }
   }

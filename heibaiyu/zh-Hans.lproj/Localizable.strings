@@ -13,4 +13,6 @@
 "signup_regetVerifycode" = "重新获取";
 "signup_sendVerifycode" = "发送验证码";
 "signup_password_limit" = "密码必须长度>=6";
+"signup_success" = "注册成功";
+
 

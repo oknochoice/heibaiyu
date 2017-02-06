@@ -32,7 +32,7 @@ class SigninController: UIViewController {
     signin.device = device
     do {
       let data = try signin.serializeProtobuf()
-      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: String(data: data, encoding: .utf8)!, cb: { (type, sdata, isStop) in
+      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: data, cb: { (type, sdata, isStop) in
         
       })
     } catch {

@@ -18,11 +18,7 @@
 		2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E1941E40A1C60055136C /* SwiftTimer.swift */; };
 		2373E19D1E40A7920055136C /* nettype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19C1E40A7920055136C /* nettype.swift */; };
 		2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19F1E4175E40055136C /* IndicatorButton.swift */; };
-		238D43E81E45C73000DB9F03 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43E71E45C73000DB9F03 /* Reachability.framework */; };
-		238D43E91E45C73000DB9F03 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43E71E45C73000DB9F03 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		238D43EB1E46329800DB9F03 /* whisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43EA1E46329800DB9F03 /* whisper.swift */; };
-		238D43ED1E46C50600DB9F03 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43EC1E46C50600DB9F03 /* XCGLogger.framework */; };
-		238D43EE1E46C50600DB9F03 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 238D43EC1E46C50600DB9F03 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		238D43F11E46CC5A00DB9F03 /* leveldbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 238D43EF1E46CC5A00DB9F03 /* leveldbwarpper.mm */; };
 		238D43F31E46E3A500DB9F03 /* leveldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F21E46E3A500DB9F03 /* leveldb.swift */; };
 		238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F41E47538C00DB9F03 /* typemap.cxx */; };
@@ -65,6 +61,12 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
+		A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; };
+		A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A468CEFE1E4858650017D266 /* genImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468CEFD1E4858650017D266 /* genImage.swift */; };
+		A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; };
+		A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CF031E488D250017D266 /* XCGLogger.framework */; };
 		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */; };
@@ -106,13 +108,13 @@
 				23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */,
 				23A8818A1E3673FF0023B421 /* EasyTipView.framework in Embed Frameworks */,
 				23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */,
+				A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */,
 				23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */,
-				238D43E91E45C73000DB9F03 /* Reachability.framework in Embed Frameworks */,
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
-				238D43EE1E46C50600DB9F03 /* XCGLogger.framework in Embed Frameworks */,
+				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,9 +136,7 @@
 		2373E1941E40A1C60055136C /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
 		2373E19C1E40A7920055136C /* nettype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nettype.swift; sourceTree = "<group>"; };
 		2373E19F1E4175E40055136C /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
-		238D43E71E45C73000DB9F03 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		238D43EA1E46329800DB9F03 /* whisper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whisper.swift; sourceTree = "<group>"; };
-		238D43EC1E46C50600DB9F03 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		238D43EF1E46CC5A00DB9F03 /* leveldbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = leveldbwarpper.mm; sourceTree = "<group>"; };
 		238D43F01E46CC5A00DB9F03 /* leveldbwarpper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leveldbwarpper.h; sourceTree = "<group>"; };
 		238D43F21E46E3A500DB9F03 /* leveldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leveldb.swift; sourceTree = "<group>"; };
@@ -167,6 +167,10 @@
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A468CEEF1E3892990017D266 /* netyiwarpper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = netyiwarpper.h; sourceTree = "<group>"; };
+		A468CEF01E4845910017D266 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
+		A468CEFD1E4858650017D266 /* genImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genImage.swift; sourceTree = "<group>"; };
+		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cpp; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
 				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
+				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
 				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
@@ -311,9 +316,9 @@
 				23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
-				238D43ED1E46C50600DB9F03 /* XCGLogger.framework in Frameworks */,
+				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
-				238D43E81E45C73000DB9F03 /* Reachability.framework in Frameworks */,
+				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
 				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
 				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
@@ -327,8 +332,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				238D43EC1E46C50600DB9F03 /* XCGLogger.framework */,
-				238D43E71E45C73000DB9F03 /* Reachability.framework */,
+				A468CF031E488D250017D266 /* XCGLogger.framework */,
+				A468CEF01E4845910017D266 /* Reachability.framework */,
 				23A881D81E368B340023B421 /* Chatto.framework */,
 				23A881D91E368B340023B421 /* ChattoAdditions.framework */,
 				23A8816B1E3673FF0023B421 /* ActiveLabel.framework */,
@@ -464,6 +469,7 @@
 		A4A66CE21E31E63C001A25D7 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				A468CEFD1E4858650017D266 /* genImage.swift */,
 				2373E14B1E3E43870055136C /* genColors.swift */,
 				2373E14C1E3E43870055136C /* genL10n.swift */,
 				2373E14D1E3E43870055136C /* genStoryboards.swift */,
@@ -508,6 +514,7 @@
 		A4A6DE411E3886C6003871B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A468CEF61E484A440017D266 /* XCGLogger.framework */,
 				A4A6DE441E388B74003871B1 /* libstdc++.tbd */,
 				A4A6DE421E3886C6003871B1 /* libc++.tbd */,
 			);
@@ -716,7 +723,7 @@
 				TargetAttributes = {
 					A402B7331E2DF84200DA2C56 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WXN2XA3VYP;
+						DevelopmentTeam = CCRDWC7H7F;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -782,6 +789,7 @@
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
+				A468CEFE1E4858650017D266 /* genImage.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				2373E1501E3E43870055136C /* genStoryboards.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
@@ -842,6 +850,7 @@
 		A402B75A1E2DF84200DA2C56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -863,6 +872,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -892,6 +902,7 @@
 		A402B75B1E2DF84200DA2C56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -913,6 +924,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -935,12 +947,15 @@
 		A402B75D1E2DF84200DA2C56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -967,6 +982,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -977,12 +994,15 @@
 		A402B75E1E2DF84200DA2C56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1009,6 +1029,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yijian.heibaiyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -13,6 +13,7 @@
 #include "buffer_yi.h"
 #include <string>
 #include "typemap.h"
+#include <iostream>
 
 static netyi * netyic = nullptr;
 static bool isNetWorking_ = false;
@@ -24,10 +25,10 @@ static bool isNetWorking_ = false;
 @end
 
 @implementation netyiwarpper
-+ (void)openyi_netWithcert:(NSString *)certpath with:(NSString *)ping with:(IsConnectSuccess)isSuccess with:(Error_Block)error {
++ (void)openyi_netWithcert:(NSString *)certpath with:(NSData *)ping with:(IsConnectSuccess)isSuccess with:(Error_Block)error {
   netyic = new netyi(std::string([certpath UTF8String]));
   netyic->setNetIsReachable(true);
-  netyic->net_connect(yijian::buffer::Buffer(ChatType::ping, std::string([ping UTF8String])) ,
+  netyic->net_connect(yijian::buffer::Buffer(ChatType::ping, std::string((char*)ping.bytes, ping.length)) ,
     isSuccess, [=](int error_no, std::string error_msg) {
     error(error_no, [NSString stringWithCString:error_msg.c_str() encoding:NSUTF8StringEncoding]);
   });
@@ -45,40 +46,40 @@ static bool isNetWorking_ = false;
   delete netyic;
   netyic = nullptr;
 }
-+ (void)netyi_signup_login_connectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
++ (void)netyi_signup_login_connectWith:(const uint8_t)type data:(NSData * )data cb:(Net_CB)callback {
   if (isNetWorking_ && netyic) {
-    netyic->signup_login_connect(yijian::buffer::Buffer(type, std::string([data UTF8String])),
+    netyic->signup_login_connect(yijian::buffer::Buffer(type, std::string((char*)data.bytes, data.length)),
                                  [=](uint8_t type, std::string & data, bool * isStop){
-                                   callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
+                                   callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
                                  });
   }else {
     bool isStop;
-    callback(255, @"net is not working", &isStop);
+    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
   }
 }
-+ (void)netyi_logout_disconnectWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
++ (void)netyi_logout_disconnectWith:(const uint8_t)type data:(NSData * )data cb:(Net_CB)callback {
   if (isNetWorking_ && netyic) {
-    netyic->logout_disconnect(yijian::buffer::Buffer(type, std::string([data UTF8String])),
+    netyic->logout_disconnect(yijian::buffer::Buffer(type, std::string((char*)data.bytes, data.length)),
        [=](uint8_t type, std::string & data, bool * isStop){
-         callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
+         callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
     bool isStop;
-    callback(255, @"net is not working", &isStop);
+    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
   }
 }
-+ (int32_t)netyi_sendWith:(const uint8_t)type data:(NSString * )data cb:(Net_CB)callback {
++ (int32_t)netyi_sendWith:(const uint8_t)type data:(NSData * )data cb:(Net_CB)callback {
   // 用来查看消息丢失 重发
   if (isNetWorking_ && netyic) {
     int32_t temp_session = 0;
-    netyic->send_buffer(yijian::buffer::Buffer(type, std::string([data UTF8String])), &temp_session,
+    netyic->send_buffer(yijian::buffer::Buffer(type, std::string((char*)data.bytes, data.length)), &temp_session,
        [=](uint8_t type, std::string & data, bool * isStop){
-         callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
+         callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
     return temp_session;
   }else {
     bool isStop;
-    callback(255, @"net is not working", &isStop);
+    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
     return 0;
   }
 }
@@ -86,22 +87,22 @@ static bool isNetWorking_ = false;
   if (isNetWorking_ && netyic) {
     netyic->acceptUnreadMsg(
        [=](uint8_t type, std::string & data, bool * isStop){
-         callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
+         callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
     bool isStop;
-    callback(255, @"net is not working", &isStop);
+    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
   }
 }
 + (void)netyi_userinfo_notiWith:(Net_CB)callback {
   if (isNetWorking_ && netyic) {
     netyic->userInfoNoti(
        [=](uint8_t type, std::string & data, bool * isStop){
-         callback(type, [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding], isStop);
+         callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
     bool isStop;
-    callback(255, @"net is not working", &isStop);
+    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
   }
 }
 @end

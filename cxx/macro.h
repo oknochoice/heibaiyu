@@ -34,7 +34,7 @@ public:
 void initConsoleLog();
 
 #ifdef DEBUG
-#define YILOG_ON
+//#define YILOG_ON
 #endif
 
 #ifdef YILOG_ON

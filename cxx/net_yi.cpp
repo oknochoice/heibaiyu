@@ -17,8 +17,6 @@ enum Session_ID : int32_t {
 netyi::netyi(std::string certpath):
   certpath_(certpath){
   YILOG_TRACE ("func: {}", __func__);
-  std::cout << "func: " << __func__ << std::endl;
-  YILOG_DEBUG("AD %s, %d", "auok", 1);
 }
 
 void netyi::setNetIsReachable(bool isReachable) {

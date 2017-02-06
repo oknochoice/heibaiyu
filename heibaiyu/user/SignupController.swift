@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DynamicColor
 import Whisper
 
 class SignupController: UIViewController {
@@ -32,6 +31,7 @@ class SignupController: UIViewController {
     initui()
     countdownInit()
     verifyButton.addTarget(self, action: #selector(self.reGetVerifycode), for: UIControlEvents.touchUpInside)
+    signup.addTarget(self, action: #selector(self.signupTouchupin(_:)), for: UIControlEvents.touchUpInside)
     
   }
   
@@ -40,9 +40,18 @@ class SignupController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
   
+  func enroll(user: inout Chat_Register, isCheck:Bool) {
   
+  }
   
-  @IBAction func signup(_ sender: UIButton) {
+  func signupTouchupin(_ sender: IndicatorButton) throws {
+    
+    var signup_data = Chat_Register()
+    signup_data.countryCode = "86"
+    signup_data.phoneNo = phoneno.text!
+    signup_data.nickname = phoneno.text!
+    signup_data.password = password.text!
+    signup_data.verifycode = verifycode.text!
     
     if signup.title(for: UIControlState.normal) == L10n.signupSignup {
       if password.text!.lengthOfBytes(using: .utf8) < 6 {
@@ -50,32 +59,60 @@ class SignupController: UIViewController {
         Whisper.show(whistle: mur, action: .show(1.5))
         return
       }else {
-        getVerifycode()
-      }
-    }else {
-      var signup = Chat_Register()
-      signup.countryCode = "86"
-      signup.phoneNo = phoneno.text!
-      signup.nickname = phoneno.text!
-      signup.password = password.text!
-      signup.verifycode = verifycode.text!
-      
-      do {
-        let data = try signup.serializeProtobuf()
-        let sdata = String(data: data, encoding: String.Encoding.utf8)
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: sdata!, cb: { (type, indata, isStop) in
+        signup.startAnimation()
+        phoneno.isEnabled = false
+        password.isEnabled = false
+        password.isSecureTextEntry = true
+        let data = try signup_data.serializeProtobuf()
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
           //blog.debug(data)
           do {
-            let signupRes = try Chat_RegisterRes(protobuf: indata.data(using: .utf8)!)
+            let signupRes = try Chat_RegisterRes(protobuf: indata)
             let json = try signupRes.serializeJSON()
             blog.debug(json)
+            if signupRes.isSuccess {
+              DispatchQueue.main.async {
+                self.signup.title(title: L10n.signupSendVerifycode)
+                self.verifyHeight.constant = 30
+                self.signup.stopAnimation()
+                self.countdownTimer.start()
+              }
+            }else {
+              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
+              DispatchQueue.main.async {
+                Whisper.show(whistle: mur, action: .show(1.5))
+                self.phoneno.isEnabled = true
+                self.password.isEnabled = true
+                self.password.isSecureTextEntry = false
+                self.signup.stopAnimation()
+              }
+            }
           } catch {
             blog.debug(error)
           }
         })
-      } catch {
-        blog.debug(error)
       }
+    }else {
+        let data = try signup_data.serializeProtobuf()
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
+          //blog.debug(data)
+        DispatchQueue.main.async {
+          do {
+            let signupRes = try Chat_RegisterRes(protobuf: indata)
+            let json = try signupRes.serializeJSON()
+            blog.debug(json)
+            if signupRes.isSuccess {
+                let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
+                  Whisper.show(whistle: mur, action: .show(1))
+            }else {
+                let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
+                Whisper.show(whistle: mur, action: .show(1.5))
+            }
+          } catch {
+            blog.debug(error)
+          }
+        }
+        })
     }
   }
   
@@ -102,17 +139,41 @@ class SignupController: UIViewController {
     countdownTimer.start()
   }
   func getVerifycode() {
-    signup.startAnimation()
-    phoneno.isEnabled = false
-    password.isEnabled = false
-    password.isSecureTextEntry = true
+    /*
+    do {
+      let data = try signup_data.serializeProtobuf()
+      let sdata = String(data: data, encoding: String.Encoding.utf8)
+      netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: sdata!, cb: { (type, indata, isStop) in
+        //blog.debug(data)
+        do {
+          let signupRes = try Chat_RegisterRes(protobuf: indata.data(using: .utf8)!)
+          let json = try signupRes.serializeJSON()
+          blog.debug(json)
+          if signupRes.isSuccess {
+            DispatchQueue.main.async {
+              let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
+              if isCheck {
+              }else {
+                Whisper.show(whistle: mur, action: .show(1))
+              }
+            }
+          }else {
+            DispatchQueue.main.async {
+              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
+              Whisper.show(whistle: mur, action: .show(1.5))
+            }
+          }
+        } catch {
+          blog.debug(error)
+        }
+      })
+    } catch {
+      blog.debug(error)
+    }
     let delay = DispatchTime.now() + .seconds(3)
     DispatchQueue.main.asyncAfter(deadline: delay) { 
-      self.signup.title(title: L10n.signupSendVerifycode)
-      self.verifyHeight.constant = 30
-      self.signup.stopAnimation()
-      self.countdownTimer.start()
     }
+ */
   }
     /*
     // MARK: - Navigation

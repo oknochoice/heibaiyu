@@ -14,3 +14,9 @@ public extension Murmur {
     self.init(title: title, backgroundColor: backcolor, titleColor: .white, font: UIFont.systemFont(ofSize: 12), action: nil)
   }
 }
+
+public extension Announcement {
+  public init(title: String, subtitle:String?, image: UIImage?) {
+    self.init(title: title, subtitle: subtitle, image: image, duration: 2, action: nil)
+  }
+}

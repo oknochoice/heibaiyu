@@ -21,6 +21,8 @@ enum L10n {
   static let signupSendVerifycode = L10n.tr("signup_sendVerifycode")
   /// 注册
   static let signupSignup = L10n.tr("signup_signup")
+  /// 注册成功
+  static let signupSuccess = L10n.tr("signup_success")
 }
 
 extension L10n {
