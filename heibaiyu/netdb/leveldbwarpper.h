@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)open_dbWith:(NSString*)path;
 + (void)close_db;
-+ (BOOL)db_putWith:(NSString*)key Data:(NSString*)data;
-+ (nullable NSString*)db_getWith:(NSString*)key;
++ (BOOL)db_putWith:(NSString*)key Data:(NSData*)data;
++ (nullable NSData*)db_getWith:(NSString*)key;
 + (BOOL)db_deleteWith:(NSString*)key;
 
 @end

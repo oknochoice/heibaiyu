@@ -22,6 +22,7 @@
 		238D43F11E46CC5A00DB9F03 /* leveldbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 238D43EF1E46CC5A00DB9F03 /* leveldbwarpper.mm */; };
 		238D43F31E46E3A500DB9F03 /* leveldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F21E46E3A500DB9F03 /* leveldb.swift */; };
 		238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F41E47538C00DB9F03 /* typemap.cxx */; };
+		238D43F71E48D5C000DB9F03 /* userinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F61E48D5C000DB9F03 /* userinfo.swift */; };
 		23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; };
 		23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881831E3673FF0023B421 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; };
@@ -141,6 +142,7 @@
 		238D43F01E46CC5A00DB9F03 /* leveldbwarpper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leveldbwarpper.h; sourceTree = "<group>"; };
 		238D43F21E46E3A500DB9F03 /* leveldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leveldb.swift; sourceTree = "<group>"; };
 		238D43F41E47538C00DB9F03 /* typemap.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = typemap.cxx; sourceTree = "<group>"; };
+		238D43F61E48D5C000DB9F03 /* userinfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userinfo.swift; sourceTree = "<group>"; };
 		23A8816B1E3673FF0023B421 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
 		23A8816D1E3673FF0023B421 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		23A8816E1E3673FF0023B421 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				23A881D31E3687270023B421 /* SigninController.swift */,
 				23A881D41E3687270023B421 /* SignupController.swift */,
 				A47A62D61E36F50500E80F32 /* friendsController.swift */,
+				238D43F61E48D5C000DB9F03 /* userinfo.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
+				238D43F71E48D5C000DB9F03 /* userinfo.swift in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				238D43F31E46E3A500DB9F03 /* leveldb.swift in Sources */,
 				A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */,

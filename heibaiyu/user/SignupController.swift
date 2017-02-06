@@ -8,6 +8,7 @@
 
 import UIKit
 import Whisper
+import Device
 
 class SignupController: UIViewController {
 
@@ -97,22 +98,52 @@ class SignupController: UIViewController {
         netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
           //blog.debug(data)
         DispatchQueue.main.async {
-          do {
-            let signupRes = try Chat_RegisterRes(protobuf: indata)
-            let json = try signupRes.serializeJSON()
-            blog.debug(json)
-            if signupRes.isSuccess {
-                let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
-                  Whisper.show(whistle: mur, action: .show(1))
-            }else {
-                let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
-                Whisper.show(whistle: mur, action: .show(1.5))
+          if let signupRes = try? Chat_RegisterRes(protobuf: indata) {
+            if let json = try? signupRes.serializeJSON() {
+              blog.debug(json)
             }
-          } catch {
-            blog.debug(error)
+            if signupRes.isSuccess {
+              let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
+              Whisper.show(whistle: mur, action: .show(1))
+              self.login()
+            }else {
+              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
+              Whisper.show(whistle: mur, action: .show(1.5))
+            }
           }
         }
         })
+    }
+  }
+  
+  func login() {
+    // login
+    var login = Chat_Login()
+    login.phoneNo = self.phoneno.text!
+    login.countryCode = "86"
+    login.password = self.password.text!
+    login.device = Chat_Device()
+    login.device.os = Chat_Device.OperatingSystem.iOs
+    login.device.deviceModel = Device.version().rawValue
+    if let logindata = try? login.serializeProtobuf() {
+      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { (type, data, isStop) in
+        if let res = try? Chat_LoginRes(protobuf: data) {
+          if res.isSuccess == true {
+            leveldb.sharedInstance.putCurrentUserid(userid: res.userId)
+            self.connect()
+          }
+        }
+      })
+    }
+  }
+  
+  func connect() {
+    if let clientConnect = userinfo.get() {
+      if let data = try? clientConnect.serializeProtobuf() {
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: { (type, data, isStop) in
+          continue
+        })
+      }
     }
   }
   

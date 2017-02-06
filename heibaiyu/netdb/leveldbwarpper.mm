@@ -29,19 +29,19 @@ static leveldb::DB * db_;
   delete db_;
   db_ = nullptr;
 }
-+ (BOOL)db_putWith:(NSString*)key Data:(NSString*)data {
-  auto status = db_->Put(leveldb::WriteOptions(), std::string([key UTF8String]), std::string([data UTF8String]));
++ (BOOL)db_putWith:(NSString*)key Data:(NSData*)data {
+  auto status = db_->Put(leveldb::WriteOptions(), std::string([key UTF8String]), std::string((char*)data.bytes, data.length));
   if (status.ok()) {
     return true;
   }else {
     return false;
   }
 }
-+ (NSString*)db_getWith:(NSString*)key {
++ (NSData*)db_getWith:(NSString*)key {
   std::string data;
   auto status = db_->Get(leveldb::ReadOptions(), std::string([key  UTF8String]), &data);
   if (status.ok()) {
-    return [NSString stringWithCString:data.c_str() encoding: NSUTF8StringEncoding];
+    return [NSData dataWithBytes:data.c_str() length:data.size()];
   }else{
     return nil;
   }

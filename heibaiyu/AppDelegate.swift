@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // log
-    let blogpath = Bundle.main.resourcePath?.appending("xcglog")
+    let blogpath = Bundle.main.resourcePath?.appending("/xcglog")
     //let blogpath = "/Users/jiwei.wang/Desktop/xcglog"
 #if DEBUG
     blog.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .debug)
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     blog.addDestination(file)
     blog.addDestination(cloud)
  */
-    blog.verbose("blog is ok")
+    blog.verbose("blog path \(blogpath)")
     // bundle language
     Bundle.setLanguage("zh-Hans")
     // net whether reachable

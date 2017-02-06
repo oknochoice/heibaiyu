@@ -9,10 +9,16 @@
 import Foundation
 
 public class leveldb {
-  func open(path: String) -> Bool {
-    return leveldbwarpper.open_db(with: path)
+  static let sharedInstance: leveldb = {
+    var instance = leveldb()
+    return instance
+  }()
+  init() {
+    let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
+    let path = document.appending("/level.db")
+    leveldbwarpper.open_db(with: path)
   }
-  func close() {
+  deinit {
     leveldbwarpper.close_db()
   }
   // user
@@ -22,22 +28,24 @@ public class leveldb {
   func userKey(phone:String, countryCode: String) -> String {
     return "p_" + countryCode + "_" + phone
   }
+  func currentUserKey() -> String {
+    return "current_user"
+  }
   func put(user: Chat_User) {
     do {
       let data = try user.serializeProtobuf()
-      let string_data = String(data: data, encoding: .utf8)!
       let userid = userKey(id: user.id)
       let phone = userKey(phone: user.phoneNo, countryCode: user.countryCode)
-      leveldbwarpper.db_put(with: phone, data: userid)
-      leveldbwarpper.db_put(with: userid, data: string_data)
+      leveldbwarpper.db_put(with: phone, data: userid.data(using: .utf8)!)
+      leveldbwarpper.db_put(with: userid, data: data)
     } catch {
       blog.debug(error)
     }
   }
   func get(id: String) -> Chat_User? {
     do {
-      let s_data = leveldbwarpper.db_get(with: id)
-      let user = try Chat_User(protobuf: s_data!.data(using: .utf8)!)
+      let data = leveldbwarpper.db_get(with: id)
+      let user = try Chat_User(protobuf: data!)
       return user
     } catch {
       blog.debug(error)
@@ -46,11 +54,36 @@ public class leveldb {
   }
   func get(phone: String, countryCode: String) -> Chat_User? {
     do {
-      let key = leveldbwarpper.db_get(with: userKey(phone: phone, countryCode: countryCode))
-      return get(id: key!)
+      if let key = leveldbwarpper.db_get(with: userKey(phone: phone, countryCode: countryCode)) {
+        if let re = get(id: String(data: key, encoding: .utf8)!) {
+          return re
+        }
+      }
+      return nil
     } catch {
       blog.debug(error)
       return nil
     }
+  }
+  func getCurrentUserid() -> String? {
+    if let data = leveldbwarpper.db_get(with: currentUserKey()) {
+      return String(data: data, encoding: .utf8)
+    }
+    return nil
+  }
+  func putCurrentUserid(userid: String) {
+    leveldbwarpper.db_put(with: currentUserKey(), data: userid.data(using: .utf8)!)
+  }
+  func putCurrentUser(user: Chat_User) {
+    put(user: user)
+    putCurrentUserid(userid: user.id)
+  }
+  func getCurrentUser() -> Chat_User? {
+    if let data = leveldbwarpper.db_get(with: currentUserKey()) {
+      if let re = get(id: String(data: data, encoding: .utf8)!) {
+        return re
+      }
+    }
+    return nil
   }
 }
