@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class searchController: UIViewController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.title = L10n.searchAddFriend
+  }
+}

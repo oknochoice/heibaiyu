@@ -74,6 +74,15 @@ struct StoryboardScene {
       return vc
     }
 
+    case searchControllerScene = "searchController"
+    static func instantiateSearchController() -> heibaiyu.searchController {
+      guard let vc = StoryboardScene.Main.searchControllerScene.viewController() as? heibaiyu.searchController
+      else {
+        fatalError("ViewController 'searchController' is not of the expected class heibaiyu.searchController.")
+      }
+      return vc
+    }
+
     case tabbarControllerScene = "tabbarController"
     static func instantiateTabbarController() -> UITabBarController {
       guard let vc = StoryboardScene.Main.tabbarControllerScene.viewController() as? UITabBarController

@@ -63,8 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     let barAppearace = UINavigationBar.appearance()
-    barAppearace.barTintColor = UIColor(named: .congqian)
+    barAppearace.barTintColor = UIColor(named: .qincong)
     barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+    barAppearace.tintColor = UIColor.white
     window?.rootViewController = rootvc
     return true
   }

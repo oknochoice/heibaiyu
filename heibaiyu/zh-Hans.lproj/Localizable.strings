@@ -16,4 +16,8 @@
 "signup_success" = "注册成功";
 "signup_verifiycoe_limit" = "验证码长度需>=4";
 
+/* 搜索
+ */
+"search_addFriend" = "添加好友";
+
 

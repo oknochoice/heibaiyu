@@ -17,6 +17,7 @@ class friendsController: UIViewController {
   }
 
   @IBAction func addFriend(_ sender: UIBarButtonItem) {
+    self.navigationController?.pushViewController(StoryboardScene.Main.instantiateSearchController(), animated: true)
   }
     
   //MARK: - delegate datasource

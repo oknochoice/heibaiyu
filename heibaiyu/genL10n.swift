@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable valid_docs
 
 enum L10n {
+  /// 添加好友
+  static let searchAddFriend = L10n.tr("search_addFriend")
   /// 获取验证码
   static let signupGetVerifycode = L10n.tr("signup_getVerifycode")
   /// 密码长度需>=6
