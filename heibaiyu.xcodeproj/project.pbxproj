@@ -89,6 +89,9 @@
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
 		A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD151E2F80EE00E7BE41 /* libmemenv.a */; };
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
+		A4E75A4F1E49598700C5FC66 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A4E1E49598700C5FC66 /* error.swift */; };
+		A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A501E499A2C00C5FC66 /* addFriendController.swift */; };
+		A4E75A531E49BB7B00C5FC66 /* searchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A521E49BB7B00C5FC66 /* searchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -293,6 +296,9 @@
 		A4ACAD1A1E2F80EE00E7BE41 /* table_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_builder.h; sourceTree = "<group>"; };
 		A4ACAD1B1E2F80EE00E7BE41 /* write_batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_batch.h; sourceTree = "<group>"; };
 		A4ACAD221E2F8E5C00E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
+		A4E75A4E1E49598700C5FC66 /* error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
+		A4E75A501E499A2C00C5FC66 /* addFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addFriendController.swift; sourceTree = "<group>"; };
+		A4E75A521E49BB7B00C5FC66 /* searchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +414,7 @@
 				23A881D31E3687270023B421 /* SigninController.swift */,
 				23A881D41E3687270023B421 /* SignupController.swift */,
 				A47A62D61E36F50500E80F32 /* friendsController.swift */,
+				A4E75A501E499A2C00C5FC66 /* addFriendController.swift */,
 				238D43F61E48D5C000DB9F03 /* userinfo.swift */,
 			);
 			path = user;
@@ -476,6 +483,8 @@
 				2373E14B1E3E43870055136C /* genColors.swift */,
 				2373E14C1E3E43870055136C /* genL10n.swift */,
 				2373E14D1E3E43870055136C /* genStoryboards.swift */,
+				A4E75A4E1E49598700C5FC66 /* error.swift */,
+				A4E75A521E49BB7B00C5FC66 /* searchController.swift */,
 				A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */,
 				A402B73E1E2DF84200DA2C56 /* Assets.xcassets */,
 				A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */,
@@ -788,6 +797,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E75A4F1E49598700C5FC66 /* error.swift in Sources */,
 				2373E19D1E40A7920055136C /* nettype.swift in Sources */,
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
@@ -807,11 +817,13 @@
 				2373E15C1E3F361B0055136C /* button.swift in Sources */,
 				2373E15A1E3F293F0055136C /* NSBundle+language.m in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
+				A4E75A531E49BB7B00C5FC66 /* searchController.swift in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
 				238D43F11E46CC5A00DB9F03 /* leveldbwarpper.mm in Sources */,
 				2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */,
 				A4A6DE3D1E3877EE003871B1 /* netyiwarpper.mm in Sources */,
 				2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */,
+				A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				238D43F71E48D5C000DB9F03 /* userinfo.swift in Sources */,

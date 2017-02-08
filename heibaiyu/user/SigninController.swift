@@ -18,26 +18,85 @@ class SigninController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+      let tap = UITapGestureRecognizer(target: self, action: #selector(resignFirstResponse))
+      self.view.addGestureRecognizer(tap)
+      if (self.phoneno.text?.isEmpty)! {
+        self.phoneno.becomeFirstResponder()
+      }else {
+        self.password.becomeFirstResponder()
+      }
     }
+  func resignFirstResponse() {
+    self.phoneno.resignFirstResponder()
+    self.password.resignFirstResponder()
+  }
 
+  @IBAction func enroll(_ sender: UIButton) {
+    self.present(StoryboardScene.Main.instantiateSignupController(), animated: true, completion: nil)
+  }
   @IBAction func signin(_ sender: IndicatorButton) {
     var device = Chat_Device()
     device.os = Chat_Device.OperatingSystem.iOs
     device.deviceModel = Device.version().rawValue
-    device.uuid = UUID().uuidString
+    device.uuid = (UIDevice.current.identifierForVendor?.uuidString)!
     var signin = Chat_Login()
     signin.countryCode = "86"
     signin.phoneNo = phoneno.text!
     signin.password = password.text!
     signin.device = device
-    do {
-      let data = try signin.serializeProtobuf()
-      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: data, cb: { (type, sdata, isStop) in
-        
+    if let logindata = try? signin.serializeProtobuf() {
+      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { [weak self] (type, data, isStop) in
+      DispatchQueue.main.async {[weak self] in
+        if let res = try? Chat_LoginRes(protobuf: data) {
+          blog.verbose(try! res.serializeAnyJSON())
+          if res.isSuccess == true {
+            leveldb.sharedInstance.putCurrentUserid(userid: res.userId)
+            self!.connect()
+          }
+        }
+      }
       })
-    } catch {
-      blog.debug(error)
     }
+  }
+  
+  func connect() {
+    if let clientConnect = userinfo.getConnect() {
+      if let data = try? clientConnect.serializeProtobuf() {
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: {[weak self] (type, data, isStop) in
+        DispatchQueue.main.async {[weak self] in
+          if ChatType.clientconnectres.rawValue == type {
+            if let res = try? Chat_ClientConnectRes(protobuf: data) {
+              blog.verbose(try! res.serializeAnyJSON())
+              if res.isSuccess {
+                self!.getUser()
+              }else {
+                errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
+              }
+            }
+          }
+        }   
+        })
+      }
+    }
+  }
+  
+  func getUser() {
+    var query = Chat_QueryUser()
+    query.userId = leveldb.sharedInstance.getCurrentUserid()!
+    let userdata = try! query.serializeProtobuf()
+    netyiwarpper.netyi_send(with: ChatType.queryuser.rawValue, data: userdata) { (type, data, isStop) in
+      DispatchQueue.main.async {
+        if ChatType.error.rawValue == type {
+          let err = try! Chat_Error(protobuf: data)
+          errorLocal.error(err_no: err.errnum, orMsg: err.errmsg)
+        }else {
+          let res = try! Chat_QueryUserRes(protobuf: data)
+          leveldb.sharedInstance.putUser(user: res.user)
+          blog.verbose(try! res.serializeAnyJSON())
+        }
+      }
+    }
+    
   }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

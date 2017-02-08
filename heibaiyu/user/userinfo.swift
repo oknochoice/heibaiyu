@@ -9,12 +9,13 @@
 import Foundation
 
 public class userinfo {
-  static func get() -> Chat_ClientConnect? {
+  static func getConnect() -> Chat_ClientConnect? {
     var connect = Chat_ClientConnect()
     if let userid = leveldb.sharedInstance.getCurrentUserid() {
       if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
         connect.userId = userid
-        connect.uuid = UUID().uuidString
+        connect.uuid = UIDevice.current.identifierForVendor!.uuidString
+        connect.isReciveNoti = true
         connect.osversion = UIDevice.current.systemVersion
         connect.appVersion = version
         return connect;
@@ -22,4 +23,8 @@ public class userinfo {
     }
     return nil
   }
+  static func getUser() -> Chat_User? {
+    return nil
+  }
+  
 }

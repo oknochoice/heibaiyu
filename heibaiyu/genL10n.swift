@@ -13,7 +13,7 @@ import Foundation
 enum L10n {
   /// 获取验证码
   static let signupGetVerifycode = L10n.tr("signup_getVerifycode")
-  /// 密码必须长度>=6
+  /// 密码长度需>=6
   static let signupPasswordLimit = L10n.tr("signup_password_limit")
   /// 重新获取
   static let signupRegetVerifycode = L10n.tr("signup_regetVerifycode")
@@ -23,6 +23,8 @@ enum L10n {
   static let signupSignup = L10n.tr("signup_signup")
   /// 注册成功
   static let signupSuccess = L10n.tr("signup_success")
+  /// 验证码长度需>=4
+  static let signupVerifiycoeLimit = L10n.tr("signup_verifiycoe_limit")
 }
 
 extension L10n {

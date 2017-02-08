@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let blogpath = Bundle.main.resourcePath?.appending("/xcglog")
     //let blogpath = "/Users/jiwei.wang/Desktop/xcglog"
 #if DEBUG
-    blog.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .debug)
+    blog.setup(level: .verbose, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .debug)
 #else
     blog.setup(level: .none, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: blogpath, fileLevel: .none)
 #endif
@@ -55,10 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       blog.debug(error)
     }
     // root vc
-    let rootvc = StoryboardScene.Main.instantiateSignupController()
+    var rootvc: UIViewController?
+    if leveldb.sharedInstance.getCurrentUserid() != nil {
+      rootvc = StoryboardScene.Main.instantiateTabbarController()
+    }else {
+      rootvc = StoryboardScene.Main.instantiateSigninController()
+    }
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     let barAppearace = UINavigationBar.appearance()
-    barAppearace.barTintColor = UIColor(named: .huaqin)
+    barAppearace.barTintColor = UIColor(named: .congqian)
     barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     window?.rootViewController = rootvc
     return true
@@ -77,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       netyiwarpper.openyi_netWithcert(mainpath, with: data, with: { [weak self] in
         DispatchQueue.main.async { [weak self] in
           NotificationCenter.default.post(name: (self?.connectNoti)!, object: self!, userInfo:nil)
+          self!.connect()
         }
       }) {  (err_no, err_msg) in
         DispatchQueue.main.async {
@@ -88,6 +94,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
       netyiwarpper.netyi_net_isConnect(true)
+    }
+  }
+  
+  func connect() {
+    if let clientConnect = userinfo.getConnect() {
+      if let data = try? clientConnect.serializeProtobuf() {
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: { (type, data, isStop) in
+        DispatchQueue.main.async {
+          if ChatType.clientconnectres.rawValue == type {
+            if let res = try? Chat_ClientConnectRes(protobuf: data) {
+              blog.verbose(try! res.serializeAnyJSON())
+              if res.isSuccess {
+              }else {
+                errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
+              }
+            }
+          }
+        }   
+        })
+      }
     }
   }
   

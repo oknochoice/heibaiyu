@@ -46,7 +46,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18514029918" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-FS-Fig">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-FS-Fig">
                                                 <rect key="frame" x="42" y="0.0" width="158" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <nil key="textColor"/>
@@ -69,7 +69,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="111111" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mV-DY-fQs">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mV-DY-fQs">
                                                 <rect key="frame" x="63" y="0.0" width="137" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <nil key="textColor"/>
@@ -137,6 +137,9 @@
                                 <state key="normal" title="取消">
                                     <color key="titleColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="wgj-2c-2P5" eventType="touchUpInside" id="Iyr-9F-7Lw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIr-Qs-RZi" customClass="IndicatorButton" customModule="heibaiyu" customModuleProvider="target">
                                 <rect key="frame" x="88" y="268.5" width="200" height="44"/>
@@ -269,9 +272,12 @@
                                     <constraint firstAttribute="width" constant="80" id="aPE-m1-5s1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="重置密码">
+                                <state key="normal" title="注册">
                                     <color key="titleColor" red="0.29460352659225464" green="0.77062147855758667" blue="0.45815545320510864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="enroll:" destination="RKX-5Z-zk8" eventType="touchUpInside" id="fJG-bn-BW8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,10 +323,10 @@
             <objects>
                 <navigationController id="GE1-5v-d0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="消息" id="hzF-nC-zYQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AZE-uK-xEb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AZE-uK-xEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.20392157137393951" blue="0.44705882668495178" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="HB3-AY-bFb" kind="relationship" relationship="rootViewController" id="42z-QG-cpK"/>
@@ -360,6 +366,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="消息" id="Ty0-iY-Ya3"/>
+                    <connections>
+                        <outlet property="tableview" destination="HrH-QB-0TA" id="Xrn-T1-DlE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAd-FC-n31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,10 +379,10 @@
             <objects>
                 <navigationController id="UpG-TA-qBU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="联系人" id="3sE-G4-nIT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ame-N2-V7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ame-N2-V7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.2039215714" blue="0.44705882670000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="moq-Ke-9dC" kind="relationship" relationship="rootViewController" id="axJ-7w-WKG"/>
@@ -415,12 +424,33 @@
                     <navigationItem key="navigationItem" title="联系人" id="fqL-Xn-7jB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jrr-hA-0jn">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addFriend:" destination="moq-Ke-9dC" id="BNV-qE-ayK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijD-TH-RY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-68" y="-376"/>
+        </scene>
+        <!--Search Controller-->
+        <scene sceneID="Gg8-L7-aK6">
+            <objects>
+                <viewController restorationIdentifier="searchController" storyboardIdentifier="searchController" id="cKd-9Q-oO8" customClass="searchController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V9m-k9-c4C"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ey-UK-1z5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hye-TI-Oar">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wmy-XD-hvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2948" y="27"/>
         </scene>
     </scenes>
 </document>

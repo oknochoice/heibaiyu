@@ -34,8 +34,12 @@ class SignupController: UIViewController {
     verifyButton.addTarget(self, action: #selector(self.reGetVerifycode), for: UIControlEvents.touchUpInside)
     signup.addTarget(self, action: #selector(self.signupTouchupin(_:)), for: UIControlEvents.touchUpInside)
     
+      self.phoneno.becomeFirstResponder()
   }
   
+  @IBAction func dismiss(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
@@ -56,8 +60,7 @@ class SignupController: UIViewController {
     
     if signup.title(for: UIControlState.normal) == L10n.signupSignup {
       if password.text!.lengthOfBytes(using: .utf8) < 6 {
-        let mur = Murmur(title: L10n.signupPasswordLimit, backcolor: UIColor(named: .tenghuang))
-        Whisper.show(whistle: mur, action: .show(1.5))
+        errorLocal.error(err_no: nil, orMsg: L10n.signupPasswordLimit)
         return
       }else {
         signup.startAnimation()
@@ -69,8 +72,8 @@ class SignupController: UIViewController {
           //blog.debug(data)
           do {
             let signupRes = try Chat_RegisterRes(protobuf: indata)
-            let json = try signupRes.serializeJSON()
-            blog.debug(json)
+            let json = try signupRes.serializeAnyJSON()
+            blog.verbose(json)
             if signupRes.isSuccess {
               DispatchQueue.main.async {
                 self.signup.title(title: L10n.signupSendVerifycode)
@@ -79,9 +82,8 @@ class SignupController: UIViewController {
                 self.countdownTimer.start()
               }
             }else {
-              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
               DispatchQueue.main.async {
-                Whisper.show(whistle: mur, action: .show(1.5))
+                errorLocal.error(err_no: signupRes.eNo, orMsg: signupRes.eMsg)
                 self.phoneno.isEnabled = true
                 self.password.isEnabled = true
                 self.password.isSecureTextEntry = false
@@ -94,21 +96,21 @@ class SignupController: UIViewController {
         })
       }
     }else {
+      if verifycode.text!.isEmpty {
+        errorLocal.error(err_no: nil, orMsg: L10n.signupVerifiycoeLimit)
+        return
+      }
         let data = try signup_data.serializeProtobuf()
         netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
           //blog.debug(data)
         DispatchQueue.main.async {
           if let signupRes = try? Chat_RegisterRes(protobuf: indata) {
-            if let json = try? signupRes.serializeJSON() {
-              blog.debug(json)
-            }
+            blog.verbose(try! signupRes.serializeAnyJSON())
             if signupRes.isSuccess {
-              let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
-              Whisper.show(whistle: mur, action: .show(1))
+              errorLocal.success(msg: L10n.signupSuccess)
               self.login()
             }else {
-              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
-              Whisper.show(whistle: mur, action: .show(1.5))
+              errorLocal.error(err_no: signupRes.eNo, orMsg: signupRes.eMsg)
             }
           }
         }
@@ -125,26 +127,61 @@ class SignupController: UIViewController {
     login.device = Chat_Device()
     login.device.os = Chat_Device.OperatingSystem.iOs
     login.device.deviceModel = Device.version().rawValue
+    login.device.uuid = UIDevice.current.identifierForVendor!.uuidString
     if let logindata = try? login.serializeProtobuf() {
-      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { (type, data, isStop) in
+      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { [weak self] (type, data, isStop) in
+      DispatchQueue.main.async {[weak self] in
         if let res = try? Chat_LoginRes(protobuf: data) {
+          blog.verbose(try! res.serializeAnyJSON())
           if res.isSuccess == true {
             leveldb.sharedInstance.putCurrentUserid(userid: res.userId)
-            self.connect()
+            self!.connect()
           }
         }
+      }
       })
     }
   }
   
   func connect() {
-    if let clientConnect = userinfo.get() {
+    if let clientConnect = userinfo.getConnect() {
       if let data = try? clientConnect.serializeProtobuf() {
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: { (type, data, isStop) in
-          continue
+        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: {[weak self] (type, data, isStop) in
+        DispatchQueue.main.async {[weak self] in
+          if ChatType.clientconnectres.rawValue == type {
+            if let res = try? Chat_ClientConnectRes(protobuf: data) {
+              blog.verbose(try! res.serializeAnyJSON())
+              if res.isSuccess {
+                self!.getUser()
+              }else {
+                errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
+              }
+            }
+          }
+        }   
         })
       }
     }
+  }
+  
+  func getUser() {
+    var query = Chat_QueryUser()
+    query.userId = leveldb.sharedInstance.getCurrentUserid()!
+    let userdata = try! query.serializeProtobuf()
+    netyiwarpper.netyi_send(with: ChatType.queryuser.rawValue, data: userdata) { (type, data, isStop) in
+      DispatchQueue.main.async {
+        if ChatType.error.rawValue == type {
+          let err = try! Chat_Error(protobuf: data)
+          errorLocal.error(err_no: err.errnum, orMsg: err.errmsg)
+        }else {
+          let res = try! Chat_QueryUserRes(protobuf: data)
+          leveldb.sharedInstance.putUser(user: res.user)
+          self.dismiss(animated: true, completion: nil)
+          blog.verbose(try! res.serializeAnyJSON())
+        }
+      }
+    }
+    
   }
   
   func countdownInit() {
@@ -168,43 +205,6 @@ class SignupController: UIViewController {
   func reGetVerifycode() {
     countdownTimer.reCountDown()
     countdownTimer.start()
-  }
-  func getVerifycode() {
-    /*
-    do {
-      let data = try signup_data.serializeProtobuf()
-      let sdata = String(data: data, encoding: String.Encoding.utf8)
-      netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: sdata!, cb: { (type, indata, isStop) in
-        //blog.debug(data)
-        do {
-          let signupRes = try Chat_RegisterRes(protobuf: indata.data(using: .utf8)!)
-          let json = try signupRes.serializeJSON()
-          blog.debug(json)
-          if signupRes.isSuccess {
-            DispatchQueue.main.async {
-              let mur = Murmur(title: L10n.signupSuccess, backcolor: UIColor(named: .congqian))
-              if isCheck {
-              }else {
-                Whisper.show(whistle: mur, action: .show(1))
-              }
-            }
-          }else {
-            DispatchQueue.main.async {
-              let mur = Murmur(title: signupRes.eMsg, backcolor: UIColor(named: .tenghuang))
-              Whisper.show(whistle: mur, action: .show(1.5))
-            }
-          }
-        } catch {
-          blog.debug(error)
-        }
-      })
-    } catch {
-      blog.debug(error)
-    }
-    let delay = DispatchTime.now() + .seconds(3)
-    DispatchQueue.main.asyncAfter(deadline: delay) { 
-    }
- */
   }
     /*
     // MARK: - Navigation

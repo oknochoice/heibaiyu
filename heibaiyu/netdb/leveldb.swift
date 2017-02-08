@@ -31,7 +31,7 @@ public class leveldb {
   func currentUserKey() -> String {
     return "current_user"
   }
-  func put(user: Chat_User) {
+  func putUser(user: Chat_User) {
     do {
       let data = try user.serializeProtobuf()
       let userid = userKey(id: user.id)
@@ -42,7 +42,7 @@ public class leveldb {
       blog.debug(error)
     }
   }
-  func get(id: String) -> Chat_User? {
+  func getUser(id: String) -> Chat_User? {
     do {
       let data = leveldbwarpper.db_get(with: id)
       let user = try Chat_User(protobuf: data!)
@@ -52,10 +52,10 @@ public class leveldb {
       return nil
     }
   }
-  func get(phone: String, countryCode: String) -> Chat_User? {
+  func getUser(phone: String, countryCode: String) -> Chat_User? {
     do {
       if let key = leveldbwarpper.db_get(with: userKey(phone: phone, countryCode: countryCode)) {
-        if let re = get(id: String(data: key, encoding: .utf8)!) {
+        if let re = getUser(id: String(data: key, encoding: .utf8)!) {
           return re
         }
       }
@@ -74,13 +74,9 @@ public class leveldb {
   func putCurrentUserid(userid: String) {
     leveldbwarpper.db_put(with: currentUserKey(), data: userid.data(using: .utf8)!)
   }
-  func putCurrentUser(user: Chat_User) {
-    put(user: user)
-    putCurrentUserid(userid: user.id)
-  }
   func getCurrentUser() -> Chat_User? {
     if let data = leveldbwarpper.db_get(with: currentUserKey()) {
-      if let re = get(id: String(data: data, encoding: .utf8)!) {
+      if let re = getUser(id: String(data: data, encoding: .utf8)!) {
         return re
       }
     }
