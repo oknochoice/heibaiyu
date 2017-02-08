@@ -45,6 +45,7 @@ class SigninController: UIViewController {
     signin.password = password.text!
     signin.device = device
     if let logindata = try? signin.serializeProtobuf() {
+      sender.startAnimation()
       netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { [weak self] (type, data, isStop) in
       DispatchQueue.main.async {[weak self] in
         if let res = try? Chat_LoginRes(protobuf: data) {
@@ -52,6 +53,9 @@ class SigninController: UIViewController {
           if res.isSuccess == true {
             leveldb.sharedInstance.putCurrentUserid(userid: res.userId)
             self!.connect()
+          }else {
+            sender.stopAnimation()
+            errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
           }
         }
       }
@@ -64,7 +68,7 @@ class SigninController: UIViewController {
       if let data = try? clientConnect.serializeProtobuf() {
         netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: {[weak self] (type, data, isStop) in
         DispatchQueue.main.async {[weak self] in
-          if ChatType.clientconnectres.rawValue == type {
+          if (Int16)(ChatType.clientconnectres.rawValue) == type {
             if let res = try? Chat_ClientConnectRes(protobuf: data) {
               blog.verbose(try! res.serializeAnyJSON())
               if res.isSuccess {
@@ -86,12 +90,13 @@ class SigninController: UIViewController {
     let userdata = try! query.serializeProtobuf()
     netyiwarpper.netyi_send(with: ChatType.queryuser.rawValue, data: userdata) { (type, data, isStop) in
       DispatchQueue.main.async {
-        if ChatType.error.rawValue == type {
+        if ChatType.error.Int16Value() == type {
           let err = try! Chat_Error(protobuf: data)
           errorLocal.error(err_no: err.errnum, orMsg: err.errmsg)
         }else {
           let res = try! Chat_QueryUserRes(protobuf: data)
           leveldb.sharedInstance.putUser(user: res.user)
+          userinfo.change2barController()
           blog.verbose(try! res.serializeAnyJSON())
         }
       }

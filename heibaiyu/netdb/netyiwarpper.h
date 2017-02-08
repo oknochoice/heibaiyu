@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface netyiwarpper : NSObject
 
-typedef void (^Net_CB)(uint8_t type, NSData * data, bool * isStop);
+typedef void (^Net_CB)(int16_t type, NSData * data,  bool * _Nullable  isStop);
 
 typedef void (^IsConnectSuccess)();
 

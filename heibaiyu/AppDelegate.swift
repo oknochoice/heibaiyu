@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     barAppearace.barTintColor = UIColor(named: .qincong)
     barAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     barAppearace.tintColor = UIColor.white
+    UITabBar.appearance().tintColor = UIColor(named: .qincong)
     window?.rootViewController = rootvc
     return true
   }
@@ -103,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       if let data = try? clientConnect.serializeProtobuf() {
         netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: { (type, data, isStop) in
         DispatchQueue.main.async {
-          if ChatType.clientconnectres.rawValue == type {
+          if ChatType.clientconnectres.Int16Value() == type {
             if let res = try? Chat_ClientConnectRes(protobuf: data) {
               blog.verbose(try! res.serializeAnyJSON())
               if res.isSuccess {

@@ -325,7 +325,7 @@
             <objects>
                 <navigationController id="GE1-5v-d0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="消息" id="hzF-nC-zYQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AZE-uK-xEb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AZE-uK-xEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -365,7 +365,6 @@
                                                     <rect key="frame" x="10" y="10" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9fG-jZ-NHH" secondAttribute="height" multiplier="1:1" id="ECY-RZ-4wW"/>
-                                                        <constraint firstAttribute="height" constant="46" id="PKt-Xs-Vxg"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd2-hG-CGD">
@@ -442,7 +441,7 @@
             <objects>
                 <navigationController id="UpG-TA-qBU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="联系人" id="3sE-G4-nIT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ame-N2-V7M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ame-N2-V7M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -481,7 +480,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-qX-aVx">
                                                     <rect key="frame" x="10" y="10" width="46" height="46"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="46" id="RgS-Eb-swj"/>
                                                         <constraint firstAttribute="width" secondItem="Rnp-qX-aVx" secondAttribute="height" multiplier="1:1" id="XqG-Dl-QBJ"/>
                                                     </constraints>
                                                 </imageView>
@@ -899,4 +897,5 @@
             <point key="canvasLocation" x="-903" y="349"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.039215687662363052" green="0.63921570777893066" blue="0.26666668057441711" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
 </document>

@@ -9,8 +9,8 @@
 import Foundation
 
 enum ChatType: UInt8 {
-  case localError = 255,
-    error = 0,
+  case 
+   error = 0,
    registor = 1,
    registorres = 2,
    login = 3,
@@ -56,6 +56,9 @@ enum ChatType: UInt8 {
    queryaddfriendinfores = 45,
    serverconnect = 42,// outer
    serverdisconnect = 43,// outer
-  ping = 46,
-  pong = 47
+   ping = 46,
+   pong = 47
+  func Int16Value() -> Int16 {
+    return Int16(exactly: self.rawValue)!
+  }
 }

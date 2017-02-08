@@ -17,6 +17,7 @@
 
 static netyi * netyic = nullptr;
 static bool isNetWorking_ = false;
+static NSString * net_not_work = @"net not working";
 
 @interface netyiwarpper ()
 
@@ -54,7 +55,7 @@ static bool isNetWorking_ = false;
                                  });
   }else {
     bool isStop;
-    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
+    callback(-1, [net_not_work dataUsingEncoding:NSUTF8StringEncoding], &isStop);
   }
 }
 + (void)netyi_logout_disconnectWith:(const uint8_t)type data:(NSData * )data cb:(Net_CB)callback {
@@ -64,8 +65,7 @@ static bool isNetWorking_ = false;
          callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
-    bool isStop;
-    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
+    callback(-1, [net_not_work dataUsingEncoding:NSUTF8StringEncoding], NULL);
   }
 }
 + (int32_t)netyi_sendWith:(const uint8_t)type data:(NSData * )data cb:(Net_CB)callback {
@@ -78,8 +78,7 @@ static bool isNetWorking_ = false;
     });
     return temp_session;
   }else {
-    bool isStop;
-    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
+    callback(-1, [net_not_work dataUsingEncoding:NSUTF8StringEncoding], NULL);
     return 0;
   }
 }
@@ -90,8 +89,7 @@ static bool isNetWorking_ = false;
          callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
-    bool isStop;
-    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
+    callback(-1, [net_not_work dataUsingEncoding:NSUTF8StringEncoding], NULL);
   }
 }
 + (void)netyi_userinfo_notiWith:(Net_CB)callback {
@@ -101,8 +99,7 @@ static bool isNetWorking_ = false;
          callback(type, [NSData dataWithBytes:data.c_str() length:data.size()], isStop);
     });
   }else {
-    bool isStop;
-    callback(255, [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding], &isStop);
+    callback(-1, [net_not_work dataUsingEncoding:NSUTF8StringEncoding], NULL);
   }
 }
 @end

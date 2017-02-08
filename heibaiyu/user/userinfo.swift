@@ -27,4 +27,8 @@ public class userinfo {
     return nil
   }
   
+  static func  change2barController() {
+    UIApplication.shared.delegate?.window??.rootViewController = StoryboardScene.Main.initialViewController()
+  }
+  
 }
