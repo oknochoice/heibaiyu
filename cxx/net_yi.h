@@ -14,7 +14,7 @@ public:
   typedef std::function<void(uint8_t type, std::string & data, bool * isStop)>
     CB_Func_Mutiple;
   
-  netyi(std::string certpath);
+  netyi(std::string & certpath);
   void setNetIsReachable(bool isReachable);
   ~netyi();
   /*
@@ -29,7 +29,7 @@ public:
   /*
    * net user
    * */
-  void net_connect (Buffer_SP sp, ConnectNoti isSuccess, Error_CB error);
+  void net_connect (Buffer_SP ping_sp, ConnectNoti isSuccess, Error_CB error);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);

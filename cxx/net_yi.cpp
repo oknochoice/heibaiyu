@@ -14,7 +14,7 @@ enum Session_ID : int32_t {
   ping_pong = -5
 };
 
-netyi::netyi(std::string certpath):
+netyi::netyi(std::string & certpath):
   certpath_(certpath){
   YILOG_TRACE ("func: {}", __func__);
 }
@@ -30,9 +30,9 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect(Buffer_SP sp, ConnectNoti isSuccess, Error_CB error) {
+void netyi::net_connect(Buffer_SP ping_sp, ConnectNoti isSuccess, Error_CB error) {
   YILOG_TRACE ("func: {}", __func__);
-  create_client(certpath_, sp, 
+  create_client(certpath_, ping_sp,
     [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
     switch(sp->datatype()) {

@@ -27,7 +27,8 @@ static NSString * net_not_work = @"net not working";
 
 @implementation netyiwarpper
 + (void)openyi_netWithcert:(NSString *)certpath with:(NSData *)ping with:(IsConnectSuccess)isSuccess with:(Error_Block)error {
-  netyic = new netyi(std::string([certpath UTF8String]));
+  auto path = std::string([certpath UTF8String]);
+  netyic = new netyi(path);
   netyic->setNetIsReachable(true);
   netyic->net_connect(yijian::buffer::Buffer(ChatType::ping, std::string((char*)ping.bytes, ping.length)) ,
     isSuccess, [=](int error_no, std::string error_msg) {

@@ -23,7 +23,9 @@ void create_client(std::string certpath, Buffer_SP ping,
                    ConnectNoti connectNoti, Error_CB error_cb);
 // main thread call
 void client_send(Buffer_SP sp_buffer, uint16_t * sessionid);
+// main thread call
 void clear_client();
+// main thread call
 // set net is connect
 void client_setNet_isConnect(bool isConnect);
 
