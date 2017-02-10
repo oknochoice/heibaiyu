@@ -26,13 +26,13 @@ static NSString * net_not_work = @"net not working";
 @end
 
 @implementation netyiwarpper
-+ (void)openyi_netWithcert:(NSString *)certpath with:(NSData *)ping with:(IsConnectSuccess)isSuccess with:(Error_Block)error {
++ (void)openyi_netWithcert:(NSString *)certpath with:(NSData*)ping with:(Net_Connect_CB)isSuccess {
   auto path = std::string([certpath UTF8String]);
   netyic = new netyi(path);
   netyic->setNetIsReachable(true);
   netyic->net_connect(yijian::buffer::Buffer(ChatType::ping, std::string((char*)ping.bytes, ping.length)) ,
-    isSuccess, [=](int error_no, std::string error_msg) {
-    error(error_no, [NSString stringWithCString:error_msg.c_str() encoding:NSUTF8StringEncoding]);
+    [=](int error_no, std::string error_msg) {
+    isSuccess(error_no, [NSString stringWithCString:error_msg.c_str() encoding:NSUTF8StringEncoding]);
   });
 }
 + (BOOL)netyi_isOpened {

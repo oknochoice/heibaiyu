@@ -17,10 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^Net_CB)(int16_t type, NSData * data,  bool * _Nullable  isStop);
 
-typedef void (^IsConnectSuccess)();
-
-typedef void (^Error_Block)(int err_no, NSString * err_msg);
-+ (void)openyi_netWithcert:(NSString *)certpath with:(NSData*)ping with:(IsConnectSuccess)isSuccess with:(Error_Block)error;
+typedef void (^Net_Connect_CB)(int err_no, NSString * err_msg);
++ (void)openyi_netWithcert:(NSString *)certpath with:(NSData*)ping with:(Net_Connect_CB)isSuccess;
 + (BOOL)netyi_isOpened;
 + (void)netyi_net_isConnect:(BOOL)isConnect;
 + (void)closeyi_net;

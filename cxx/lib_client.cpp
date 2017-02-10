@@ -44,8 +44,7 @@ static std::string client_rootcert_path;
 static std::shared_ptr<Read_CB> sp_read_cb_;
 static Read_IO * read_io_;
 static Write_IO * write_io_;
-static ConnectNoti connectNoti_;
-static Error_CB error_cb_;
+static Client_CB outer_callback;
 static std::atomic_long recent_ts_;
 static std::atomic_bool isNetReachable_;
 static std::atomic_bool isRunloopComplete_;
@@ -262,11 +261,11 @@ void connection_read_callback (struct ev_loop * loop,
     }
     ev_io_stop(loop, rw);
     // need close client and resetart
-    error_cb_(60000, "system error need restart");
+    outer_callback(60000, "system error need restart");
   }catch(...) {
     printf("unknow error");
     ev_io_stop(loop, rw);
-    error_cb_(60011, "system error need restart");
+    outer_callback(60011, "system error need restart");
   }
 
 }
@@ -297,7 +296,7 @@ void connection_write_callback (struct ev_loop * loop,
     }
     
   } catch (std::system_error & e) {
-    error_cb_(e.code().value(), e.what());
+    outer_callback(e.code().value(), e.what());
   }
   YILOG_TRACE ("func: {}. write finish", __func__);
 }
@@ -356,11 +355,10 @@ static void init_io() {
 
 void create_client(std::string certpath, Buffer_SP ping,
                    Read_CB && read_cb,
-                   ConnectNoti connectNoti, Error_CB error_cb) {
+                   Client_CB callback) {
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
-  connectNoti_ = connectNoti;
-  error_cb_ = error_cb;
+  outer_callback = callback;
   ping_ = ping;
   isRunloopComplete_.store(false);
   sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
@@ -372,8 +370,8 @@ void create_client(std::string certpath, Buffer_SP ping,
       //ev_c_isWait_ = false;
       //ev_c_var_.notify_one();
       //ul.unlock();
-      if (connectNoti_ != nullptr) {
-        connectNoti_();
+      if (outer_callback != nullptr) {
+        outer_callback(0, "connect success");
       }
       isRunloopComplete_.store(true);
       ev_run(loop(), 0);
@@ -383,8 +381,8 @@ void create_client(std::string certpath, Buffer_SP ping,
       free(ping_timer_);
       YILOG_TRACE("exit thread");
     } catch (std::system_error & error) {
-      if (error_cb_) {
-        error_cb_(error.code().value(), error.what());
+      if (outer_callback) {
+        outer_callback(error.code().value(), error.what());
       }
     }
     
@@ -401,15 +399,15 @@ void client_send(Buffer_SP sp_buffer,
   YILOG_TRACE ("func: {}. ", __func__);
   
   if (!isNetReachable_.load()) {
-    if (error_cb_) {
-      error_cb_(60010, "net is not reachable");
+    if (outer_callback) {
+      outer_callback(60010, "net is not reachable");
     }
     return;
   }
   
   if (!isRunloopComplete_.load()) {
-    if (error_cb_) {
-      error_cb_(60012, "wait configure runloop finish");
+    if (outer_callback) {
+      outer_callback(60012, "wait configure runloop finish");
     }
     return;
   }
@@ -433,7 +431,7 @@ void client_send(Buffer_SP sp_buffer,
     auto watcher = write_asyn_watcher();
     ev_async_send(loop(), watcher);
   } catch (std::system_error & e) {
-    error_cb_(e.code().value(), e.what());
+    outer_callback(e.code().value(), e.what());
   }
 
 }

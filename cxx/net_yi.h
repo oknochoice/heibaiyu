@@ -18,18 +18,9 @@ public:
   void setNetIsReachable(bool isReachable);
   ~netyi();
   /*
-   * leveldb keys suggest
+   * netyi basic api
    * */ 
-  // u_$userid
-  // up_$code_$phoneno
-  // n_$tonodeid
-  // m_$tonodeid_$incrementid
-  // t_&userid
-  // e_userid_$nth 
-  /*
-   * net user
-   * */
-  void net_connect (Buffer_SP ping_sp, ConnectNoti isSuccess, Error_CB error);
+  void net_connect (Buffer_SP ping_sp, Client_CB client_callback);
   // signup login connect
   // func(key, bool)
   void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);
@@ -39,7 +30,6 @@ public:
   void send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func);
   /*
    * net noti
-   *
    * */
   // unread msg noti func(key)
   void acceptUnreadMsg(CB_Func_Mutiple && func);

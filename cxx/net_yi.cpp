@@ -30,7 +30,7 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect(Buffer_SP ping_sp, ConnectNoti isSuccess, Error_CB error) {
+void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
   YILOG_TRACE ("func: {}", __func__);
   create_client(certpath_, ping_sp,
     [&](Buffer_SP sp){
@@ -64,7 +64,7 @@ void netyi::net_connect(Buffer_SP ping_sp, ConnectNoti isSuccess, Error_CB error
       default:
       call_map(sp->session_id(), sp);
     }
-  }, isSuccess, error);
+  }, client_callback);
 }
 
 

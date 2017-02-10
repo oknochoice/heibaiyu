@@ -80,39 +80,11 @@ void buffer::data_encoding_current_addpos(std::size_t length) {
     // session id
     uint16_t session_id();
     void set_sessionid(uint16_t sessionid);
-/*
-    // c++ protobuf 
-    template <typename Proto> 
-    void encoding(Proto && any) {
-
-      if (unlikely(any.ByteSize() > 1024 - PADDING_LENGTH || any.ByteSize() == 0)) {
-        throw std::system_error(std::error_code(20010, std::generic_category()),
-            "Malformed Length");
-      }
-
-      uint8_t type = dispatchType(any);
-      current_pos_ += SESSIONID_LENGTH;
-      memcpy(current_pos_, &type, 1);
-      ++current_pos_;
-      auto current_end = encoding_var_length(current_pos_, any.ByteSize());
-      int varLength_length = current_end - current_pos_;
-      current_pos_ = current_end;
-      any.SerializeToArray(current_pos_, remain_size());
-      remain_data_length_ = 
-        SESSIONID_LENGTH + 1 + varLength_length + any.ByteSize();
-      current_pos_ += any.ByteSize();
-      // set buffer 
-      end_pos_ = current_pos_;
-      current_pos_ = header_pos_;
-      data_type_ = type;
-      // session_id_ send set
-      YILOG_TRACE ("func: {}, type: {}, length: {}",
-          __func__, type, any.ByteSize());
-    }
-    // c++ protobuf 
+    
+    // c++ protobuf
     template <typename Proto>
     static std::shared_ptr<buffer> Buffer(Proto && any);
-*/
+    
     void encoding(const uint8_t type, std::string & data);
     static std::shared_ptr<buffer> Buffer(const uint8_t type, std::string data);
 //private:
@@ -155,19 +127,6 @@ private:
     int_fast16_t noread_count_ = 0;
 };
 
-  /*
-// c++ protobuf 
-template <typename Proto>
-std::shared_ptr<buffer> buffer::Buffer(Proto && any) {
-
-  std::string value;
-  google::protobuf::util::MessageToJsonString(any, &value);
-  YILOG_TRACE("func: {}, any: {}", __func__, value);
-  auto buf = std::make_shared<yijian::buffer>();
-  buf->encoding(std::forward<Proto>(any));
-  return buf;
-}
-   */
 
 }
 

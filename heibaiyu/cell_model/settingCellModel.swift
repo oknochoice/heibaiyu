@@ -14,4 +14,5 @@ class settingCellModel {
   var subTitle: String?
   var icon: String?
   var cellIdentifier: String?
+  var cellHeight: Double?
 }

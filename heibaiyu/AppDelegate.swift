@@ -81,12 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       var ping = Chat_Ping()
       ping.msg = "ping"
       let data = try ping.serializeProtobuf()
-      netyiwarpper.openyi_netWithcert(mainpath, with: data, with: { [weak self] in
-        DispatchQueue.main.async { [weak self] in
-          NotificationCenter.default.post(name: (self?.connectNoti)!, object: self!, userInfo:nil)
-          self!.connect()
-        }
-      }) {  (err_no, err_msg) in
+      netyiwarpper.openyi_netWithcert(mainpath, with: data) {  (err_no, err_msg) in
         DispatchQueue.main.async {
           blog.debug((err_no, err_msg))
           if (60010 != err_no &&
