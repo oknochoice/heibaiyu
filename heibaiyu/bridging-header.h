@@ -9,8 +9,6 @@
 #ifndef bridging_header_h
 #define bridging_header_h
 
-#include "netdb/netyiwarpper.h"
 #include "NSBundle+language.h"
-#include "leveldbwarpper.h"
 
 #endif /* bridging_header_h */

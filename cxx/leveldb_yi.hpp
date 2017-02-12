@@ -15,13 +15,13 @@
 
 class leveldb_yi {
 public:
-  leveldb_yi(std::string & dbpath);
+  leveldb_yi(const std::string & dbpath);
   ~leveldb_yi();
   
   /*
    * user
    * */
-  void putUser(chat::User & user);
+  void putUser(const chat::User & user);
   chat::User getUser(const std::string & id);
   chat::User getUser(const std::string & countrycode,
                const std::string & phoneno);
@@ -30,10 +30,8 @@ public:
   /*
    * add friend info
    */
-  void putAddfriendInfo(chat::AddFriendInfo & info);
+  void putAddfriendInfo(const chat::AddFriendInfo & info);
   chat::AddFriendInfo getAddfriendInfo();
-  
-  
   
   
 private:
@@ -45,13 +43,13 @@ private:
       const leveldb::Slice & value);
   void put(leveldb::WriteBatch & batch);
   std::string get(const leveldb::Slice & key);
+
+  
   /*
    * current
    * */
-  // current user key = current_user
   std::string getCurrentUserid();
   void setCurrentUserid(const std::string & userid);
-
 
   /*
    * user key

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingts: settingCell {
   @IBOutlet weak var titleLabel: UILabel!

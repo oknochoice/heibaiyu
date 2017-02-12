@@ -20,41 +20,47 @@ class netdb_yi {
   
 public:
   
-  // type < 0, type == err_no data == err_msg 
-  typedef std::function<void(int16_t type, std::string & data)>
+  // err_no == 0 success
+  typedef std::function<void(const int err_no, const std::string & err_msg)>
     CB_Func;
-  netdb_yi(std::string & dbpath);
+  netdb_yi(const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion);
   ~netdb_yi();
+  void openNet(const std::string & certpath, Client_CB client_callback);
   
   /*
    * user
    */
-  void openNet(std::string & certpath, Client_CB client_callback);
-  void registCheck(std::string & phoneno, std::string & countrycode, CB_Func client_callback);
-  void regist(std::string & phoneno, std::string & countrycode, std::string & verifycode);
-  void login(std::string & phoneno, std::string & countrycode, std::string & password);
-  void connect(std::string & phoneno, std::string & countrycode, std::string & password);
-  void disconnect();
-  void logout();
+  void registCheck(const std::string & phoneno, const std::string & countrycode, CB_Func && callback);
+  void regist(const std::string & phoneno, const std::string & countrycode, const std::string & passwordj, const std::string & verifycode, CB_Func && callback);
+  void login(const std::string & phoneno, const std::string & countrycode, const std::string & password, CB_Func && callback);
+  void connect(const std::string & userid, CB_Func && callback);
+  void disconnect(CB_Func && callback);
+  void logout(CB_Func && callback);
   
-  void userSetRealname(std::string & realname);
-  void userSetNickname(std::string & nickname);
-  void userSetIcon(std::string & icon);
-  void userSetIsmale(bool isMale);
-  void userSetBirthday(int32_t birthdayTimestamp);//seconds
-  void userSetDescription(std::string & description);
+  void userSetRealname(const std::string & realname, CB_Func && callback);
+  void userSetNickname(const std::string & nickname, CB_Func && callback);
+  void userSetIcon(const std::string & icon, CB_Func && callback);
+  void userSetIsmale(const bool isMale, CB_Func && callback);
+  void userSetBirthday(const int32_t birthdayTimestamp, CB_Func && callback);//seconds
+  void userSetDescription(const std::string & description, CB_Func && callback);
   
-  void addFriend(std::string & friendid);
-  void addFriendAuthorize(std::string & friendid);
-  void getAddfriendInfo();
+  void addFriend(const std::string & friendid, CB_Func && callback);
+  void addFriendAuthorize(const std::string & friendid, CB_Func && callback);
+  void getAddfriendInfo(CB_Func && callback);
   
-  void getCurrentUser();
+  void getUser(const std::string & userid, CB_Func && callback);
+  void getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback);
   
 private:
   std::atomic_bool isOpenNet_;
   netyi * netyi_;
   leveldb_yi * dbyi_;
   Client_CB client_callback_;
+  
+  std::string model_;
+  std::string udid_;
+  std::string os_version_;
+  std::string app_version_;
 };
 
 #endif /* netdb_yi_hpp */

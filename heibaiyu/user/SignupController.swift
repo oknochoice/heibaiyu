@@ -32,7 +32,7 @@ class SignupController: UIViewController {
     initui()
     countdownInit()
     verifyButton.addTarget(self, action: #selector(self.reGetVerifycode), for: UIControlEvents.touchUpInside)
-    signup.addTarget(self, action: #selector(self.signupTouchupin(_:)), for: UIControlEvents.touchUpInside)
+    //signup.addTarget(self, action: #selector(self.signupTouchupin(_:)), for: UIControlEvents.touchUpInside)
     
       self.phoneno.becomeFirstResponder()
   }
@@ -48,7 +48,7 @@ class SignupController: UIViewController {
   func enroll(user: inout Chat_Register, isCheck:Bool) {
   
   }
-  
+  /*
   func signupTouchupin(_ sender: IndicatorButton) throws {
     
     var signup_data = Chat_Register()
@@ -117,7 +117,8 @@ class SignupController: UIViewController {
         })
     }
   }
-  
+  */
+  /*
   func login() {
     // login
     var login = Chat_Login()
@@ -185,6 +186,7 @@ class SignupController: UIViewController {
     
   }
   
+ */
   func countdownInit() {
     countdownTimer = SwiftCountDownTimer(interval: .fromSeconds(1), times: 10, handler: { (timer, lefttime) in
       if 0 == lefttime {

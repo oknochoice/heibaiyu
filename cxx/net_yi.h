@@ -11,10 +11,10 @@
 class netyi {
 public:
   // call will stop if isStop not set false
-  typedef std::function<void(uint8_t type, std::string & data, bool * isStop)>
+  typedef std::function<void(const uint8_t type, const std::string & data, bool * const isStop)>
     CB_Func_Mutiple;
   
-  netyi(std::string & certpath);
+  netyi(const std::string & certpath);
   void setNetIsReachable(bool isReachable);
   ~netyi();
   /*
@@ -23,9 +23,12 @@ public:
   void net_connect (Buffer_SP ping_sp, Client_CB client_callback);
   // signup login connect
   // func(key, bool)
-  void signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func);
+  void signup(Buffer_SP sp, CB_Func_Mutiple && func);
+  void login(Buffer_SP sp, CB_Func_Mutiple && func);
+  void connect(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(key, bool)
-  void logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func);
+  void disconnect(Buffer_SP sp, CB_Func_Mutiple && func);
+  void logout(Buffer_SP sp, CB_Func_Mutiple && func);
   // func(sessionid, bool)
   void send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func);
   /*

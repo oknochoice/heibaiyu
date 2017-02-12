@@ -12,7 +12,7 @@
 #include <system_error>
 #include "macro.h"
 
-leveldb_yi::leveldb_yi(std::string & dbpath) {
+leveldb_yi::leveldb_yi(const std::string & dbpath) {
   leveldb::Options options;
   options.create_if_missing = true;
   leveldb::Status status = leveldb::DB::Open(options, dbpath, &db_);
@@ -33,7 +33,7 @@ leveldb_yi::~leveldb_yi() {
  * user
  *
  * */
-void leveldb_yi::putUser(chat::User & user) {
+void leveldb_yi::putUser(const chat::User & user) {
   YILOG_TRACE ("func: {}", __func__);
   if (user.id().empty() || user.countrycode().empty() || user.phoneno().empty()) {
     throw std::system_error(std::error_code(50004,
@@ -72,7 +72,7 @@ chat::User leveldb_yi::getCurrentUser() {
 /*
  * add friend info
  */
-void leveldb_yi::putAddfriendInfo(chat::AddFriendInfo & info) {
+void leveldb_yi::putAddfriendInfo(const chat::AddFriendInfo & info) {
   auto key = addFriendInfoKey();
   put(key, info.SerializeAsString());
 }

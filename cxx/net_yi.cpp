@@ -7,14 +7,17 @@
 using yijian::buffer;
 
 enum Session_ID : int32_t {
-  regist_login_connect = -1,
-  logout_disconnect = -2,
-  accept_unread_msg = -3,
-  user_noti = -4,
-  ping_pong = -5
+  regist_id = -1,
+  login_id = -2,
+  connect_id = -3,
+  disconnect_id = -4,
+  logout_id = -5,
+  accept_unread_msg_id = -6,
+  user_noti_id = -7,
+  ping_pong_id = -8
 };
 
-netyi::netyi(std::string & certpath):
+netyi::netyi(const std::string & certpath):
   certpath_(certpath){
   YILOG_TRACE ("func: {}", __func__);
 }
@@ -35,30 +38,43 @@ void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
   create_client(certpath_, ping_sp,
     [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
+    std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
     switch(sp->datatype()) {
       case ChatType::loginnoti:
       case ChatType::addfriendnoti:
       case ChatType::addfriendauthorizenoti:
       {
-        call_map(Session_ID::user_noti, sp);
+        call_map(Session_ID::user_noti_id, sp);
         break;
       }
       case ChatType::nodemessagenoti:
       {
-        call_map(Session_ID::accept_unread_msg, sp);
+        call_map(Session_ID::accept_unread_msg_id, sp);
         break;
       }
       case ChatType::registorres:
+      {
+        call_map(Session_ID::regist_id, sp);
+        break;
+      }
       case ChatType::loginres:
+      {
+        call_map(Session_ID::login_id, sp);
+        break;
+      }
       case ChatType::clientconnectres:
       {
-        call_map(Session_ID::regist_login_connect, sp);
+        call_map(Session_ID::connect_id, sp);
         break;
       }
       case ChatType::logoutres:
+      {
+        call_map(Session_ID::logout_id, sp);
+        break;
+      }
       case ChatType::clientdisconnectres:
       {
-        call_map(Session_ID::logout_disconnect, sp);
+        call_map(Session_ID::disconnect_id, sp);
         break;
       }
       default:
@@ -68,22 +84,37 @@ void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
 }
 
 
-void netyi::signup_login_connect(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::signup(Buffer_SP sp, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::regist_login_connect, sp,
+  put_map_send(Session_ID::regist_id, sp,
+      std::forward<CB_Func_Mutiple>(func));
+}
+void netyi::login(Buffer_SP sp, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(Session_ID::login_id, sp,
+      std::forward<CB_Func_Mutiple>(func));
+}
+void netyi::connect(Buffer_SP sp, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(Session_ID::connect_id, sp,
       std::forward<CB_Func_Mutiple>(func));
 }
 
-void netyi::logout_disconnect(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::disconnect(Buffer_SP sp, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::logout_disconnect, sp,
+  put_map_send(Session_ID::disconnect_id, sp,
+      std::forward<CB_Func_Mutiple>(func));
+}
+void netyi::logout(Buffer_SP sp, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(Session_ID::logout_id, sp,
       std::forward<CB_Func_Mutiple>(func));
 }
 
 void netyi::send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
   put_map_send(sp,
-      std::forward<CB_Func_Mutiple>(func));
+      std::forward<CB_Func_Mutiple>(func), sessionid);
 }
 
 /*
@@ -93,13 +124,13 @@ void netyi::send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && fu
 // unread msg noti func(key)
 void netyi::acceptUnreadMsg(CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map(Session_ID::accept_unread_msg, 
+  put_map(Session_ID::accept_unread_msg_id,
       std::forward<CB_Func_Mutiple>(func));
 }
 // other device loginNoti addFriendNoti addFriendAuthorizeNoti
 void netyi::userInfoNoti(CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map(Session_ID::user_noti, 
+  put_map(Session_ID::user_noti_id,
       std::forward<CB_Func_Mutiple>(func));
 }
 

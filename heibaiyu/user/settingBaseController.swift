@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingBaseController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   

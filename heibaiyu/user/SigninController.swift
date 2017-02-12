@@ -34,6 +34,7 @@ class SigninController: UIViewController {
   @IBAction func enroll(_ sender: UIButton) {
     self.present(StoryboardScene.Main.instantiateSignupController(), animated: true, completion: nil)
   }
+  /*
   @IBAction func signin(_ sender: IndicatorButton) {
     var device = Chat_Device()
     device.os = Chat_Device.OperatingSystem.iOs
@@ -103,6 +104,7 @@ class SigninController: UIViewController {
     }
     
   }
+ */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

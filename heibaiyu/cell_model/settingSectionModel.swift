@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingSectionModel {
   var headerTitle: String?

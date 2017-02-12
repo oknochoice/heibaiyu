@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingCellModel {
   var tap: ((Void) -> Void)?

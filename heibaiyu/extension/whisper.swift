@@ -8,6 +8,7 @@
 
 import Foundation
 import Whisper
+import UIKit
 
 public extension Murmur {
   public init(title: String, backcolor: UIColor) {

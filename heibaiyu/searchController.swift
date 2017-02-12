@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class searchController: UIViewController {
   override func viewDidLoad() {

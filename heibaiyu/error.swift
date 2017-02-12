@@ -8,6 +8,7 @@
 
 import Foundation
 import Whisper
+import UIKit
 
 public class errorLocal {
   static func error(err_no: Int32?, orMsg: String) {

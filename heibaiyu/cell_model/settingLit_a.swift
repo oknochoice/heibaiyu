@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingLit_a: settingCell {
   @IBOutlet weak var iconImage: UIImageView!

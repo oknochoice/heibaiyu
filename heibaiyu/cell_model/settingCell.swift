@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class settingCell: UITableViewCell {
   var tap: ((Void) -> Void)?

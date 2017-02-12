@@ -8,6 +8,7 @@
 
 import Foundation
 import SnapKit
+import UIKit
 
 class IndicatorButton: UIButton {
   var indicator = UIActivityIndicatorView()
