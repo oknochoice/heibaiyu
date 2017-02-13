@@ -45,18 +45,7 @@ class SignupController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
   
-  func enroll(user: inout Chat_Register, isCheck:Bool) {
-  
-  }
-  /*
-  func signupTouchupin(_ sender: IndicatorButton) throws {
-    
-    var signup_data = Chat_Register()
-    signup_data.countryCode = "86"
-    signup_data.phoneNo = phoneno.text!
-    signup_data.nickname = phoneno.text!
-    signup_data.password = password.text!
-    signup_data.verifycode = verifycode.text!
+  @IBAction func signupTin(_ sender: IndicatorButton) {
     
     if signup.title(for: UIControlState.normal) == L10n.signupSignup {
       if password.text!.lengthOfBytes(using: .utf8) < 6 {
@@ -67,31 +56,23 @@ class SignupController: UIViewController {
         phoneno.isEnabled = false
         password.isEnabled = false
         password.isSecureTextEntry = true
-        let data = try signup_data.serializeProtobuf()
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
-          //blog.debug(data)
-          do {
-            let signupRes = try Chat_RegisterRes(protobuf: indata)
-            let json = try signupRes.serializeAnyJSON()
-            blog.verbose(json)
-            if signupRes.isSuccess {
-              DispatchQueue.main.async {
-                self.signup.title(title: L10n.signupSendVerifycode)
-                self.verifyHeight.constant = 30
-                self.signup.stopAnimation()
-                self.countdownTimer.start()
-              }
-            }else {
-              DispatchQueue.main.async {
-                errorLocal.error(err_no: signupRes.eNo, orMsg: signupRes.eMsg)
-                self.phoneno.isEnabled = true
-                self.password.isEnabled = true
-                self.password.isSecureTextEntry = false
-                self.signup.stopAnimation()
-              }
+        netdbwarpper.sharedNetdb().registCheck(self.phoneno.text!, "86", { (err_no, err_msg) in
+          blog.verbose((err_no, err_msg))
+          if 0 == err_no {
+            DispatchQueue.main.async {
+              self.signup.title(title: L10n.signupSendVerifycode)
+              self.verifyHeight.constant = 30
+              self.signup.stopAnimation()
+              self.countdownTimer.start()
             }
-          } catch {
-            blog.debug(error)
+          }else {
+            DispatchQueue.main.async {
+              errorLocal.error(err_no: err_no, orMsg: err_msg)
+              self.phoneno.isEnabled = true
+              self.password.isEnabled = true
+              self.password.isSecureTextEntry = false
+              self.signup.stopAnimation()
+            }
           }
         })
       }
@@ -100,93 +81,23 @@ class SignupController: UIViewController {
         errorLocal.error(err_no: nil, orMsg: L10n.signupVerifiycoeLimit)
         return
       }
-        let data = try signup_data.serializeProtobuf()
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.registor.rawValue, data: data, cb: { (type, indata, isStop) in
-          //blog.debug(data)
+      netdbwarpper.sharedNetdb().regist(self.phoneno.text!, "86", self.password.text!, self.verifycode.text!, { (err_no, err_msg) in
+        blog.verbose((err_no, err_msg))
         DispatchQueue.main.async {
-          if let signupRes = try? Chat_RegisterRes(protobuf: indata) {
-            blog.verbose(try! signupRes.serializeAnyJSON())
-            if signupRes.isSuccess {
-              errorLocal.success(msg: L10n.signupSuccess)
-              self.login()
-            }else {
-              errorLocal.error(err_no: signupRes.eNo, orMsg: signupRes.eMsg)
+          if 0 == err_no {
+            errorLocal.success(msg: L10n.signupSuccess)
+            DispatchQueue.main.async {
+              //userinfo.change2barController()
             }
+          }else {
+            errorLocal.error(err_no: err_no, orMsg: err_msg)
           }
         }
-        })
-    }
-  }
-  */
-  /*
-  func login() {
-    // login
-    var login = Chat_Login()
-    login.phoneNo = self.phoneno.text!
-    login.countryCode = "86"
-    login.password = self.password.text!
-    login.device = Chat_Device()
-    login.device.os = Chat_Device.OperatingSystem.iOs
-    login.device.deviceModel = Device.version().rawValue
-    login.device.uuid = UIDevice.current.identifierForVendor!.uuidString
-    if let logindata = try? login.serializeProtobuf() {
-      netyiwarpper.netyi_signup_login_connect(with: ChatType.login.rawValue, data: logindata, cb: { [weak self] (type, data, isStop) in
-      DispatchQueue.main.async {[weak self] in
-        if let res = try? Chat_LoginRes(protobuf: data) {
-          blog.verbose(try! res.serializeAnyJSON())
-          if res.isSuccess == true {
-            leveldb.sharedInstance.putCurrentUserid(userid: res.userId)
-            self!.connect()
-          }
-        }
-      }
       })
     }
   }
   
-  func connect() {
-    if let clientConnect = userinfo.getConnect() {
-      if let data = try? clientConnect.serializeProtobuf() {
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: {[weak self] (type, data, isStop) in
-        DispatchQueue.main.async {[weak self] in
-          if ChatType.clientconnectres.Int16Value() == type {
-            if let res = try? Chat_ClientConnectRes(protobuf: data) {
-              blog.verbose(try! res.serializeAnyJSON())
-              if res.isSuccess {
-                self!.getUser()
-              }else {
-                errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
-              }
-            }
-          }
-        }   
-        })
-      }
-    }
-  }
   
-  func getUser() {
-    var query = Chat_QueryUser()
-    query.userId = leveldb.sharedInstance.getCurrentUserid()!
-    let userdata = try! query.serializeProtobuf()
-    netyiwarpper.netyi_send(with: ChatType.queryuser.rawValue, data: userdata) { (type, data, isStop) in
-      DispatchQueue.main.async {
-        if ChatType.error.Int16Value() == type {
-          let err = try! Chat_Error(protobuf: data)
-          errorLocal.error(err_no: err.errnum, orMsg: err.errmsg)
-        }else {
-          let res = try! Chat_QueryUserRes(protobuf: data)
-          leveldb.sharedInstance.putUser(user: res.user)
-//          self.dismiss(animated: true, completion: nil)
-          userinfo.change2barController()
-          blog.verbose(try! res.serializeAnyJSON())
-        }
-      }
-    }
-    
-  }
-  
- */
   func countdownInit() {
     countdownTimer = SwiftCountDownTimer(interval: .fromSeconds(1), times: 10, handler: { (timer, lefttime) in
       if 0 == lefttime {

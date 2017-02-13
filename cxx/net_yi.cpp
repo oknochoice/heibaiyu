@@ -38,7 +38,6 @@ void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
   create_client(certpath_, ping_sp,
     [&](Buffer_SP sp){
     YILOG_TRACE ("net callback");
-    std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
     switch(sp->datatype()) {
       case ChatType::loginnoti:
       case ChatType::addfriendnoti:

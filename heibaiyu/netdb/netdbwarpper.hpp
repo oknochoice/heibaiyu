@@ -15,9 +15,14 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface netdbwarpper : NSObject
 
-typedef void (^Net_CB)(int err_no, NSString * err_msg);
+typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 
-+ (instancetype)sharedNetdb();
++ (instancetype)sharedNetdb;
+- (void)openNet:(Net_CB)callback;
+- (void)closeNet;
+- (void)setNetIsReachable:(BOOL)isReachable;
+- (void)registCheck:(NSString*)phoneno :(NSString*)countrycode :(Net_CB)callback;
+- (void)regist:(NSString*)phoneno :(NSString*)countrycode :(NSString*)password :(NSString*)verifycode :(Net_CB)callback;
 
 @end
 NS_ASSUME_NONNULL_END

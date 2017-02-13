@@ -401,6 +401,7 @@ void client_send(Buffer_SP sp_buffer,
   if (!isNetReachable_.load()) {
     if (outer_callback) {
       outer_callback(60010, "net is not reachable");
+      YILOG_DEBUG("60010, net is not reachable");
     }
     return;
   }
@@ -408,6 +409,7 @@ void client_send(Buffer_SP sp_buffer,
   if (!isRunloopComplete_.load()) {
     if (outer_callback) {
       outer_callback(60012, "wait configure runloop finish");
+      YILOG_DEBUG("60010, net is not reachable");
     }
     return;
   }

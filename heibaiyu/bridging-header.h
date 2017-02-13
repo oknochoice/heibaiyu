@@ -10,5 +10,6 @@
 #define bridging_header_h
 
 #include "NSBundle+language.h"
+#include "netdbwarpper.hpp"
 
 #endif /* bridging_header_h */

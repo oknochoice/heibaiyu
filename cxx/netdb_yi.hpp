@@ -23,9 +23,11 @@ public:
   // err_no == 0 success
   typedef std::function<void(const int err_no, const std::string & err_msg)>
     CB_Func;
-  netdb_yi(const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion);
+  netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion);
   ~netdb_yi();
-  void openNet(const std::string & certpath, Client_CB client_callback);
+  void openNet(Client_CB client_callback);
+  void netIsReachable(bool isreachable);
+  void closeNet();
   
   /*
    * user
@@ -61,6 +63,7 @@ private:
   std::string udid_;
   std::string os_version_;
   std::string app_version_;
+  std::string certpath_;
 };
 
 #endif /* netdb_yi_hpp */

@@ -11,8 +11,8 @@
 
 static const std::string netdb_success_ = "success";
 
-netdb_yi::netdb_yi(const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion)
-:model_(phoneModel), udid_(phoneUDID), os_version_(osVersion), app_version_(appVersion) {
+netdb_yi::netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion)
+:model_(phoneModel), udid_(phoneUDID), os_version_(osVersion), app_version_(appVersion), certpath_(certpath) {
   YILOG_TRACE ("func: {}", __func__);
   isOpenNet_.store(false);
   dbyi_ = new leveldb_yi(dbpath);
@@ -26,12 +26,16 @@ netdb_yi::~netdb_yi() {
   delete dbyi_;
 }
 
-void netdb_yi::openNet(const std::string & certpath, Client_CB client_callback) {
+void netdb_yi::openNet(Client_CB client_callback) {
   YILOG_TRACE ("func: {}", __func__);
-  netyi_ = new netyi(certpath);
+  if (isOpenNet_.load()) {
+    return;
+  }
+  netyi_ = new netyi(certpath_);
   client_callback_ = client_callback;
   auto ping = chat::Ping();
   ping.set_msg("ping");
+  netyi_->setNetIsReachable(true);
   netyi_->net_connect(yijian::buffer::Buffer(ping), [this](const int error_no, const std::string && error_msg) {
     if (0 == error_no) {
       isOpenNet_.store(true);
@@ -40,6 +44,15 @@ void netdb_yi::openNet(const std::string & certpath, Client_CB client_callback) 
   });
 }
 
+void netdb_yi::netIsReachable(bool isreachable) {
+  client_setNet_isConnect(isreachable);
+}
+
+void netdb_yi::closeNet() {
+  YILOG_TRACE ("func: {}", __func__);
+  isOpenNet_.store(false);
+  clear_client();
+}
 
 /*
  * user
@@ -70,7 +83,7 @@ void netdb_yi::regist(const std::string & phoneno, const std::string & countryco
     auto res = chat::RegisterRes();
     res.ParseFromString(data);
     if (res.issuccess()) {
-      this->login(phoneno, countrycode, password, [this, &callback](const int err_no, const std::string & err_msg) {
+      this->login(phoneno, countrycode, password, [this, callback](const int err_no, const std::string & err_msg) {
         callback(err_no, err_msg);
       });
     }else{
@@ -92,7 +105,7 @@ void netdb_yi::login(const std::string & phoneno, const std::string & countrycod
     auto res = chat::LoginRes();
     res.ParseFromString(data);
     if (res.issuccess()) {
-      this->connect(res.userid(), [this, &callback](const int err_no, const std::string & err_msg) {
+      this->connect(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
         callback(err_no, err_msg);
       });
     }else{
@@ -113,7 +126,7 @@ void netdb_yi::connect(const std::string & userid, CB_Func && callback) {
     auto res = chat::ClientConnectRes();
     res.ParseFromString(data);
     if (res.issuccess()) {
-      this->getUser(res.userid(), [this, &callback](const int err_no, const std::string & err_msg) {
+      this->getUser(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
         callback(err_no, err_msg);
       });
     }else{

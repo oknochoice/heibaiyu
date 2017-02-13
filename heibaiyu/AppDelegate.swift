@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // bundle language
     Bundle.setLanguage("zh-Hans")
     // net whether reachable
-    //NotificationCenter.default.addObserver(self, selector: #selector(self.reachableCheck(note:)), name: ReachabilityChangedNotification, object: reachable)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.reachableCheck(note:)), name: ReachabilityChangedNotification, object: reachable)
     do {
       try reachable.startNotifier()
     } catch {
@@ -71,73 +71,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  /*
-  func startNetyi() throws {
-    // netyi config
-    var mainpath = Bundle.main.bundlePath
-    mainpath.append("/root-ca.crt")
-    if netyiwarpper.netyi_isOpened() {
-      blog.debug("netyi is already open")
-    }else {
-      var ping = Chat_Ping()
-      ping.msg = "ping"
-      let data = try ping.serializeProtobuf()
-      netyiwarpper.openyi_netWithcert(mainpath, with: data) {  (err_no, err_msg) in
-        DispatchQueue.main.async {
-          blog.debug((err_no, err_msg))
-          if (60010 != err_no &&
-            60012 != err_no) {
-            netyiwarpper.closeyi_net();
-          }
-        }
-      }
-      netyiwarpper.netyi_net_isConnect(true)
-    }
-  }
-  
-  func connect() {
-    if let clientConnect = userinfo.getConnect() {
-      if let data = try? clientConnect.serializeProtobuf() {
-        netyiwarpper.netyi_signup_login_connect(with: ChatType.clientconnect.rawValue, data: data, cb: { (type, data, isStop) in
-        DispatchQueue.main.async {
-          if ChatType.clientconnectres.Int16Value() == type {
-            if let res = try? Chat_ClientConnectRes(protobuf: data) {
-              blog.verbose(try! res.serializeAnyJSON())
-              if res.isSuccess {
-              }else {
-                errorLocal.error(err_no: res.eNo, orMsg: res.eMsg)
-              }
-            }
-          }
-        }   
-        })
-      }
-    }
-  }
   
   func reachableCheck(note: NSNotification) {
     let reachability = note.object as! Reachability
-    DispatchQueue.main.async { [weak self] in
-      do {
-        if reachability.isReachable {
-          try self!.startNetyi();
-          //
-          if reachability.isReachableViaWiFi {
-            blog.debug("Reachable via WiFi")
-          } else {
-            blog.debug("Reachable via Cellular")
-          }
-        } else {
-          netyiwarpper.netyi_net_isConnect(false)
-          blog.debug("Network not reachable")
-        }
-      }catch {
-        print(error)
+    if reachability.isReachable {
+      if reachability.isReachableViaWiFi {
+        blog.debug("Reachable via WiFi")
+      } else {
+        blog.debug("Reachable via Cellular")
       }
+      netdbwarpper.sharedNetdb().openNet({ (errNo, errMsg) in
+        blog.debug((errNo, errMsg));
+        if (0 == errNo) {
+          DispatchQueue.main.async {[weak self] in
+            NotificationCenter.default.post(name: (self?.connectNoti)!, object: self)
+          }
+        }
+      })
+      netdbwarpper.sharedNetdb().setNetIsReachable(true);
+    }else {
+      netdbwarpper.sharedNetdb().setNetIsReachable(false);
     }
   }
- */
-  
+ 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -12,6 +12,7 @@
 #include "buffer_yi.h"
 #include "typemapre.h"
 #include <google/protobuf/util/json_util.h>
+#include <iostream>
 
 #include <stdio.h>
 // c++ protobuf 
@@ -22,6 +23,7 @@ std::shared_ptr<yijian::buffer> yijian::buffer::Buffer(Proto && any) {
   google::protobuf::util::MessageToJsonString(any, &value);
   YILOG_TRACE("func: {}, any: {}", __func__, value);
   auto data = any.SerializeAsString();
+  std::cout << "buffer: " << value << "\nanyLength: " << data.size() << std::endl;
   return Buffer(dispatchType(any), data);
 }
 
