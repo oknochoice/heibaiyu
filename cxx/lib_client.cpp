@@ -370,10 +370,10 @@ void create_client(std::string certpath, Buffer_SP ping,
       //ev_c_isWait_ = false;
       //ev_c_var_.notify_one();
       //ul.unlock();
+      isRunloopComplete_.store(true);
       if (outer_callback != nullptr) {
         outer_callback(0, "connect success");
       }
-      isRunloopComplete_.store(true);
       ev_run(loop(), 0);
       delete read_io_;
       delete write_io_;

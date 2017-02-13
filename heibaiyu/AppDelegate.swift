@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var netyi_ts: Int = 0
 		
   let netopened = Notification.Name("netyi_opened")
-  let connectNoti = Notification.Name("netyi_connect")
   let reachable = Reachability()!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -58,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var rootvc: UIViewController?
     if netdbwarpper.sharedNetdb().getCurrentUser() != nil {
       rootvc = StoryboardScene.Main.instantiateTabbarController()
-      // regist net opened
-      NotificationCenter.default.addObserver(self, selector: #selector(self.connect), name: netopened, object: nil)
     }else {
       rootvc = StoryboardScene.Main.instantiateSigninController()
     }
@@ -71,18 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UITabBar.appearance().tintColor = UIColor(named: .qincong)
     window?.rootViewController = rootvc
     return true
-  }
-  
-  func connect() {
-    let data = netdbwarpper.sharedNetdb().getCurrentUser()!
-    if let user = try? Chat_User(protobuf: data) {
-      netdbwarpper.sharedNetdb().connect(user.id) { (err_no, err_msg) in
-        blog.debug((err_no, err_msg));
-        DispatchQueue.main.async {
-          NotificationCenter.default.post(name: (self.connectNoti), object: self)
-        }
-      }
-    }
   }
   
   func reachableCheck(note: NSNotification) {

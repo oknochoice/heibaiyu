@@ -14,7 +14,7 @@
 typedef std::shared_ptr<yijian::buffer> Buffer_SP;
 typedef std::function<void(Buffer_SP)> Read_CB;
 //typedef void (*IsConnectSuccess)();
-typedef std::function<void(const int error_no, const std::string && error_msg)> Client_CB;
+typedef std::function<void(const int error_no, const std::string & error_msg)> Client_CB;
 
 // main thread call, read_cb subthread callback
 void create_client(std::string certpath, Buffer_SP ping,

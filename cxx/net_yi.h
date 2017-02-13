@@ -20,7 +20,7 @@ public:
   /*
    * netyi basic api
    * */ 
-  void net_connect (Buffer_SP ping_sp, Client_CB client_callback);
+  void net_connect(Buffer_SP ping_sp, Client_CB client_callback);
   // signup login connect
   // func(key, bool)
   void signup(Buffer_SP sp, CB_Func_Mutiple && func);

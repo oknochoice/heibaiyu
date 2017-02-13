@@ -36,9 +36,18 @@ void netdb_yi::openNet(Client_CB client_callback) {
   auto ping = chat::Ping();
   ping.set_msg("ping");
   netyi_->setNetIsReachable(true);
-  netyi_->net_connect(yijian::buffer::Buffer(ping), [this](const int error_no, const std::string && error_msg) {
+  netyi_->net_connect(yijian::buffer::Buffer(ping), [this](const int error_no, const std::string & error_msg) {
     if (0 == error_no) {
       isOpenNet_.store(true);
+      try {
+        auto user = dbyi_->getCurrentUser();
+        this->connect(user.id(), [this](const int err_no, const std::string & err_msg){
+          client_callback_(err_no, err_msg);
+        });
+      } catch (...) {
+        client_callback_(error_no, std::forward<const std::string>(error_msg));
+      }
+    }else{
       client_callback_(error_no, std::forward<const std::string>(error_msg));
     }
   });
