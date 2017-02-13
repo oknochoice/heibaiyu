@@ -15,6 +15,9 @@
 "signup_password_limit" = "密码长度需>=6";
 "signup_success" = "注册成功";
 "signup_verifiycoe_limit" = "验证码长度需>=4";
+/* 登录
+ */
+"signin_signin" = "登录";
 
 /* 搜索
  */

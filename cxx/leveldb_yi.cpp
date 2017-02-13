@@ -89,7 +89,8 @@ chat::AddFriendInfo leveldb_yi::getAddfriendInfo() {
 void leveldb_yi::put(const leveldb::Slice & key,
     const leveldb::Slice & value) {
   YILOG_TRACE ("func: {}", __func__);
-  auto status =  db_->Put(leveldb::WriteOptions(), key, value);
+  leveldb::WriteOptions write_options;
+  auto status =  db_->Put(write_options, key, value);
   if (unlikely(!status.ok())) {
     throw std::system_error(std::error_code(50001,
           std::generic_category()),

@@ -18,11 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 
 + (instancetype)sharedNetdb;
+/* net
+ */
 - (void)openNet:(Net_CB)callback;
 - (void)closeNet;
 - (void)setNetIsReachable:(BOOL)isReachable;
 - (void)registCheck:(NSString*)phoneno :(NSString*)countrycode :(Net_CB)callback;
 - (void)regist:(NSString*)phoneno :(NSString*)countrycode :(NSString*)password :(NSString*)verifycode :(Net_CB)callback;
+- (void)login:(NSString*)phoneno :(NSString*)countrycode :(NSString*)password :(Net_CB)callback;
+- (void)connect:(NSString*)userid :(Net_CB)callback;
+/* db
+ */
+- (nullable NSData*)getCurrentUser;
 
 @end
 NS_ASSUME_NONNULL_END

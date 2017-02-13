@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var netyi_ts: Int = 0
 		
-
-  let connectNoti = Notification.Name("client_connect")
+  let netopened = Notification.Name("netyi_opened")
+  let connectNoti = Notification.Name("netyi_connect")
   let reachable = Reachability()!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -56,11 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // root vc
     var rootvc: UIViewController?
-    //if leveldb.sharedInstance.getCurrentUserid() != nil {
+    if netdbwarpper.sharedNetdb().getCurrentUser() != nil {
       rootvc = StoryboardScene.Main.instantiateTabbarController()
-    //}else {
+      // regist net opened
+      NotificationCenter.default.addObserver(self, selector: #selector(self.connect), name: netopened, object: nil)
+    }else {
       rootvc = StoryboardScene.Main.instantiateSigninController()
-    //}
+    }
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     let barAppearace = UINavigationBar.appearance()
     barAppearace.barTintColor = UIColor(named: .qincong)
@@ -71,6 +73,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  func connect() {
+    let data = netdbwarpper.sharedNetdb().getCurrentUser()!
+    if let user = try? Chat_User(protobuf: data) {
+      netdbwarpper.sharedNetdb().connect(user.id) { (err_no, err_msg) in
+        blog.debug((err_no, err_msg));
+        DispatchQueue.main.async {
+          NotificationCenter.default.post(name: (self.connectNoti), object: self)
+        }
+      }
+    }
+  }
   
   func reachableCheck(note: NSNotification) {
     let reachability = note.object as! Reachability
@@ -84,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         blog.debug((errNo, errMsg));
         if (0 == errNo) {
           DispatchQueue.main.async {[weak self] in
-            NotificationCenter.default.post(name: (self?.connectNoti)!, object: self)
+            NotificationCenter.default.post(name: (self?.netopened)!, object: self)
           }
         }
       })
@@ -114,6 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    netdbwarpper.sharedNetdb()
   }
 
 

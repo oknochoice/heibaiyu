@@ -74,6 +74,15 @@ struct StoryboardScene {
       return vc
     }
 
+    case meControllerScene = "meController"
+    static func instantiateMeController() -> heibaiyu.meController {
+      guard let vc = StoryboardScene.Main.meControllerScene.viewController() as? heibaiyu.meController
+      else {
+        fatalError("ViewController 'meController' is not of the expected class heibaiyu.meController.")
+      }
+      return vc
+    }
+
     case searchControllerScene = "searchController"
     static func instantiateSearchController() -> heibaiyu.searchController {
       guard let vc = StoryboardScene.Main.searchControllerScene.viewController() as? heibaiyu.searchController
@@ -88,6 +97,15 @@ struct StoryboardScene {
       guard let vc = StoryboardScene.Main.tabbarControllerScene.viewController() as? UITabBarController
       else {
         fatalError("ViewController 'tabbarController' is not of the expected class UITabBarController.")
+      }
+      return vc
+    }
+
+    case userinfoControllerScene = "userinfoController"
+    static func instantiateUserinfoController() -> heibaiyu.userinfoController {
+      guard let vc = StoryboardScene.Main.userinfoControllerScene.viewController() as? heibaiyu.userinfoController
+      else {
+        fatalError("ViewController 'userinfoController' is not of the expected class heibaiyu.userinfoController.")
       }
       return vc
     }

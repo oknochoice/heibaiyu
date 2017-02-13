@@ -13,6 +13,8 @@ import Foundation
 enum L10n {
   /// 添加好友
   static let searchAddFriend = L10n.tr("search_addFriend")
+  /// 登录
+  static let signinSignin = L10n.tr("signin_signin")
   /// 获取验证码
   static let signupGetVerifycode = L10n.tr("signup_getVerifycode")
   /// 密码长度需>=6

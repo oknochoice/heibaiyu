@@ -54,6 +54,11 @@ void netdb_yi::closeNet() {
   clear_client();
 }
 
+leveldb_yi * netdb_yi::db() {
+  YILOG_TRACE ("func: {}", __func__);
+  return dbyi_;
+}
+
 /*
  * user
  */
@@ -126,6 +131,7 @@ void netdb_yi::connect(const std::string & userid, CB_Func && callback) {
     auto res = chat::ClientConnectRes();
     res.ParseFromString(data);
     if (res.issuccess()) {
+      dbyi_->setCurrentUserid(res.userid());
       this->getUser(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
         callback(err_no, err_msg);
       });

@@ -28,6 +28,7 @@ public:
   void openNet(Client_CB client_callback);
   void netIsReachable(bool isreachable);
   void closeNet();
+  leveldb_yi * db();
   
   /*
    * user

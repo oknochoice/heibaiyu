@@ -26,6 +26,11 @@ public:
   chat::User getUser(const std::string & countrycode,
                const std::string & phoneno);
   chat::User getCurrentUser();
+  /*
+   * current
+   * */
+  std::string getCurrentUserid();
+  void setCurrentUserid(const std::string & userid);
   
   /*
    * add friend info
@@ -45,11 +50,6 @@ private:
   std::string get(const leveldb::Slice & key);
 
   
-  /*
-   * current
-   * */
-  std::string getCurrentUserid();
-  void setCurrentUserid(const std::string & userid);
 
   /*
    * user key

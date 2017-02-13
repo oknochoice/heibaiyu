@@ -86,9 +86,8 @@ class SignupController: UIViewController {
         DispatchQueue.main.async {
           if 0 == err_no {
             errorLocal.success(msg: L10n.signupSuccess)
-            DispatchQueue.main.async {
               //userinfo.change2barController()
-            }
+            UIApplication.shared.delegate?.window??.rootViewController = StoryboardScene.Main.instantiateTabbarController()
           }else {
             errorLocal.error(err_no: err_no, orMsg: err_msg)
           }
