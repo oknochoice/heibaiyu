@@ -36,83 +36,83 @@ netyi::~netyi() {
 void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
   YILOG_TRACE ("func: {}", __func__);
   create_client(certpath_, ping_sp,
-    [&](Buffer_SP sp){
+    [=](const std::vector<Buffer_SP> & sp_vec){
     YILOG_TRACE ("net callback");
-    switch(sp->datatype()) {
+    switch(sp_vec.back()->datatype()) {
       case ChatType::loginnoti:
       case ChatType::addfriendnoti:
       case ChatType::addfriendauthorizenoti:
       {
-        call_map(Session_ID::user_noti_id, sp);
+        call_map(Session_ID::user_noti_id, sp_vec);
         break;
       }
       case ChatType::nodemessagenoti:
       {
-        call_map(Session_ID::accept_unread_msg_id, sp);
+        call_map(Session_ID::accept_unread_msg_id, sp_vec);
         break;
       }
       case ChatType::registorres:
       {
-        call_map(Session_ID::regist_id, sp);
+        call_map(Session_ID::regist_id, sp_vec);
         break;
       }
       case ChatType::loginres:
       {
-        call_map(Session_ID::login_id, sp);
+        call_map(Session_ID::login_id, sp_vec);
         break;
       }
       case ChatType::clientconnectres:
       {
-        call_map(Session_ID::connect_id, sp);
+        call_map(Session_ID::connect_id, sp_vec);
         break;
       }
       case ChatType::logoutres:
       {
-        call_map(Session_ID::logout_id, sp);
+        call_map(Session_ID::logout_id, sp_vec);
         break;
       }
       case ChatType::clientdisconnectres:
       {
-        call_map(Session_ID::disconnect_id, sp);
+        call_map(Session_ID::disconnect_id, sp_vec);
         break;
       }
       default:
-      call_map(sp->session_id(), sp);
+      call_map(sp_vec.back()->session_id(), sp_vec);
     }
   }, client_callback);
 }
 
 
-void netyi::signup(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::signup(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::regist_id, sp,
+  put_map_send(Session_ID::regist_id, std::forward<std::vector<Buffer_SP>>(sp_vec),
       std::forward<CB_Func_Mutiple>(func));
 }
-void netyi::login(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::login(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::login_id, sp,
+  put_map_send(Session_ID::login_id, std::forward<std::vector<Buffer_SP>>(sp_vec),
       std::forward<CB_Func_Mutiple>(func));
 }
-void netyi::connect(Buffer_SP sp, CB_Func_Mutiple && func) {
+void netyi::connect(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::connect_id, sp,
-      std::forward<CB_Func_Mutiple>(func));
-}
-
-void netyi::disconnect(Buffer_SP sp, CB_Func_Mutiple && func) {
-  YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::disconnect_id, sp,
-      std::forward<CB_Func_Mutiple>(func));
-}
-void netyi::logout(Buffer_SP sp, CB_Func_Mutiple && func) {
-  YILOG_TRACE ("func: {}", __func__);
-  put_map_send(Session_ID::logout_id, sp,
+  put_map_send(Session_ID::connect_id, std::forward<std::vector<Buffer_SP>>(sp_vec),
       std::forward<CB_Func_Mutiple>(func));
 }
 
-void netyi::send_buffer(Buffer_SP sp, int32_t * sessionid, CB_Func_Mutiple && func) {
+void netyi::disconnect(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
-  put_map_send(sp,
+  put_map_send(Session_ID::disconnect_id, std::forward<std::vector<Buffer_SP>>(sp_vec),
+      std::forward<CB_Func_Mutiple>(func));
+}
+void netyi::logout(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(Session_ID::logout_id, std::forward<std::vector<Buffer_SP>>(sp_vec),
+      std::forward<CB_Func_Mutiple>(func));
+}
+
+void netyi::send_buffer(std::vector<Buffer_SP> && sp_vec, int32_t * sessionid, CB_Func_Mutiple && func) {
+  YILOG_TRACE ("func: {}", __func__);
+  put_map_send(std::forward<std::vector<Buffer_SP>>(sp_vec),
       std::forward<CB_Func_Mutiple>(func), sessionid);
 }
 
@@ -141,11 +141,11 @@ void netyi::put_map(const int32_t sessionid, CB_Func_Mutiple && func) {
   std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
   sessionid_cbfunc_map_[sessionid] = func;
 }
-void netyi::put_map_send(Buffer_SP sp, CB_Func_Mutiple && func, int32_t * sessionid) {
+void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func, int32_t * sessionid) {
   YILOG_TRACE ("func: {}", __func__);
   std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
   uint16_t temp_session;
-  client_send(sp, &temp_session);
+  client_send(std::forward<std::vector<Buffer_SP>>(sp_vec), &temp_session);
   if (likely(nullptr != sessionid)) {
     *sessionid = temp_session;
   }
@@ -153,13 +153,13 @@ void netyi::put_map_send(Buffer_SP sp, CB_Func_Mutiple && func, int32_t * sessio
   sessionid_cbfunc_map_[temp_session] = func;
 }
 void netyi::put_map_send(const int32_t sessionid,
-    Buffer_SP sp, CB_Func_Mutiple && func) {
+    std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
   YILOG_TRACE ("func: {}", __func__);
   std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
-  client_send(sp, nullptr);
+  client_send(std::forward<std::vector<Buffer_SP>>(sp_vec), nullptr);
   sessionid_cbfunc_map_[sessionid] = func;
 }
-bool netyi::call_map(const int32_t sessionid, Buffer_SP sp) {
+bool netyi::call_map(const int32_t sessionid, const std::vector<Buffer_SP> & sp_vec) {
   YILOG_TRACE ("func: {}", __func__);
   bool isCalled = false;
   auto lfunc = CB_Func_Mutiple();
@@ -173,8 +173,11 @@ bool netyi::call_map(const int32_t sessionid, Buffer_SP sp) {
   ul.unlock();
   if (lfunc) {
     bool isStop = true;
-    auto data = std::string(sp->data(), sp->data_size());
-    lfunc(sp->datatype(), data, &isStop);
+    std::string data;
+    for (auto sp: sp_vec) {
+      data.append(sp->data(), sp->data_size());
+    }
+    lfunc(sp_vec.back()->datatype(), data, &isStop);
     isCalled = true;
     if (isStop) {
       if (sessionid >= 0) {

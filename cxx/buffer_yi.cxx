@@ -1,11 +1,14 @@
 #include "buffer_yi.h"
 
+#include "macro.h"
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
 
 #include <openssl/err.h>
+
+#define BufferLastFlag (1 << 15)
 
 namespace yijian {
 
@@ -100,7 +103,10 @@ bool buffer::socket_read(SSL * sfd) {
       YILOG_TRACE ("func: {}, parse header", __func__);
       // session id
       uint16_t session_net = *reinterpret_cast<uint16_t*>(header_pos_);
-      session_id_ = ntohs(session_net);
+      auto sessionid = ntohs(session_net);
+      isLastBuf_ = sessionid >> 15;
+      session_id_ = sessionid << 1 >> 1;
+      
       // type
       data_type_ =  *(header_pos_ + SESSIONID_LENGTH);
       // var_length
@@ -203,11 +209,22 @@ std::size_t buffer::data_size() {
 uint16_t buffer::session_id() {
   return session_id_;
 }
-void buffer::set_sessionid(uint16_t sessionid) {
+void buffer::set_sessionid(const uint16_t sessionid, const bool isLast) {
   YILOG_TRACE("func: {}", __func__);
-  uint16_t sessionid_l= htons(sessionid);
+  if (unlikely(sessionid > MaxSessionID)) {
+    YILOG_ERROR("session id over flow");
+  }
+  uint16_t loc_sessionid = sessionid;
+  isLastBuf_ = isLast;
+  if (unlikely(!isLast)) {
+    loc_sessionid += BufferLastFlag;
+  }
+  uint16_t sessionid_l= htons(loc_sessionid);
   memcpy(header_pos_, &sessionid_l, 2);
   session_id_ = sessionid;
+}
+bool buffer::isLast_buffer() {
+  return isLastBuf_;
 }
 
 std::pair<uint32_t, char *>
@@ -388,7 +405,7 @@ void buffer::makeReWrite() {
     SESSIONID_LENGTH + 1 + data_encode_length_ + data_length_;
 }
   
-void buffer::encoding(const uint8_t type,  std::string & data) {
+void buffer::encoding(const uint8_t type, const std::string & data) {
   data_length_ = data.length();
   /*
   if (unlikely(data_length_ > 1024 - PADDING_LENGTH || data_length_ == 0)) {
@@ -415,10 +432,10 @@ void buffer::encoding(const uint8_t type,  std::string & data) {
   data_type_ = type;
   // session_id_ send set
   YILOG_TRACE ("func: {}, type: {}, length: {}",
-      __func__, type, any.ByteSize());
+      __func__, type, data_length_);
 }
   
-std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, std::string data) {
+std::shared_ptr<buffer> buffer::Buffer(const uint8_t type, const std::string & data) {
   auto buf = std::make_shared<yijian::buffer>();
   buf->encoding(type, data);
   return buf;

@@ -1,6 +1,9 @@
 #ifndef BUFFER_H_YIJIAN
 #define BUFFER_H_YIJIAN
 
+#define MinSessionID 100
+#define MaxSessionID 32767
+
 #include "macro.h"
 #include <deque>
 #include <unistd.h>
@@ -79,14 +82,11 @@ void buffer::data_encoding_current_addpos(std::size_t length) {
 
     // session id
     uint16_t session_id();
-    void set_sessionid(uint16_t sessionid);
+    void set_sessionid(const uint16_t sessionid, const bool isLast);
+    bool isLast_buffer();
     
-    // c++ protobuf
-    template <typename Proto>
-    static std::shared_ptr<buffer> Buffer(Proto && any);
-    
-    void encoding(const uint8_t type, std::string & data);
-    static std::shared_ptr<buffer> Buffer(const uint8_t type, std::string data);
+    void encoding(const uint8_t type, const std::string & data);
+    static std::shared_ptr<buffer> Buffer(const uint8_t type, const std::string & data);
 //private:
     
     std::pair<uint32_t, char *>
@@ -104,6 +104,7 @@ private:
     bool isParseMsgReaded_ = false;
     bool isParseFinish_ = false;
     bool isFinish_ = false;
+    bool isLastBuf_ = false;
 
     uint8_t data_type_;
     std::size_t data_encode_length_;

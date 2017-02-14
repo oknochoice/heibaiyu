@@ -8,11 +8,12 @@
 #include "buffer_yi.h"
 #include <functional>
 #include <string>
+#include <vector>
 
 #include <openssl/ssl.h>
 
 typedef std::shared_ptr<yijian::buffer> Buffer_SP;
-typedef std::function<void(Buffer_SP)> Read_CB;
+typedef std::function<void(const std::vector<Buffer_SP> &)> Read_CB;
 //typedef void (*IsConnectSuccess)();
 typedef std::function<void(const int error_no, const std::string & error_msg)> Client_CB;
 
@@ -21,7 +22,7 @@ void create_client(std::string certpath, Buffer_SP ping,
                    Read_CB && read_cb,
                    Client_CB callback);
 // main thread call
-void client_send(Buffer_SP sp_buffer, uint16_t * sessionid);
+void client_send(std::vector<Buffer_SP> && buffer_sp_v, uint16_t * sessionid);
 // main thread call
 void clear_client();
 // main thread call

@@ -23,7 +23,7 @@ struct Read_IO {
   // watcher
   ev_io io;
   // socket buffer
-  Buffer_SP buffer_sp = std::make_shared<yijian::buffer>();
+  std::vector<Buffer_SP> buffer_sp_v;
   uint16_t sessionid;
   // ssl
   SSL * ssl;
@@ -197,7 +197,9 @@ void pingtime_cb(EV_P_ ev_timer * w, int revents) {
   long dif = now - recent;
   if (dif - 2 >= PingTime) {
     ping_->makeReWrite();
-    client_send(ping_, nullptr);
+    std::vector<Buffer_SP> vec;
+    vec.push_back(ping_);
+    client_send(std::move(vec), nullptr);
     ev_timer_set(w, PingTime, 0.);
   }else {
     ev_timer_set(w, dif, 0.);
@@ -234,18 +236,26 @@ void connection_read_callback (struct ev_loop * loop,
 
   // read to buffer 
   // if read complete stop watch && update ping
-  
-  if (io->buffer_sp->socket_read(io->ssl)) {
-    YILOG_TRACE ("func: {}. receive datatype {}.", 
-        __func__, io->buffer_sp->datatype());
-    if (unlikely(io->buffer_sp->datatype() == ChatType::clientconnectres)) {
-      YILOG_INFO ("func: {}. set sessionid", __func__);
-      read_io_->sessionid = io->buffer_sp->session_id();
+    
+    if (io->buffer_sp_v.empty()) {
+      auto sp = std::make_shared<yijian::buffer>();
+      io->buffer_sp_v.push_back(sp);
     }
-    time_t t = time(NULL);
-    recent_ts_.store(t);
-    (*sp_read_cb_)(io->buffer_sp);
-    io->buffer_sp.reset(new yijian::buffer());
+  
+  if (io->buffer_sp_v.back()->socket_read(io->ssl)) {
+    if (io->buffer_sp_v.back()->isLast_buffer()) {
+      if (unlikely(io->buffer_sp_v.back()->datatype() == ChatType::clientconnectres)) {
+        YILOG_INFO ("func: {}. set sessionid", __func__);
+        read_io_->sessionid = io->buffer_sp_v.back()->session_id();
+      }
+      time_t t = time(NULL);
+      recent_ts_.store(t);
+      (*sp_read_cb_)(io->buffer_sp_v);
+      io->buffer_sp_v.clear();
+    }else {
+      auto sp = std::make_shared<yijian::buffer>();
+      io->buffer_sp_v.push_back(sp);
+    }
   }
 
   }catch (std::system_error & e) {
@@ -394,9 +404,16 @@ void create_client(std::string certpath, Buffer_SP ping,
   //    });
 }
 
-void client_send(Buffer_SP sp_buffer,
+void client_send(std::vector<Buffer_SP> && buffer_sp_v,
     uint16_t * sessionid) {
   YILOG_TRACE ("func: {}. ", __func__);
+  
+  if (buffer_sp_v.empty()) {
+    if (outer_callback) {
+      outer_callback(60013, "vector is empty");
+      YILOG_DEBUG("60013, vector is empty");
+    }
+  }
   
   if (!isNetReachable_.load()) {
     if (outer_callback) {
@@ -409,7 +426,7 @@ void client_send(Buffer_SP sp_buffer,
   if (!isRunloopComplete_.load()) {
     if (outer_callback) {
       outer_callback(60012, "wait configure runloop finish");
-      YILOG_DEBUG("60010, net is not reachable");
+      YILOG_DEBUG("60012, wait configure runloop finish");
     }
     return;
   }
@@ -417,7 +434,7 @@ void client_send(Buffer_SP sp_buffer,
   try {
     std::unique_lock<std::mutex> ul(write_io_->buffers_p_mutex);
     uint16_t sid = 0;
-    if (missing_check(sp_buffer->datatype())) {
+    if (missing_check(buffer_sp_v.back()->datatype())) {
       if (read_io_->sessionid == MaxSessionID) {
         sid = read_io_->sessionid = MinSessionID;
       }else {
@@ -428,8 +445,13 @@ void client_send(Buffer_SP sp_buffer,
     if (nullptr != sessionid) {
       *sessionid = sid;
     }
-    sp_buffer->set_sessionid(sid);
-    write_io_->buffers_p.push(sp_buffer);
+    
+    for(auto & sp: buffer_sp_v) {
+      sp->set_sessionid(sid, false);
+      write_io_->buffers_p.push(sp);
+    }
+    buffer_sp_v.back()->set_sessionid(sid, true);
+    
     auto watcher = write_asyn_watcher();
     ev_async_send(loop(), watcher);
   } catch (std::system_error & e) {

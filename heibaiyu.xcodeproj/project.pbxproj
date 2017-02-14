@@ -20,6 +20,7 @@
 		2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373E19F1E4175E40055136C /* IndicatorButton.swift */; };
 		238D43EB1E46329800DB9F03 /* whisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43EA1E46329800DB9F03 /* whisper.swift */; };
 		238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F41E47538C00DB9F03 /* typemap.cxx */; };
+		2398D4521E53545400713FBB /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2398D4511E53545400713FBB /* buffer_yi.cxx */; };
 		23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; };
 		23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881831E3673FF0023B421 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; };
@@ -285,7 +286,6 @@
 		A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CF031E488D250017D266 /* XCGLogger.framework */; };
 		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
-		A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
 		A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */; };
@@ -371,6 +371,7 @@
 		2373E19F1E4175E40055136C /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		238D43EA1E46329800DB9F03 /* whisper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whisper.swift; sourceTree = "<group>"; };
 		238D43F41E47538C00DB9F03 /* typemap.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = typemap.cxx; sourceTree = "<group>"; };
+		2398D4511E53545400713FBB /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
 		23A8816B1E3673FF0023B421 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
 		23A8816D1E3673FF0023B421 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		23A8816E1E3673FF0023B421 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
@@ -775,7 +776,6 @@
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
-		A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cpp; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
 		A4A66CEC1E322B64001A25D7 /* lib_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_client.h; sourceTree = "<group>"; };
@@ -1639,8 +1639,8 @@
 			isa = PBXGroup;
 			children = (
 				A40FD0F31E4C415E0044D2DA /* google */,
-				A4A66CE91E322B64001A25D7 /* buffer_yi.cpp */,
 				A4A66CEA1E322B64001A25D7 /* buffer_yi.h */,
+				2398D4511E53545400713FBB /* buffer_yi.cxx */,
 				A4B93D491E4D554800E2B480 /* buffer_yi_util.hpp */,
 				A4A66CEB1E322B64001A25D7 /* lib_client.cpp */,
 				A4A66CEC1E322B64001A25D7 /* lib_client.h */,
@@ -2076,6 +2076,7 @@
 				A40FD30C1E4C415F0044D2DA /* int128.cc in Sources */,
 				A40FD3401E4C415F0044D2DA /* protostream_objectwriter.cc in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
+				2398D4521E53545400713FBB /* buffer_yi.cxx in Sources */,
 				234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */,
 				2373E15E1E3F4EB80055136C /* image.swift in Sources */,
 				A40FD2C01E4C415F0044D2DA /* cpp_message.cc in Sources */,
@@ -2180,7 +2181,6 @@
 				A40FD3381E4C415F0044D2DA /* error_listener.cc in Sources */,
 				A40FD33D1E4C415F0044D2DA /* object_writer.cc in Sources */,
 				A40FD2A71E4C415F0044D2DA /* code_generator.cc in Sources */,
-				A4A66CEF1E322B64001A25D7 /* buffer_yi.cpp in Sources */,
 				A40FD3491E4C415F0044D2DA /* wire_format_lite.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
