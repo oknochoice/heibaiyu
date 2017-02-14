@@ -69,6 +69,28 @@ chat::User leveldb_yi::getCurrentUser() {
   YILOG_TRACE ("func: {}", __func__);
   return getUser(getCurrentUserid());
 }
+
+void leveldb_yi::putCurrentDevice(const chat::Device & device) {
+  auto value = device.SerializeAsString();
+  put("current_device", value);
+}
+chat::Device leveldb_yi::getCurrentDevice() {
+  auto value = get("current_device");
+  auto device = chat::Device();
+  device.ParseFromString(value);
+  return device;
+}
+void leveldb_yi::putCurrentUserid(const std::string & userid) {
+  YILOG_TRACE ("func: {}", __func__);
+  put("current_user", userid);
+}void leveldb_yi::deleteCurrentUserid() {
+  YILOG_TRACE ("func: {}", __func__);
+  db_->Delete(leveldb::WriteOptions(), "current_user");
+}
+std::string leveldb_yi::getCurrentUserid() {
+  YILOG_TRACE ("func: {}", __func__);
+  return get("current_user");
+}
 /*
  * add friend info
  */
@@ -116,18 +138,6 @@ void leveldb_yi::put(leveldb::WriteBatch & batch) {
           std::generic_category()),
         "put batch failure");
   }
-}
-/*
- * current 
- *
- * */
-void leveldb_yi::setCurrentUserid(const std::string & userid) {
-  YILOG_TRACE ("func: {}", __func__);
-  put("current_user", userid);
-}
-std::string leveldb_yi::getCurrentUserid() {
-  YILOG_TRACE ("func: {}", __func__);
-  return get("current_user");
 }
 
 std::string leveldb_yi::userKey(const std::string & userid) {

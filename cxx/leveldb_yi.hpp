@@ -26,11 +26,13 @@ public:
   chat::User getUser(const std::string & countrycode,
                const std::string & phoneno);
   chat::User getCurrentUser();
-  /*
-   * current
-   * */
+  
+  void putCurrentUserid(const std::string & userid);
+  void deleteCurrentUserid();
   std::string getCurrentUserid();
-  void setCurrentUserid(const std::string & userid);
+  
+  void putCurrentDevice(const chat::Device & device);
+  chat::Device getCurrentDevice();
   
   /*
    * add friend info

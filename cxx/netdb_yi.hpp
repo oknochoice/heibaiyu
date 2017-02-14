@@ -47,8 +47,8 @@ public:
   void userSetBirthday(const int32_t birthdayTimestamp, CB_Func && callback);//seconds
   void userSetDescription(const std::string & description, CB_Func && callback);
   
-  void addFriend(const std::string & friendid, CB_Func && callback);
-  void addFriendAuthorize(const std::string & friendid, CB_Func && callback);
+  void addFriend(const std::string & friendid, const std::string & msg, CB_Func && callback);
+  void addFriendAuthorize(const std::string & friendid, const bool isAgree, CB_Func && callback);
   void getAddfriendInfo(CB_Func && callback);
   
   void getUser(const std::string & userid, CB_Func && callback);
@@ -65,6 +65,7 @@ private:
   std::string os_version_;
   std::string app_version_;
   std::string certpath_;
+  chat::AddFriendInfo addfriendInfo_;
 };
 
 #endif /* netdb_yi_hpp */

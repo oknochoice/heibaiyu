@@ -1,6 +1,9 @@
 #ifndef MACRO_H_YIJIAN
 #define MACRO_H_YIJIAN
 
+#define MinSessionID 100
+#define MaxSessionID 65535
+
 #include <assert.h>
 //#include "spdlog/spdlog.h"
 #include <inttypes.h>
