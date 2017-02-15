@@ -21,7 +21,9 @@ public:
   /*
    * netyi basic api
    * */ 
-  void net_connect(std::vector<Buffer_SP> && ping_vec, Client_CB client_callback);
+  void net_connect(std::vector<Buffer_SP> && ping_vec,
+                   Client_CB client_callback,
+                   CB_Func_Mutiple && pongfunc);
   // signup login connect
   // func(key, bool)
   void signup(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func);

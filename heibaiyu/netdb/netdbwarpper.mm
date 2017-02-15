@@ -42,7 +42,7 @@ static netdb_yi * netdb_yi_shared = nil;
 - (void)openNet:(Net_CB)callback {
   netdb_yi_shared->openNet([callback](const int err_no, const std::string & err_msg) {
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
-  });
+  }, nullptr);
 }
 
 - (void)setNetIsReachable:(BOOL)isReachable {

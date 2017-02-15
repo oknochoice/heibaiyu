@@ -196,6 +196,9 @@ void pingtime_cb(EV_P_ ev_timer * w, int revents) {
   long now = time(NULL);
   long dif = now - recent;
   if (dif - 2 >= PingTime) {
+    for(auto sp: ping_v_) {
+      sp->makeReWrite();
+    }
     auto vec = std::vector<Buffer_SP>(ping_v_);
     client_send(std::move(vec), nullptr);
     ev_timer_set(w, PingTime, 0.);

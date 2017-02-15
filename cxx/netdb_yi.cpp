@@ -31,7 +31,7 @@ netdb_yi::~netdb_yi() {
   delete dbyi_;
 }
 
-void netdb_yi::openNet(Client_CB client_callback) {
+void netdb_yi::openNet(Client_CB client_callback, CB_Func && pongback) {
   YILOG_TRACE ("func: {}", __func__);
   if (isOpenNet_.load()) {
     return;
@@ -40,6 +40,7 @@ void netdb_yi::openNet(Client_CB client_callback) {
   client_callback_ = client_callback;
   auto ping = chat::Ping();
   ping.set_msg("ping");
+  /*
 #ifdef DEBUG
   ping.set_msg("pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
                "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
@@ -91,6 +92,7 @@ void netdb_yi::openNet(Client_CB client_callback) {
                "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
                "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping");
 #endif
+   */
   netyi_->setNetIsReachable(true);
   netyi_->net_connect(yijianBuffer(ping), [this](const int error_no, const std::string & error_msg) {
     if (0 == error_no) {
@@ -105,6 +107,20 @@ void netdb_yi::openNet(Client_CB client_callback) {
       }
     }else{
       client_callback_(error_no, std::forward<const std::string>(error_msg));
+    }
+  }, [pongback = std::forward<CB_Func>(pongback)](const int8_t type, const std::string & data, bool * const isStop){
+    if (!pongback) {
+      return ;
+    }
+    if (0 == type) {
+      auto error = chat::Error();
+      error.ParseFromString(data);
+      pongback(error.errnum(), error.errmsg());
+    }else {
+      Assert(type == ChatType::pong);
+      auto res = chat::Pong();
+      res.ParseFromString(data);
+      pongback(0, res.msg());
     }
   });
 }
@@ -214,7 +230,7 @@ void netdb_yi::disconnect(CB_Func && callback) {
       err.ParseFromString(data);
       callback(err.errnum(), err.errmsg());
     }else{
-      assert(ChatType::clientdisconnectres == type);
+      Assert(ChatType::clientdisconnectres == type);
       callback(0, netdb_success_);
     }
   });
@@ -231,7 +247,7 @@ void netdb_yi::logout(CB_Func && callback) {
       err.ParseFromString(data);
       callback(err.errnum(), err.errmsg());
     }else{
-      assert(ChatType::logoutres == type);
+      Assert(ChatType::logoutres == type);
       dbyi_->deleteCurrentUserid();
       callback(0, netdb_success_);
     }
@@ -275,7 +291,7 @@ void netdb_yi::addFriend(const std::string & friendid, const std::string & msg, 
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      assert(type == ChatType::addfriendres);
+      Assert(type == ChatType::addfriendres);
       auto res = chat::AddFriendRes();
       res.ParseFromString(data);
       callback(0, netdb_success_);
@@ -298,7 +314,7 @@ void netdb_yi::addFriendAuthorize(const std::string & friendid, const bool isAgr
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      assert(type == ChatType::addfriendauthorizeres);
+      Assert(type == ChatType::addfriendauthorizeres);
       auto res = chat::AddFriendAuthorizeRes();
       res.ParseFromString(data);
       callback(0, netdb_success_);
@@ -317,7 +333,7 @@ void netdb_yi::getAddfriendInfo(CB_Func && callback) {
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      assert(type == ChatType::queryaddfriendinfores);
+      Assert(type == ChatType::queryaddfriendinfores);
       auto res = chat::QueryAddfriendInfoRes();
       res.ParseFromString(data);
       if (res.isend()) {
@@ -342,7 +358,7 @@ void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      assert(type == ChatType::queryuserres);
+      Assert(type == ChatType::queryuserres);
       auto res = chat::QueryUserRes();
       res.ParseFromString(data);
       dbyi_->putUser(res.user());
@@ -361,7 +377,7 @@ void netdb_yi::getUser(const std::string & phone, const std::string & countrycod
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      assert(type == ChatType::queryuserres);
+      Assert(type == ChatType::queryuserres);
       auto res = chat::QueryUserRes();
       res.ParseFromString(data);
       dbyi_->putUser(res.user());

@@ -25,7 +25,7 @@ public:
     CB_Func;
   netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion);
   ~netdb_yi();
-  void openNet(Client_CB client_callback);
+  void openNet(Client_CB client_callback, CB_Func && pongback);
   void netIsReachable(bool isreachable);
   void closeNet();
   leveldb_yi * db();

@@ -33,13 +33,21 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect (std::vector<Buffer_SP> && ping_vec, Client_CB client_callback) {
+void netyi::net_connect (std::vector<Buffer_SP> && ping_vec,
+                         Client_CB client_callback,
+                         CB_Func_Mutiple && pongfunc) {
   YILOG_TRACE ("func: {}", __func__);
   client_callback_ = client_callback;
+  put_map(Session_ID::ping_pong_id, std::forward<CB_Func_Mutiple>(pongfunc));
   create_client(certpath_, ping_vec,
     [=](const std::vector<Buffer_SP> & sp_vec){
     YILOG_TRACE ("net callback");
     switch(sp_vec.back()->datatype()) {
+      case ChatType::pong:
+      {
+        call_map(Session_ID::ping_pong_id, sp_vec);
+        break;
+      }
       case ChatType::loginnoti:
       case ChatType::addfriendnoti:
       case ChatType::addfriendauthorizenoti:
@@ -170,6 +178,8 @@ bool netyi::call_map(const int32_t sessionid, const std::vector<Buffer_SP> & sp_
     lfunc = it->second;
   }else {
     YILOG_DEBUG ("user stop call back");
+    std::string data = "user callback not find: not put map Or session id error";
+    client_callback_(-1, data);
   }
   ul.unlock();
   if (lfunc) {
@@ -187,8 +197,7 @@ bool netyi::call_map(const int32_t sessionid, const std::vector<Buffer_SP> & sp_
       }
     }
   }else {
-    std::string data = "user callback not find: not put map Or session id error";
-    client_callback_(-1, data);
+    YILOG_DEBUG ("callback func is nullptr");
   }
   return isCalled;
 }
