@@ -48,7 +48,7 @@ static Client_CB outer_callback;
 static std::atomic_long recent_ts_;
 static std::atomic_bool isNetReachable_;
 static std::atomic_bool isRunloopComplete_;
-static Buffer_SP ping_;
+static std::vector<Buffer_SP> ping_v_;
 static struct ev_timer * ping_timer_;
 /*
 static std::mutex ev_c_mutex_;
@@ -196,9 +196,7 @@ void pingtime_cb(EV_P_ ev_timer * w, int revents) {
   long now = time(NULL);
   long dif = now - recent;
   if (dif - 2 >= PingTime) {
-    ping_->makeReWrite();
-    std::vector<Buffer_SP> vec;
-    vec.push_back(ping_);
+    auto vec = std::vector<Buffer_SP>(ping_v_);
     client_send(std::move(vec), nullptr);
     ev_timer_set(w, PingTime, 0.);
   }else {
@@ -363,13 +361,13 @@ static void init_io() {
 
 }
 
-void create_client(std::string certpath, Buffer_SP ping,
+void create_client(std::string certpath, std::vector<Buffer_SP> ping_v,
                    Read_CB && read_cb,
                    Client_CB callback) {
   YILOG_TRACE ("func: {}. ", __func__);
   client_rootcert_path = certpath;
   outer_callback = callback;
-  ping_ = ping;
+  ping_v_ = ping_v;
   isRunloopComplete_.store(false);
   sp_read_cb_.reset(new Read_CB(std::forward<Read_CB>(read_cb)));
   std::thread t([&](){

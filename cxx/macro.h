@@ -34,7 +34,10 @@ public:
 void initConsoleLog();
 
 #ifdef DEBUG
-//#define YILOG_ON
+#define YILOG_ON
+#define Assert(...) assert(__VA_ARGS__)
+#else
+#define Assert(...)
 #endif
 
 #ifdef YILOG_ON

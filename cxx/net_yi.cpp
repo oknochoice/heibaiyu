@@ -33,9 +33,10 @@ netyi::~netyi() {
 /*
  * net func
  * */
-void netyi::net_connect (Buffer_SP ping_sp, Client_CB client_callback) {
+void netyi::net_connect (std::vector<Buffer_SP> && ping_vec, Client_CB client_callback) {
   YILOG_TRACE ("func: {}", __func__);
-  create_client(certpath_, ping_sp,
+  client_callback_ = client_callback;
+  create_client(certpath_, ping_vec,
     [=](const std::vector<Buffer_SP> & sp_vec){
     YILOG_TRACE ("net callback");
     switch(sp_vec.back()->datatype()) {
@@ -185,6 +186,9 @@ bool netyi::call_map(const int32_t sessionid, const std::vector<Buffer_SP> & sp_
         sessionid_cbfunc_map_.erase(it);
       }
     }
+  }else {
+    std::string data = "user callback not find: not put map Or session id error";
+    client_callback_(-1, data);
   }
   return isCalled;
 }

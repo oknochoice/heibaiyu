@@ -21,7 +21,7 @@ public:
   /*
    * netyi basic api
    * */ 
-  void net_connect(Buffer_SP ping_sp, Client_CB client_callback);
+  void net_connect(std::vector<Buffer_SP> && ping_vec, Client_CB client_callback);
   // signup login connect
   // func(key, bool)
   void signup(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func);
@@ -52,6 +52,7 @@ private:
   std::string certpath_;
   std::mutex sessionid_map_mutex_;
   std::map<int32_t, CB_Func_Mutiple> sessionid_cbfunc_map_;
+  Client_CB client_callback_;
 };
 
 #endif

@@ -40,8 +40,59 @@ void netdb_yi::openNet(Client_CB client_callback) {
   client_callback_ = client_callback;
   auto ping = chat::Ping();
   ping.set_msg("ping");
+#ifdef DEBUG
+  ping.set_msg("pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping"
+               "pingpingpingpingpingpingpingpingpingpingpingpingpingpingpingpingping");
+#endif
   netyi_->setNetIsReachable(true);
-  netyi_->net_connect(yijian::buffer::Buffer(dispatchType(ping), ping.SerializeAsString()), [this](const int error_no, const std::string & error_msg) {
+  netyi_->net_connect(yijianBuffer(ping), [this](const int error_no, const std::string & error_msg) {
     if (0 == error_no) {
       isOpenNet_.store(true);
       try {

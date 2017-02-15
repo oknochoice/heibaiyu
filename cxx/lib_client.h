@@ -18,7 +18,7 @@ typedef std::function<void(const std::vector<Buffer_SP> &)> Read_CB;
 typedef std::function<void(const int error_no, const std::string & error_msg)> Client_CB;
 
 // main thread call, read_cb subthread callback
-void create_client(std::string certpath, Buffer_SP ping,
+void create_client(std::string certpath, std::vector<Buffer_SP> ping_v,
                    Read_CB && read_cb,
                    Client_CB callback);
 // main thread call
