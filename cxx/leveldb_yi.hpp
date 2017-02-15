@@ -40,7 +40,6 @@ public:
   void putAddfriendInfo(const chat::AddFriendInfo & info);
   chat::AddFriendInfo getAddfriendInfo();
   
-  
 private:
   /*
    * common leveldb put get

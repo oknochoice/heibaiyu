@@ -8,6 +8,7 @@
 
 #include "netdb_yi.hpp"
 #include "buffer_yi_util.hpp"
+#include <openssl/sha.h>
 
 static const std::string netdb_success_ = "success";
 
@@ -254,13 +255,31 @@ void netdb_yi::logout(CB_Func && callback) {
   });
 }
   
+void netdb_yi::setUserProterty(const chat::SetUserProperty & proterty, CB_Func && callback) {
+  YILOG_TRACE ("func: {}", __func__);
+  netyi_->send_buffer(yijianBuffer(proterty), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+    if (0 == type) {
+      auto error = chat::Error();
+      error.ParseFromString(data);
+      callback(error.errnum(), error.errmsg());
+    }else {
+      Assert(type == ChatType::setuserprotertyres);
+    }
+  });
+}
 void netdb_yi::userSetRealname(const std::string & realname, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  
+  auto property = chat::SetUserProperty();
+  property.set_property(chat::UserProperty::realname);
+  property.set_value(realname);
+  setUserProterty(property, std::forward<CB_Func>(callback));
 }
 void netdb_yi::userSetNickname(const std::string & nickname, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  
+  auto property = chat::SetUserProperty();
+  property.set_property(chat::UserProperty::nickname);
+  property.set_value(nickname);
+  setUserProterty(property, std::forward<CB_Func>(callback));
 }
 void netdb_yi::userSetIcon(const std::string & icon, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
@@ -268,17 +287,30 @@ void netdb_yi::userSetIcon(const std::string & icon, CB_Func && callback) {
 }
 void netdb_yi::userSetIsmale(bool isMale, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  
+  auto property = chat::SetUserProperty();
+  property.set_property(chat::UserProperty::isMale);
+  if (isMale) {
+    property.set_value("true");
+  }else{
+    property.set_value("false");
+  }
+  setUserProterty(property, std::forward<CB_Func>(callback));
 }
 void netdb_yi::userSetBirthday(int32_t birthdayTimestamp, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  
+  auto property = chat::SetUserProperty();
+  property.set_property(chat::UserProperty::birthday);
+  property.set_value(std::to_string(birthdayTimestamp));
+  setUserProterty(property, std::forward<CB_Func>(callback));
 }
 void netdb_yi::userSetDescription(const std::string & description, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  
+  auto property = chat::SetUserProperty();
+  property.set_property(chat::UserProperty::description);
+  property.set_value(description);
+  setUserProterty(property, std::forward<CB_Func>(callback));
 }
-  
+
 void netdb_yi::addFriend(const std::string & friendid, const std::string & msg, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::AddFriend();
@@ -350,19 +382,44 @@ void netdb_yi::getAddfriendInfo(CB_Func && callback) {
   
 void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  auto query = chat::QueryUser();
+  // get db user
+  int32_t version = 0;
+  try {
+    auto user = dbyi_->getUser(userid);
+    version = user.version();
+  } catch (...) {
+  }
+  // query user version
+  auto query = chat::QueryUserVersion();
   query.set_userid(userid);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop){
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, userid, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else {
-      Assert(type == ChatType::queryuserres);
-      auto res = chat::QueryUserRes();
+      Assert(type == ChatType::queryuserversionres);
+      auto res = chat::QueryUserVersionRes();
       res.ParseFromString(data);
-      dbyi_->putUser(res.user());
-      callback(0, netdb_success_);
+      if (version < res.version()) {
+        auto query = chat::QueryUser();
+        query.set_userid(userid);
+        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int8_t type, const std::string & data, bool * isStop){
+          if (0 == type) {
+            auto error = chat::Error();
+            error.ParseFromString(data);
+            callback(error.errnum(), error.errmsg());
+          }else {
+            Assert(type == ChatType::queryuserres);
+            auto res = chat::QueryUserRes();
+            res.ParseFromString(data);
+            dbyi_->putUser(res.user());
+            callback(0, netdb_success_);
+          }
+        });
+      }else {
+        callback(0, netdb_success_);
+      }
     }
   });
 }
@@ -384,5 +441,12 @@ void netdb_yi::getUser(const std::string & phone, const std::string & countrycod
       callback(0, netdb_success_);
     }
   });
+}
+/*
+ * media
+ */
+void netdb_yi::sendMedia(const std::string & media, CB_Func && callback) {
+  YILOG_TRACE ("func: {}", __func__);
+  
 }
   

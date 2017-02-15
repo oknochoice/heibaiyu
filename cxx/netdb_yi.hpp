@@ -53,6 +53,10 @@ public:
   
   void getUser(const std::string & userid, CB_Func && callback);
   void getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback);
+  /*
+   * media
+   */
+  void sendMedia(const std::string & media, CB_Func && callback);
   
 private:
   std::atomic_bool isOpenNet_;
@@ -66,6 +70,9 @@ private:
   std::string app_version_;
   std::string certpath_;
   chat::AddFriendInfo addfriendInfo_;
+  
+private:
+  void setUserProterty(const chat::SetUserProperty & proterty, CB_Func && callback);
 };
 
 #endif /* netdb_yi_hpp */
