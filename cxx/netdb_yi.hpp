@@ -53,10 +53,24 @@ public:
   
   void getUser(const std::string & userid, CB_Func && callback);
   void getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback);
+  
+  
   /*
    * media
    */
-  void sendMedia(const std::string & media, CB_Func && callback);
+  void setMediaPath(const std::string & sha1, const std::string & path, CB_Func && callback);
+  void getMediaPath(const std::string & sha1, CB_Func && callback);
+  
+  
+  /*
+   * message
+   */
+  void sendMessage(const std::string & tonodeid, const int32_t type,
+                   const std::string & content, CB_Func && callback);
+  void queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback);
+  void queryMessage(const std::string & tonodeid, const int32_t fromIncrement,
+                    const int32_t toIncrement, CB_Func && callback);
+  
   
 private:
   std::atomic_bool isOpenNet_;

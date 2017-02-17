@@ -37,8 +37,20 @@ public:
   /*
    * add friend info
    */
-  void putAddfriendInfo(const chat::AddFriendInfo & info);
-  chat::AddFriendInfo getAddfriendInfo();
+  void putAddfriendInfo(const chat::QueryAddfriendInfoRes & info);
+  chat::QueryAddfriendInfoRes getAddfriendInfo();
+  
+  /*
+   * media
+   */
+  void putMediaPath(const chat::Media & media);
+  std::string getMediaPath(const std::string & sha1);
+  
+  /*
+   * message
+   */
+  void putMessage(const chat::NodeMessage & message);
+  chat::NodeMessage getMessage(const std::string & tonodeid, const int32_t incrementid);
   
 private:
   /*
@@ -49,8 +61,6 @@ private:
       const leveldb::Slice & value);
   void put(leveldb::WriteBatch & batch);
   std::string get(const leveldb::Slice & key);
-
-  
 
   /*
    * user key
@@ -80,6 +90,9 @@ private:
   // e_userid_$nth
   std::string errorKey(const std::string & userid,
       const int32_t nth);
+  /* media key
+   */
+  std::string mediaKey(const std::string & sha1);
   /*
    * un used
   // signup_kvdb

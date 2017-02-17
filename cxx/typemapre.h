@@ -113,6 +113,9 @@ constexpr uint8_t dispatchType(const chat::QueryMessage & ) {
 constexpr uint8_t dispatchType(const chat::QueryOneMessage & ) {
   return ChatType::queryonemessage;
 }
+constexpr uint8_t dispatchType(const chat::QueryMessageRes & ) {
+  return ChatType::querymessageres;
+}
 constexpr uint8_t dispatchType(const chat::Media & ) {
   return ChatType::media;
 }
@@ -122,17 +125,8 @@ constexpr uint8_t dispatchType(const chat::MediaRes & ) {
 constexpr uint8_t dispatchType(const chat::QueryMedia & ) {
   return ChatType::querymedia;
 }
-constexpr uint8_t dispatchType(const chat::MediaIsExist & ) {
-  return ChatType::mediaisexist;
-}
-constexpr uint8_t dispatchType(const chat::MediaIsExistRes & ) {
-  return ChatType::mediaisexistres;
-}
-constexpr uint8_t dispatchType(const chat::MediaCheck & ) {
-  return ChatType::mediacheck;
-}
-constexpr uint8_t dispatchType(const chat::MediaCheckRes & ) {
-  return ChatType::mediacheckres;
+constexpr uint8_t dispatchType(const chat::QueryMediaRes & ) {
+  return ChatType::querymediares;
 }
 constexpr uint8_t dispatchType(const chat::QueryAddfriendInfo & ) {
   return ChatType::queryaddfriendinfo;

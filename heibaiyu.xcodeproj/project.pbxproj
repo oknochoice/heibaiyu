@@ -1639,8 +1639,8 @@
 			isa = PBXGroup;
 			children = (
 				A40FD0F31E4C415E0044D2DA /* google */,
-				A4A66CEA1E322B64001A25D7 /* buffer_yi.h */,
 				2398D4511E53545400713FBB /* buffer_yi.cxx */,
+				A4A66CEA1E322B64001A25D7 /* buffer_yi.h */,
 				A4B93D491E4D554800E2B480 /* buffer_yi_util.hpp */,
 				A4A66CEB1E322B64001A25D7 /* lib_client.cpp */,
 				A4A66CEC1E322B64001A25D7 /* lib_client.h */,
@@ -1860,7 +1860,7 @@
 				TargetAttributes = {
 					A402B7331E2DF84200DA2C56 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = CCRDWC7H7F;
+						DevelopmentTeam = WXN2XA3VYP;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2322,7 +2322,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				DEVELOPMENT_TEAM = WXN2XA3VYP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2371,7 +2371,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				DEVELOPMENT_TEAM = WXN2XA3VYP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

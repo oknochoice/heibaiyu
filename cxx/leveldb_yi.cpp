@@ -64,12 +64,10 @@ chat::User leveldb_yi::getUser(const std::string & countrycode,
   auto userid = get(key);
   return getUser(userid);
 }
-
 chat::User leveldb_yi::getCurrentUser() {
   YILOG_TRACE ("func: {}", __func__);
   return getUser(getCurrentUserid());
 }
-
 void leveldb_yi::putCurrentDevice(const chat::Device & device) {
   auto value = device.SerializeAsString();
   put("current_device", value);
@@ -94,16 +92,47 @@ std::string leveldb_yi::getCurrentUserid() {
 /*
  * add friend info
  */
-void leveldb_yi::putAddfriendInfo(const chat::AddFriendInfo & info) {
+void leveldb_yi::putAddfriendInfo(const chat::QueryAddfriendInfoRes & info) {
   auto key = addFriendInfoKey();
   put(key, info.SerializeAsString());
 }
-chat::AddFriendInfo leveldb_yi::getAddfriendInfo() {
+chat::QueryAddfriendInfoRes leveldb_yi::getAddfriendInfo() {
   auto info_s = get(addFriendInfoKey());
-  auto info = chat::AddFriendInfo();
+  auto info = chat::QueryAddfriendInfoRes();
   info.ParseFromString(info_s);
   return info;
 }
+
+/*
+ * media
+ */
+void leveldb_yi::putMediaPath(const chat::Media & media) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto key = mediaKey(media.sha1());
+  put(key, media.path());
+}
+std::string leveldb_yi::getMediaPath(const std::string & sha1) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto key = mediaKey(sha1);
+  return get(key);
+}
+
+
+/*
+ * message
+ */
+void leveldb_yi::putMessage(const chat::NodeMessage & message) {
+  YILOG_TRACE ("func: {}", __func__);
+  put(msgKey(message.tonodeid(), message.incrementid()), message.SerializeAsString());
+}
+chat::NodeMessage leveldb_yi::getMessage(const std::string & tonodeid, const int32_t incrementid) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto msg = get(msgKey(tonodeid, incrementid));
+  auto re = chat::NodeMessage();
+  re.ParseFromString(msg);
+  return re;
+}
+
 /*
  * private
  */
@@ -172,7 +201,12 @@ std::string leveldb_yi::talklistKey() {
   return "t_" + getCurrentUserid();
 }
 
-
+/* media key
+ */
+std::string leveldb_yi::mediaKey(const std::string & sha1) {
+  YILOG_TRACE ("func: {}", __func__);
+  return "m_sha1_" + sha1;
+}
 /*
 std::string leveldb_yi::errorKey(const std::string & userid,
     const int32_t  nth) {
