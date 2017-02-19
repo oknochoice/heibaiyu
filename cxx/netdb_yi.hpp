@@ -21,9 +21,11 @@ class netdb_yi {
 public:
   
   // err_no == 0 success
-  typedef std::function<void(const int err_no, const std::string & err_msg)>
+  typedef std::function<void(const int, const std::string & )>
     CB_Func;
-  netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion);
+  netdb_yi(const std::string & certpath, const std::string & dbpath,
+           const std::string & phoneModel, const std::string & phoneUDID,
+           const std::string & osVersion, const std::string & appVersion);
   ~netdb_yi();
   void openNet(Client_CB client_callback, CB_Func && pongback);
   void netIsReachable(bool isreachable);
@@ -31,11 +33,22 @@ public:
   leveldb_yi * db();
   
   /*
+   * noti callback(0, tonodeid);
+   */
+  void messageNoti(CB_Func && callback);
+  // login noti add friend noti add friend authorize noti
+  void userNoti(CB_Func && logincb, CB_Func && addfriendcb, CB_Func && addfriendauthorizecb);
+  
+  /*
    * user
    */
-  void registCheck(const std::string & phoneno, const std::string & countrycode, CB_Func && callback);
-  void regist(const std::string & phoneno, const std::string & countrycode, const std::string & passwordj, const std::string & verifycode, CB_Func && callback);
-  void login(const std::string & phoneno, const std::string & countrycode, const std::string & password, CB_Func && callback);
+  void registCheck(const std::string & phoneno, const std::string & countrycode,
+                   CB_Func && callback);
+  void regist(const std::string & phoneno, const std::string & countrycode,
+              const std::string & passwordj, const std::string & verifycode,
+              CB_Func && callback);
+  void login(const std::string & phoneno, const std::string & countrycode,
+             const std::string & password, CB_Func && callback);
   void connect(const std::string & userid, CB_Func && callback);
   void disconnect(CB_Func && callback);
   void logout(CB_Func && callback);
@@ -54,23 +67,21 @@ public:
   void getUser(const std::string & userid, CB_Func && callback);
   void getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback);
   
-  
   /*
    * media
    */
   void setMediaPath(const std::string & sha1, const std::string & path, CB_Func && callback);
   void getMediaPath(const std::string & sha1, CB_Func && callback);
   
-  
   /*
    * message
    */
   void sendMessage(const std::string & tonodeid, const int32_t type,
                    const std::string & content, CB_Func && callback);
-  void queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback);
-  void queryMessage(const std::string & tonodeid, const int32_t fromIncrement,
+  //void queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback);
+  void getMessage(const std::string & tonodeid, const int32_t fromIncrement,
                     const int32_t toIncrement, CB_Func && callback);
-  
+  void getNode(const std::string & nodeid, CB_Func && callback);
   
 private:
   std::atomic_bool isOpenNet_;
@@ -87,6 +98,7 @@ private:
   
 private:
   void setUserProterty(const chat::SetUserProperty & proterty, CB_Func && callback);
+  
 };
 
 #endif /* netdb_yi_hpp */

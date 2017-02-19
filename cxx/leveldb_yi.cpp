@@ -123,13 +123,58 @@ std::string leveldb_yi::getMediaPath(const std::string & sha1) {
  */
 void leveldb_yi::putMessage(const chat::NodeMessage & message) {
   YILOG_TRACE ("func: {}", __func__);
-  put(msgKey(message.tonodeid(), message.incrementid()), message.SerializeAsString());
+  leveldb::WriteBatch batch;
+  batch.Put(msgKey(message.tonodeid(), message.incrementid()), message.SerializeAsString());
+  auto nodeinfo = getNodeinfo(message.tonodeid());
+  if (nodeinfo.maxincrementid() < message.incrementid()) {
+    nodeinfo.set_tonodeid(message.tonodeid());
+    nodeinfo.set_maxincrementid(message.incrementid());
+    nodeinfo.set_recenttimestamp(message.timestamp());
+    batch.Put(nodeinfoKey(message.tonodeid()), nodeinfo.SerializeAsString());
+  }
+  put(batch);
 }
 chat::NodeMessage leveldb_yi::getMessage(const std::string & tonodeid, const int32_t incrementid) {
   YILOG_TRACE ("func: {}", __func__);
   auto msg = get(msgKey(tonodeid, incrementid));
   auto re = chat::NodeMessage();
   re.ParseFromString(msg);
+  return re;
+}
+chat::NodeInfo leveldb_yi::getNodeinfo(const std::string & nodeid) noexcept {
+  YILOG_TRACE ("func: {}", __func__);
+  auto re = chat::NodeInfo();
+  try {
+    auto value = get(nodeinfoKey(nodeid));
+    re.ParseFromString(value);
+    return re;
+  } catch (...) {
+    return re;
+  }
+}
+void leveldb_yi::putMessageNode(const chat::MessageNode & node) {
+  YILOG_TRACE ("func: {}", __func__);
+  put(nodeKey(node.id()), node.SerializeAsString());
+}
+chat::MessageNode leveldb_yi::getMessageNode(const std::string & nodeid) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto value = get(nodeKey(nodeid));
+  auto re = chat::MessageNode();
+  re.ParseFromString(value);
+  return re;
+}
+/*
+ * talklist
+ */
+void leveldb_yi::putTalklist(const chat::TalkList & talklist) {
+  YILOG_TRACE ("func: {}", __func__);
+  put(talklistKey(), talklist.SerializeAsString());
+}
+chat::TalkList leveldb_yi::getTalklist() {
+  YILOG_TRACE ("func: {}", __func__);
+  std::string value;
+  auto re = chat::TalkList();
+  re.ParseFromString(value);
   return re;
 }
 
@@ -187,6 +232,10 @@ std::string leveldb_yi::nodeKey(const std::string & tonodeid) {
   YILOG_TRACE ("func: {}", __func__);
   return "n_" + tonodeid;
 }
+std::string leveldb_yi::nodeinfoKey(const std::string & tonodeid) {
+  YILOG_TRACE ("func: {}", __func__);
+  return "ni_" + tonodeid;
+}
 std::string leveldb_yi::msgKey(const std::string & tonodeid,
     const std::string & incrementid) {
   YILOG_TRACE ("func: {}", __func__);
@@ -207,42 +256,3 @@ std::string leveldb_yi::mediaKey(const std::string & sha1) {
   YILOG_TRACE ("func: {}", __func__);
   return "m_sha1_" + sha1;
 }
-/*
-std::string leveldb_yi::errorKey(const std::string & userid,
-    const int32_t  nth) {
-  YILOG_TRACE ("func: {}", __func__);
-  return "e_" + userid + "_" + std::to_string(nth);
-}
-std::string leveldb_yi::signupKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "signup_leveldb_yi";
-}
-std::string leveldb_yi::loginKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "login_leveldb_yi";
-}
-std::string leveldb_yi::logoutKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "logout_leveldb_yi";
-}
-std::string leveldb_yi::connectKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "connect_leveldb_yi";
-}
-std::string leveldb_yi::disconnectKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "disconnect_leveldb_yi";
-}
-std::string leveldb_yi::loginNotiKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "loginnoti_leveldb_yi";
-}
-std::string leveldb_yi::addFriendNotiKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "addfriendnoti_leveldb_yi";
-}
-std::string leveldb_yi::addFriendAuthorizeNotiKey() {
-  YILOG_TRACE ("func: {}", __func__);
-  return "addfriendauthorizenoti_leveldb_yi";
-}
- */

@@ -51,6 +51,15 @@ public:
    */
   void putMessage(const chat::NodeMessage & message);
   chat::NodeMessage getMessage(const std::string & tonodeid, const int32_t incrementid);
+  chat::NodeInfo getNodeinfo(const std::string & nodeid) noexcept;
+  void putMessageNode(const chat::MessageNode & node);
+  chat::MessageNode getMessageNode(const std::string & nodeid);
+  
+  /*
+   * talklist
+   */
+  void putTalklist(const chat::TalkList & talklist);
+  chat::TalkList getTalklist();
   
 private:
   /*
@@ -77,12 +86,13 @@ private:
    * */
   // n_$tonodeid
   std::string nodeKey(const std::string & tonodeid);
+  std::string nodeinfoKey(const std::string & tonodeid);
   // m_$tonodeid_$incrementid
   std::string msgKey(const std::string & tonodeid,
       const std::string & incrementid);
   std::string msgKey(const std::string & tonodeid,
       const int32_t incrementid);
-  // t_&userid
+  // t_$userid
   std::string talklistKey();
   /*
    * error key
@@ -93,25 +103,6 @@ private:
   /* media key
    */
   std::string mediaKey(const std::string & sha1);
-  /*
-   * un used
-  // signup_kvdb
-  std::string signupKey();
-  // login_kvdb
-  std::string loginKey();
-  // logout_kvdb
-  std::string logoutKey();
-  // connect_kvdb
-  std::string connectKey();
-  // disconnect_kvdb
-  std::string disconnectKey();
-  // loginnoti_kvdb
-  std::string loginNotiKey();
-  // addfriendnoti_kvdb
-  std::string addFriendNotiKey();
-  // addfriendauthorizenoti_kvdb
-  std::string addFriendAuthorizeNotiKey();
-   * */
   
 private:
   leveldb::DB * db_;

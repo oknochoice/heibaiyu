@@ -142,6 +142,69 @@ leveldb_yi * netdb_yi::db() {
 }
 
 /*
+ * noti
+ */
+void netdb_yi::messageNoti(CB_Func && callback) {
+  YILOG_TRACE ("func: {}", __func__);
+  netyi_->acceptUnreadMsg([this,callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+    if (0 == type) {
+      auto error = chat::Error();
+      error.ParseFromString(data);
+      callback(error.errnum(), error.errmsg());
+    }else {
+      Assert(type == ChatType::nodemessagenoti);
+      auto noti = chat::NodeMessageNoti();
+      noti.ParseFromString(data);
+      auto tonodeid = noti.tonodeid();
+      this->getMessage(tonodeid, 0, noti.unreadincrement() + 1, [tonodeid, callback](const int err_no, const std::string & err_msg){
+        if (0 == err_no) {
+          callback(0, tonodeid);
+        }else{
+          callback(err_no, err_msg);
+        }
+      });
+    }
+  });
+}
+// login noti add friend noti add friend authorize noti
+void netdb_yi::userNoti(CB_Func && logincb, CB_Func && addfriendcb, CB_Func && addfriendauthorizecb) {
+  YILOG_TRACE ("func: {}", __func__);
+  netyi_->userInfoNoti([this, login = std::forward<CB_Func>(logincb),
+                        addfriend = std::forward<CB_Func>(addfriendcb),
+                        authorize = std::forward<CB_Func>(addfriendauthorizecb)](int8_t type, const std::string & data, bool * isStop) {
+    if (0 == type) {
+      auto error = chat::Error();
+      error.ParseFromString(data);
+      YILOG_DEBUG("user noti error");
+    }else if (type == ChatType::loginnoti) {
+      login(0, netdb_success_);
+    }else if (type == ChatType::addfriendnoti) {
+      auto noti = chat::AddFriendNoti();
+      auto friendid = noti.response().inviterid();
+      this->getUser(friendid, [friendid, addfriend](const int err_no, const std::string & err_msg){
+        if (0 == err_no) {
+          addfriend(0, friendid);
+        }else{
+          addfriend(err_no, err_msg);
+        }
+      });
+    }else if (type == ChatType::addfriendauthorizenoti) {
+      auto noti = chat::AddFriendAuthorizeNoti();
+      auto friendid = noti.response().inviteeid();
+      this->getUser(friendid, [friendid, authorize](const int err_no, const std::string & err_msg){
+        if (0 == err_no) {
+          authorize(0, friendid);
+        }else{
+          authorize(err_no, err_msg);
+        }
+      });
+    }else {
+      YILOG_DEBUG("user noti error un know type");
+    }
+  });
+}
+
+/*
  * user
  */
 void netdb_yi::registCheck(const std::string & phoneno, const std::string & countrycode, CB_Func && callback) {
@@ -509,6 +572,7 @@ void netdb_yi::sendMessage(const std::string & toNodeID, const int32_t type,
     }
   });
 }
+/*
 void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::QueryOneMessage();
@@ -530,14 +594,25 @@ void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t incre
     }
   });
 }
-void netdb_yi::queryMessage(const std::string & tonodeid, const int32_t fromIncrement,
+ */
+void netdb_yi::getMessage(const std::string & tonodeid, const int32_t fromIncrement,
                             const int32_t toIncrement, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
+  Assert(toIncrement >= fromIncrement);
+  
+  int32_t newFromIncrement = fromIncrement;
+  if (toIncrement - fromIncrement > 50) {
+    newFromIncrement = toIncrement - 50;
+  }
+  auto nodeinfo = dbyi_->getNodeinfo(tonodeid);
+  if (newFromIncrement < nodeinfo.maxincrementid()) {
+    newFromIncrement = nodeinfo.maxincrementid();
+  }
   auto query = chat::QueryMessage();
   query.set_tonodeid(tonodeid);
-  query.set_fromincrementid(fromIncrement);
+  query.set_fromincrementid(newFromIncrement);
   query.set_toincrementid(toIncrement);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, tonodeid, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
@@ -550,6 +625,49 @@ void netdb_yi::queryMessage(const std::string & tonodeid, const int32_t fromIncr
         dbyi_->putMessage(msg);
       }
       callback(0, netdb_success_);
+    }
+  });
+}
+
+void netdb_yi::getNode(const std::string & nodeid, CB_Func && callback) {
+  YILOG_TRACE ("func: {}", __func__);
+  int32_t version = 0;
+  try {
+    auto node = dbyi_->getMessageNode(nodeid);
+    version = node.version();
+  } catch (...) {
+  }
+  // query node version
+  auto query = chat::QueryNodeVersion();
+  query.set_tonodeid(nodeid);
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+    if (0 == type) {
+      auto error = chat::Error();
+      error.ParseFromString(data);
+      callback(error.errnum(), error.errmsg());
+    }else {
+      Assert(type == ChatType::querynodeversionres);
+      auto res = chat::QueryNodeVersionRes();
+      res.ParseFromString(data);
+      if (version < res.version()) {
+        auto query = chat::QueryNode();
+        query.set_tonodeid(res.tonodeid());
+        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int8_t type, const std::string & data, bool * isStop) {
+          if (0 == type) {
+            auto error = chat::Error();
+            error.ParseFromString(data);
+            callback(error.errnum(), error.errmsg());
+          }else {
+            Assert(type == ChatType::querynoderes);
+            auto res = chat::QueryNodeRes();
+            res.ParseFromString(data);
+            dbyi_->putMessageNode(res.node());
+            callback(0, netdb_success_);
+          }
+        });
+      }else {
+        callback(0, netdb_success_);
+      }
     }
   });
 }
