@@ -17,9 +17,12 @@ class meController: settingBaseController {
     meCell.cellIdentifier = "settingLits_a"
     meCell.title = "1"
     meCell.subTitle = "2"
+    meCell.cellHeight = 66
     me.cellModels = [meCell]
     self.tableDatas = [me]
     self.tableview.reloadData()
+    
   }
+  
   
 }

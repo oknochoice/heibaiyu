@@ -285,6 +285,17 @@
 		A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CF031E488D250017D266 /* XCGLogger.framework */; };
 		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
+		A47B03761E5AAD6600F66C59 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47B03751E5AAD6600F66C59 /* SDWebImage.framework */; };
+		A47B03771E5AAD6600F66C59 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A47B03751E5AAD6600F66C59 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A47B038D1E5AAF1900F66C59 /* UpYun.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B037B1E5AAF1900F66C59 /* UpYun.m */; };
+		A47B038E1E5AAF1900F66C59 /* UPYUNConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B037D1E5AAF1900F66C59 /* UPYUNConfig.m */; };
+		A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03811E5AAF1900F66C59 /* NSData+MD5Digest.m */; };
+		A47B03901E5AAF1900F66C59 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03831E5AAF1900F66C59 /* NSString+NSHash.m */; };
+		A47B03911E5AAF1900F66C59 /* UPHTTPBodyPart.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03851E5AAF1900F66C59 /* UPHTTPBodyPart.m */; };
+		A47B03921E5AAF1900F66C59 /* UPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03871E5AAF1900F66C59 /* UPHTTPClient.m */; };
+		A47B03931E5AAF1900F66C59 /* UPMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03891E5AAF1900F66C59 /* UPMultipartBody.m */; };
+		A47B03941E5AAF1900F66C59 /* UPMutUploaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B038C1E5AAF1900F66C59 /* UPMutUploaderManager.m */; };
+		A47B03961E5AB74500F66C59 /* upyun.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B03951E5AB74500F66C59 /* upyun.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
@@ -320,6 +331,22 @@
 		A4E75A7F1E4B1FD800C5FC66 /* settingts_a.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A781E4B1FD800C5FC66 /* settingts_a.swift */; };
 		A4E75A811E4B1FED00C5FC66 /* settingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A801E4B1FED00C5FC66 /* settingCellModel.swift */; };
 		A4E75A831E4B206100C5FC66 /* settingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A821E4B206100C5FC66 /* settingSectionModel.swift */; };
+		A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F826C91E5AC873008D8826 /* SwiftDate.framework */; };
+		A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4F826C91E5AC873008D8826 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4F826E61E5AF769008D8826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F826D81E5AF769008D8826 /* Assets.xcassets */; };
+		A4F826E71E5AF769008D8826 /* FSAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826D91E5AF769008D8826 /* FSAlbumView.swift */; };
+		A4F826E81E5AF769008D8826 /* FSAlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F826DA1E5AF769008D8826 /* FSAlbumView.xib */; };
+		A4F826E91E5AF769008D8826 /* FSAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826DB1E5AF769008D8826 /* FSAlbumViewCell.swift */; };
+		A4F826EA1E5AF769008D8826 /* FSAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F826DC1E5AF769008D8826 /* FSAlbumViewCell.xib */; };
+		A4F826EB1E5AF769008D8826 /* FSCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826DD1E5AF769008D8826 /* FSCameraView.swift */; };
+		A4F826EC1E5AF769008D8826 /* FSCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F826DE1E5AF769008D8826 /* FSCameraView.xib */; };
+		A4F826ED1E5AF769008D8826 /* FSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826DF1E5AF769008D8826 /* FSConstants.swift */; };
+		A4F826EE1E5AF769008D8826 /* FSImageCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826E01E5AF769008D8826 /* FSImageCropView.swift */; };
+		A4F826EF1E5AF769008D8826 /* FSVideoCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826E11E5AF769008D8826 /* FSVideoCameraView.swift */; };
+		A4F826F01E5AF76A008D8826 /* FSVideoCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F826E21E5AF769008D8826 /* FSVideoCameraView.xib */; };
+		A4F826F11E5AF76A008D8826 /* FusumaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F826E31E5AF769008D8826 /* FusumaViewController.swift */; };
+		A4F826F21E5AF76A008D8826 /* FusumaViewController.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = A4F826E41E5AF769008D8826 /* FusumaViewController.swift.orig */; };
+		A4F826F31E5AF76A008D8826 /* FusumaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F826E51E5AF769008D8826 /* FusumaViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -335,6 +362,7 @@
 				23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */,
 				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
+				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
 				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
 				23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */,
@@ -345,6 +373,7 @@
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
+				A47B03771E5AAD6600F66C59 /* SDWebImage.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
 			);
@@ -775,6 +804,24 @@
 		A468CEFD1E4858650017D266 /* genImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genImage.swift; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
+		A47B03751E5AAD6600F66C59 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		A47B037A1E5AAF1900F66C59 /* UpYun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpYun.h; sourceTree = "<group>"; };
+		A47B037B1E5AAF1900F66C59 /* UpYun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpYun.m; sourceTree = "<group>"; };
+		A47B037C1E5AAF1900F66C59 /* UPYUNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPYUNConfig.h; sourceTree = "<group>"; };
+		A47B037D1E5AAF1900F66C59 /* UPYUNConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPYUNConfig.m; sourceTree = "<group>"; };
+		A47B03801E5AAF1900F66C59 /* NSData+MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5Digest.h"; sourceTree = "<group>"; };
+		A47B03811E5AAF1900F66C59 /* NSData+MD5Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5Digest.m"; sourceTree = "<group>"; };
+		A47B03821E5AAF1900F66C59 /* NSString+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSHash.h"; sourceTree = "<group>"; };
+		A47B03831E5AAF1900F66C59 /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
+		A47B03841E5AAF1900F66C59 /* UPHTTPBodyPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPHTTPBodyPart.h; sourceTree = "<group>"; };
+		A47B03851E5AAF1900F66C59 /* UPHTTPBodyPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPHTTPBodyPart.m; sourceTree = "<group>"; };
+		A47B03861E5AAF1900F66C59 /* UPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPHTTPClient.h; sourceTree = "<group>"; };
+		A47B03871E5AAF1900F66C59 /* UPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPHTTPClient.m; sourceTree = "<group>"; };
+		A47B03881E5AAF1900F66C59 /* UPMultipartBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMultipartBody.h; sourceTree = "<group>"; };
+		A47B03891E5AAF1900F66C59 /* UPMultipartBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMultipartBody.m; sourceTree = "<group>"; };
+		A47B038B1E5AAF1900F66C59 /* UPMutUploaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMutUploaderManager.h; sourceTree = "<group>"; };
+		A47B038C1E5AAF1900F66C59 /* UPMutUploaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMutUploaderManager.m; sourceTree = "<group>"; };
+		A47B03951E5AB74500F66C59 /* upyun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upyun.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
@@ -911,6 +958,21 @@
 		A4E75A781E4B1FD800C5FC66 /* settingts_a.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingts_a.swift; sourceTree = "<group>"; };
 		A4E75A801E4B1FED00C5FC66 /* settingCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingCellModel.swift; sourceTree = "<group>"; };
 		A4E75A821E4B206100C5FC66 /* settingSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingSectionModel.swift; sourceTree = "<group>"; };
+		A4F826C91E5AC873008D8826 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		A4F826D81E5AF769008D8826 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4F826D91E5AF769008D8826 /* FSAlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAlbumView.swift; sourceTree = "<group>"; };
+		A4F826DA1E5AF769008D8826 /* FSAlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSAlbumView.xib; sourceTree = "<group>"; };
+		A4F826DB1E5AF769008D8826 /* FSAlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAlbumViewCell.swift; sourceTree = "<group>"; };
+		A4F826DC1E5AF769008D8826 /* FSAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSAlbumViewCell.xib; sourceTree = "<group>"; };
+		A4F826DD1E5AF769008D8826 /* FSCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCameraView.swift; sourceTree = "<group>"; };
+		A4F826DE1E5AF769008D8826 /* FSCameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSCameraView.xib; sourceTree = "<group>"; };
+		A4F826DF1E5AF769008D8826 /* FSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSConstants.swift; sourceTree = "<group>"; };
+		A4F826E01E5AF769008D8826 /* FSImageCropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSImageCropView.swift; sourceTree = "<group>"; };
+		A4F826E11E5AF769008D8826 /* FSVideoCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSVideoCameraView.swift; sourceTree = "<group>"; };
+		A4F826E21E5AF769008D8826 /* FSVideoCameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSVideoCameraView.xib; sourceTree = "<group>"; };
+		A4F826E31E5AF769008D8826 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
+		A4F826E41E5AF769008D8826 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
+		A4F826E51E5AF769008D8826 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -925,6 +987,7 @@
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
 				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
+				A47B03761E5AAD6600F66C59 /* SDWebImage.framework in Frameworks */,
 				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
@@ -939,6 +1002,7 @@
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
+				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
 				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
 				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
@@ -953,6 +1017,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
+				A47B03751E5AAD6600F66C59 /* SDWebImage.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
 				A468CEF01E4845910017D266 /* Reachability.framework */,
 				23A881D81E368B340023B421 /* Chatto.framework */,
@@ -983,6 +1049,7 @@
 				2373E15B1E3F361B0055136C /* button.swift */,
 				2373E15D1E3F4EB80055136C /* image.swift */,
 				238D43EA1E46329800DB9F03 /* whisper.swift */,
+				A47B03951E5AB74500F66C59 /* upyun.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -1038,6 +1105,7 @@
 		A402B72B1E2DF84200DA2C56 = {
 			isa = PBXGroup;
 			children = (
+				A47B03781E5AAEEE00F66C59 /* manuallib */,
 				2344E5211E314B6900867A71 /* framework */,
 				A4ACAC321E2F6A9E00E7BE41 /* cxx */,
 				A4A303FE1E2E3D59004BF97E /* submodule */,
@@ -1568,9 +1636,65 @@
 			path = netdb;
 			sourceTree = "<group>";
 		};
+		A47B03781E5AAEEE00F66C59 /* manuallib */ = {
+			isa = PBXGroup;
+			children = (
+				A47B03791E5AAF1900F66C59 /* UpYunSDK */,
+			);
+			path = manuallib;
+			sourceTree = "<group>";
+		};
+		A47B03791E5AAF1900F66C59 /* UpYunSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A47B037A1E5AAF1900F66C59 /* UpYun.h */,
+				A47B037B1E5AAF1900F66C59 /* UpYun.m */,
+				A47B037C1E5AAF1900F66C59 /* UPYUNConfig.h */,
+				A47B037D1E5AAF1900F66C59 /* UPYUNConfig.m */,
+				A47B037E1E5AAF1900F66C59 /* Utils */,
+			);
+			path = UpYunSDK;
+			sourceTree = "<group>";
+		};
+		A47B037E1E5AAF1900F66C59 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A47B037F1E5AAF1900F66C59 /* NSData+MD5Digest */,
+				A47B03841E5AAF1900F66C59 /* UPHTTPBodyPart.h */,
+				A47B03851E5AAF1900F66C59 /* UPHTTPBodyPart.m */,
+				A47B03861E5AAF1900F66C59 /* UPHTTPClient.h */,
+				A47B03871E5AAF1900F66C59 /* UPHTTPClient.m */,
+				A47B03881E5AAF1900F66C59 /* UPMultipartBody.h */,
+				A47B03891E5AAF1900F66C59 /* UPMultipartBody.m */,
+				A47B038A1E5AAF1900F66C59 /* UPMutUpload */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A47B037F1E5AAF1900F66C59 /* NSData+MD5Digest */ = {
+			isa = PBXGroup;
+			children = (
+				A47B03801E5AAF1900F66C59 /* NSData+MD5Digest.h */,
+				A47B03811E5AAF1900F66C59 /* NSData+MD5Digest.m */,
+				A47B03821E5AAF1900F66C59 /* NSString+NSHash.h */,
+				A47B03831E5AAF1900F66C59 /* NSString+NSHash.m */,
+			);
+			path = "NSData+MD5Digest";
+			sourceTree = "<group>";
+		};
+		A47B038A1E5AAF1900F66C59 /* UPMutUpload */ = {
+			isa = PBXGroup;
+			children = (
+				A47B038B1E5AAF1900F66C59 /* UPMutUploaderManager.h */,
+				A47B038C1E5AAF1900F66C59 /* UPMutUploaderManager.m */,
+			);
+			path = UPMutUpload;
+			sourceTree = "<group>";
+		};
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
+				A4F826CF1E5AF72B008D8826 /* Fusuma */,
 				2373E18D1E40A1AB0055136C /* SwiftTimer */,
 				A4A66D741E349079001A25D7 /* EasyAnimation */,
 			);
@@ -1827,6 +1951,36 @@
 			path = cell_model;
 			sourceTree = "<group>";
 		};
+		A4F826CF1E5AF72B008D8826 /* Fusuma */ = {
+			isa = PBXGroup;
+			children = (
+				A4F826D71E5AF769008D8826 /* Sources */,
+			);
+			name = Fusuma;
+			sourceTree = "<group>";
+		};
+		A4F826D71E5AF769008D8826 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A4F826D81E5AF769008D8826 /* Assets.xcassets */,
+				A4F826D91E5AF769008D8826 /* FSAlbumView.swift */,
+				A4F826DA1E5AF769008D8826 /* FSAlbumView.xib */,
+				A4F826DB1E5AF769008D8826 /* FSAlbumViewCell.swift */,
+				A4F826DC1E5AF769008D8826 /* FSAlbumViewCell.xib */,
+				A4F826DD1E5AF769008D8826 /* FSCameraView.swift */,
+				A4F826DE1E5AF769008D8826 /* FSCameraView.xib */,
+				A4F826DF1E5AF769008D8826 /* FSConstants.swift */,
+				A4F826E01E5AF769008D8826 /* FSImageCropView.swift */,
+				A4F826E11E5AF769008D8826 /* FSVideoCameraView.swift */,
+				A4F826E21E5AF769008D8826 /* FSVideoCameraView.xib */,
+				A4F826E31E5AF769008D8826 /* FusumaViewController.swift */,
+				A4F826E41E5AF769008D8826 /* FusumaViewController.swift.orig */,
+				A4F826E51E5AF769008D8826 /* FusumaViewController.xib */,
+			);
+			name = Sources;
+			path = submodule/Fusuma/Sources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1914,6 +2068,7 @@
 				A4A66D811E349079001A25D7 /* Info-tvOS.plist in Resources */,
 				A40FD3061E4C415F0044D2DA /* substitute.Plo in Resources */,
 				A40FD28B1E4C415F0044D2DA /* struct.pb.Plo in Resources */,
+				A4F826F31E5AF76A008D8826 /* FusumaViewController.xib in Resources */,
 				A40FD3281E4C415F0044D2DA /* datapiece.Plo in Resources */,
 				A40FD32A1E4C415F0044D2DA /* error_listener.Plo in Resources */,
 				A40FD2A61E4C415F0044D2DA /* .dirstamp in Resources */,
@@ -1951,17 +2106,20 @@
 				A40FD2821E4C415F0044D2DA /* generated_message_reflection.Plo in Resources */,
 				A40FD2901E4C415F0044D2DA /* wire_format.Plo in Resources */,
 				A40FD32E1E4C415F0044D2DA /* json_stream_parser.Plo in Resources */,
+				A4F826F21E5AF76A008D8826 /* FusumaViewController.swift.orig in Resources */,
 				A40FD3031E4C415F0044D2DA /* stringprintf.Plo in Resources */,
 				A40FD2A31E4C415F0044D2DA /* plugin.Plo in Resources */,
 				A40FD2851E4C415F0044D2DA /* message.Plo in Resources */,
 				A40FD32F1E4C415F0044D2DA /* object_writer.Plo in Resources */,
 				A40FD2801E4C415F0044D2DA /* extension_set_heavy.Plo in Resources */,
 				2373E1451E3DE4080055136C /* Localizable.strings in Resources */,
+				A4F826E81E5AF769008D8826 /* FSAlbumView.xib in Resources */,
 				A40FD2D31E4C415F0044D2DA /* duration.proto in Resources */,
 				A40FD3431E4C415F0044D2DA /* json_format_proto3.proto in Resources */,
 				A40FD32D1E4C415F0044D2DA /* json_objectwriter.Plo in Resources */,
 				A40FD2911E4C415F0044D2DA /* wire_format_lite.Plo in Resources */,
 				A40FD2921E4C415F0044D2DA /* wrappers.pb.Plo in Resources */,
+				A4F826E61E5AF769008D8826 /* Assets.xcassets in Resources */,
 				A40FD31F1E4C415F0044D2DA /* field_mask_util.Plo in Resources */,
 				A40FD2A01E4C415F0044D2DA /* main.Po in Resources */,
 				A40FD3071E4C415F0044D2DA /* time.Plo in Resources */,
@@ -1975,6 +2133,7 @@
 				A40FD2761E4C415F0044D2DA /* api.pb.Plo in Resources */,
 				A40FD2B41E4C415F0044D2DA /* cpp_primitive_field.Plo in Resources */,
 				A40FD2791E4C415F0044D2DA /* descriptor.pb.Plo in Resources */,
+				A4F826EA1E5AF769008D8826 /* FSAlbumViewCell.xib in Resources */,
 				A40FD28D1E4C415F0044D2DA /* timestamp.pb.Plo in Resources */,
 				A40FD2D61E4C415F0044D2DA /* empty.proto in Resources */,
 				A40FD2D01E4C415F0044D2DA /* descriptor.proto in Resources */,
@@ -2001,6 +2160,7 @@
 				A40FD2981E4C415F0044D2DA /* api.proto in Resources */,
 				A40FD2B21E4C415F0044D2DA /* cpp_message.Plo in Resources */,
 				A40FD2E31E4C415F0044D2DA /* zero_copy_stream.Plo in Resources */,
+				A4F826EC1E5AF769008D8826 /* FSCameraView.xib in Resources */,
 				A40FD3041E4C415F0044D2DA /* structurally_valid.Plo in Resources */,
 				A40FD3301E4C415F0044D2DA /* proto_writer.Plo in Resources */,
 				A40FD2DE1E4C415F0044D2DA /* coded_stream.Plo in Resources */,
@@ -2011,6 +2171,7 @@
 				A40FD27C1E4C415F0044D2DA /* duration.pb.Plo in Resources */,
 				A40FD3081E4C415F0044D2DA /* .dirstamp in Resources */,
 				A40FD3211E4C415F0044D2DA /* message_differencer.Plo in Resources */,
+				A4F826F01E5AF76A008D8826 /* FSVideoCameraView.xib in Resources */,
 				A40FD3201E4C415F0044D2DA /* json_util.Plo in Resources */,
 				A40FD2A21E4C415F0044D2DA /* plugin.pb.Plo in Resources */,
 				A40FD29F1E4C415F0044D2DA /* importer.Plo in Resources */,
@@ -2052,10 +2213,12 @@
 				2373E19D1E40A7920055136C /* nettype.swift in Sources */,
 				A40FD2C81E4C415F0044D2DA /* parser.cc in Sources */,
 				A40FD2BA1E4C415F0044D2DA /* cpp_extension.cc in Sources */,
+				A4F826EF1E5AF769008D8826 /* FSVideoCameraView.swift in Sources */,
 				A40FD2D81E4C415F0044D2DA /* extension_set_heavy.cc in Sources */,
 				A40FD33E1E4C415F0044D2DA /* proto_writer.cc in Sources */,
 				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
 				A40FD2D41E4C415F0044D2DA /* dynamic_message.cc in Sources */,
+				A4F826EE1E5AF769008D8826 /* FSImageCropView.swift in Sources */,
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
 				A40FD2E91E4C415F0044D2DA /* printer.cc in Sources */,
 				A40FD2A81E4C415F0044D2DA /* command_line_interface.cc in Sources */,
@@ -2077,6 +2240,7 @@
 				A40FD3401E4C415F0044D2DA /* protostream_objectwriter.cc in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				2398D4521E53545400713FBB /* buffer_yi.cxx in Sources */,
+				A4F826EB1E5AF769008D8826 /* FSCameraView.swift in Sources */,
 				234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */,
 				2373E15E1E3F4EB80055136C /* image.swift in Sources */,
 				A40FD2C01E4C415F0044D2DA /* cpp_message.cc in Sources */,
@@ -2091,6 +2255,8 @@
 				238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */,
 				A40FD2F01E4C415F0044D2DA /* message.cc in Sources */,
 				A40FD3101E4C415F0044D2DA /* statusor.cc in Sources */,
+				A4F826ED1E5AF769008D8826 /* FSConstants.swift in Sources */,
+				A47B03941E5AAF1900F66C59 /* UPMutUploaderManager.m in Sources */,
 				A40FD2BE1E4C415F0044D2DA /* cpp_helpers.cc in Sources */,
 				A4E75A701E4B18F200C5FC66 /* userinfoController.swift in Sources */,
 				A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */,
@@ -2102,15 +2268,19 @@
 				A40FD2ED1E4C415F0044D2DA /* zero_copy_stream_impl.cc in Sources */,
 				A40FD3541E4C4A550044D2DA /* chat_message.pb.cc in Sources */,
 				23A881D51E3687270023B421 /* messageController.swift in Sources */,
+				A47B03931E5AAF1900F66C59 /* UPMultipartBody.m in Sources */,
 				2373E15C1E3F361B0055136C /* button.swift in Sources */,
 				A40FD2C11E4C415F0044D2DA /* cpp_message_field.cc in Sources */,
 				A40FD2EB1E4C415F0044D2DA /* tokenizer.cc in Sources */,
+				A4F826F11E5AF76A008D8826 /* FusumaViewController.swift in Sources */,
 				A40FD3461E4C415F0044D2DA /* time_util.cc in Sources */,
 				2373E15A1E3F293F0055136C /* NSBundle+language.m in Sources */,
 				A40FD3391E4C415F0044D2DA /* field_mask_utility.cc in Sources */,
+				A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */,
 				A4E75A7B1E4B1FD800C5FC66 /* settingLit_a.swift in Sources */,
 				A40FD2D71E4C415F0044D2DA /* extension_set.cc in Sources */,
 				A40FD3511E4C49310044D2DA /* netdb_yi.cpp in Sources */,
+				A47B03911E5AAF1900F66C59 /* UPHTTPBodyPart.m in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A40FD3421E4C415F0044D2DA /* utility.cc in Sources */,
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
@@ -2125,6 +2295,8 @@
 				A40FD34A1E4C415F0044D2DA /* wrappers.pb.cc in Sources */,
 				A40FD3361E4C415F0044D2DA /* datapiece.cc in Sources */,
 				A40FD2C21E4C415F0044D2DA /* cpp_primitive_field.cc in Sources */,
+				A47B03901E5AAF1900F66C59 /* NSString+NSHash.m in Sources */,
+				A47B03921E5AAF1900F66C59 /* UPHTTPClient.m in Sources */,
 				A40FD2DB1E4C415F0044D2DA /* generated_message_reflection.cc in Sources */,
 				A40FD2E71E4C415F0044D2DA /* coded_stream.cc in Sources */,
 				A40FD3171E4C415F0044D2DA /* text_format.cc in Sources */,
@@ -2140,6 +2312,7 @@
 				A40FD31C1E4C415F0044D2DA /* unknown_field_set.cc in Sources */,
 				A40FD30F1E4C415F0044D2DA /* status.cc in Sources */,
 				A40FD2C91E4C415F0044D2DA /* plugin.cc in Sources */,
+				A4F826E91E5AF769008D8826 /* FSAlbumViewCell.swift in Sources */,
 				A40FD2F21E4C415F0044D2DA /* reflection_ops.cc in Sources */,
 				A40FD2E81E4C415F0044D2DA /* gzip_stream.cc in Sources */,
 				A40FD2EC1E4C415F0044D2DA /* zero_copy_stream.cc in Sources */,
@@ -2158,10 +2331,12 @@
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A4E75A831E4B206100C5FC66 /* settingSectionModel.swift in Sources */,
 				A40FD2CE1E4C415F0044D2DA /* descriptor.cc in Sources */,
+				A47B038D1E5AAF1900F66C59 /* UpYun.m in Sources */,
 				A40FD31A1E4C415F0044D2DA /* type.pb.cc in Sources */,
 				A40FD2BB1E4C415F0044D2DA /* cpp_field.cc in Sources */,
 				A40FD2F31E4C415F0044D2DA /* repeated_field.cc in Sources */,
 				A4E75A7C1E4B1FD800C5FC66 /* settingLits_a.swift in Sources */,
+				A47B038E1E5AAF1900F66C59 /* UPYUNConfig.m in Sources */,
 				A40FD2941E4C415F0044D2DA /* any.cc in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A40FD33B1E4C415F0044D2DA /* json_objectwriter.cc in Sources */,
@@ -2179,9 +2354,11 @@
 				A40FD29B1E4C415F0044D2DA /* arenastring.cc in Sources */,
 				A40FD2DC1E4C415F0044D2DA /* generated_message_util.cc in Sources */,
 				A40FD3381E4C415F0044D2DA /* error_listener.cc in Sources */,
+				A4F826E71E5AF769008D8826 /* FSAlbumView.swift in Sources */,
 				A40FD33D1E4C415F0044D2DA /* object_writer.cc in Sources */,
 				A40FD2A71E4C415F0044D2DA /* code_generator.cc in Sources */,
 				A40FD3491E4C415F0044D2DA /* wire_format_lite.cc in Sources */,
+				A47B03961E5AB74500F66C59 /* upyun.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2332,6 +2509,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
+					"$(PROJECT_DIR)/submodule/Fusuma/Sources",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
@@ -2381,6 +2559,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/PathKit",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
+					"$(PROJECT_DIR)/submodule/Fusuma/Sources",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",

@@ -11,5 +11,6 @@
 
 #include "NSBundle+language.h"
 #include "netdbwarpper.hpp"
+#import "UpYun.h"
 
 #endif /* bridging_header_h */

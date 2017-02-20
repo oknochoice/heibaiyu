@@ -329,7 +329,7 @@
             <objects>
                 <navigationController id="GE1-5v-d0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="消息" id="hzF-nC-zYQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AZE-uK-xEb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AZE-uK-xEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.054901961239999998" green="0.72156864399999998" blue="0.2274509817" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -362,7 +362,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m4A-Tf-nvJ" id="1Tk-Sk-fUN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9fG-jZ-NHH">
@@ -478,7 +478,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ej9-sK-8iL" id="wRB-lC-fm5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-qX-aVx">
@@ -563,7 +563,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8GR-oT-U9U" id="z5G-iw-CzE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <searchBar contentMode="redraw" placeholder="手机号" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNE-Ls-hBI">
@@ -612,27 +612,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingLits_a" rowHeight="66" id="p9g-k9-wRi" customClass="settingLits_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingLits_a" rowHeight="88" id="p9g-k9-wRi" customClass="settingLits_a" customModule="heibaiyu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9g-k9-wRi" id="Ggo-3C-AfG">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKh-1N-LyA">
-                                                    <rect key="frame" x="15" y="5" width="55.5" height="55.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dKh-1N-LyA">
+                                                    <rect key="frame" x="15" y="5" width="77.5" height="77.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dKh-1N-LyA" secondAttribute="height" multiplier="1:1" id="277-PS-NRc"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未济得鼎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maC-dI-oPu">
-                                                    <rect key="frame" x="80.5" y="5" width="241.5" height="28"/>
+                                                    <rect key="frame" x="102.5" y="5" width="219.5" height="39"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaD-ql-tkp">
-                                                    <rect key="frame" x="80" y="33" width="241.5" height="27.5"/>
+                                                    <rect key="frame" x="102" y="44" width="219.5" height="38.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.45882352939999999" green="0.54117647059999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -659,13 +659,13 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingLit_a" id="yag-vy-SqL" customClass="settingLit_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="122" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yag-vy-SqL" id="aps-3z-ck1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g90-eJ-vPV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholdersetting" translatesAutoresizingMaskIntoConstraints="NO" id="g90-eJ-vPV">
                                                     <rect key="frame" x="15" y="5" width="33.5" height="33.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="g90-eJ-vPV" secondAttribute="height" multiplier="1:1" id="zPD-Yz-cOF"/>
@@ -694,10 +694,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCt" id="cpR-s0-VRP" customClass="settingCt" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="166" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cpR-s0-VRP" id="kG4-bz-XSN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="退出登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDe-g2-Yvr">
@@ -759,10 +759,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingRit_a" rowHeight="66" id="UrX-13-813" customClass="settingRit_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="66"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UrX-13-813" id="miU-Lp-Ede">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsd-zp-MMa">
@@ -771,7 +771,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ps3-P9-D0e">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ps3-P9-D0e">
                                                     <rect key="frame" x="297" y="10" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ps3-P9-D0e" secondAttribute="height" multiplier="1:1" id="IJq-ql-vTq"/>
@@ -793,10 +793,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingts_a" id="zwC-KN-Mzo" customClass="settingts_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="122" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="121.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zwC-KN-Mzo" id="MxL-n0-p9u">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-6M-qcx">
@@ -827,10 +827,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingts" id="eaA-Ts-0Uz" customClass="settingts" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="166" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="165.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eaA-Ts-0Uz" id="1BL-y4-uZL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAK-0V-8YR">
@@ -901,5 +901,9 @@
             <point key="canvasLocation" x="-903" y="471"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderIcon" width="100" height="100"/>
+        <image name="placeholdersetting" width="110" height="110"/>
+    </resources>
     <color key="tintColor" red="0.039215687662363052" green="0.63921570777893066" blue="0.26666668057441711" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
 </document>

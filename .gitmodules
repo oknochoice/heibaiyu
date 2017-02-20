@@ -25,3 +25,9 @@
 [submodule "submodule/RealCustomButton"]
 	path = submodule/RealCustomButton
 	url = https://github.com/liaoshaolim/RealCustomButton.git
+[submodule "submodule/FileMD5Hash"]
+	path = submodule/FileMD5Hash
+	url = https://github.com/JoeKun/FileMD5Hash.git
+[submodule "submodule/Fusuma"]
+	path = submodule/Fusuma
+	url = https://github.com/ytakzk/Fusuma.git

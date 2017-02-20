@@ -41,8 +41,17 @@ class settingBaseController: UIViewController, UITableViewDelegate, UITableViewD
     }
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let model = tableDatas![indexPath.section].cellModels![indexPath.row]
+    if let height = model.cellHeight {
+      return height
+    }
+    return tableView.rowHeight
+  }
+  
   override func viewDidLoad() {
     self.tableview.tableHeaderView = UITableViewHeaderFooterView(frame: CGRect(x: 1, y: 1, width: 1, height: 1))
     self.tableview.tableFooterView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    self.tableview.rowHeight = 44
   }
 }

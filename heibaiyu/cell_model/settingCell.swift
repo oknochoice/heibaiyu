@@ -14,7 +14,6 @@ class settingCell: UITableViewCell {
   var title: String?
   var subTitle: String?
   var icon: String?
-  var cellHeight: Double?
   private var _model: settingCellModel?
   var model: settingCellModel? {
     get {
@@ -26,7 +25,6 @@ class settingCell: UITableViewCell {
       subTitle = model?.subTitle
       icon = model?.icon
       tap = model?.tap
-      cellHeight = model?.cellHeight
     }
   }
 }
