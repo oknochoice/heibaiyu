@@ -12,17 +12,33 @@ class meController: settingBaseController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let me = settingSectionModel()
-    let meCell = settingCellModel()
-    meCell.cellIdentifier = "settingLits_a"
-    meCell.title = "1"
-    meCell.subTitle = "2"
-    meCell.cellHeight = 66
-    me.cellModels = [meCell]
-    self.tableDatas = [me]
+    
+    let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
+    let user = try! Chat_User(protobuf: userdata);
+    
+    // section me
+    let meSModel = settingSectionModel()
+    // cell me
+    let meCModel = settingCellModel()
+    meCModel.cellIdentifier = "settingLits_a"
+    let from = user.phoneNo.index(user.phoneNo.endIndex, offsetBy: -4)
+    meCModel.subTitle = "*** **** " + user.phoneNo.substring(from: from)
+    var title = user.nickname
+    if title.isEmpty {
+      title = user.realname
+    }
+    if title.isEmpty {
+      title = meCModel.subTitle!
+    }
+    meCModel.title = title
+    meCModel.cellHeight = 66
+    // add cell to section
+    meSModel.cellModels = [meCModel]
+    
+    // add sections
+    self.tableDatas = [meSModel]
     self.tableview.reloadData()
     
   }
-  
   
 }

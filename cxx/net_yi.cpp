@@ -157,9 +157,9 @@ void netyi::put_map(const int32_t sessionid, CB_Func_Mutiple && func) {
 }
 void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func, int32_t * sessionid) {
   YILOG_TRACE ("func: {}", __func__);
+  uint16_t temp_session;
   {
     std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
-    uint16_t temp_session;
     client_send(std::forward<std::vector<Buffer_SP>>(sp_vec), &temp_session);
     if (likely(nullptr != sessionid)) {
       *sessionid = temp_session;
@@ -168,7 +168,7 @@ void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && fu
     sessionid_cbfunc_map_[temp_session] = func;
   }
   {
-    timer_->put(*sessionid);
+    timer_->put(temp_session);
   }
 }
 void netyi::put_map_send(const int32_t sessionid,
