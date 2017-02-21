@@ -1,1 +1,3 @@
 github "suzuki-0000/SKPhotoBrowser"
+github "malcommac/SwiftDate" ~> 4.0
+github "rs/SDWebImage"

@@ -18,7 +18,6 @@ github "ashleymills/Reachability.swift" ~> 3.0.0
 github "DaveWoodCom/XCGLogger" ~> 4.0.0
 github "rs/SDWebImage"
 github "malcommac/SwiftDate" ~> 4.0
-github "ytakzk/Fusuma"
 
 #ios only
 github "marmelroy/Interpolate"
