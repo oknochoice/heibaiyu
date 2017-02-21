@@ -976,7 +976,6 @@
 		A4F826E31E5AF769008D8826 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
 		A4F826E41E5AF769008D8826 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
 		A4F826E51E5AF769008D8826 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
-		A4F826F41E5BE6DC008D8826 /* timer-wheel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timer-wheel.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1784,7 +1783,6 @@
 				2344E4811E2FDAE900867A71 /* typemap.h */,
 				A40FD3581E4C61270044D2DA /* typemapre.h */,
 				A4ACAC3A1E2F6BE800E7BE41 /* macro.h */,
-				A4F826F41E5BE6DC008D8826 /* timer-wheel.h */,
 				A4A66CE61E3228D1001A25D7 /* root-ca.crt */,
 			);
 			path = cxx;

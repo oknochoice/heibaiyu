@@ -338,15 +338,61 @@ void netdb_yi::logout(CB_Func && callback) {
   });
 }
   
-void netdb_yi::setUserProterty(const chat::SetUserProperty & proterty, CB_Func && callback) {
+void netdb_yi::setUserProterty(const chat::SetUserProperty & property, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  netyi_->send_buffer(yijianBuffer(proterty), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(property), nullptr, [property, this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
     }else if (type == ChatType::setuserprotertyres) {
-      
+      /*
+      auto userid = dbyi_->getCurrentUserid();
+      this->getUser(userid, [callback](const int err_no, const std::string & data){
+        callback(err_no, data);
+      });
+       */
+      auto user = dbyi_->getCurrentUser();
+      switch (property.property()) {
+        case chat::UserProperty::realname:
+        {
+          user.set_realname(property.value());
+          break;
+        }
+        case chat::UserProperty::nickname:
+        {
+          user.set_nickname(property.value());
+          break;
+        }
+        case chat::UserProperty::icon:
+        {
+          user.set_icon(property.value());
+          break;
+        }
+        case chat::UserProperty::description:
+        {
+          user.set_description(property.value());
+          break;
+        }
+        case chat::UserProperty::isMale:
+        {
+          if (property.value().front() == 't') {
+            user.set_ismale(true);
+          }else{
+            user.set_ismale(false);
+          }
+          break;
+        }
+        case chat::UserProperty::birthday:
+        {
+          user.set_birthday(std::stoi(property.value()));
+          break;
+        }
+        default:
+          break;
+      }
+      user.set_version(user.version() + 1);
+      dbyi_->putUser(user);
     }else {
       callback(type, data);
     }
