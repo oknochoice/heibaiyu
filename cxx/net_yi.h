@@ -8,11 +8,12 @@
 #include <map>
 #include <mutex>
 #include <vector>
+#include "libev_timer.hpp"
 
 class netyi {
 public:
   // call will stop if isStop not set false
-  typedef std::function<void(const uint8_t type, const std::string & data, bool * const isStop)>
+  typedef std::function<void(const int16_t type, const std::string & data, bool * const isStop)>
     CB_Func_Mutiple;
   
   netyi(const std::string & certpath);
@@ -50,11 +51,13 @@ private:
   void put_map_send(const int32_t sessionid, 
       std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func);
   bool call_map(const int32_t sessionid, const std::vector<Buffer_SP> & sp_vec);
+  void call_map_timeout(const int32_t sessionid);
 private:
   std::string certpath_;
   std::mutex sessionid_map_mutex_;
   std::map<int32_t, CB_Func_Mutiple> sessionid_cbfunc_map_;
   Client_CB client_callback_;
+  libev_timer * timer_;
 };
 
 #endif

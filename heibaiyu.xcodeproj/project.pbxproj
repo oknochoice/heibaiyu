@@ -296,6 +296,7 @@
 		A47B03931E5AAF1900F66C59 /* UPMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03891E5AAF1900F66C59 /* UPMultipartBody.m */; };
 		A47B03941E5AAF1900F66C59 /* UPMutUploaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B038C1E5AAF1900F66C59 /* UPMutUploaderManager.m */; };
 		A47B03961E5AB74500F66C59 /* upyun.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B03951E5AB74500F66C59 /* upyun.swift */; };
+		A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A484AED71E5BF3DC006EBA06 /* libev_timer.cxx */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
@@ -822,6 +823,8 @@
 		A47B038B1E5AAF1900F66C59 /* UPMutUploaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMutUploaderManager.h; sourceTree = "<group>"; };
 		A47B038C1E5AAF1900F66C59 /* UPMutUploaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMutUploaderManager.m; sourceTree = "<group>"; };
 		A47B03951E5AB74500F66C59 /* upyun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upyun.swift; sourceTree = "<group>"; };
+		A484AED71E5BF3DC006EBA06 /* libev_timer.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = libev_timer.cxx; sourceTree = "<group>"; };
+		A484AED81E5BF3DC006EBA06 /* libev_timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = libev_timer.hpp; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
@@ -973,6 +976,7 @@
 		A4F826E31E5AF769008D8826 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
 		A4F826E41E5AF769008D8826 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
 		A4F826E51E5AF769008D8826 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
+		A4F826F41E5BE6DC008D8826 /* timer-wheel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timer-wheel.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1772,12 +1776,15 @@
 				A4A66CEE1E322B64001A25D7 /* net_yi.h */,
 				A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */,
 				A4B93D4C1E4D5FBA00E2B480 /* leveldb_yi.hpp */,
+				A484AED71E5BF3DC006EBA06 /* libev_timer.cxx */,
+				A484AED81E5BF3DC006EBA06 /* libev_timer.hpp */,
 				A40FD34F1E4C49310044D2DA /* netdb_yi.cpp */,
 				A40FD3501E4C49310044D2DA /* netdb_yi.hpp */,
 				238D43F41E47538C00DB9F03 /* typemap.cxx */,
 				2344E4811E2FDAE900867A71 /* typemap.h */,
 				A40FD3581E4C61270044D2DA /* typemapre.h */,
 				A4ACAC3A1E2F6BE800E7BE41 /* macro.h */,
+				A4F826F41E5BE6DC008D8826 /* timer-wheel.h */,
 				A4A66CE61E3228D1001A25D7 /* root-ca.crt */,
 			);
 			path = cxx;
@@ -2310,6 +2317,7 @@
 				A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */,
 				A40FD30B1E4C415F0044D2DA /* common.cc in Sources */,
 				A40FD31C1E4C415F0044D2DA /* unknown_field_set.cc in Sources */,
+				A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */,
 				A40FD30F1E4C415F0044D2DA /* status.cc in Sources */,
 				A40FD2C91E4C415F0044D2DA /* plugin.cc in Sources */,
 				A4F826E91E5AF769008D8826 /* FSAlbumViewCell.swift in Sources */,

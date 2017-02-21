@@ -109,7 +109,7 @@ void netdb_yi::openNet(Client_CB client_callback, CB_Func && pongback) {
     }else{
       client_callback_(error_no, std::forward<const std::string>(error_msg));
     }
-  }, [pongback = std::forward<CB_Func>(pongback)](const int8_t type, const std::string & data, bool * const isStop){
+  }, [pongback = std::forward<CB_Func>(pongback)](const int16_t type, const std::string & data, bool * const isStop){
     if (!pongback) {
       return ;
     }
@@ -117,11 +117,12 @@ void netdb_yi::openNet(Client_CB client_callback, CB_Func && pongback) {
       auto error = chat::Error();
       error.ParseFromString(data);
       pongback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::pong);
+    }else if(type == ChatType::pong) {
       auto res = chat::Pong();
       res.ParseFromString(data);
       pongback(0, res.msg());
+    }else {
+      YILOG_DEBUG("unknow type in pingpong");
     }
   });
 }
@@ -146,13 +147,12 @@ leveldb_yi * netdb_yi::db() {
  */
 void netdb_yi::messageNoti(CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  netyi_->acceptUnreadMsg([this,callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->acceptUnreadMsg([this,callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::nodemessagenoti);
+    }else if(type == ChatType::nodemessagenoti) {
       auto noti = chat::NodeMessageNoti();
       noti.ParseFromString(data);
       auto tonodeid = noti.tonodeid();
@@ -163,6 +163,8 @@ void netdb_yi::messageNoti(CB_Func && callback) {
           callback(err_no, err_msg);
         }
       });
+    }else {
+      YILOG_DEBUG("message noti error unknow type");
     }
   });
 }
@@ -171,7 +173,7 @@ void netdb_yi::userNoti(CB_Func && logincb, CB_Func && addfriendcb, CB_Func && a
   YILOG_TRACE ("func: {}", __func__);
   netyi_->userInfoNoti([this, login = std::forward<CB_Func>(logincb),
                         addfriend = std::forward<CB_Func>(addfriendcb),
-                        authorize = std::forward<CB_Func>(addfriendauthorizecb)](int8_t type, const std::string & data, bool * isStop) {
+                        authorize = std::forward<CB_Func>(addfriendauthorizecb)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
@@ -212,13 +214,17 @@ void netdb_yi::registCheck(const std::string & phoneno, const std::string & coun
   auto signup = chat::Register();
   signup.set_phoneno(phoneno);
   signup.set_countrycode(countrycode);
-  netyi_->signup(yijianBuffer(signup), [callback = std::forward<CB_Func>(callback)](const int8_t type, const std::string & data, bool * const isStop) {
-    auto res = chat::RegisterRes();
-    res.ParseFromString(data);
-    if (res.issuccess()) {
-      callback(0, netdb_success_);
+  netyi_->signup(yijianBuffer(signup), [callback = std::forward<CB_Func>(callback)](const int16_t type, const std::string & data, bool * const isStop) {
+    if (type == ChatType::registorres) {
+      auto res = chat::RegisterRes();
+      res.ParseFromString(data);
+      if (res.issuccess()) {
+        callback(0, netdb_success_);
+      }else{
+        callback(res.e_no(), res.e_msg());
+      }
     }else{
-      callback(res.e_no(), res.e_msg());
+      callback(type, data);
     }
   });
 }
@@ -229,15 +235,19 @@ void netdb_yi::regist(const std::string & phoneno, const std::string & countryco
   signup.set_countrycode(countrycode);
   signup.set_password(password);
   signup.set_verifycode(verifycode);
-  netyi_->signup(yijianBuffer(signup), [this, phoneno, countrycode, password, callback = std::forward<CB_Func>(callback)](const int8_t type, const std::string & data, bool * const isStop) {
-    auto res = chat::RegisterRes();
-    res.ParseFromString(data);
-    if (res.issuccess()) {
-      this->login(phoneno, countrycode, password, [this, callback](const int err_no, const std::string & err_msg) {
-        callback(err_no, err_msg);
-      });
+  netyi_->signup(yijianBuffer(signup), [this, phoneno, countrycode, password, callback = std::forward<CB_Func>(callback)](const int16_t type, const std::string & data, bool * const isStop) {
+    if (type == ChatType::registorres) {
+      auto res = chat::RegisterRes();
+      res.ParseFromString(data);
+      if (res.issuccess()) {
+        this->login(phoneno, countrycode, password, [this, callback](const int err_no, const std::string & err_msg) {
+          callback(err_no, err_msg);
+        });
+      }else{
+        callback(res.e_no(), res.e_msg());
+      }
     }else{
-      callback(res.e_no(), res.e_msg());
+      callback(type, data);
     }
   });
 }
@@ -249,15 +259,19 @@ void netdb_yi::login(const std::string & phoneno, const std::string & countrycod
   login.set_password(password);
   auto md = login.mutable_device();
   (*md) = dbyi_->getCurrentDevice();
-  netyi_->login(yijianBuffer(login), [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
-    auto res = chat::LoginRes();
-    res.ParseFromString(data);
-    if (res.issuccess()) {
-      this->connect(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
-        callback(err_no, err_msg);
-      });
+  netyi_->login(yijianBuffer(login), [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
+    if (type == ChatType::loginres) {
+      auto res = chat::LoginRes();
+      res.ParseFromString(data);
+      if (res.issuccess()) {
+        this->connect(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
+          callback(err_no, err_msg);
+        });
+      }else{
+        callback(res.e_no(), res.e_msg());
+      }
     }else{
-      callback(res.e_no(), res.e_msg());
+      callback(type, data);
     }
   });
 }
@@ -270,16 +284,20 @@ void netdb_yi::connect(const std::string & userid, CB_Func && callback) {
   connect.set_clientversion("");
   connect.set_osversion(os_version_);
   connect.set_appversion(app_version_);
-  netyi_->connect(yijianBuffer(connect), [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
-    auto res = chat::ClientConnectRes();
-    res.ParseFromString(data);
-    if (res.issuccess()) {
-      dbyi_->putCurrentUserid(res.userid());
-      this->getUser(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
-        callback(err_no, err_msg);
-      });
-    }else{
-      callback(res.e_no(), res.e_msg());
+  netyi_->connect(yijianBuffer(connect), [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
+    if (type == ChatType::clientconnectres) {
+      auto res = chat::ClientConnectRes();
+      res.ParseFromString(data);
+      if (res.issuccess()) {
+        dbyi_->putCurrentUserid(res.userid());
+        this->getUser(res.userid(), [this, callback](const int err_no, const std::string & err_msg) {
+          callback(err_no, err_msg);
+        });
+      }else{
+        callback(res.e_no(), res.e_msg());
+      }
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -288,14 +306,15 @@ void netdb_yi::disconnect(CB_Func && callback) {
   auto discon = chat::ClientDisConnect();
   discon.set_userid(dbyi_->getCurrentUserid());
   discon.set_uuid(udid_);
-  netyi_->disconnect(yijianBuffer(discon), [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop){
+  netyi_->disconnect(yijianBuffer(discon), [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop){
     if (ChatType::error == type) {
       auto err = chat::Error();
       err.ParseFromString(data);
       callback(err.errnum(), err.errmsg());
-    }else{
-      Assert(ChatType::clientdisconnectres == type);
+    }else if (ChatType::clientdisconnectres == type){
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -304,29 +323,32 @@ void netdb_yi::logout(CB_Func && callback) {
   auto logout = chat::Logout();
   logout.set_userid(dbyi_->getCurrentUserid());
   logout.set_uuid(udid_);
-  netyi_->logout(yijianBuffer(logout), [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop){
+  netyi_->logout(yijianBuffer(logout), [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop){
     callback(0, netdb_success_);
     if (ChatType::error == type) {
       auto err = chat::Error();
       err.ParseFromString(data);
       callback(err.errnum(), err.errmsg());
-    }else{
-      Assert(ChatType::logoutres == type);
+    }else if(ChatType::logoutres == type){
       dbyi_->deleteCurrentUserid();
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
   
 void netdb_yi::setUserProterty(const chat::SetUserProperty & proterty, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  netyi_->send_buffer(yijianBuffer(proterty), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(proterty), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
+    }else if (type == ChatType::setuserprotertyres) {
+      
     }else {
-      Assert(type == ChatType::setuserprotertyres);
+      callback(type, data);
     }
   });
 }
@@ -383,16 +405,17 @@ void netdb_yi::addFriend(const std::string & friendid, const std::string & msg, 
   query.set_inviterid(dbyi_->getCurrentUserid());
   query.set_inviteeid(friendid);
   query.set_msg(msg);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::addfriendres);
+    }else if (type == ChatType::addfriendres) {
       auto res = chat::AddFriendRes();
       res.ParseFromString(data);
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -406,16 +429,17 @@ void netdb_yi::addFriendAuthorize(const std::string & friendid, const bool isAgr
   }else {
     query.set_isagree(chat::IsAgree::refuse);
   }
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::addfriendauthorizeres);
+    }else if (type == ChatType::addfriendauthorizeres) {
       auto res = chat::AddFriendAuthorizeRes();
       res.ParseFromString(data);
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
   
@@ -425,17 +449,18 @@ void netdb_yi::getAddfriendInfo(CB_Func && callback) {
   auto query = chat::QueryAddfriendInfo();
   query.set_count(50);
   addfriendInfo_.Clear();
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::queryaddfriendinfores);
+    }else if (type == ChatType::queryaddfriendinfores) {
       auto res = chat::QueryAddfriendInfoRes();
       res.ParseFromString(data);
       dbyi_->putAddfriendInfo(res);
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -452,19 +477,18 @@ void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
   // query user version
   auto query = chat::QueryUserVersion();
   query.set_userid(userid);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, userid, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, userid, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::queryuserversionres);
+    }else if (type == ChatType::queryuserversionres) {
       auto res = chat::QueryUserVersionRes();
       res.ParseFromString(data);
       if (version < res.version()) {
         auto query = chat::QueryUser();
         query.set_userid(userid);
-        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int8_t type, const std::string & data, bool * isStop){
+        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int16_t type, const std::string & data, bool * isStop){
           if (0 == type) {
             auto error = chat::Error();
             error.ParseFromString(data);
@@ -480,6 +504,8 @@ void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
       }else {
         callback(0, netdb_success_);
       }
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -488,17 +514,18 @@ void netdb_yi::getUser(const std::string & phone, const std::string & countrycod
   auto query = chat::QueryUser();
   query.set_userid(phone);
   query.set_countrycode(countrycode);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop){
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop){
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::queryuserres);
+    }else if (type == ChatType::queryuserres) {
       auto res = chat::QueryUserRes();
       res.ParseFromString(data);
       dbyi_->putUser(res.user());
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -510,14 +537,15 @@ void netdb_yi::setMediaPath(const std::string & sha1, const std::string & path, 
   auto media = chat::Media();
   media.set_sha1(sha1);
   media.set_path(path);
-  netyi_->send_buffer(yijianBuffer(media), nullptr, [this, callback = std::forward<CB_Func>(callback), &media](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(media), nullptr, [this, callback = std::forward<CB_Func>(callback), &media](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::mediares);
+    }else if (type == ChatType::queryuserres) {
       dbyi_->putMediaPath(media);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -530,16 +558,17 @@ void netdb_yi::getMediaPath(const std::string & sha1, CB_Func &&callback) {
   } catch (...) {
     auto query = chat::QueryMedia();
     query.set_sha1(sha1);
-    netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+    netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
       if (0 == type) {
         auto error = chat::Error();
         error.ParseFromString(data);
         callback(error.errnum(), error.errmsg());
-      }else {
-        Assert(type == ChatType::querymediares);
+      }else if (type == ChatType::querymediares) {
         auto res = chat::QueryMediaRes();
         dbyi_->putMediaPath(res.media());
         callback(0, netdb_success_);
+      }else {
+        callback(type, data);
       }
     });
   }
@@ -557,18 +586,19 @@ void netdb_yi::sendMessage(const std::string & toNodeID, const int32_t type,
   message.set_tonodeid(toNodeID);
   message.set_type(static_cast<chat::MediaType>(type));
   message.set_content(content);
-  netyi_->send_buffer(yijianBuffer(message), nullptr, [this, callback = std::forward<CB_Func>(callback), &message](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(message), nullptr, [this, callback = std::forward<CB_Func>(callback), &message](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::nodemessageres);
+    }else if (type == ChatType::queryuserres) {
       auto res = chat::NodeMessageRes();
       message.set_id(res.id());
       message.set_incrementid(res.incrementid());
       dbyi_->putMessage(message);
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -578,19 +608,20 @@ void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t incre
   auto query = chat::QueryOneMessage();
   query.set_tonodeid(tonodeid);
   query.set_incrementid(increment);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::querymessageres);
+    }else if (type == ChatType::querymessageres) {
       auto res = chat::QueryMessageRes();
       res.ParseFromString(data);
       for (auto & msg: res.messages()) {
         dbyi_->putMessage(msg);
       }
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -612,19 +643,20 @@ void netdb_yi::getMessage(const std::string & tonodeid, const int32_t fromIncrem
   query.set_tonodeid(tonodeid);
   query.set_fromincrementid(newFromIncrement);
   query.set_toincrementid(toIncrement);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, tonodeid, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, tonodeid, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::querymediares);
+    }else if (type == ChatType::queryuserres) {
       auto res = chat::QueryMessageRes();
       res.ParseFromString(data);
       for (auto & msg: res.messages()) {
         dbyi_->putMessage(msg);
       }
       callback(0, netdb_success_);
+    }else {
+      callback(type, data);
     }
   });
 }
@@ -640,19 +672,18 @@ void netdb_yi::getNode(const std::string & nodeid, CB_Func && callback) {
   // query node version
   auto query = chat::QueryNodeVersion();
   query.set_tonodeid(nodeid);
-  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, callback = std::forward<CB_Func>(callback)](int8_t type, const std::string & data, bool * isStop) {
+  netyi_->send_buffer(yijianBuffer(query), nullptr, [this, version, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else {
-      Assert(type == ChatType::querynodeversionres);
+    }else if (type == ChatType::querynodeversionres) {
       auto res = chat::QueryNodeVersionRes();
       res.ParseFromString(data);
       if (version < res.version()) {
         auto query = chat::QueryNode();
         query.set_tonodeid(res.tonodeid());
-        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int8_t type, const std::string & data, bool * isStop) {
+        netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback](int16_t type, const std::string & data, bool * isStop) {
           if (0 == type) {
             auto error = chat::Error();
             error.ParseFromString(data);
@@ -668,6 +699,9 @@ void netdb_yi::getNode(const std::string & nodeid, CB_Func && callback) {
       }else {
         callback(0, netdb_success_);
       }
+    }else {
+      callback(type, data);
     }
   });
 }
+
