@@ -478,3 +478,7 @@ void client_setNet_isConnect(bool isConnect) {
   YILOG_TRACE ("func: {}. ", __func__);
   isNetReachable_.store(isConnect);
 }
+bool client_isReachable() {
+  YILOG_TRACE ("func: {}. ", __func__);
+  return isNetReachable_.load();
+}

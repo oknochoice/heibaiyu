@@ -56,6 +56,8 @@
 		23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; };
 		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC65991E5D160E0062FF59 /* WebP.framework */; };
+		23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
@@ -421,6 +423,8 @@
 		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		23A881D81E368B340023B421 /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
 		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
+		23EC65991E5D160E0062FF59 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDecoder.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B73C1E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -987,6 +991,7 @@
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
 				23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
+				23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */,
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
 				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
@@ -1003,6 +1008,7 @@
 				23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
+				23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */,
 				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
@@ -1642,6 +1648,8 @@
 		A47B03781E5AAEEE00F66C59 /* manuallib */ = {
 			isa = PBXGroup;
 			children = (
+				23EC65991E5D160E0062FF59 /* WebP.framework */,
+				23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */,
 				A47B03791E5AAF1900F66C59 /* UpYunSDK */,
 			);
 			path = manuallib;
@@ -2516,6 +2524,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
 					"$(PROJECT_DIR)/submodule/Fusuma/Sources",
+					"$(PROJECT_DIR)/manuallib",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",
@@ -2566,6 +2575,7 @@
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/Release/Stencil",
 					"$(PROJECT_DIR)/submodule/SwiftGen/build/swiftgen/lib",
 					"$(PROJECT_DIR)/submodule/Fusuma/Sources",
+					"$(PROJECT_DIR)/manuallib",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/staticlib",

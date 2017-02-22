@@ -28,5 +28,6 @@ void clear_client();
 // main thread call
 // set net is connect
 void client_setNet_isConnect(bool isConnect);
+bool client_isReachable();
 
 #endif

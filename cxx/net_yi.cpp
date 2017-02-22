@@ -157,6 +157,11 @@ void netyi::put_map(const int32_t sessionid, CB_Func_Mutiple && func) {
 }
 void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func, int32_t * sessionid) {
   YILOG_TRACE ("func: {}", __func__);
+  if (!client_isReachable()) {
+    bool isStop = true;
+    std::string err_msg = "not reachable";
+    func(-200, err_msg, &isStop);
+  }
   uint16_t temp_session;
   {
     std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
@@ -173,7 +178,13 @@ void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && fu
 }
 void netyi::put_map_send(const int32_t sessionid,
     std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
+
   YILOG_TRACE ("func: {}", __func__);
+  if (!client_isReachable()) {
+    bool isStop = true;
+    std::string err_msg = "not reachable";
+    func(-200, err_msg, &isStop);
+  }
   {
     std::unique_lock<std::mutex> ul(sessionid_map_mutex_);
     client_send(std::forward<std::vector<Buffer_SP>>(sp_vec), nullptr);
