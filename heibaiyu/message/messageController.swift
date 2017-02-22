@@ -14,8 +14,7 @@ class messageController: UIViewController, UITableViewDelegate, UITableViewDataS
   override func viewDidLoad() {
       super.viewDidLoad()
 
-    
-      // Do any additional setup after loading the view.
+   
   }
 
   //MARK: - delegate datasource

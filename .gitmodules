@@ -34,3 +34,6 @@
 [submodule "submodule/iOS_WebP"]
 	path = submodule/iOS_WebP
 	url = https://github.com/seanooi/iOS-WebP.git
+[submodule "submodule/ImagePickerKit"]
+	path = submodule/ImagePickerKit
+	url = https://github.com/Athlee/ImagePickerKit.git

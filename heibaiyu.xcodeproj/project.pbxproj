@@ -58,6 +58,22 @@
 		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC65991E5D160E0062FF59 /* WebP.framework */; };
 		23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */; };
+		23EC65E11E5DBE0D0062FF59 /* Capturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65BD1E5DBE0C0062FF59 /* Capturable.swift */; };
+		23EC65E21E5DBE0D0062FF59 /* CaptureNotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65BE1E5DBE0C0062FF59 /* CaptureNotificationObserver.swift */; };
+		23EC65E31E5DBE0D0062FF59 /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65BF1E5DBE0C0062FF59 /* CGAffineTransform.swift */; };
+		23EC65E41E5DBE0D0062FF59 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C01E5DBE0C0062FF59 /* CGRect.swift */; };
+		23EC65E51E5DBE0D0062FF59 /* CollectionViewChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C11E5DBE0C0062FF59 /* CollectionViewChangeObserver.swift */; };
+		23EC65E61E5DBE0D0062FF59 /* Cropable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C21E5DBE0C0062FF59 /* Cropable.swift */; };
+		23EC65E71E5DBE0D0062FF59 /* CropableScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C31E5DBE0C0062FF59 /* CropableScrollViewDelegate.swift */; };
+		23EC65E81E5DBE0D0062FF59 /* FloatingViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C41E5DBE0C0062FF59 /* FloatingViewLayout.swift */; };
+		23EC65E91E5DBE0D0062FF59 /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C51E5DBE0C0062FF59 /* LinesView.swift */; };
+		23EC65EA1E5DBE0D0062FF59 /* NSIndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C61E5DBE0C0062FF59 /* NSIndexSet.swift */; };
+		23EC65EB1E5DBE0D0062FF59 /* PhotoCachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C71E5DBE0C0062FF59 /* PhotoCachable.swift */; };
+		23EC65EC1E5DBE0D0062FF59 /* PhotoCapturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C81E5DBE0C0062FF59 /* PhotoCapturable.swift */; };
+		23EC65ED1E5DBE0D0062FF59 /* PhotoFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65C91E5DBE0C0062FF59 /* PhotoFetchable.swift */; };
+		23EC65EE1E5DBE0D0062FF59 /* Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65CA1E5DBE0C0062FF59 /* Radians.swift */; };
+		23EC65EF1E5DBE0D0062FF59 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65CB1E5DBE0C0062FF59 /* UICollectionView.swift */; };
+		23EC65F01E5DBE0D0062FF59 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC65CC1E5DBE0C0062FF59 /* UIView.swift */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
@@ -411,6 +427,22 @@
 		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
 		23EC65991E5D160E0062FF59 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDecoder.framework; sourceTree = "<group>"; };
+		23EC65BD1E5DBE0C0062FF59 /* Capturable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capturable.swift; sourceTree = "<group>"; };
+		23EC65BE1E5DBE0C0062FF59 /* CaptureNotificationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureNotificationObserver.swift; sourceTree = "<group>"; };
+		23EC65BF1E5DBE0C0062FF59 /* CGAffineTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransform.swift; sourceTree = "<group>"; };
+		23EC65C01E5DBE0C0062FF59 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		23EC65C11E5DBE0C0062FF59 /* CollectionViewChangeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewChangeObserver.swift; sourceTree = "<group>"; };
+		23EC65C21E5DBE0C0062FF59 /* Cropable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cropable.swift; sourceTree = "<group>"; };
+		23EC65C31E5DBE0C0062FF59 /* CropableScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropableScrollViewDelegate.swift; sourceTree = "<group>"; };
+		23EC65C41E5DBE0C0062FF59 /* FloatingViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingViewLayout.swift; sourceTree = "<group>"; };
+		23EC65C51E5DBE0C0062FF59 /* LinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
+		23EC65C61E5DBE0C0062FF59 /* NSIndexSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexSet.swift; sourceTree = "<group>"; };
+		23EC65C71E5DBE0C0062FF59 /* PhotoCachable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCachable.swift; sourceTree = "<group>"; };
+		23EC65C81E5DBE0C0062FF59 /* PhotoCapturable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCapturable.swift; sourceTree = "<group>"; };
+		23EC65C91E5DBE0C0062FF59 /* PhotoFetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFetchable.swift; sourceTree = "<group>"; };
+		23EC65CA1E5DBE0C0062FF59 /* Radians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radians.swift; sourceTree = "<group>"; };
+		23EC65CB1E5DBE0C0062FF59 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		23EC65CC1E5DBE0C0062FF59 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A402B7371E2DF84200DA2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402B73C1E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1086,6 +1118,38 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		23EC659D1E5DBE0C0062FF59 /* ImagePickerKit */ = {
+			isa = PBXGroup;
+			children = (
+				23EC65BC1E5DBE0C0062FF59 /* Source */,
+			);
+			name = ImagePickerKit;
+			path = submodule/ImagePickerKit;
+			sourceTree = "<group>";
+		};
+		23EC65BC1E5DBE0C0062FF59 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				23EC65BD1E5DBE0C0062FF59 /* Capturable.swift */,
+				23EC65BE1E5DBE0C0062FF59 /* CaptureNotificationObserver.swift */,
+				23EC65BF1E5DBE0C0062FF59 /* CGAffineTransform.swift */,
+				23EC65C01E5DBE0C0062FF59 /* CGRect.swift */,
+				23EC65C11E5DBE0C0062FF59 /* CollectionViewChangeObserver.swift */,
+				23EC65C21E5DBE0C0062FF59 /* Cropable.swift */,
+				23EC65C31E5DBE0C0062FF59 /* CropableScrollViewDelegate.swift */,
+				23EC65C41E5DBE0C0062FF59 /* FloatingViewLayout.swift */,
+				23EC65C51E5DBE0C0062FF59 /* LinesView.swift */,
+				23EC65C61E5DBE0C0062FF59 /* NSIndexSet.swift */,
+				23EC65C71E5DBE0C0062FF59 /* PhotoCachable.swift */,
+				23EC65C81E5DBE0C0062FF59 /* PhotoCapturable.swift */,
+				23EC65C91E5DBE0C0062FF59 /* PhotoFetchable.swift */,
+				23EC65CA1E5DBE0C0062FF59 /* Radians.swift */,
+				23EC65CB1E5DBE0C0062FF59 /* UICollectionView.swift */,
+				23EC65CC1E5DBE0C0062FF59 /* UIView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		A402B72B1E2DF84200DA2C56 = {
 			isa = PBXGroup;
 			children = (
@@ -1680,6 +1744,7 @@
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
+				23EC659D1E5DBE0C0062FF59 /* ImagePickerKit */,
 				2373E18D1E40A1AB0055136C /* SwiftTimer */,
 				A4A66D741E349079001A25D7 /* EasyAnimation */,
 			);
@@ -2156,7 +2221,9 @@
 				A40FD2951E4C415F0044D2DA /* any.pb.cc in Sources */,
 				A40FD2F51E4C415F0044D2DA /* source_context.pb.cc in Sources */,
 				A4B93D4D1E4D5FBA00E2B480 /* leveldb_yi.cpp in Sources */,
+				23EC65E41E5DBE0D0062FF59 /* CGRect.swift in Sources */,
 				A40FD2EE1E4C415F0044D2DA /* zero_copy_stream_impl_lite.cc in Sources */,
+				23EC65EB1E5DBE0D0062FF59 /* PhotoCachable.swift in Sources */,
 				A4E75A4F1E49598700C5FC66 /* error.swift in Sources */,
 				A40FD2BD1E4C415F0044D2DA /* cpp_generator.cc in Sources */,
 				2373E19D1E40A7920055136C /* nettype.swift in Sources */,
@@ -2168,6 +2235,7 @@
 				A40FD2D41E4C415F0044D2DA /* dynamic_message.cc in Sources */,
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
 				A40FD2E91E4C415F0044D2DA /* printer.cc in Sources */,
+				23EC65E71E5DBE0D0062FF59 /* CropableScrollViewDelegate.swift in Sources */,
 				A40FD2A81E4C415F0044D2DA /* command_line_interface.cc in Sources */,
 				A40FD2C51E4C415F0044D2DA /* importer.cc in Sources */,
 				A4E75A6E1E4B160F00C5FC66 /* settingBaseController.swift in Sources */,
@@ -2209,14 +2277,18 @@
 				A40FD3161E4C415F0044D2DA /* time.cc in Sources */,
 				A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */,
 				A40FD3181E4C415F0044D2DA /* timestamp.pb.cc in Sources */,
+				23EC65E31E5DBE0D0062FF59 /* CGAffineTransform.swift in Sources */,
 				A40FD2ED1E4C415F0044D2DA /* zero_copy_stream_impl.cc in Sources */,
 				A40FD3541E4C4A550044D2DA /* chat_message.pb.cc in Sources */,
 				23A881D51E3687270023B421 /* messageController.swift in Sources */,
+				23EC65E21E5DBE0D0062FF59 /* CaptureNotificationObserver.swift in Sources */,
 				A47B03931E5AAF1900F66C59 /* UPMultipartBody.m in Sources */,
 				2373E15C1E3F361B0055136C /* button.swift in Sources */,
+				23EC65EE1E5DBE0D0062FF59 /* Radians.swift in Sources */,
 				A40FD2C11E4C415F0044D2DA /* cpp_message_field.cc in Sources */,
 				A40FD2EB1E4C415F0044D2DA /* tokenizer.cc in Sources */,
 				A40FD3461E4C415F0044D2DA /* time_util.cc in Sources */,
+				23EC65E81E5DBE0D0062FF59 /* FloatingViewLayout.swift in Sources */,
 				2373E15A1E3F293F0055136C /* NSBundle+language.m in Sources */,
 				A40FD3391E4C415F0044D2DA /* field_mask_utility.cc in Sources */,
 				A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */,
@@ -2242,6 +2314,7 @@
 				A47B03901E5AAF1900F66C59 /* NSString+NSHash.m in Sources */,
 				A47B03921E5AAF1900F66C59 /* UPHTTPClient.m in Sources */,
 				A40FD2DB1E4C415F0044D2DA /* generated_message_reflection.cc in Sources */,
+				23EC65EF1E5DBE0D0062FF59 /* UICollectionView.swift in Sources */,
 				A40FD2E71E4C415F0044D2DA /* coded_stream.cc in Sources */,
 				A40FD3171E4C415F0044D2DA /* text_format.cc in Sources */,
 				A40FD2D21E4C415F0044D2DA /* duration.pb.cc in Sources */,
@@ -2251,12 +2324,16 @@
 				A40FD2C41E4C415F0044D2DA /* cpp_string_field.cc in Sources */,
 				A40FD3481E4C415F0044D2DA /* wire_format.cc in Sources */,
 				2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */,
+				23EC65E11E5DBE0D0062FF59 /* Capturable.swift in Sources */,
+				23EC65EC1E5DBE0D0062FF59 /* PhotoCapturable.swift in Sources */,
+				23EC65F01E5DBE0D0062FF59 /* UIView.swift in Sources */,
 				A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */,
 				A40FD30B1E4C415F0044D2DA /* common.cc in Sources */,
 				A40FD31C1E4C415F0044D2DA /* unknown_field_set.cc in Sources */,
 				A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */,
 				A40FD30F1E4C415F0044D2DA /* status.cc in Sources */,
 				A40FD2C91E4C415F0044D2DA /* plugin.cc in Sources */,
+				23EC65EA1E5DBE0D0062FF59 /* NSIndexSet.swift in Sources */,
 				A40FD2F21E4C415F0044D2DA /* reflection_ops.cc in Sources */,
 				A40FD2E81E4C415F0044D2DA /* gzip_stream.cc in Sources */,
 				A40FD2EC1E4C415F0044D2DA /* zero_copy_stream.cc in Sources */,
@@ -2278,13 +2355,16 @@
 				A47B038D1E5AAF1900F66C59 /* UpYun.m in Sources */,
 				A40FD31A1E4C415F0044D2DA /* type.pb.cc in Sources */,
 				A40FD2BB1E4C415F0044D2DA /* cpp_field.cc in Sources */,
+				23EC65E51E5DBE0D0062FF59 /* CollectionViewChangeObserver.swift in Sources */,
 				A40FD2F31E4C415F0044D2DA /* repeated_field.cc in Sources */,
 				A4E75A7C1E4B1FD800C5FC66 /* settingLits_a.swift in Sources */,
 				A47B038E1E5AAF1900F66C59 /* UPYUNConfig.m in Sources */,
 				A40FD2941E4C415F0044D2DA /* any.cc in Sources */,
+				23EC65E91E5DBE0D0062FF59 /* LinesView.swift in Sources */,
 				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A40FD33B1E4C415F0044D2DA /* json_objectwriter.cc in Sources */,
 				A4E75A791E4B1FD800C5FC66 /* settingCell.swift in Sources */,
+				23EC65ED1E5DBE0D0062FF59 /* PhotoFetchable.swift in Sources */,
 				A40FD2D91E4C415F0044D2DA /* field_mask.pb.cc in Sources */,
 				A4E75A7D1E4B1FD800C5FC66 /* settingRit_a.swift in Sources */,
 				A40FD2F11E4C415F0044D2DA /* message_lite.cc in Sources */,
@@ -2295,6 +2375,7 @@
 				A4E75A7E1E4B1FD800C5FC66 /* settingts.swift in Sources */,
 				A40FD30A1E4C415F0044D2DA /* atomicops_internals_x86_msvc.cc in Sources */,
 				A40FD34E1E4C41D00044D2DA /* bytestream.cc in Sources */,
+				23EC65E61E5DBE0D0062FF59 /* Cropable.swift in Sources */,
 				A40FD29B1E4C415F0044D2DA /* arenastring.cc in Sources */,
 				A40FD2DC1E4C415F0044D2DA /* generated_message_util.cc in Sources */,
 				A40FD3381E4C415F0044D2DA /* error_listener.cc in Sources */,
