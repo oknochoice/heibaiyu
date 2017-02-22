@@ -108,12 +108,12 @@ chat::QueryAddfriendInfoRes leveldb_yi::getAddfriendInfo() {
  */
 void leveldb_yi::putMediaPath(const chat::Media & media) {
   YILOG_TRACE ("func: {}", __func__);
-  auto key = mediaKey(media.sha1());
+  auto key = mediaKey(media.md5());
   put(key, media.path());
 }
-std::string leveldb_yi::getMediaPath(const std::string & sha1) {
+std::string leveldb_yi::getMediaPath(const std::string & md5) {
   YILOG_TRACE ("func: {}", __func__);
-  auto key = mediaKey(sha1);
+  auto key = mediaKey(md5);
   return get(key);
 }
 
@@ -252,7 +252,7 @@ std::string leveldb_yi::talklistKey() {
 
 /* media key
  */
-std::string leveldb_yi::mediaKey(const std::string & sha1) {
+std::string leveldb_yi::mediaKey(const std::string & md5) {
   YILOG_TRACE ("func: {}", __func__);
-  return "m_sha1_" + sha1;
+  return "m_md5_" + md5;
 }

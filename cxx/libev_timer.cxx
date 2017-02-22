@@ -74,7 +74,9 @@ void libev_timer::remove(int32_t id) {
   YILOG_TRACE ("func: {}", __func__);
   std::unique_lock<std::mutex> (map_mutex_);
   auto it = map_.find(id);
-  map_.erase(it);
+  if (it != map_.end()) {
+    map_.erase(it);
+  }
 }
 
 

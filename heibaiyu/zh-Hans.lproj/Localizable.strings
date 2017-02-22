@@ -23,4 +23,13 @@
  */
 "search_addFriend" = "添加好友";
 
+/* 用户
+ */
+"user_realname" = "姓名:";
+"user_nickname" = "昵称";
+"user_icon" = "头像:";
+"user_gender" = "性别:";
+"user_desc"= "个性签名:";
+"user_birthday" = "生日:";
+
 

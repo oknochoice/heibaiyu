@@ -70,8 +70,8 @@ public:
   /*
    * media
    */
-  void setMediaPath(const std::string & sha1, const std::string & path, CB_Func && callback);
-  void getMediaPath(const std::string & sha1, CB_Func && callback);
+  void setMediaPath(const std::string & md5, const std::string & path, CB_Func && callback);
+  void getMediaPath(const std::string & md5, CB_Func && callback);
   
   /*
    * message

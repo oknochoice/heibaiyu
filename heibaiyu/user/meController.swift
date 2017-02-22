@@ -32,6 +32,9 @@ class meController: settingBaseController {
     }
     meCModel.title = title
     meCModel.cellHeight = 66
+    meCModel.tap = {
+      self.navigationController?.pushViewController(StoryboardScene.Main.instantiateUserinfoController(), animated: true)
+    }
     // add cell to section
     meSModel.cellModels = [meCModel]
     

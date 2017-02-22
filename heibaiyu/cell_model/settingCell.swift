@@ -27,4 +27,11 @@ class settingCell: UITableViewCell {
       tap = model?.tap
     }
   }
+  
+  override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    super.setHighlighted(highlighted, animated: animated)
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {}
+  
 }

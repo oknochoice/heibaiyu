@@ -352,31 +352,33 @@ void netdb_yi::setUserProterty(const chat::SetUserProperty & property, CB_Func &
         callback(err_no, data);
       });
        */
+      auto res = chat::SetUserPropertyRes();
+      res.ParseFromString(data);
       auto user = dbyi_->getCurrentUser();
-      switch (property.property()) {
+      switch (res.property()) {
         case chat::UserProperty::realname:
         {
-          user.set_realname(property.value());
+          user.set_realname(res.value());
           break;
         }
         case chat::UserProperty::nickname:
         {
-          user.set_nickname(property.value());
+          user.set_nickname(res.value());
           break;
         }
         case chat::UserProperty::icon:
         {
-          user.set_icon(property.value());
+          user.set_icon(res.value());
           break;
         }
         case chat::UserProperty::description:
         {
-          user.set_description(property.value());
+          user.set_description(res.value());
           break;
         }
         case chat::UserProperty::isMale:
         {
-          if (property.value().front() == 't') {
+          if (res.value().front() == 't') {
             user.set_ismale(true);
           }else{
             user.set_ismale(false);
@@ -385,7 +387,7 @@ void netdb_yi::setUserProterty(const chat::SetUserProperty & property, CB_Func &
         }
         case chat::UserProperty::birthday:
         {
-          user.set_birthday(std::stoi(property.value()));
+          user.set_birthday(std::stoi(res.value()));
           break;
         }
         default:
@@ -578,10 +580,10 @@ void netdb_yi::getUser(const std::string & phone, const std::string & countrycod
 /*
  * media
  */
-void netdb_yi::setMediaPath(const std::string & sha1, const std::string & path, CB_Func && callback) {
+void netdb_yi::setMediaPath(const std::string & md5, const std::string & path, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto media = chat::Media();
-  media.set_sha1(sha1);
+  media.set_md5(md5);
   media.set_path(path);
   netyi_->send_buffer(yijianBuffer(media), nullptr, [this, callback = std::forward<CB_Func>(callback), &media](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
@@ -596,14 +598,14 @@ void netdb_yi::setMediaPath(const std::string & sha1, const std::string & path, 
   });
 }
 
-void netdb_yi::getMediaPath(const std::string & sha1, CB_Func &&callback) {
+void netdb_yi::getMediaPath(const std::string & md5, CB_Func &&callback) {
   YILOG_TRACE ("func: {}", __func__);
   try {
-    dbyi_->getMediaPath(sha1);
+    dbyi_->getMediaPath(md5);
     callback(0, netdb_success_);
   } catch (...) {
     auto query = chat::QueryMedia();
-    query.set_sha1(sha1);
+    query.set_md5(md5);
     netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop) {
       if (0 == type) {
         auto error = chat::Error();

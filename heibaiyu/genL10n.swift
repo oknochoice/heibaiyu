@@ -29,6 +29,18 @@ enum L10n {
   static let signupSuccess = L10n.tr("signup_success")
   /// 验证码长度需>=4
   static let signupVerifiycoeLimit = L10n.tr("signup_verifiycoe_limit")
+  /// 生日:
+  static let userBirthday = L10n.tr("user_birthday")
+  /// 个性签名:
+  static let userDesc = L10n.tr("user_desc")
+  /// 性别:
+  static let userGender = L10n.tr("user_gender")
+  /// 头像:
+  static let userIcon = L10n.tr("user_icon")
+  /// 昵称
+  static let userNickname = L10n.tr("user_nickname")
+  /// 姓名:
+  static let userRealname = L10n.tr("user_realname")
 }
 
 extension L10n {

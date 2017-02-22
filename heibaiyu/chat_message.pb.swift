@@ -1170,16 +1170,20 @@ struct Chat_SetUserPropertyRes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   public var protoPackageName: String {return "chat"}
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "property", swift: "property"),
+    2: .same(proto: "value", swift: "value"),
   ]
 
 
   var property: Chat_UserProperty = Chat_UserProperty.realname
+
+  var value: String = ""
 
   init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Chat_UserProperty.self, value: &property)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
     default: break
     }
   }
@@ -1188,10 +1192,14 @@ struct Chat_SetUserPropertyRes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
     if property != Chat_UserProperty.realname {
       try visitor.visitSingularField(fieldType: Chat_UserProperty.self, value: property, protoFieldNumber: 1)
     }
+    if value != "" {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: value, protoFieldNumber: 2)
+    }
   }
 
   public func _protoc_generated_isEqualTo(other: Chat_SetUserPropertyRes) -> Bool {
     if property != other.property {return false}
+    if value != other.value {return false}
     return true
   }
 }
@@ -3507,13 +3515,13 @@ struct Chat_Media: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProt
   public var protoMessageName: String {return "Media"}
   public var protoPackageName: String {return "chat"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "sha1", swift: "sha1"),
+    1: .same(proto: "md5", swift: "md5"),
     2: .same(proto: "path", swift: "path"),
     3: .same(proto: "type", swift: "type"),
   ]
 
 
-  var sha1: String = ""
+  var md5: String = ""
 
   var path: String = ""
 
@@ -3523,7 +3531,7 @@ struct Chat_Media: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProt
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &sha1)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &md5)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &path)
     case 3: try setter.decodeSingularField(fieldType: Chat_MediaType.self, value: &type)
     default: break
@@ -3531,8 +3539,8 @@ struct Chat_Media: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProt
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    if sha1 != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: sha1, protoFieldNumber: 1)
+    if md5 != "" {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: md5, protoFieldNumber: 1)
     }
     if path != "" {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: path, protoFieldNumber: 2)
@@ -3543,7 +3551,7 @@ struct Chat_Media: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProt
   }
 
   public func _protoc_generated_isEqualTo(other: Chat_Media) -> Bool {
-    if sha1 != other.sha1 {return false}
+    if md5 != other.md5 {return false}
     if path != other.path {return false}
     if type != other.type {return false}
     return true
@@ -3587,29 +3595,29 @@ struct Chat_QueryMedia: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
   public var protoMessageName: String {return "QueryMedia"}
   public var protoPackageName: String {return "chat"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "sha1", swift: "sha1"),
+    1: .same(proto: "md5", swift: "md5"),
   ]
 
 
-  var sha1: String = ""
+  var md5: String = ""
 
   init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &sha1)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &md5)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    if sha1 != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: sha1, protoFieldNumber: 1)
+    if md5 != "" {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: md5, protoFieldNumber: 1)
     }
   }
 
   public func _protoc_generated_isEqualTo(other: Chat_QueryMedia) -> Bool {
-    if sha1 != other.sha1 {return false}
+    if md5 != other.md5 {return false}
     return true
   }
 }

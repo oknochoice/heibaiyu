@@ -2151,6 +2151,20 @@ class SetUserPropertyRes : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
+  // string value = 2;
+  void clear_value();
+  static const int kValueFieldNumber = 2;
+  const ::std::string& value() const;
+  void set_value(const ::std::string& value);
+  #if LANG_CXX11
+  void set_value(::std::string&& value);
+  #endif
+  void set_value(const char* value);
+  void set_value(const char* value, size_t size);
+  ::std::string* mutable_value();
+  ::std::string* release_value();
+  void set_allocated_value(::std::string* value);
+
   // .chat.UserProperty property = 1;
   void clear_property();
   static const int kPropertyFieldNumber = 1;
@@ -2161,6 +2175,7 @@ class SetUserPropertyRes : public ::google::protobuf::Message /* @@protoc_insert
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr value_;
   int property_;
   mutable int _cached_size_;
   friend struct  protobuf_chat_5fmessage_2eproto::TableStruct;
@@ -6985,19 +7000,19 @@ class Media : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   // accessors -------------------------------------------------------
 
-  // string sha1 = 1;
-  void clear_sha1();
-  static const int kSha1FieldNumber = 1;
-  const ::std::string& sha1() const;
-  void set_sha1(const ::std::string& value);
+  // string md5 = 1;
+  void clear_md5();
+  static const int kMd5FieldNumber = 1;
+  const ::std::string& md5() const;
+  void set_md5(const ::std::string& value);
   #if LANG_CXX11
-  void set_sha1(::std::string&& value);
+  void set_md5(::std::string&& value);
   #endif
-  void set_sha1(const char* value);
-  void set_sha1(const char* value, size_t size);
-  ::std::string* mutable_sha1();
-  ::std::string* release_sha1();
-  void set_allocated_sha1(::std::string* sha1);
+  void set_md5(const char* value);
+  void set_md5(const char* value, size_t size);
+  ::std::string* mutable_md5();
+  ::std::string* release_md5();
+  void set_allocated_md5(::std::string* md5);
 
   // string path = 2;
   void clear_path();
@@ -7023,7 +7038,7 @@ class Media : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr sha1_;
+  ::google::protobuf::internal::ArenaStringPtr md5_;
   ::google::protobuf::internal::ArenaStringPtr path_;
   int type_;
   mutable int _cached_size_;
@@ -7181,25 +7196,25 @@ class QueryMedia : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // string sha1 = 1;
-  void clear_sha1();
-  static const int kSha1FieldNumber = 1;
-  const ::std::string& sha1() const;
-  void set_sha1(const ::std::string& value);
+  // string md5 = 1;
+  void clear_md5();
+  static const int kMd5FieldNumber = 1;
+  const ::std::string& md5() const;
+  void set_md5(const ::std::string& value);
   #if LANG_CXX11
-  void set_sha1(::std::string&& value);
+  void set_md5(::std::string&& value);
   #endif
-  void set_sha1(const char* value);
-  void set_sha1(const char* value, size_t size);
-  ::std::string* mutable_sha1();
-  ::std::string* release_sha1();
-  void set_allocated_sha1(::std::string* sha1);
+  void set_md5(const char* value);
+  void set_md5(const char* value, size_t size);
+  ::std::string* mutable_md5();
+  ::std::string* release_md5();
+  void set_allocated_md5(::std::string* md5);
 
   // @@protoc_insertion_point(class_scope:chat.QueryMedia)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr sha1_;
+  ::google::protobuf::internal::ArenaStringPtr md5_;
   mutable int _cached_size_;
   friend struct  protobuf_chat_5fmessage_2eproto::TableStruct;
 };
@@ -9019,6 +9034,58 @@ inline void SetUserPropertyRes::set_property(::chat::UserProperty value) {
   
   property_ = value;
   // @@protoc_insertion_point(field_set:chat.SetUserPropertyRes.property)
+}
+
+// string value = 2;
+inline void SetUserPropertyRes::clear_value() {
+  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SetUserPropertyRes::value() const {
+  // @@protoc_insertion_point(field_get:chat.SetUserPropertyRes.value)
+  return value_.GetNoArena();
+}
+inline void SetUserPropertyRes::set_value(const ::std::string& value) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:chat.SetUserPropertyRes.value)
+}
+#if LANG_CXX11
+inline void SetUserPropertyRes::set_value(::std::string&& value) {
+  
+  value_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:chat.SetUserPropertyRes.value)
+}
+#endif
+inline void SetUserPropertyRes::set_value(const char* value) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:chat.SetUserPropertyRes.value)
+}
+inline void SetUserPropertyRes::set_value(const char* value, size_t size) {
+  
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:chat.SetUserPropertyRes.value)
+}
+inline ::std::string* SetUserPropertyRes::mutable_value() {
+  
+  // @@protoc_insertion_point(field_mutable:chat.SetUserPropertyRes.value)
+  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SetUserPropertyRes::release_value() {
+  // @@protoc_insertion_point(field_release:chat.SetUserPropertyRes.value)
+  
+  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SetUserPropertyRes::set_allocated_value(::std::string* value) {
+  if (value != NULL) {
+    
+  } else {
+    
+  }
+  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:chat.SetUserPropertyRes.value)
 }
 
 // -------------------------------------------------------------------
@@ -14490,56 +14557,56 @@ inline void ConnectInfoLittle::set_nodepointor(::google::protobuf::int64 value) 
 
 // Media
 
-// string sha1 = 1;
-inline void Media::clear_sha1() {
-  sha1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string md5 = 1;
+inline void Media::clear_md5() {
+  md5_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Media::sha1() const {
-  // @@protoc_insertion_point(field_get:chat.Media.sha1)
-  return sha1_.GetNoArena();
+inline const ::std::string& Media::md5() const {
+  // @@protoc_insertion_point(field_get:chat.Media.md5)
+  return md5_.GetNoArena();
 }
-inline void Media::set_sha1(const ::std::string& value) {
+inline void Media::set_md5(const ::std::string& value) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:chat.Media.sha1)
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:chat.Media.md5)
 }
 #if LANG_CXX11
-inline void Media::set_sha1(::std::string&& value) {
+inline void Media::set_md5(::std::string&& value) {
   
-  sha1_.SetNoArena(
+  md5_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:chat.Media.sha1)
+  // @@protoc_insertion_point(field_set_rvalue:chat.Media.md5)
 }
 #endif
-inline void Media::set_sha1(const char* value) {
+inline void Media::set_md5(const char* value) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:chat.Media.sha1)
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:chat.Media.md5)
 }
-inline void Media::set_sha1(const char* value, size_t size) {
+inline void Media::set_md5(const char* value, size_t size) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:chat.Media.sha1)
+  // @@protoc_insertion_point(field_set_pointer:chat.Media.md5)
 }
-inline ::std::string* Media::mutable_sha1() {
+inline ::std::string* Media::mutable_md5() {
   
-  // @@protoc_insertion_point(field_mutable:chat.Media.sha1)
-  return sha1_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:chat.Media.md5)
+  return md5_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Media::release_sha1() {
-  // @@protoc_insertion_point(field_release:chat.Media.sha1)
+inline ::std::string* Media::release_md5() {
+  // @@protoc_insertion_point(field_release:chat.Media.md5)
   
-  return sha1_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return md5_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Media::set_allocated_sha1(::std::string* sha1) {
-  if (sha1 != NULL) {
+inline void Media::set_allocated_md5(::std::string* md5) {
+  if (md5 != NULL) {
     
   } else {
     
   }
-  sha1_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sha1);
-  // @@protoc_insertion_point(field_set_allocated:chat.Media.sha1)
+  md5_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), md5);
+  // @@protoc_insertion_point(field_set_allocated:chat.Media.md5)
 }
 
 // string path = 2;
@@ -14630,56 +14697,56 @@ inline void MediaRes::set_issuccess(bool value) {
 
 // QueryMedia
 
-// string sha1 = 1;
-inline void QueryMedia::clear_sha1() {
-  sha1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string md5 = 1;
+inline void QueryMedia::clear_md5() {
+  md5_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& QueryMedia::sha1() const {
-  // @@protoc_insertion_point(field_get:chat.QueryMedia.sha1)
-  return sha1_.GetNoArena();
+inline const ::std::string& QueryMedia::md5() const {
+  // @@protoc_insertion_point(field_get:chat.QueryMedia.md5)
+  return md5_.GetNoArena();
 }
-inline void QueryMedia::set_sha1(const ::std::string& value) {
+inline void QueryMedia::set_md5(const ::std::string& value) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:chat.QueryMedia.sha1)
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:chat.QueryMedia.md5)
 }
 #if LANG_CXX11
-inline void QueryMedia::set_sha1(::std::string&& value) {
+inline void QueryMedia::set_md5(::std::string&& value) {
   
-  sha1_.SetNoArena(
+  md5_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:chat.QueryMedia.sha1)
+  // @@protoc_insertion_point(field_set_rvalue:chat.QueryMedia.md5)
 }
 #endif
-inline void QueryMedia::set_sha1(const char* value) {
+inline void QueryMedia::set_md5(const char* value) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:chat.QueryMedia.sha1)
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:chat.QueryMedia.md5)
 }
-inline void QueryMedia::set_sha1(const char* value, size_t size) {
+inline void QueryMedia::set_md5(const char* value, size_t size) {
   
-  sha1_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  md5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:chat.QueryMedia.sha1)
+  // @@protoc_insertion_point(field_set_pointer:chat.QueryMedia.md5)
 }
-inline ::std::string* QueryMedia::mutable_sha1() {
+inline ::std::string* QueryMedia::mutable_md5() {
   
-  // @@protoc_insertion_point(field_mutable:chat.QueryMedia.sha1)
-  return sha1_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:chat.QueryMedia.md5)
+  return md5_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* QueryMedia::release_sha1() {
-  // @@protoc_insertion_point(field_release:chat.QueryMedia.sha1)
+inline ::std::string* QueryMedia::release_md5() {
+  // @@protoc_insertion_point(field_release:chat.QueryMedia.md5)
   
-  return sha1_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return md5_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void QueryMedia::set_allocated_sha1(::std::string* sha1) {
-  if (sha1 != NULL) {
+inline void QueryMedia::set_allocated_md5(::std::string* md5) {
+  if (md5 != NULL) {
     
   } else {
     
   }
-  sha1_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sha1);
-  // @@protoc_insertion_point(field_set_allocated:chat.QueryMedia.sha1)
+  md5_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), md5);
+  // @@protoc_insertion_point(field_set_allocated:chat.QueryMedia.md5)
 }
 
 // -------------------------------------------------------------------

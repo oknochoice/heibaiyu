@@ -11,10 +11,11 @@ import SwiftDate
 
 public extension UpYun {
   
-  func putUpYun(webp: Data,
-                success: @escaping ((URLResponse,Any) -> Void),
-                failure: @escaping ((Error) -> Void),
-                progress: @escaping (CGFloat, Int64) -> Void) -> Void {
+  func upload(webp: Data,
+              saveKey: String,
+              success: @escaping (URLResponse,Any) -> Void,
+              failure: @escaping (Error) -> Void,
+              progress: @escaping (CGFloat, Int64) -> Void) -> Void {
     self.uploadMethod = UPUploadMethod.mutUPload
     let success_ = success
     let failure_ = failure
@@ -35,10 +36,33 @@ public extension UpYun {
       blog.verbose((percent, requestDidSendBytes))
       progress_(percent, requestDidSendBytes)
     }
-    let date = DateInRegion();
-    let path = date.string(custom: "/yyyy/MM/dd/HH_mm_ss_")
-    let saveKey = path + String(format: "%08X.webp", arc4random())
-    blog.verbose(saveKey)
     self.uploadFile(webp, saveKey: saveKey)
+  }
+  
+  // upload
+  func upload(image : UIImage,
+              success: @escaping (URLResponse,Any) -> Void,
+              failure: @escaping (Error) -> Void,
+              progress: @escaping (CGFloat, Int64) -> Void) -> Void {
+    
+    var saveKey: String
+    let webp = UIImage.image(toWebP: image, quality: 1)
+    if let md5 = NSData.md5HexDigest(webp) {
+      if let path = netdbwarpper.sharedNetdb().getMediapath(md5) {
+        saveKey = path
+      }else {
+        let date = DateInRegion();
+        let path = date.string(custom: "/yyyy/MM/dd/HH_mm_ss_")
+        saveKey = path + String(format: "%08X.webp", arc4random())
+      }
+      blog.verbose(saveKey)
+      netdbwarpper.sharedNetdb().setMediapath(md5, saveKey, { (err_no, err_msg) in
+        DispatchQueue.main.async {
+          self.upload(webp: UIImage.image(toWebP: image, quality: 1), saveKey: saveKey, success: success, failure: failure, progress: progress);
+        }
+      })
+    }
+    
+    
   }
 }

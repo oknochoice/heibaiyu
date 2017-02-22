@@ -31,3 +31,6 @@
 [submodule "submodule/Fusuma"]
 	path = submodule/Fusuma
 	url = https://github.com/ytakzk/Fusuma.git
+[submodule "submodule/iOS_WebP"]
+	path = submodule/iOS_WebP
+	url = https://github.com/seanooi/iOS-WebP.git

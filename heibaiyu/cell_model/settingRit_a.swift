@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 import UIKit
 
 class settingRit_a: settingCell {
@@ -18,6 +19,9 @@ class settingRit_a: settingCell {
     }
     set(newIcon) {
       super.icon = newIcon
+      if let icon = newIcon {
+        iconImage.sd_setImage(with: URL(fileURLWithPath: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
+      }
     }
   }
   

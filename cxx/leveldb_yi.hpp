@@ -44,7 +44,7 @@ public:
    * media
    */
   void putMediaPath(const chat::Media & media);
-  std::string getMediaPath(const std::string & sha1);
+  std::string getMediaPath(const std::string & md5);
   
   /*
    * message
@@ -61,7 +61,6 @@ public:
   void putTalklist(const chat::TalkList & talklist);
   chat::TalkList getTalklist();
   
-private:
   /*
    * common leveldb put get
    *
@@ -102,7 +101,7 @@ private:
       const int32_t nth);
   /* media key
    */
-  std::string mediaKey(const std::string & sha1);
+  std::string mediaKey(const std::string & md5);
   
 private:
   leveldb::DB * db_;
