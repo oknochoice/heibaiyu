@@ -24,7 +24,8 @@ class userinfoController: settingBaseController  {
     meCModel.title = L10n.userIcon
     meCModel.icon = user.icon
     meCModel.tap = {
-      
+      self.navigationController?.pushViewController(StoryboardScene.PhotoCamera.instantiateMeIconController(), animated: true)
+      //self.navigationController?.pushViewController(StoryboardScene.Main.instantiateUserinfoController(), animated: true)
     }
     // add cell to section
     meSModel.cellModels = [meCModel]

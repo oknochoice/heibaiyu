@@ -8,7 +8,7 @@
 
 import UIKit
 
-class friendsController: UIViewController {
+class friendsController: baseViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

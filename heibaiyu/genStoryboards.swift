@@ -110,6 +110,18 @@ struct StoryboardScene {
       return vc
     }
   }
+  enum PhotoCamera: String, StoryboardSceneType {
+    static let storyboardName = "PhotoCamera"
+
+    case meIconControllerScene = "meIconController"
+    static func instantiateMeIconController() -> heibaiyu.meIconController {
+      guard let vc = StoryboardScene.PhotoCamera.meIconControllerScene.viewController() as? heibaiyu.meIconController
+      else {
+        fatalError("ViewController 'meIconController' is not of the expected class heibaiyu.meIconController.")
+      }
+      return vc
+    }
+  }
 }
 
 struct StoryboardSegue {

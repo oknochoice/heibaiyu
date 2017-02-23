@@ -302,8 +302,6 @@
 		A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CF031E488D250017D266 /* XCGLogger.framework */; };
 		A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A62D61E36F50500E80F32 /* friendsController.swift */; };
-		A47B03761E5AAD6600F66C59 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47B03751E5AAD6600F66C59 /* SDWebImage.framework */; };
-		A47B03771E5AAD6600F66C59 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A47B03751E5AAD6600F66C59 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A47B038D1E5AAF1900F66C59 /* UpYun.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B037B1E5AAF1900F66C59 /* UpYun.m */; };
 		A47B038E1E5AAF1900F66C59 /* UPYUNConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B037D1E5AAF1900F66C59 /* UPYUNConfig.m */; };
 		A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B03811E5AAF1900F66C59 /* NSData+MD5Digest.m */; };
@@ -315,6 +313,12 @@
 		A47B03961E5AB74500F66C59 /* upyun.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B03951E5AB74500F66C59 /* upyun.swift */; };
 		A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A484AED71E5BF3DC006EBA06 /* libev_timer.cxx */; };
 		A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */ = {isa = PBXBuildFile; fileRef = A484AEDF1E5D22CB006EBA06 /* UIImage+webp.m */; };
+		A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49F7A831E5EBAA800C67730 /* SDWebImage.framework */; };
+		A49F7A851E5EBAA800C67730 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A49F7A831E5EBAA800C67730 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A49F7A871E5EBB5B00C67730 /* PhotoCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */; };
+		A49F7A891E5EC61B00C67730 /* imageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A881E5EC61B00C67730 /* imageScroll.swift */; };
+		A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */; };
+		A49F7A8D1E5EFB3C00C67730 /* baseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
@@ -333,6 +337,7 @@
 		A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD141E2F80EE00E7BE41 /* libleveldb.a */; };
 		A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD151E2F80EE00E7BE41 /* libmemenv.a */; };
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
+		A4ADCC721E5E7793003B297F /* meIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCC711E5E7793003B297F /* meIconController.swift */; };
 		A4B93D4D1E4D5FBA00E2B480 /* leveldb_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */; };
 		A4E75A4F1E49598700C5FC66 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A4E1E49598700C5FC66 /* error.swift */; };
 		A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A501E499A2C00C5FC66 /* addFriendController.swift */; };
@@ -361,6 +366,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A49F7A851E5EBAA800C67730 /* SDWebImage.framework in Embed Frameworks */,
 				23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */,
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
 				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
@@ -378,7 +384,6 @@
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
-				A47B03771E5AAD6600F66C59 /* SDWebImage.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
 			);
@@ -826,7 +831,6 @@
 		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A47A62D61E36F50500E80F32 /* friendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsController.swift; sourceTree = "<group>"; };
-		A47B03751E5AAD6600F66C59 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		A47B037A1E5AAF1900F66C59 /* UpYun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpYun.h; sourceTree = "<group>"; };
 		A47B037B1E5AAF1900F66C59 /* UpYun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpYun.m; sourceTree = "<group>"; };
 		A47B037C1E5AAF1900F66C59 /* UPYUNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPYUNConfig.h; sourceTree = "<group>"; };
@@ -848,6 +852,11 @@
 		A484AED81E5BF3DC006EBA06 /* libev_timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = libev_timer.hpp; sourceTree = "<group>"; };
 		A484AEDE1E5D22CB006EBA06 /* UIImage+webp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+webp.h"; sourceTree = "<group>"; };
 		A484AEDF1E5D22CB006EBA06 /* UIImage+webp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+webp.m"; sourceTree = "<group>"; };
+		A49F7A831E5EBAA800C67730 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoCamera.storyboard; sourceTree = "<group>"; };
+		A49F7A881E5EC61B00C67730 /* imageScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageScroll.swift; sourceTree = "<group>"; };
+		A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseNavigationController.swift; sourceTree = "<group>"; };
+		A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseViewController.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
@@ -965,6 +974,7 @@
 		A4ACAD1A1E2F80EE00E7BE41 /* table_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_builder.h; sourceTree = "<group>"; };
 		A4ACAD1B1E2F80EE00E7BE41 /* write_batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_batch.h; sourceTree = "<group>"; };
 		A4ACAD221E2F8E5C00E7BE41 /* libev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libev.a; sourceTree = "<group>"; };
+		A4ADCC711E5E7793003B297F /* meIconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meIconController.swift; sourceTree = "<group>"; };
 		A4B93D491E4D554800E2B480 /* buffer_yi_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = buffer_yi_util.hpp; sourceTree = "<group>"; };
 		A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = leveldb_yi.cpp; sourceTree = "<group>"; };
 		A4B93D4C1E4D5FBA00E2B480 /* leveldb_yi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = leveldb_yi.hpp; sourceTree = "<group>"; };
@@ -1000,9 +1010,9 @@
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
 				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
-				A47B03761E5AAD6600F66C59 /* SDWebImage.framework in Frameworks */,
 				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
+				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
@@ -1031,8 +1041,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
-				A47B03751E5AAD6600F66C59 /* SDWebImage.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
 				A468CEF01E4845910017D266 /* Reachability.framework */,
 				23A881D81E368B340023B421 /* Chatto.framework */,
@@ -1092,6 +1102,7 @@
 			isa = PBXGroup;
 			children = (
 				2373E19F1E4175E40055136C /* IndicatorButton.swift */,
+				A49F7A881E5EC61B00C67730 /* imageScroll.swift */,
 			);
 			path = customview;
 			sourceTree = "<group>";
@@ -1113,6 +1124,7 @@
 				A4E75A6D1E4B160F00C5FC66 /* settingBaseController.swift */,
 				A4E75A581E4AE87500C5FC66 /* meController.swift */,
 				A4E75A6F1E4B18F200C5FC66 /* userinfoController.swift */,
+				A4ADCC711E5E7793003B297F /* meIconController.swift */,
 				A4E75A501E499A2C00C5FC66 /* addFriendController.swift */,
 			);
 			path = user;
@@ -1767,7 +1779,10 @@
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				2373E1471E3DE4080055136C /* Localizable.strings */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
+				A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */,
 				A4A6DE401E387A26003871B1 /* bridging-header.h */,
+				A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */,
+				A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2035,7 +2050,7 @@
 				TargetAttributes = {
 					A402B7331E2DF84200DA2C56 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WXN2XA3VYP;
+						DevelopmentTeam = CCRDWC7H7F;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2172,6 +2187,7 @@
 				A40FD2E21E4C415F0044D2DA /* tokenizer.Plo in Resources */,
 				A40FD2FA1E4C415F0044D2DA /* atomicops_internals_x86_gcc.Plo in Resources */,
 				A40FD27A1E4C415F0044D2DA /* descriptor.Plo in Resources */,
+				A49F7A871E5EBB5B00C67730 /* PhotoCamera.storyboard in Resources */,
 				A40FD3231E4C415F0044D2DA /* type_resolver_util.Plo in Resources */,
 				A40FD2981E4C415F0044D2DA /* api.proto in Resources */,
 				A40FD2B21E4C415F0044D2DA /* cpp_message.Plo in Resources */,
@@ -2271,6 +2287,7 @@
 				A47B03941E5AAF1900F66C59 /* UPMutUploaderManager.m in Sources */,
 				A40FD2BE1E4C415F0044D2DA /* cpp_helpers.cc in Sources */,
 				A4E75A701E4B18F200C5FC66 /* userinfoController.swift in Sources */,
+				A49F7A891E5EC61B00C67730 /* imageScroll.swift in Sources */,
 				A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */,
 				A40FD3251E4C415F0044D2DA /* field_comparator.cc in Sources */,
 				A40FD2C31E4C415F0044D2DA /* cpp_service.cc in Sources */,
@@ -2296,9 +2313,11 @@
 				A40FD2D71E4C415F0044D2DA /* extension_set.cc in Sources */,
 				A40FD3511E4C49310044D2DA /* netdb_yi.cpp in Sources */,
 				A47B03911E5AAF1900F66C59 /* UPHTTPBodyPart.m in Sources */,
+				A4ADCC721E5E7793003B297F /* meIconController.swift in Sources */,
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A40FD3421E4C415F0044D2DA /* utility.cc in Sources */,
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
+				A49F7A8D1E5EFB3C00C67730 /* baseViewController.swift in Sources */,
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchController.swift in Sources */,
 				A40FD30D1E4C415F0044D2DA /* mathlimits.cc in Sources */,
@@ -2352,6 +2371,7 @@
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A4E75A831E4B206100C5FC66 /* settingSectionModel.swift in Sources */,
 				A40FD2CE1E4C415F0044D2DA /* descriptor.cc in Sources */,
+				A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */,
 				A47B038D1E5AAF1900F66C59 /* UpYun.m in Sources */,
 				A40FD31A1E4C415F0044D2DA /* type.pb.cc in Sources */,
 				A40FD2BB1E4C415F0044D2DA /* cpp_field.cc in Sources */,
@@ -2523,7 +2543,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2574,7 +2594,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

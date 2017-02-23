@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import NavigationStack
 
 class meController: settingBaseController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    navigationController!.interactivePopGestureRecognizer?.delegate = self
     
     let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
     let user = try! Chat_User(protobuf: userdata);
@@ -44,4 +47,19 @@ class meController: settingBaseController {
     
   }
   
+}
+
+extension meController: UIGestureRecognizerDelegate {
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    
+    if navigationController?.viewControllers.count == 2 {
+      return true
+    }
+    
+    if let navigationController = self.navigationController as? NavigationStack {
+      navigationController.showControllers()
+    }
+    
+    return false
+  }
 }

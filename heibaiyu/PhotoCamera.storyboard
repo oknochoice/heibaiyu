@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Me Icon Controller-->
+        <scene sceneID="Z93-Ay-jFl">
+            <objects>
+                <viewController restorationIdentifier="meIconController" storyboardIdentifier="meIconController" id="mvk-sx-K1j" customClass="meIconController" customModule="heibaiyu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6w9-aq-Og1"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Vd-HE-Abw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IRk-v1-6NO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96e-AK-1vG" customClass="imageScroll" customModule="heibaiyu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="96e-AK-1vG" secondAttribute="bottom" id="6Ia-aK-GVf"/>
+                            <constraint firstItem="96e-AK-1vG" firstAttribute="top" secondItem="IRk-v1-6NO" secondAttribute="top" id="NPd-Y9-UCF"/>
+                            <constraint firstAttribute="trailing" secondItem="96e-AK-1vG" secondAttribute="trailing" id="nxA-BC-opg"/>
+                            <constraint firstItem="96e-AK-1vG" firstAttribute="leading" secondItem="IRk-v1-6NO" secondAttribute="leading" id="sVI-Gr-CUF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCV-VX-CxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="89"/>
+        </scene>
+    </scenes>
+</document>
