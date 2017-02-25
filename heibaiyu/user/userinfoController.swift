@@ -12,6 +12,7 @@ class userinfoController: settingBaseController  {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = L10n.userInfoTitle
     
     let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
     let user = try! Chat_User(protobuf: userdata);
@@ -24,7 +25,7 @@ class userinfoController: settingBaseController  {
     meCModel.title = L10n.userIcon
     meCModel.icon = user.icon
     meCModel.tap = {
-      self.navigationController?.pushViewController(meIconController(), animated: true)
+      self.navigationController?.pushViewController(StoryboardScene.PhotoCamera.instantiateMeIconController(), animated: true)
     }
     // add cell to section
     meSModel.cellModels = [meCModel]

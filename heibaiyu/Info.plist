@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>APP needs your authorization of Camera access to scan vehicle QR code, share moments with friends, or take evidence for after-sales.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>APP needs your authorization of Photo Library access to scan vehicle QR code, share moments with friends, or take evidence for after-sales.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

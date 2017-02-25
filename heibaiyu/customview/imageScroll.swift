@@ -8,24 +8,72 @@
 
 import Foundation
 
-class imageScroll: UIScrollView, UIScrollViewDelegate {
-  var imageview = UIImageView()
-  
-  enum GesType {
-    case none
-    case pinchZoom
-    case doubleTapZoomBig
-    case doubleTapZoomSmall
+class phMedia {
+  enum SourceType {
+    case
+    none,
+    image,
+    imageUrl
   }
-  
-  var gesture: GesType = .none
+  fileprivate var mtype_ = SourceType.none
+  fileprivate var image_: UIImage?
+  fileprivate var url_: String?
+  init(image: UIImage) {
+    image_ = image
+    mtype_ = SourceType.image
+  }
+  init(imageurl: String) {
+    url_ = imageurl
+    mtype_ = SourceType.imageUrl
+  }
+}
+
+class imageScroll: UIScrollView, UIScrollViewDelegate {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    let image = #imageLiteral(resourceName: "taikong")
+    initsetup()
+  }
+  
+  convenience init() {
+    self.init(frame: CGRect.zero)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
+  override func awakeFromNib() {
+    initsetup()
+  }
+  
+  var media: phMedia? {
+    didSet {
+      if let m = media {
+        if m.mtype_ == phMedia.SourceType.image {
+          imageview.image = m.image_
+          imageSize = (m.image_?.size)!
+          setup()
+        }else if m.mtype_ == phMedia.SourceType.imageUrl {
+          imageview.sd_setImage(with: URL(fileURLWithPath: m.url_!), placeholderImage: nil, options: .progressiveDownload, completed: {[weak self] (image, error, type, url) in
+            self?.imageview.image = image
+            self?.imageSize = (image?.size)!
+            self?.setup()
+          })
+        }else {
+          blog.error()
+        }
+      }
+    }
+  }
+  
+  fileprivate var imageview = UIImageView()
+  fileprivate func initsetup() {
+    
+    let image = #imageLiteral(resourceName: "placeholderimage")
     imageview.image = image
-    imageview.backgroundColor = Color.blue
     imageSize = image.size
+    
     self.addSubview(imageview)
     self.delegate = self
     let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTap(ges:)))
@@ -42,14 +90,7 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
     
     addGestureRecognizer(singleTap)
     addGestureRecognizer(doubleTap)
-  }
   
-  convenience init() {
-    self.init(frame: CGRect.zero)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
   }
   
   override func layoutSubviews() {
@@ -60,31 +101,19 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return imageview
   }
-  
-  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-  }
-  
-  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-    if gesture != .doubleTapZoomBig {
-      gesture = .pinchZoom
-    }
-  }
   func scrollViewDidZoom(_ scrollView: UIScrollView) {
     fixedContentInset()
   }
-  func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-    gesture = .none
-  }
   
-  var imageSize: CGSize = CGSize.zero
-  var currentOri = UIInterfaceOrientation.portrait
-  var isNeedResetup_ = true
-  func maySetup() {
+  fileprivate var imageSize: CGSize = CGSize.zero
+  fileprivate var currentOri = UIInterfaceOrientation.portrait
+  fileprivate var isNeedResetup_ = true
+  fileprivate func maySetup() {
     if isNeedResetup_ || currentOri != UIApplication.shared.statusBarOrientation {
       setup()
     }
   }
-  func setup() {
+  fileprivate func setup() {
     isNeedResetup_ = false
     currentOri = UIApplication.shared.statusBarOrientation
     
@@ -100,20 +129,18 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
     self.contentSize = CGSize.zero
     fixedContentInset()
   }
-  func fixedContentInset() {
+  fileprivate func fixedContentInset() {
     let sSize = self.bounds.size
     let verticalPadding = imageview.frame.height < sSize.height ? (sSize.height - imageview.frame.height) / 2 : 0
     let horizontalPadding = imageview.frame.width < imageview.frame.width ? (sSize.width - imageview.frame.width) / 2 : 0
     self.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
   }
   
-  func singleTap(ges: UITapGestureRecognizer) {
+  @objc fileprivate func singleTap(ges: UITapGestureRecognizer) {
   }
   
-  var isDoubleTap_ = false
-  func doubleTap(ges: UITapGestureRecognizer) {
+  @objc fileprivate func doubleTap(ges: UITapGestureRecognizer) {
     if self.zoomScale <= self.minimumZoomScale { // 放大
-      gesture = .doubleTapZoomBig
       
       let location = ges.location(in: self)
       // 放大scrollView.maximumZoomScale倍, 将它的宽高缩小这么多倍
@@ -124,7 +151,6 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
       self.zoom(to: rect, animated: true)
       
     } else {// 缩小
-      gesture = .doubleTapZoomSmall
       self.setZoomScale(self.minimumZoomScale, animated: true)
       
     }
