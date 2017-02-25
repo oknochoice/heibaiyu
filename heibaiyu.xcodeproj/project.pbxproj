@@ -315,7 +315,6 @@
 		A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */ = {isa = PBXBuildFile; fileRef = A484AEDF1E5D22CB006EBA06 /* UIImage+webp.m */; };
 		A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49F7A831E5EBAA800C67730 /* SDWebImage.framework */; };
 		A49F7A851E5EBAA800C67730 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A49F7A831E5EBAA800C67730 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A49F7A871E5EBB5B00C67730 /* PhotoCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */; };
 		A49F7A891E5EC61B00C67730 /* imageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A881E5EC61B00C67730 /* imageScroll.swift */; };
 		A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */; };
 		A49F7A8D1E5EFB3C00C67730 /* baseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */; };
@@ -853,7 +852,6 @@
 		A484AEDE1E5D22CB006EBA06 /* UIImage+webp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+webp.h"; sourceTree = "<group>"; };
 		A484AEDF1E5D22CB006EBA06 /* UIImage+webp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+webp.m"; sourceTree = "<group>"; };
 		A49F7A831E5EBAA800C67730 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
-		A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoCamera.storyboard; sourceTree = "<group>"; };
 		A49F7A881E5EC61B00C67730 /* imageScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageScroll.swift; sourceTree = "<group>"; };
 		A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseNavigationController.swift; sourceTree = "<group>"; };
 		A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseViewController.swift; sourceTree = "<group>"; };
@@ -1779,7 +1777,6 @@
 				A402B7371E2DF84200DA2C56 /* AppDelegate.swift */,
 				2373E1471E3DE4080055136C /* Localizable.strings */,
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
-				A49F7A861E5EBB5B00C67730 /* PhotoCamera.storyboard */,
 				A4A6DE401E387A26003871B1 /* bridging-header.h */,
 				A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */,
 				A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */,
@@ -2187,7 +2184,6 @@
 				A40FD2E21E4C415F0044D2DA /* tokenizer.Plo in Resources */,
 				A40FD2FA1E4C415F0044D2DA /* atomicops_internals_x86_gcc.Plo in Resources */,
 				A40FD27A1E4C415F0044D2DA /* descriptor.Plo in Resources */,
-				A49F7A871E5EBB5B00C67730 /* PhotoCamera.storyboard in Resources */,
 				A40FD3231E4C415F0044D2DA /* type_resolver_util.Plo in Resources */,
 				A40FD2981E4C415F0044D2DA /* api.proto in Resources */,
 				A40FD2B21E4C415F0044D2DA /* cpp_message.Plo in Resources */,
