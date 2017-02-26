@@ -47,6 +47,11 @@ class meController: settingBaseController {
     
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = false
+  }
+  
 }
 
 extension meController: UIGestureRecognizerDelegate {

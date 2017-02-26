@@ -70,7 +70,7 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
   fileprivate var imageview = UIImageView()
   fileprivate func initsetup() {
     
-    let image = #imageLiteral(resourceName: "placeholderimage")
+    let image = #imageLiteral(resourceName: "taikong")
     imageview.image = image
     imageSize = image.size
     
@@ -117,7 +117,7 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
     isNeedResetup_ = false
     currentOri = UIApplication.shared.statusBarOrientation
     
-    self.maximumZoomScale = imageSize.width / self.bounds.size.width
+    self.maximumZoomScale = imageSize.width / self.bounds.size.width / UIScreen.main.scale
     self.minimumZoomScale = 1
     self.zoomScale = 1
     
@@ -125,6 +125,10 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
     
     imageview.contentMode = .scaleAspectFit
     imageview.frame = CGRect(x: 0, y: 0, width: sSize.width, height: imageSize.height / imageSize.width * sSize.width)
+    if imageview.frame.height > sSize.height {
+      self.maximumZoomScale = imageSize.height / sSize.height / UIScreen.main.scale
+      imageview.frame = CGRect(x: 0, y: 0, width: imageSize.width / imageSize.height * sSize.height, height: sSize.height)
+    }
     
     self.contentSize = CGSize.zero
     fixedContentInset()
@@ -132,7 +136,8 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
   fileprivate func fixedContentInset() {
     let sSize = self.bounds.size
     let verticalPadding = imageview.frame.height < sSize.height ? (sSize.height - imageview.frame.height) / 2 : 0
-    let horizontalPadding = imageview.frame.width < imageview.frame.width ? (sSize.width - imageview.frame.width) / 2 : 0
+    let horizontalPadding = imageview.frame.width < sSize.width ? (sSize.width - imageview.frame.width) / 2 : 0
+    
     self.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
   }
   
@@ -144,7 +149,8 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
       
       let location = ges.location(in: self)
       // 放大scrollView.maximumZoomScale倍, 将它的宽高缩小这么多倍
-      let width = self.frame.width/self.maximumZoomScale
+      
+      let width = self.imageview.frame.width/self.maximumZoomScale
       let height = imageSize.height / imageSize.width * width
       let rect = CGRect(x: location.x * (1 - 1/self.maximumZoomScale), y: location.y * (1 - 1/self.maximumZoomScale), width: width, height: height)
       // 这个方法会根据提供的rect来缩放, 如果给的宽高小余scrollView的宽高, 将进行相应的倍数放大的操作, 如果大于, 就会进行缩小到最小操作

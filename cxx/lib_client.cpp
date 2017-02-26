@@ -14,7 +14,7 @@
 #define HOST_PORT "57432"
 
 #ifdef DEBUG
-#define PingTime 15
+#define PingTime 100
 #else
 #define PingTime 100
 #endif

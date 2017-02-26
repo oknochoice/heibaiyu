@@ -40,9 +40,12 @@
 /* photo
  */
 
-"photo_save" = "保存图片";
+"photo_save_album" = "保存至相册";
 "photo_save_success" = "保存图片成功";
 "photo_save_failure" = "保存图片失败";
 "photo_local" = "相册";
+"photo_upload" = "图片上传中";
+"photo_upload_success" = "图片上传成功";
+"photo_upload_failure" = "图片上传失败";
 
 

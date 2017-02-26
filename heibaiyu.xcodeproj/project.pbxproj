@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; };
+		233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -372,6 +374,7 @@
 				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
+				233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
 				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
 				23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */,
@@ -391,6 +394,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		233164EF1E61CFED00FFE190 /* TOCropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TOCropViewController.framework; path = Carthage/Build/iOS/TOCropViewController.framework; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -853,7 +857,6 @@
 		A49F80371E6172AE00C67730 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
 		A49F80381E6172AE00C67730 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
 		A49F80391E6172AE00C67730 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
-		A49F80DB1E6177DC00C67730 /* heibaiyu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = heibaiyu.entitlements; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
@@ -1015,6 +1018,7 @@
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
+				233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */,
 				23A881911E3673FF0023B421 /* LTMorphingLabel.framework in Frameworks */,
 				23A881991E3673FF0023B421 /* SnapKit.framework in Frameworks */,
 				23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */,
@@ -1038,6 +1042,7 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				233164EF1E61CFED00FFE190 /* TOCropViewController.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
@@ -1152,7 +1157,6 @@
 		A402B7361E2DF84200DA2C56 /* heibaiyu */ = {
 			isa = PBXGroup;
 			children = (
-				A49F80DB1E6177DC00C67730 /* heibaiyu.entitlements */,
 				A4E75A711E4B1FD800C5FC66 /* cell_model */,
 				2373E19E1E4175990055136C /* customview */,
 				2373E1571E3F293F0055136C /* extension */,

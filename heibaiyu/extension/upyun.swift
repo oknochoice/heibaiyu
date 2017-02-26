@@ -8,10 +8,11 @@
 
 import Foundation
 import SwiftDate
+import SDWebImage
 
 public extension UpYun {
   
-  func upload(webp: Data,
+  fileprivate func upload(webp: Data,
               saveKey: String,
               success: @escaping (URLResponse,Any) -> Void,
               failure: @escaping (Error) -> Void,
@@ -46,8 +47,8 @@ public extension UpYun {
               progress: @escaping (CGFloat, Int64) -> Void) -> Void {
     
     var saveKey: String
-    let webp = UIImage.image(toWebP: image, quality: 1)
-    if let md5 = NSData.md5HexDigest(webp) {
+    let webp_data = UIImage.image(toWebP: image, quality: 1)
+    if let md5 = NSData.md5HexDigest(webp_data) {
       if let path = netdbwarpper.sharedNetdb().getMediapath(md5) {
         saveKey = path
       }else {
@@ -58,7 +59,13 @@ public extension UpYun {
       blog.verbose(saveKey)
       netdbwarpper.sharedNetdb().setMediapath(md5, saveKey, { (err_no, err_msg) in
         DispatchQueue.main.async {
-          self.upload(webp: UIImage.image(toWebP: image, quality: 1), saveKey: saveKey, success: success, failure: failure, progress: progress);
+          self.upload(webp: webp_data!, saveKey: saveKey, success: {
+            (response, responseData) in
+            if let key = netdbwarpper.sharedNetdb().getMediapath(md5) {
+              blog.verbose(key)
+              SDImageCache.shared().store(UIImage(data: webp_data!), forKey: key, toDisk: true, completion: nil)
+            }
+          }, failure: failure, progress: progress);
         }
       })
     }

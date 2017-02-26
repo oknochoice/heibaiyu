@@ -15,12 +15,18 @@ enum L10n {
   static let cancel = L10n.tr("cancel")
   /// 相册
   static let photoLocal = L10n.tr("photo_local")
-  /// 保存图片
-  static let photoSave = L10n.tr("photo_save")
+  /// 保存至相册
+  static let photoSaveAlbum = L10n.tr("photo_save_album")
   /// 保存图片失败
   static let photoSaveFailure = L10n.tr("photo_save_failure")
   /// 保存图片成功
   static let photoSaveSuccess = L10n.tr("photo_save_success")
+  /// 图片上传中
+  static let photoUpload = L10n.tr("photo_upload")
+  /// 图片上传失败
+  static let photoUploadFailure = L10n.tr("photo_upload_failure")
+  /// 图片上传成功
+  static let photoUploadSuccess = L10n.tr("photo_upload_success")
   /// 添加好友
   static let searchAddFriend = L10n.tr("search_addFriend")
   /// 登录
