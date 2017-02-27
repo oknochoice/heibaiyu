@@ -108,6 +108,8 @@ void libev_timer::timer_callback(struct ev_loop * loop,  ev_timer * w, int reven
     auto & localmap = sharedTimer()->map_;
     for (auto it = localmap.begin();
          it != localmap.end();) {
+      YILOG_INFO("func: {}, timeout call", __func__);
+      printf("timer_callback timeout call");
       auto ts = it->second.timestamp;
       if (now - ts >= sharedTimer()->outtimer_) {
         sharedTimer()->callback_(it->first);
@@ -119,6 +121,8 @@ void libev_timer::timer_callback(struct ev_loop * loop,  ev_timer * w, int reven
     if (!localmap.empty()) {
       ev_timer_set(w, sharedTimer()->repeated_, 0.);
       ev_timer_start(loop, w);
+      YILOG_INFO("func: {}, timeout stop", __func__);
+      printf("timer_callback timeout stop");
     }
   }
 }
