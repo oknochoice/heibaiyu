@@ -77,6 +77,7 @@ class meIconController: baseViewController, FusumaDelegate{
           if 0 == err_no {
             let mur = Murmur(title: L10n.photoUploadSuccess, backcolor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
             Whisper.show(whistle: mur)
+            self.imageview.media = phMedia(imageurl: String.http(relativePath: savekey))
           }else {
             errorLocal.error(err_no: err_no, orMsg: err_msg)
           }

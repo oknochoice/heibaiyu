@@ -47,7 +47,7 @@ public extension UpYun {
               progress: @escaping (CGFloat, Int64) -> Void) -> Void {
     let success_  = success
     var saveKey: String
-    let webp_data = UIImage.image(toWebP: image, quality: 1)
+    let webp_data = UIImage.image(toWebP: image, quality: 100)
     if let md5 = NSData.md5HexDigest(webp_data) {
       if let path = netdbwarpper.sharedNetdb().getMediapath(md5) {
         saveKey = path
@@ -64,6 +64,7 @@ public extension UpYun {
             if let key = netdbwarpper.sharedNetdb().getMediapath(md5) {
               blog.verbose(key)
               SDImageCache.shared().store(UIImage(data: webp_data!), forKey: key, toDisk: true, completion: nil)
+              
             }
             success_(saveKey, response, responseData)
           }, failure: failure, progress: progress);
