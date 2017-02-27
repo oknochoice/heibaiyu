@@ -195,7 +195,7 @@ void pingtime_cb(EV_P_ ev_timer * w, int revents) {
   long recent = recent_ts_.load();
   long now = time(NULL);
   long dif = now - recent;
-  if (dif - 2 >= PingTime) {
+  if (dif + 2 >= PingTime) {
     for(auto sp: ping_v_) {
       sp->makeReWrite();
     }

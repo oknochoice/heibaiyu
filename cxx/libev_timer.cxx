@@ -35,9 +35,8 @@ bool libev_timer::configure(double outtimer, double repeated,
     try {
       loop_ = ev_default_loop();
       timer_ = (struct ev_timer*)malloc(sizeof(struct ev_timer));
-      ev_init(timer_, this->timer_callback);
-      timer_->repeat = repeated_;
-      ev_timer_again(loop_, timer_);
+      ev_timer_init(timer_, timer_callback, repeated_, 0.);
+      ev_timer_stop(loop_, timer_);
       command_ = (struct ev_async*)malloc(sizeof(struct ev_async));
       ev_async_init(command_ , (this->command_callback));
       ev_set_priority(command_ , EV_MAXPRI);
@@ -68,6 +67,9 @@ void libev_timer::put(int32_t id) {
   info_.id = id;
   info_.timestamp = ev_now(loop_);
   map_[id] = info_;
+  if (map_.empty()) {
+    ev_async_start(loop_, command_);
+  }
 }
 
 void libev_timer::remove(int32_t id) {
@@ -93,21 +95,30 @@ void libev_timer::command_callback(struct ev_loop * loop,  ev_async * w, int rev
     ev_timer_stop(loop, sharedTimer()->timer_);
     ev_loop_destroy(loop);
   }else {
+    ev_timer_set(sharedTimer()->timer_, sharedTimer()->repeated_, 0.);
+    ev_timer_start(loop, sharedTimer()->timer_);
   }
 }
 void libev_timer::timer_callback(struct ev_loop * loop,  ev_timer * w, int revents) {
   YILOG_TRACE ("func: {}", __func__);
-  std::unique_lock<std::mutex> (map_mutex_);
-  double now = ev_now(loop);
-  auto & localmap = sharedTimer()->map_;
-  for (auto it = localmap.begin();
-       it != localmap.end();) {
-    auto ts = it->second.timestamp;
-    if (now - ts >= sharedTimer()->outtimer_) {
-      sharedTimer()->callback_(it->first);
-      localmap.erase(it++);
-    }else {
-      ++it;
+  ev_timer_stop(loop, w);
+  {
+    std::unique_lock<std::mutex> (map_mutex_);
+    double now = ev_now(loop);
+    auto & localmap = sharedTimer()->map_;
+    for (auto it = localmap.begin();
+         it != localmap.end();) {
+      auto ts = it->second.timestamp;
+      if (now - ts >= sharedTimer()->outtimer_) {
+        sharedTimer()->callback_(it->first);
+        localmap.erase(it++);
+      }else {
+        ++it;
+      }
+    }
+    if (!localmap.empty()) {
+      ev_timer_set(w, sharedTimer()->repeated_, 0.);
+      ev_timer_start(loop, w);
     }
   }
 }
