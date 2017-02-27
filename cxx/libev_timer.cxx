@@ -36,7 +36,7 @@ bool libev_timer::configure(double outtimer, double repeated,
       loop_ = ev_default_loop();
       timer_ = (struct ev_timer*)malloc(sizeof(struct ev_timer));
       ev_timer_init(timer_, timer_callback, repeated_, 0.);
-      ev_timer_stop(loop_, timer_);
+      ev_timer_start(loop_, timer_);
       command_ = (struct ev_async*)malloc(sizeof(struct ev_async));
       ev_async_init(command_ , (this->command_callback));
       ev_set_priority(command_ , EV_MAXPRI);
