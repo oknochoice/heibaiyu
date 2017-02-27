@@ -16,14 +16,14 @@
     dispatch_once(&once, ^{
         sharedInstance = [[UPYUNConfig alloc] init];
         sharedInstance.DEFAULT_BUCKET = @"oknochoice-file";
-        sharedInstance.DEFAULT_PASSCODE = @"";
+        sharedInstance.DEFAULT_PASSCODE = @"cNII2cokBYwDaZrYtuba8XDYjj8=";
         sharedInstance.DEFAULT_EXPIRES_IN = 1800;
         sharedInstance.DEFAULT_EXPIRES_STRING = @"";
-        sharedInstance.DEFAULT_MUTUPLOAD_SIZE = 4*1024*1024;
+        sharedInstance.DEFAULT_MUTUPLOAD_SIZE = 4 * 1024 * 1024;
         sharedInstance.DEFAULT_RETRY_TIMES = 2;
         sharedInstance.SingleBlockSize = 500*1024;
-        sharedInstance.FormAPIDomain = @"https://oknochoice-file.b0.upaiyun.com/";
-        sharedInstance.MutAPIDomain = @"https://oknochoice-file.b0.upaiyun.com/";
+        sharedInstance.FormAPIDomain = @"https://v0.api.upyun.com/";
+        sharedInstance.MutAPIDomain = @"https://m0.api.upyun.com/";
     });
     return sharedInstance;
 }

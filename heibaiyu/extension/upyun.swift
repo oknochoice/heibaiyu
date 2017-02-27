@@ -42,10 +42,10 @@ public extension UpYun {
   
   // upload
   func upload(image : UIImage,
-              success: @escaping (URLResponse,Any) -> Void,
+              success: @escaping (String,URLResponse,Any) -> Void,
               failure: @escaping (Error) -> Void,
               progress: @escaping (CGFloat, Int64) -> Void) -> Void {
-    
+    let success_  = success
     var saveKey: String
     let webp_data = UIImage.image(toWebP: image, quality: 1)
     if let md5 = NSData.md5HexDigest(webp_data) {
@@ -65,6 +65,7 @@ public extension UpYun {
               blog.verbose(key)
               SDImageCache.shared().store(UIImage(data: webp_data!), forKey: key, toDisk: true, completion: nil)
             }
+            success_(saveKey, response, responseData)
           }, failure: failure, progress: progress);
         }
       })

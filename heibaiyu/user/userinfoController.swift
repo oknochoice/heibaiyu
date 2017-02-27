@@ -23,9 +23,11 @@ class userinfoController: settingBaseController  {
     let meCModel = settingCellModel()
     meCModel.cellIdentifier = "settingRit_a"
     meCModel.title = L10n.userIcon
-    meCModel.icon = user.icon
+    meCModel.icon = String.http(relativePath: user.icon)
     meCModel.tap = {
-      self.navigationController?.pushViewController(StoryboardScene.PhotoCamera.instantiateMeIconController(), animated: true)
+      let vc = StoryboardScene.PhotoCamera.instantiateMeIconController()
+      vc.iconpath = meCModel.icon
+      self.navigationController?.pushViewController(vc, animated: true)
     }
     // add cell to section
     meSModel.cellModels = [meCModel]

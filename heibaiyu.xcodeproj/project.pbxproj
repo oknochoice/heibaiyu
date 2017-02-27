@@ -319,6 +319,7 @@
 		A49F80C01E6172AE00C67730 /* FusumaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F80371E6172AE00C67730 /* FusumaViewController.swift */; };
 		A49F80C11E6172AE00C67730 /* FusumaViewController.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = A49F80381E6172AE00C67730 /* FusumaViewController.swift.orig */; };
 		A49F80C21E6172AE00C67730 /* FusumaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A49F80391E6172AE00C67730 /* FusumaViewController.xib */; };
+		A49F80DD1E64381200C67730 /* string.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F80DC1E64381200C67730 /* string.swift */; };
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
@@ -857,6 +858,7 @@
 		A49F80371E6172AE00C67730 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
 		A49F80381E6172AE00C67730 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
 		A49F80391E6172AE00C67730 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
+		A49F80DC1E64381200C67730 /* string.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = string.swift; sourceTree = "<group>"; };
 		A4A66CE61E3228D1001A25D7 /* root-ca.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "root-ca.crt"; sourceTree = "<group>"; };
 		A4A66CEA1E322B64001A25D7 /* buffer_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_yi.h; sourceTree = "<group>"; };
 		A4A66CEB1E322B64001A25D7 /* lib_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib_client.cpp; sourceTree = "<group>"; };
@@ -1078,6 +1080,7 @@
 				2373E15D1E3F4EB80055136C /* image.swift */,
 				238D43EA1E46329800DB9F03 /* whisper.swift */,
 				A47B03951E5AB74500F66C59 /* upyun.swift */,
+				A49F80DC1E64381200C67730 /* string.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -2403,6 +2406,7 @@
 				A40FD2A71E4C415F0044D2DA /* code_generator.cc in Sources */,
 				A40FD3491E4C415F0044D2DA /* wire_format_lite.cc in Sources */,
 				A49F80B81E6172AE00C67730 /* FSAlbumViewCell.swift in Sources */,
+				A49F80DD1E64381200C67730 /* string.swift in Sources */,
 				A47B03961E5AB74500F66C59 /* upyun.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

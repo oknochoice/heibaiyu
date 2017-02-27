@@ -20,7 +20,7 @@ class settingRit_a: settingCell {
     set(newIcon) {
       super.icon = newIcon
       if let icon = newIcon {
-        iconImage.sd_setImage(with: URL(fileURLWithPath: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
+        iconImage.sd_setImage(with: URL(string: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
       }
     }
   }

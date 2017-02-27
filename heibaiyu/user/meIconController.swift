@@ -15,19 +15,24 @@ class meIconController: baseViewController, FusumaDelegate{
   
   @IBOutlet weak var imageview: imageScroll!
   
+  var iconpath: String?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = L10n.userIconTitle
     let detail = UIBarButtonItem(title: "...", style: .plain, target: self, action: #selector(sheetTip))
     self.navigationItem.rightBarButtonItems = [detail]
+    
+    if let ipath = iconpath {
+      let m = phMedia(imageurl: ipath)
+      imageview.media = m
+    }
   }
   
   deinit {
     blog.verbose()
   }
-  func saveChangedImage() {
-    
-  }
+  
   func sheetTip() {
     let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     alert.addAction(UIAlertAction(title: L10n.photoSaveAlbum, style: .default, handler: {[weak self] (action) in
@@ -66,9 +71,17 @@ class meIconController: baseViewController, FusumaDelegate{
     let mur = Murmur(title: L10n.photoUpload, backcolor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
     Whisper.show(whistle: mur)
     let up = UpYun()
-    up.upload(image: image, success: { (urlRes, data) in
-      let mur = Murmur(title: L10n.photoUploadSuccess, backcolor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
-      Whisper.show(whistle: mur)
+    up.upload(image: image, success: { (savekey, urlRes, data) in
+      netdbwarpper.sharedNetdb().setUserIcon(savekey, { (err_no, err_msg) in
+        DispatchQueue.main.async {
+          if 0 == err_no {
+            let mur = Murmur(title: L10n.photoUploadSuccess, backcolor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+            Whisper.show(whistle: mur)
+          }else {
+            errorLocal.error(err_no: err_no, orMsg: err_msg)
+          }
+        }
+      })
     }, failure: { (error) in
       let mur = Murmur(title: L10n.photoUploadFailure, backcolor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
       Whisper.show(whistle: mur)

@@ -55,7 +55,7 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
           imageSize = (m.image_?.size)!
           setup()
         }else if m.mtype_ == phMedia.SourceType.imageUrl {
-          imageview.sd_setImage(with: URL(fileURLWithPath: m.url_!), placeholderImage: nil, options: .progressiveDownload, completed: {[weak self] (image, error, type, url) in
+          imageview.sd_setImage(with: URL(string: m.url_!), placeholderImage: nil, options: .progressiveDownload, completed: {[weak self] (image, error, type, url) in
             self?.imageview.image = image
             self?.imageSize = (image?.size)!
             self?.setup()
@@ -70,7 +70,7 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
   fileprivate var imageview = UIImageView()
   fileprivate func initsetup() {
     
-    let image = #imageLiteral(resourceName: "taikong")
+    let image = #imageLiteral(resourceName: "placeholderimage")
     imageview.image = image
     imageSize = image.size
     

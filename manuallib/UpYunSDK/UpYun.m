@@ -263,10 +263,10 @@
     
     //进度回调
     HttpProgressBlock httpProgress = ^(int64_t completedBytesCount, int64_t totalBytesCount) {
-        CGFloat percent = completedBytesCount/(float)totalBytesCount;
-        if (_progressBlocker) {
-            _progressBlocker(percent, totalBytesCount);
-        }
+      CGFloat percent = completedBytesCount/(float)totalBytesCount;
+      if (_progressBlocker) {
+        _progressBlocker(percent, totalBytesCount);
+      }
     };
     //成功回调
     HttpSuccessBlock httpSuccess = ^(NSURLResponse *response, id responseData) {
@@ -374,19 +374,19 @@
     _manager.fileName = self.fileName;
     __weak typeof(self)weakSelf = self;
     [_manager uploadWithFile:data OrFilePath: filePath policy:policy signature:signature progressBlock:_progressBlocker completeBlock:^(NSError *error, NSDictionary *result, BOOL completed) {
-            if (completed) {
-                if (_successBlocker) {
-                    _successBlocker(result[@"response"], result[@"responseData"]);
-                }
+        if (completed) {
+            if (_successBlocker) {
+                _successBlocker(result[@"response"], result[@"responseData"]);
+            }
+        } else {
+            if (retryTimes > 0 && error.code/100 == 5) {
+                [weakSelf mutUploadWithFileData:data FilePath:filePath SaveKey:savekey RetryTimes:retryTimes-1];
             } else {
-                if (retryTimes > 0 && error.code/100 == 5) {
-                    [weakSelf mutUploadWithFileData:data FilePath:filePath SaveKey:savekey RetryTimes:retryTimes-1];
-                } else {
-                    if (_failBlocker) {
-                        _failBlocker(error);
-                    }
+                if (_failBlocker) {
+                    _failBlocker(error);
                 }
             }
+        }
     }];
 }
 

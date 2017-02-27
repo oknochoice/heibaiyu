@@ -203,7 +203,7 @@ void pingtime_cb(EV_P_ ev_timer * w, int revents) {
     client_send(std::move(vec), nullptr);
     ev_timer_set(w, PingTime, 0.);
   }else {
-    ev_timer_set(w, dif, 0.);
+    ev_timer_set(w, PingTime - dif, 0.);
   }
   ev_timer_start(loop, w);
 }
