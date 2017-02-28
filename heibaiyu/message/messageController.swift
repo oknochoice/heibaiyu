@@ -17,6 +17,11 @@ class messageController: baseViewController, UITableViewDelegate, UITableViewDat
    
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = false
+  }
+  
   //MARK: - delegate datasource
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1

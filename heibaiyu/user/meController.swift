@@ -11,45 +11,30 @@ import NavigationStack
 
 class meController: settingBaseController {
   
+  var memodel: meModel?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationController!.interactivePopGestureRecognizer?.delegate = self
-    
-    let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
-    let user = try! Chat_User(protobuf: userdata);
-    
-    // section me
-    let meSModel = settingSectionModel()
-    // cell me
-    let meCModel = settingCellModel()
-    meCModel.cellIdentifier = "settingLits_a"
-    let from = user.phoneNo.index(user.phoneNo.endIndex, offsetBy: -4)
-    meCModel.subTitle = "*** **** " + user.phoneNo.substring(from: from)
-    var title = user.nickname
-    if title.isEmpty {
-      title = user.realname
+    if let me = memodel {
+      self.tableDatas = me.sections
+      self.tableview.reloadData()
+    }else {
+      memodel = meModel.me(nav: self.navigationController)
+      navigationController!.interactivePopGestureRecognizer?.delegate = self
+      self.tableDatas = memodel!.sections
+      self.tableview.reloadData()
     }
-    if title.isEmpty {
-      title = meCModel.subTitle!
-    }
-    meCModel.title = title
-    meCModel.cellHeight = 66
-    meCModel.tap = {
-      self.navigationController?.pushViewController(StoryboardScene.Main.instantiateUserinfoController(), animated: true)
-    }
-    // add cell to section
-    meSModel.cellModels = [meCModel]
-    
-    // add sections
-    self.tableDatas = [meSModel]
-    self.tableview.reloadData()
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.tabBarController?.tabBar.isHidden = false
+    if let me = memodel {
+      if me.isRoot {
+        self.tabBarController?.tabBar.isHidden = false
+      }
+    }
   }
   
 }

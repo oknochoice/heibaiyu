@@ -50,6 +50,7 @@ class settingBaseController: baseViewController, UITableViewDelegate, UITableVie
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     self.tableview.tableHeaderView = UITableViewHeaderFooterView(frame: CGRect(x: 1, y: 1, width: 1, height: 1))
     self.tableview.tableFooterView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     self.tableview.rowHeight = 44

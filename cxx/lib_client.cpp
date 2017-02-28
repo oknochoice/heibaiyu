@@ -310,7 +310,11 @@ void connection_write_callback (struct ev_loop * loop,
     }
     
   } catch (std::system_error & e) {
-    outer_callback(e.code().value(), e.what());
+    //outer_callback(e.code().value(), e.what());
+    isRunloopComplete_.store(false);
+    ev_timer_stop(loop, ping_timer_);
+    ev_io_stop(loop, ww);
+    outer_callback(60014, "system error need restart, and close first");
   }
   YILOG_TRACE ("func: {}. write finish", __func__);
 }

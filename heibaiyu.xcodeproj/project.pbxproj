@@ -64,6 +64,7 @@
 		A402B73D1E2DF84200DA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B73B1E2DF84200DA2C56 /* Main.storyboard */; };
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
+		A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FCFF1E651DA800292EDD /* meDataHelper.swift */; };
 		A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A40FCDEA1E4C392D0044D2DA /* libz.tbd */; };
 		A40FD2731E4C415F0044D2DA /* .dirstamp in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F71E4C415E0044D2DA /* .dirstamp */; };
 		A40FD2741E4C415F0044D2DA /* any.pb.Plo in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F81E4C415E0044D2DA /* any.pb.Plo */; };
@@ -346,7 +347,6 @@
 		A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A541E4AC7B700C5FC66 /* genColors.swift */; };
 		A4E75A591E4AE87500C5FC66 /* meController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A581E4AE87500C5FC66 /* meController.swift */; };
 		A4E75A6E1E4B160F00C5FC66 /* settingBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A6D1E4B160F00C5FC66 /* settingBaseController.swift */; };
-		A4E75A701E4B18F200C5FC66 /* userinfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A6F1E4B18F200C5FC66 /* userinfoController.swift */; };
 		A4E75A791E4B1FD800C5FC66 /* settingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A721E4B1FD800C5FC66 /* settingCell.swift */; };
 		A4E75A7A1E4B1FD800C5FC66 /* settingCt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A731E4B1FD800C5FC66 /* settingCt.swift */; };
 		A4E75A7B1E4B1FD800C5FC66 /* settingLit_a.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A741E4B1FD800C5FC66 /* settingLit_a.swift */; };
@@ -441,6 +441,7 @@
 		A402B73E1E2DF84200DA2C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A402FCFF1E651DA800292EDD /* meDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meDataHelper.swift; sourceTree = "<group>"; };
 		A40FCDEA1E4C392D0044D2DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A40FD0F41E4C415E0044D2DA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A40FD0F71E4C415E0044D2DA /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
@@ -986,7 +987,6 @@
 		A4E75A541E4AC7B700C5FC66 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = "<group>"; };
 		A4E75A581E4AE87500C5FC66 /* meController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meController.swift; sourceTree = "<group>"; };
 		A4E75A6D1E4B160F00C5FC66 /* settingBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingBaseController.swift; sourceTree = "<group>"; };
-		A4E75A6F1E4B18F200C5FC66 /* userinfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userinfoController.swift; sourceTree = "<group>"; };
 		A4E75A721E4B1FD800C5FC66 /* settingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingCell.swift; sourceTree = "<group>"; };
 		A4E75A731E4B1FD800C5FC66 /* settingCt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingCt.swift; sourceTree = "<group>"; };
 		A4E75A741E4B1FD800C5FC66 /* settingLit_a.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingLit_a.swift; sourceTree = "<group>"; };
@@ -1128,7 +1128,7 @@
 				A47A62D61E36F50500E80F32 /* friendsController.swift */,
 				A4E75A6D1E4B160F00C5FC66 /* settingBaseController.swift */,
 				A4E75A581E4AE87500C5FC66 /* meController.swift */,
-				A4E75A6F1E4B18F200C5FC66 /* userinfoController.swift */,
+				A402FCFF1E651DA800292EDD /* meDataHelper.swift */,
 				A4ADCC711E5E7793003B297F /* meIconController.swift */,
 				A4E75A501E499A2C00C5FC66 /* addFriendController.swift */,
 			);
@@ -2297,7 +2297,6 @@
 				A40FD3101E4C415F0044D2DA /* statusor.cc in Sources */,
 				A47B03941E5AAF1900F66C59 /* UPMutUploaderManager.m in Sources */,
 				A40FD2BE1E4C415F0044D2DA /* cpp_helpers.cc in Sources */,
-				A4E75A701E4B18F200C5FC66 /* userinfoController.swift in Sources */,
 				A49F80BC1E6172AE00C67730 /* FSConstants.swift in Sources */,
 				A49F7A891E5EC61B00C67730 /* imageScroll.swift in Sources */,
 				A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */,
@@ -2374,6 +2373,7 @@
 				A40FD2F71E4C415F0044D2DA /* struct.pb.cc in Sources */,
 				A40FD3371E4C415F0044D2DA /* default_value_objectwriter.cc in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
+				A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */,
 				A4E75A831E4B206100C5FC66 /* settingSectionModel.swift in Sources */,
 				A40FD2CE1E4C415F0044D2DA /* descriptor.cc in Sources */,
 				A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */,

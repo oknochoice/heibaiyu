@@ -16,6 +16,11 @@ class friendsController: baseViewController {
     // Do any additional setup after loading the view.
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = false
+  }
+  
   @IBAction func addFriend(_ sender: UIBarButtonItem) {
     self.navigationController?.pushViewController(StoryboardScene.Main.instantiateSearchController(), animated: true)
   }

@@ -100,15 +100,6 @@ struct StoryboardScene {
       }
       return vc
     }
-
-    case userinfoControllerScene = "userinfoController"
-    static func instantiateUserinfoController() -> heibaiyu.userinfoController {
-      guard let vc = StoryboardScene.Main.userinfoControllerScene.viewController() as? heibaiyu.userinfoController
-      else {
-        fatalError("ViewController 'userinfoController' is not of the expected class heibaiyu.userinfoController.")
-      }
-      return vc
-    }
   }
   enum PhotoCamera: String, StoryboardSceneType {
     static let storyboardName = "PhotoCamera"
