@@ -31,7 +31,7 @@ static void free_image_data(void *info, const void *data, size_t size)
               configBlock:(void (^)(WebPConfig *))configBlock
                     error:(NSError **)error
 {
-    if (alpha < 1) {
+    if (alpha <= 1) {
         image = [self webPImage:image withAlpha:alpha];
     }
     

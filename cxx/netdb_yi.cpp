@@ -395,6 +395,7 @@ void netdb_yi::setUserProterty(const chat::SetUserProperty & property, CB_Func &
       }
       user.set_version(user.version() + 1);
       dbyi_->putUser(user);
+      callback(0, netdb_success_);
     }else {
       callback(type, data);
     }
