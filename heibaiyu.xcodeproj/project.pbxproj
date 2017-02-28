@@ -65,6 +65,7 @@
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
 		A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FCFF1E651DA800292EDD /* meDataHelper.swift */; };
+		A402FD021E65512F00292EDD /* settingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FD011E65512F00292EDD /* settingField.swift */; };
 		A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A40FCDEA1E4C392D0044D2DA /* libz.tbd */; };
 		A40FD2731E4C415F0044D2DA /* .dirstamp in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F71E4C415E0044D2DA /* .dirstamp */; };
 		A40FD2741E4C415F0044D2DA /* any.pb.Plo in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F81E4C415E0044D2DA /* any.pb.Plo */; };
@@ -442,6 +443,7 @@
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A402FCFF1E651DA800292EDD /* meDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meDataHelper.swift; sourceTree = "<group>"; };
+		A402FD011E65512F00292EDD /* settingField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingField.swift; sourceTree = "<group>"; };
 		A40FCDEA1E4C392D0044D2DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A40FD0F41E4C415E0044D2DA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A40FD0F71E4C415E0044D2DA /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
@@ -2014,6 +2016,7 @@
 				A4E75A761E4B1FD800C5FC66 /* settingRit_a.swift */,
 				A4E75A771E4B1FD800C5FC66 /* settingts.swift */,
 				A4E75A781E4B1FD800C5FC66 /* settingts_a.swift */,
+				A402FD011E65512F00292EDD /* settingField.swift */,
 				A4E75A801E4B1FED00C5FC66 /* settingCellModel.swift */,
 				A4E75A821E4B206100C5FC66 /* settingSectionModel.swift */,
 			);
@@ -2318,6 +2321,7 @@
 				A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */,
 				A4E75A7B1E4B1FD800C5FC66 /* settingLit_a.swift in Sources */,
 				A49F80BD1E6172AE00C67730 /* FSImageCropView.swift in Sources */,
+				A402FD021E65512F00292EDD /* settingField.swift in Sources */,
 				A40FD2D71E4C415F0044D2DA /* extension_set.cc in Sources */,
 				A40FD3511E4C49310044D2DA /* netdb_yi.cpp in Sources */,
 				A47B03911E5AAF1900F66C59 /* UPHTTPBodyPart.m in Sources */,

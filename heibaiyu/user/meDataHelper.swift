@@ -81,11 +81,33 @@ extension meModel {
     realname.title = L10n.userRealname
     realname.subTitle = user.realname
     realname.tap = {
-      
+      if let pushvc = nav {
+        let vc = StoryboardScene.Main.instantiateMeController()
+        vc.memodel = textfield(nav: pushvc, text: user.realname)
+        pushvc.pushViewController(vc, animated: true)
+      }
     }
-    meSModel.cellModels = [meCModel]
+    
+    
+    // section
+    meSModel.cellModels = [meCModel, realname]
     
     me.sections = [meSModel]
+    return me
+  }
+  
+  static func textfield(nav: UINavigationController?, text: String) -> meModel {
+    let me = meModel()
+    me.title = ""
+    
+    // section field
+    let fieldSection = settingSectionModel()
+    let fieldcell = settingCellModel()
+    fieldcell.cellIdentifier = "settingField"
+    fieldcell.title = text
+    fieldSection.cellModels = [fieldcell]
+    
+    me.sections = [fieldSection]
     return me
   }
   

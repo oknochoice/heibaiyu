@@ -37,3 +37,6 @@
 [submodule "submodule/ImagePickerKit"]
 	path = submodule/ImagePickerKit
 	url = https://github.com/Athlee/ImagePickerKit.git
+[submodule "submodule/IHKeyboardAvoiding"]
+	path = submodule/IHKeyboardAvoiding
+	url = https://github.com/IdleHandsApps/IHKeyboardAvoiding.git
