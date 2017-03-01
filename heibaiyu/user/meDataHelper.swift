@@ -12,11 +12,12 @@ class meModel {
   var title: String?
   var isRoot: Bool = false
   var sections: [settingSectionModel]?
+  var reFreshList: ( (Void) -> Void)?
 }
 
 extension meModel {
   
-  static func me(nav: UINavigationController?) -> meModel {
+  static func me(vc: UIViewController?) -> meModel {
     let me = meModel()
     me.isRoot = true
     let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
@@ -39,10 +40,10 @@ extension meModel {
     meCModel.title = title
     meCModel.cellHeight = 66
     meCModel.tap = {
-      if let pushvc = nav {
+      if let pushvc = vc {
         let userinfovc = StoryboardScene.Main.instantiateMeController()
-        userinfovc.memodel = userinfo(nav: nav)
-        pushvc.pushViewController(userinfovc, animated: true)
+        userinfovc.memodel = userinfo(vc: pushvc)
+        pushvc.navigationController?.pushViewController(userinfovc, animated: true)
       }
     }
     // add cell to section
@@ -52,7 +53,7 @@ extension meModel {
     return me
   }
   
-  static func userinfo(nav:UINavigationController?) -> meModel {
+  static func userinfo(vc: UIViewController?) -> meModel {
     let me = meModel()
     me.title = L10n.userInfoTitle
     
@@ -69,10 +70,10 @@ extension meModel {
     meCModel.icon = String.http(relativePath: user.icon)
     meCModel.tap = {[weak meCModel] in
       blog.verbose()
-      if let pushvc = nav {
-        let vc = StoryboardScene.PhotoCamera.instantiateMeIconController()
-        vc.iconpath = meCModel?.icon
-        pushvc.pushViewController(vc, animated: true)
+      if let pushvc = vc {
+        let meicon = StoryboardScene.PhotoCamera.instantiateMeIconController()
+        meicon.iconpath = meCModel?.icon
+        pushvc.navigationController?.pushViewController(meicon, animated: true)
       }
     }
     // cell realname
@@ -81,10 +82,10 @@ extension meModel {
     realname.title = L10n.userRealname
     realname.subTitle = user.realname
     realname.tap = {
-      if let pushvc = nav {
-        let vc = StoryboardScene.Main.instantiateMeController()
-        vc.memodel = textfield(nav: pushvc, text: user.realname)
-        pushvc.pushViewController(vc, animated: true)
+      if let pushvc = vc {
+        let me = StoryboardScene.Main.instantiateMeController()
+        me.memodel = textfield(vc: pushvc, text: user.realname)
+        pushvc.navigationController?.pushViewController(me, animated: true)
       }
     }
     
@@ -96,7 +97,7 @@ extension meModel {
     return me
   }
   
-  static func textfield(nav: UINavigationController?, text: String) -> meModel {
+  static func textfield(vc: UIViewController?, text: String) -> meModel {
     let me = meModel()
     me.title = ""
     

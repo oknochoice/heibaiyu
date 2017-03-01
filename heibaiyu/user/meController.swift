@@ -20,7 +20,7 @@ class meController: settingBaseController {
       self.tableDatas = me.sections
       self.tableview.reloadData()
     }else {
-      memodel = meModel.me(nav: self.navigationController)
+      memodel = meModel.me(vc: self)
       navigationController!.interactivePopGestureRecognizer?.delegate = self
       self.tableDatas = memodel!.sections
       self.tableview.reloadData()

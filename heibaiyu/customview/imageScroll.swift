@@ -55,8 +55,10 @@ class imageScroll: UIScrollView, UIScrollViewDelegate {
           imageSize = (m.image_?.size)!
         }else if m.mtype_ == phMedia.SourceType.imageUrl {
           imageview.sd_setImage(with: URL(string: m.url_!), placeholderImage: nil, options: .progressiveDownload, completed: {[weak self] (image, error, type, url) in
-            self?.imageview.image = image
-            self?.imageSize = (image?.size)!
+            if let image = image  {
+              self?.imageview.image = image
+              self?.imageSize = image.size
+            }
           })
         }else {
           blog.error()
