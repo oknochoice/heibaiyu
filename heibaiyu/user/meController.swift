@@ -11,29 +11,35 @@ import NavigationStack
 
 class meController: settingBaseController {
   
-  var memodel: meModel?
+  var memodelCluture: (() -> meModel)?
+  
+  var isRootController: Bool = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let me = memodel {
+    fresh()
+  }
+  
+  func fresh() {
+    if let fc = memodelCluture {
+      let me = fc()
+      me.reFreshList = {[weak self] in
+        self?.fresh()
+      }
+      isRootController = me.isRoot
+      if isRootController {
+        navigationController!.interactivePopGestureRecognizer?.delegate = self
+      }
       self.tableDatas = me.sections
       self.tableview.reloadData()
-    }else {
-      memodel = meModel.me(vc: self)
-      navigationController!.interactivePopGestureRecognizer?.delegate = self
-      self.tableDatas = memodel!.sections
-      self.tableview.reloadData()
     }
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if let me = memodel {
-      if me.isRoot {
-        self.tabBarController?.tabBar.isHidden = false
-      }
+    if isRootController {
+      self.tabBarController?.tabBar.isHidden = false
     }
   }
   

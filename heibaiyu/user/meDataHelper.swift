@@ -12,104 +12,117 @@ class meModel {
   var title: String?
   var isRoot: Bool = false
   var sections: [settingSectionModel]?
-  var reFreshList: ( (Void) -> Void)?
+  var reFreshList: ((Void) -> Void)?
 }
 
 extension meModel {
   
-  static func me(vc: UIViewController?) -> meModel {
-    let me = meModel()
-    me.isRoot = true
-    let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
-    let user = try! Chat_User(protobuf: userdata);
-    
-    // section me
-    let meSModel = settingSectionModel()
-    // cell me
-    let meCModel = settingCellModel()
-    meCModel.cellIdentifier = "settingLits_a"
-    let from = user.phoneNo.index(user.phoneNo.endIndex, offsetBy: -4)
-    meCModel.subTitle = "*** **** " + user.phoneNo.substring(from: from)
-    var title = user.nickname
-    if title.isEmpty {
-      title = user.realname
-    }
-    if title.isEmpty {
-      title = meCModel.subTitle!
-    }
-    meCModel.title = title
-    meCModel.cellHeight = 66
-    meCModel.tap = {
-      if let pushvc = vc {
-        let userinfovc = StoryboardScene.Main.instantiateMeController()
-        userinfovc.memodel = userinfo(vc: pushvc)
-        pushvc.navigationController?.pushViewController(userinfovc, animated: true)
+  static func me(vc: meController?) -> (() -> meModel ){
+    let reCluture = {[weak vc] () -> meModel in
+      
+      let me = meModel()
+      me.isRoot = true
+      let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
+      let user = try! Chat_User(protobuf: userdata);
+      
+      // section me
+      let meSModel = settingSectionModel()
+      // cell me
+      let meCModel = settingCellModel()
+      meCModel.cellIdentifier = "settingLits_a"
+      let from = user.phoneNo.index(user.phoneNo.endIndex, offsetBy: -4)
+      meCModel.subTitle = "*** **** " + user.phoneNo.substring(from: from)
+      var title = user.nickname
+      if title.isEmpty {
+        title = user.realname
       }
+      if title.isEmpty {
+        title = meCModel.subTitle!
+      }
+      meCModel.title = title
+      meCModel.cellHeight = 66
+      meCModel.tap = {
+        if let pushvc = vc {
+          let userinfovc = StoryboardScene.Main.instantiateMeController()
+          userinfovc.memodelCluture = userinfo(vc: pushvc)
+          pushvc.navigationController?.pushViewController(userinfovc, animated: true)
+        }
+      }
+      // add cell to section
+      meSModel.cellModels = [meCModel]
+      
+      me.sections = [meSModel]
+      return me
     }
-    // add cell to section
-    meSModel.cellModels = [meCModel]
-    
-    me.sections = [meSModel]
-    return me
+    return reCluture
   }
   
-  static func userinfo(vc: UIViewController?) -> meModel {
-    let me = meModel()
-    me.title = L10n.userInfoTitle
+  static func userinfo(vc: meController?) -> (() -> meModel ) {
+    let reClosure = { [weak vc] () -> meModel in
     
-    
-    let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
-    let user = try! Chat_User(protobuf: userdata);
-    
-    // section me
-    let meSModel = settingSectionModel()
-    // cell me
-    let meCModel = settingCellModel()
-    meCModel.cellIdentifier = "settingRit_a"
-    meCModel.title = L10n.userIcon
-    meCModel.icon = String.http(relativePath: user.icon)
-    meCModel.tap = {[weak meCModel] in
-      blog.verbose()
-      if let pushvc = vc {
-        let meicon = StoryboardScene.PhotoCamera.instantiateMeIconController()
-        meicon.iconpath = meCModel?.icon
-        pushvc.navigationController?.pushViewController(meicon, animated: true)
+      let me = meModel()
+      me.title = L10n.userInfoTitle
+      
+      let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
+      let user = try! Chat_User(protobuf: userdata);
+      
+      // section me
+      let meSModel = settingSectionModel()
+      // cell me
+      let meCModel = settingCellModel()
+      meCModel.cellIdentifier = "settingRit_a"
+      meCModel.title = L10n.userIcon
+      meCModel.icon = String.http(relativePath: user.icon)
+      meCModel.tap = {[weak meCModel] in
+        blog.verbose()
+        if let pushvc = vc {
+          let meicon = StoryboardScene.PhotoCamera.instantiateMeIconController()
+          meicon.iconpath = meCModel?.icon
+          pushvc.navigationController?.pushViewController(meicon, animated: true)
+        }
       }
-    }
-    // cell realname
-    let realname = settingCellModel()
-    realname.cellIdentifier = "settingts_a"
-    realname.title = L10n.userRealname
-    realname.subTitle = user.realname
-    realname.tap = {
-      if let pushvc = vc {
-        let me = StoryboardScene.Main.instantiateMeController()
-        me.memodel = textfield(vc: pushvc, text: user.realname)
-        pushvc.navigationController?.pushViewController(me, animated: true)
+      // cell realname
+      let realname = settingCellModel()
+      realname.cellIdentifier = "settingts_a"
+      realname.title = L10n.userRealname
+      realname.subTitle = user.realname
+      realname.tap = {
+        if let pushvc = vc {
+          let me = StoryboardScene.Main.instantiateMeController()
+          me.memodelCluture = textfield(vc: pushvc, text: user.realname)
+          pushvc.navigationController?.pushViewController(me, animated: true)
+        }
       }
+      
+      
+      // section
+      meSModel.cellModels = [meCModel, realname]
+      
+      me.sections = [meSModel]
+      return me
     }
-    
-    
-    // section
-    meSModel.cellModels = [meCModel, realname]
-    
-    me.sections = [meSModel]
-    return me
+    return reClosure
   }
   
-  static func textfield(vc: UIViewController?, text: String) -> meModel {
-    let me = meModel()
-    me.title = ""
+  static func textfield(vc: meController?, text: String) -> (() -> meModel ) {
+    let reClosure = { [weak vc] () -> meModel in
+      
+      let me = meModel()
+      me.title = ""
+      
+      // section field
+      let fieldSection = settingSectionModel()
+      let fieldcell = settingCellModel()
+      fieldcell.cellIdentifier = "settingField"
+      fieldcell.title = text
+      fieldSection.cellModels = [fieldcell]
+      
+      me.sections = [fieldSection]
+      return me
+    }
     
-    // section field
-    let fieldSection = settingSectionModel()
-    let fieldcell = settingCellModel()
-    fieldcell.cellIdentifier = "settingField"
-    fieldcell.title = text
-    fieldSection.cellModels = [fieldcell]
+    return reClosure
     
-    me.sections = [fieldSection]
-    return me
   }
   
 }
