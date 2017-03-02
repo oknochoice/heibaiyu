@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; };
 		233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; };
+		23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; };
+		23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; };
+		23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23317CA01E6879B800BCD76D /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C991E6879B800BCD76D /* RxTest.framework */; };
+		23317CA11E6879B800BCD76D /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C991E6879B800BCD76D /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -372,9 +380,11 @@
 				23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */,
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
 				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
+				23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */,
 				23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */,
 				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
+				23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
 				233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */,
 				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
@@ -386,8 +396,10 @@
 				23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */,
 				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
+				23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
+				23317CA11E6879B800BCD76D /* RxTest.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -397,6 +409,10 @@
 
 /* Begin PBXFileReference section */
 		233164EF1E61CFED00FFE190 /* TOCropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TOCropViewController.framework; path = Carthage/Build/iOS/TOCropViewController.framework; sourceTree = "<group>"; };
+		23317C961E6879B800BCD76D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		23317C971E6879B800BCD76D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		23317C981E6879B800BCD76D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		23317C991E6879B800BCD76D /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -1009,11 +1025,13 @@
 				A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */,
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
 				23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */,
+				23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
 				23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */,
 				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
 				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
+				23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */,
 				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
 				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
@@ -1028,9 +1046,11 @@
 				23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
+				23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */,
 				23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */,
 				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
+				23317CA01E6879B800BCD76D /* RxTest.framework in Frameworks */,
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
 				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
@@ -1046,6 +1066,10 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				23317C961E6879B800BCD76D /* RxBlocking.framework */,
+				23317C971E6879B800BCD76D /* RxCocoa.framework */,
+				23317C981E6879B800BCD76D /* RxSwift.framework */,
+				23317C991E6879B800BCD76D /* RxTest.framework */,
 				233164EF1E61CFED00FFE190 /* TOCropViewController.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
