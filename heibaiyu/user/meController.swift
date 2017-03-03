@@ -22,8 +22,13 @@ class meController: settingBaseController {
   }
   
   func fresh() {
+    var me: meModel?
     if let fc = memodelCluture {
-      let me = fc()
+      me = fc()
+    }else {
+      me = meModel.me(vc: self)()
+    }
+    if let me = me {
       me.reFreshList = {[weak self] in
         self?.fresh()
       }

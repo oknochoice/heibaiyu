@@ -76,7 +76,7 @@ extension meModel {
       meCModel.tap = {[weak meCModel] in
         blog.verbose()
         if let pushvc = vc {
-          let meicon = StoryboardScene.PhotoCamera.instantiateMeIconController()
+          let meicon = StoryboardScene.MeDetail.instantiateMeIconController()
           meicon.iconpath = meCModel?.icon
           pushvc.navigationController?.pushViewController(meicon, animated: true)
         }
@@ -88,9 +88,6 @@ extension meModel {
       realname.subTitle = user.realname
       realname.tap = {
         if let pushvc = vc {
-          let me = StoryboardScene.Main.instantiateMeController()
-          me.memodelCluture = textfield(vc: pushvc, text: user.realname)
-          pushvc.navigationController?.pushViewController(me, animated: true)
         }
       }
       
@@ -102,27 +99,6 @@ extension meModel {
       return me
     }
     return reClosure
-  }
-  
-  static func textfield(vc: meController?, text: String) -> (() -> meModel ) {
-    let reClosure = { [weak vc] () -> meModel in
-      
-      let me = meModel()
-      me.title = ""
-      
-      // section field
-      let fieldSection = settingSectionModel()
-      let fieldcell = settingCellModel()
-      fieldcell.cellIdentifier = "settingField"
-      fieldcell.title = text
-      fieldSection.cellModels = [fieldcell]
-      
-      me.sections = [fieldSection]
-      return me
-    }
-    
-    return reClosure
-    
   }
   
 }
