@@ -36,10 +36,10 @@ bool libev_timer::configure(double outtimer, double repeated,
       loop_ = ev_default_loop();
       timer_ = (struct ev_timer*)malloc(sizeof(struct ev_timer));
       ev_timer_init(timer_, timer_callback, repeated_, 0.);
-      ev_timer_start(loop_, timer_);
       command_ = (struct ev_async*)malloc(sizeof(struct ev_async));
       ev_async_init(command_ , (this->command_callback));
       ev_set_priority(command_ , EV_MAXPRI);
+      ev_async_start(loop_, command_);
       ev_run(loop_, 0);
       free(timer_);
       free(command_);
@@ -57,19 +57,18 @@ bool libev_timer::configure(double outtimer, double repeated,
 libev_timer::~libev_timer() {
   YILOG_TRACE ("func: {}", __func__);
   isCallStop_.store(true);
-  ev_async_start(loop_, command_);
 }
 
 
 void libev_timer::put(int32_t id) {
   YILOG_TRACE ("func: {}", __func__);
   std::unique_lock<std::mutex> (map_mutex_);
+  if (map_.empty()) {
+    ev_async_send(loop_, command_);
+  }
   info_.id = id;
   info_.timestamp = ev_now(loop_);
   map_[id] = info_;
-  if (map_.empty()) {
-    ev_async_start(loop_, command_);
-  }
 }
 
 void libev_timer::remove(int32_t id) {
@@ -109,7 +108,7 @@ void libev_timer::timer_callback(struct ev_loop * loop,  ev_timer * w, int reven
     for (auto it = localmap.begin();
          it != localmap.end();) {
       YILOG_INFO("func: {}, timeout call", __func__);
-      printf("timer_callback timeout call");
+      printf("timer_callback timeout call\n");
       auto ts = it->second.timestamp;
       if (now - ts >= sharedTimer()->outtimer_) {
         sharedTimer()->callback_(it->first);
@@ -121,8 +120,8 @@ void libev_timer::timer_callback(struct ev_loop * loop,  ev_timer * w, int reven
     if (!localmap.empty()) {
       ev_timer_set(w, sharedTimer()->repeated_, 0.);
       ev_timer_start(loop, w);
-      YILOG_INFO("func: {}, timeout stop", __func__);
-      printf("timer_callback timeout stop");
+      YILOG_INFO("func: {}, timeout contine check", __func__);
+      printf("timer_callback timeout contine check\n");
     }
   }
 }

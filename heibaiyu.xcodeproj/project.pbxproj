@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; };
-		233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 233164EF1E61CFED00FFE190 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; };
 		23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; };
@@ -274,6 +272,8 @@
 		A40FD3541E4C4A550044D2DA /* chat_message.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = A40FD3521E4C4A550044D2DA /* chat_message.pb.cc */; };
 		A448F1BB1E681AC500DCAB5D /* meIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F1BA1E681AC500DCAB5D /* meIconController.swift */; };
 		A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */; };
+		A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; };
+		A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; };
 		A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; };
@@ -357,8 +357,8 @@
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
-				233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */,
 				A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */,
+				A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
@@ -371,7 +371,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		233164EF1E61CFED00FFE190 /* TOCropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TOCropViewController.framework; path = Carthage/Build/iOS/TOCropViewController.framework; sourceTree = "<group>"; };
 		23317C961E6879B800BCD76D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		23317C971E6879B800BCD76D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		23317C981E6879B800BCD76D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -788,6 +787,7 @@
 		A40FD3581E4C61270044D2DA /* typemapre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemapre.h; sourceTree = "<group>"; };
 		A448F1BA1E681AC500DCAB5D /* meIconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meIconController.swift; sourceTree = "<group>"; };
 		A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meTextfieldController.swift; sourceTree = "<group>"; };
+		A448F1C71E69849F00DCAB5D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		A468CEF01E4845910017D266 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
@@ -976,11 +976,11 @@
 				23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */,
 				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
+				A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */,
 				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
-				233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */,
@@ -1001,10 +1001,10 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				A448F1C71E69849F00DCAB5D /* SnapKit.framework */,
 				23317C961E6879B800BCD76D /* RxBlocking.framework */,
 				23317C971E6879B800BCD76D /* RxCocoa.framework */,
 				23317C981E6879B800BCD76D /* RxSwift.framework */,
-				233164EF1E61CFED00FFE190 /* TOCropViewController.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
