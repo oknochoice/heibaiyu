@@ -15,8 +15,6 @@
 		23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; };
 		23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23317CA01E6879B800BCD76D /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C991E6879B800BCD76D /* RxTest.framework */; };
-		23317CA11E6879B800BCD76D /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C991E6879B800BCD76D /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -365,7 +363,6 @@
 				23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
-				23317CA11E6879B800BCD76D /* RxTest.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -378,7 +375,6 @@
 		23317C961E6879B800BCD76D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		23317C971E6879B800BCD76D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		23317C981E6879B800BCD76D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		23317C991E6879B800BCD76D /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -991,7 +987,6 @@
 				23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */,
 				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
-				23317CA01E6879B800BCD76D /* RxTest.framework in Frameworks */,
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
 				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
@@ -1009,7 +1004,6 @@
 				23317C961E6879B800BCD76D /* RxBlocking.framework */,
 				23317C971E6879B800BCD76D /* RxCocoa.framework */,
 				23317C981E6879B800BCD76D /* RxSwift.framework */,
-				23317C991E6879B800BCD76D /* RxTest.framework */,
 				233164EF1E61CFED00FFE190 /* TOCropViewController.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
