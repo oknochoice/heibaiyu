@@ -31,32 +31,14 @@
 		238D43EB1E46329800DB9F03 /* whisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238D43EA1E46329800DB9F03 /* whisper.swift */; };
 		238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 238D43F41E47538C00DB9F03 /* typemap.cxx */; };
 		2398D4521E53545400713FBB /* buffer_yi.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2398D4511E53545400713FBB /* buffer_yi.cxx */; };
-		23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; };
-		23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816B1E3673FF0023B421 /* ActiveLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881831E3673FF0023B421 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; };
 		23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816D1E3673FF0023B421 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881851E3673FF0023B421 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816E1E3673FF0023B421 /* Diff.framework */; };
-		23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816E1E3673FF0023B421 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816F1E3673FF0023B421 /* DynamicColor.framework */; };
 		23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8816F1E3673FF0023B421 /* DynamicColor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881701E3673FF0023B421 /* EasyTipView.framework */; };
-		23A8818A1E3673FF0023B421 /* EasyTipView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881701E3673FF0023B421 /* EasyTipView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881721E3673FF0023B421 /* FillableLoaders.framework */; };
-		23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881721E3673FF0023B421 /* FillableLoaders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881731E3673FF0023B421 /* Format.framework */; };
-		23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881731E3673FF0023B421 /* Format.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881911E3673FF0023B421 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881741E3673FF0023B421 /* LTMorphingLabel.framework */; };
-		23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881741E3673FF0023B421 /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; };
 		23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881751E3673FF0023B421 /* NavigationStack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881991E3673FF0023B421 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881781E3673FF0023B421 /* SnapKit.framework */; };
-		23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881781E3673FF0023B421 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881791E3673FF0023B421 /* Stellar.framework */; };
-		23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881791E3673FF0023B421 /* Stellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */; };
 		23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */; };
-		23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; };
 		23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A8817E1E3673FF0023B421 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23A881D51E3687270023B421 /* messageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D11E3687270023B421 /* messageController.swift */; };
@@ -335,14 +317,6 @@
 		A4A66CE71E3228D1001A25D7 /* root-ca.crt in Resources */ = {isa = PBXBuildFile; fileRef = A4A66CE61E3228D1001A25D7 /* root-ca.crt */; };
 		A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CEB1E322B64001A25D7 /* lib_client.cpp */; };
 		A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4A66CED1E322B64001A25D7 /* net_yi.cpp */; };
-		A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */; };
-		A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D771E349079001A25D7 /* EasyAnimation.swift */; };
-		A4A66D811E349079001A25D7 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66D781E349079001A25D7 /* Info-tvOS.plist */; };
-		A4A66D821E349079001A25D7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66D791E349079001A25D7 /* Info.plist */; };
-		A4A66D831E349079001A25D7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A4A66D7B1E349079001A25D7 /* LICENSE */; };
-		A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7C1E349079001A25D7 /* RBBBlockBasedArray.swift */; };
-		A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */; };
-		A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */; };
 		A4A66EA71E34D0F3001A25D7 /* CountryCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */; };
 		A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A6DE441E388B74003871B1 /* libstdc++.tbd */; };
 		A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACACD71E2F7DC300E7BE41 /* libcrypto.a */; };
@@ -382,20 +356,11 @@
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
 				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
 				23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */,
-				23A881901E3673FF0023B421 /* Format.framework in Embed Frameworks */,
-				23A8819A1E3673FF0023B421 /* SnapKit.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
 				233164F11E61CFED00FFE190 /* TOCropViewController.framework in Embed Frameworks */,
-				23A8819C1E3673FF0023B421 /* Stellar.framework in Embed Frameworks */,
-				23A881921E3673FF0023B421 /* LTMorphingLabel.framework in Embed Frameworks */,
-				23A8818E1E3673FF0023B421 /* FillableLoaders.framework in Embed Frameworks */,
-				23A8818A1E3673FF0023B421 /* EasyTipView.framework in Embed Frameworks */,
-				23A881801E3673FF0023B421 /* ActiveLabel.framework in Embed Frameworks */,
 				A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */,
-				23A881A01E3673FF0023B421 /* SwiftyAttributes.framework in Embed Frameworks */,
-				23A881861E3673FF0023B421 /* Diff.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
@@ -432,19 +397,10 @@
 		238D43EA1E46329800DB9F03 /* whisper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whisper.swift; sourceTree = "<group>"; };
 		238D43F41E47538C00DB9F03 /* typemap.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = typemap.cxx; sourceTree = "<group>"; };
 		2398D4511E53545400713FBB /* buffer_yi.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer_yi.cxx; sourceTree = "<group>"; };
-		23A8816B1E3673FF0023B421 /* ActiveLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActiveLabel.framework; path = Carthage/Build/iOS/ActiveLabel.framework; sourceTree = "<group>"; };
 		23A8816D1E3673FF0023B421 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
-		23A8816E1E3673FF0023B421 /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		23A8816F1E3673FF0023B421 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
-		23A881701E3673FF0023B421 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
-		23A881721E3673FF0023B421 /* FillableLoaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FillableLoaders.framework; path = Carthage/Build/iOS/FillableLoaders.framework; sourceTree = "<group>"; };
-		23A881731E3673FF0023B421 /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
-		23A881741E3673FF0023B421 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = Carthage/Build/iOS/LTMorphingLabel.framework; sourceTree = "<group>"; };
 		23A881751E3673FF0023B421 /* NavigationStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavigationStack.framework; path = Carthage/Build/iOS/NavigationStack.framework; sourceTree = "<group>"; };
-		23A881781E3673FF0023B421 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		23A881791E3673FF0023B421 /* Stellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stellar.framework; path = Carthage/Build/iOS/Stellar.framework; sourceTree = "<group>"; };
 		23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
-		23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributes.framework; path = Carthage/Build/iOS/SwiftyAttributes.framework; sourceTree = "<group>"; };
 		23A8817E1E3673FF0023B421 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		23A881D11E3687270023B421 /* messageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageController.swift; sourceTree = "<group>"; };
 		23A881D31E3687270023B421 /* SigninController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
@@ -887,15 +843,6 @@
 		A4A66CEC1E322B64001A25D7 /* lib_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_client.h; sourceTree = "<group>"; };
 		A4A66CED1E322B64001A25D7 /* net_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = net_yi.cpp; sourceTree = "<group>"; };
 		A4A66CEE1E322B64001A25D7 /* net_yi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_yi.h; sourceTree = "<group>"; };
-		A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EAAnimationFuture.swift; sourceTree = "<group>"; };
-		A4A66D761E349079001A25D7 /* EasyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAnimation.h; sourceTree = "<group>"; };
-		A4A66D771E349079001A25D7 /* EasyAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyAnimation.swift; sourceTree = "<group>"; };
-		A4A66D781E349079001A25D7 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
-		A4A66D791E349079001A25D7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4A66D7B1E349079001A25D7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		A4A66D7C1E349079001A25D7 /* RBBBlockBasedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBBlockBasedArray.swift; sourceTree = "<group>"; };
-		A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBLinearInterpolation.swift; sourceTree = "<group>"; };
-		A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBBSpringAnimation.swift; sourceTree = "<group>"; };
 		A4A66EA61E34D0F3001A25D7 /* CountryCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryCode.plist; sourceTree = "<group>"; };
 		A4A6DE401E387A26003871B1 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		A4A6DE421E3886C6003871B1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -1026,16 +973,11 @@
 			files = (
 				A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */,
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
-				23A8819B1E3673FF0023B421 /* Stellar.framework in Frameworks */,
 				23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
 				23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */,
-				23A881851E3673FF0023B421 /* Diff.framework in Frameworks */,
-				23A8819F1E3673FF0023B421 /* SwiftyAttributes.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
 				23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */,
-				23A8817F1E3673FF0023B421 /* ActiveLabel.framework in Frameworks */,
-				23A8818F1E3673FF0023B421 /* Format.framework in Frameworks */,
 				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
@@ -1043,9 +985,6 @@
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
 				233164F01E61CFED00FFE190 /* TOCropViewController.framework in Frameworks */,
-				23A881911E3673FF0023B421 /* LTMorphingLabel.framework in Frameworks */,
-				23A881991E3673FF0023B421 /* SnapKit.framework in Frameworks */,
-				23A881891E3673FF0023B421 /* EasyTipView.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
 				23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */,
@@ -1055,7 +994,6 @@
 				23317CA01E6879B800BCD76D /* RxTest.framework in Frameworks */,
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
-				23A8818D1E3673FF0023B421 /* FillableLoaders.framework in Frameworks */,
 				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
 				23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */,
@@ -1079,19 +1017,10 @@
 				A468CEF01E4845910017D266 /* Reachability.framework */,
 				23A881D81E368B340023B421 /* Chatto.framework */,
 				23A881D91E368B340023B421 /* ChattoAdditions.framework */,
-				23A8816B1E3673FF0023B421 /* ActiveLabel.framework */,
 				23A8816D1E3673FF0023B421 /* Device.framework */,
-				23A8816E1E3673FF0023B421 /* Diff.framework */,
 				23A8816F1E3673FF0023B421 /* DynamicColor.framework */,
-				23A881701E3673FF0023B421 /* EasyTipView.framework */,
-				23A881721E3673FF0023B421 /* FillableLoaders.framework */,
-				23A881731E3673FF0023B421 /* Format.framework */,
-				23A881741E3673FF0023B421 /* LTMorphingLabel.framework */,
 				23A881751E3673FF0023B421 /* NavigationStack.framework */,
-				23A881781E3673FF0023B421 /* SnapKit.framework */,
-				23A881791E3673FF0023B421 /* Stellar.framework */,
 				23A8817A1E3673FF0023B421 /* SwiftProtobuf.framework */,
-				23A8817B1E3673FF0023B421 /* SwiftyAttributes.framework */,
 				23A8817E1E3673FF0023B421 /* Whisper.framework */,
 			);
 			name = framework;
@@ -1798,7 +1727,6 @@
 			children = (
 				A49F7F701E6172AE00C67730 /* Fusuma */,
 				2373E18D1E40A1AB0055136C /* SwiftTimer */,
-				A4A66D741E349079001A25D7 /* EasyAnimation */,
 			);
 			name = submodule;
 			sourceTree = "<group>";
@@ -1825,31 +1753,6 @@
 				A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		A4A66D741E349079001A25D7 /* EasyAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				A4A66D751E349079001A25D7 /* EAAnimationFuture.swift */,
-				A4A66D761E349079001A25D7 /* EasyAnimation.h */,
-				A4A66D771E349079001A25D7 /* EasyAnimation.swift */,
-				A4A66D781E349079001A25D7 /* Info-tvOS.plist */,
-				A4A66D791E349079001A25D7 /* Info.plist */,
-				A4A66D7A1E349079001A25D7 /* RBBSpringAnimation */,
-			);
-			name = EasyAnimation;
-			path = submodule/EasyAnimation/EasyAnimation;
-			sourceTree = "<group>";
-		};
-		A4A66D7A1E349079001A25D7 /* RBBSpringAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				A4A66D7B1E349079001A25D7 /* LICENSE */,
-				A4A66D7C1E349079001A25D7 /* RBBBlockBasedArray.swift */,
-				A4A66D7D1E349079001A25D7 /* RBBLinearInterpolation.swift */,
-				A4A66D7E1E349079001A25D7 /* RBBSpringAnimation.swift */,
-			);
-			path = RBBSpringAnimation;
 			sourceTree = "<group>";
 		};
 		A4A6DE411E3886C6003871B1 /* Frameworks */ = {
@@ -2145,7 +2048,6 @@
 				A40FD3191E4C415F0044D2DA /* timestamp.proto in Resources */,
 				A40FD2811E4C415F0044D2DA /* field_mask.pb.Plo in Resources */,
 				A40FD3291E4C415F0044D2DA /* default_value_objectwriter.Plo in Resources */,
-				A4A66D811E349079001A25D7 /* Info-tvOS.plist in Resources */,
 				A40FD3061E4C415F0044D2DA /* substitute.Plo in Resources */,
 				A40FD28B1E4C415F0044D2DA /* struct.pb.Plo in Resources */,
 				A40FD3281E4C415F0044D2DA /* datapiece.Plo in Resources */,
@@ -2165,13 +2067,11 @@
 				A40FD2E41E4C415F0044D2DA /* zero_copy_stream_impl.Plo in Resources */,
 				A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */,
 				A40FD2A41E4C415F0044D2DA /* subprocess.Plo in Resources */,
-				A4A66D821E349079001A25D7 /* Info.plist in Resources */,
 				A40FD3351E4C415F0044D2DA /* .dirstamp in Resources */,
 				A40FD2AF1E4C415F0044D2DA /* cpp_generator.Plo in Resources */,
 				A40FD2B71E4C415F0044D2DA /* .dirstamp in Resources */,
 				A40FD3001E4C415F0044D2DA /* status.Plo in Resources */,
 				A40FD2A11E4C415F0044D2DA /* parser.Plo in Resources */,
-				A4A66D831E349079001A25D7 /* LICENSE in Resources */,
 				A40FD2AA1E4C415F0044D2DA /* cpp_enum.Plo in Resources */,
 				A40FD2B01E4C415F0044D2DA /* cpp_helpers.Plo in Resources */,
 				A40FD29E1E4C415F0044D2DA /* command_line_interface.Plo in Resources */,
@@ -2298,7 +2198,6 @@
 				A40FD2BA1E4C415F0044D2DA /* cpp_extension.cc in Sources */,
 				A40FD2D81E4C415F0044D2DA /* extension_set_heavy.cc in Sources */,
 				A40FD33E1E4C415F0044D2DA /* proto_writer.cc in Sources */,
-				A4A66D851E349079001A25D7 /* RBBLinearInterpolation.swift in Sources */,
 				A40FD2D41E4C415F0044D2DA /* dynamic_message.cc in Sources */,
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
 				A40FD2E91E4C415F0044D2DA /* printer.cc in Sources */,
@@ -2327,11 +2226,9 @@
 				A4E75A811E4B1FED00C5FC66 /* settingCellModel.swift in Sources */,
 				A40FD33F1E4C415F0044D2DA /* protostream_objectsource.cc in Sources */,
 				A4E75A7F1E4B1FD800C5FC66 /* settingts_a.swift in Sources */,
-				A4A66D7F1E349079001A25D7 /* EAAnimationFuture.swift in Sources */,
 				A40FD3441E4C415F0044D2DA /* json_util.cc in Sources */,
 				A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */,
 				A40FD2EA1E4C415F0044D2DA /* strtod.cc in Sources */,
-				A4A66D841E349079001A25D7 /* RBBBlockBasedArray.swift in Sources */,
 				238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */,
 				A40FD2F01E4C415F0044D2DA /* message.cc in Sources */,
 				A40FD3101E4C415F0044D2DA /* statusor.cc in Sources */,
@@ -2343,7 +2240,6 @@
 				A40FD3251E4C415F0044D2DA /* field_comparator.cc in Sources */,
 				A40FD2C31E4C415F0044D2DA /* cpp_service.cc in Sources */,
 				A40FD3161E4C415F0044D2DA /* time.cc in Sources */,
-				A4A66D861E349079001A25D7 /* RBBSpringAnimation.swift in Sources */,
 				A40FD3181E4C415F0044D2DA /* timestamp.pb.cc in Sources */,
 				A40FD2ED1E4C415F0044D2DA /* zero_copy_stream_impl.cc in Sources */,
 				A40FD3541E4C4A550044D2DA /* chat_message.pb.cc in Sources */,
@@ -2424,7 +2320,6 @@
 				A4E75A7C1E4B1FD800C5FC66 /* settingLits_a.swift in Sources */,
 				A47B038E1E5AAF1900F66C59 /* UPYUNConfig.m in Sources */,
 				A40FD2941E4C415F0044D2DA /* any.cc in Sources */,
-				A4A66D801E349079001A25D7 /* EasyAnimation.swift in Sources */,
 				A40FD33B1E4C415F0044D2DA /* json_objectwriter.cc in Sources */,
 				A4E75A791E4B1FD800C5FC66 /* settingCell.swift in Sources */,
 				A49F80B61E6172AE00C67730 /* FSAlbumView.swift in Sources */,
