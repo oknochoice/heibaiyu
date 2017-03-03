@@ -157,7 +157,7 @@ void netyi::put_map(const int32_t sessionid, CB_Func_Mutiple && func) {
 }
 void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func, int32_t * sessionid) {
   YILOG_TRACE ("func: {}", __func__);
-  if (!client_isReachable()) {
+  if (!client_isWorking()) {
     bool isStop = true;
     std::string err_msg = "not reachable";
     func(-200, err_msg, &isStop);
@@ -180,7 +180,7 @@ void netyi::put_map_send(const int32_t sessionid,
     std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && func) {
 
   YILOG_TRACE ("func: {}", __func__);
-  if (!client_isReachable()) {
+  if (!client_isWorking()) {
     bool isStop = true;
     std::string err_msg = "not reachable";
     func(-200, err_msg, &isStop);
