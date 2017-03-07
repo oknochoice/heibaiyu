@@ -40,5 +40,39 @@
             </objects>
             <point key="canvasLocation" x="-348" y="191"/>
         </scene>
+        <!--Me Textfield Controller-->
+        <scene sceneID="8yd-n8-E1m">
+            <objects>
+                <viewController storyboardIdentifier="meTextfieldController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3dq-cT-kNS" customClass="meTextfieldController" customModule="heibaiyu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FzU-Cv-FZe"/>
+                        <viewControllerLayoutGuide type="bottom" id="OfG-ci-ZlX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uvw-Ic-OVa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZZ-7J-sEH">
+                                <rect key="frame" x="15" y="79" width="345" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cZZ-7J-sEH" firstAttribute="leading" secondItem="Uvw-Ic-OVa" secondAttribute="leading" constant="15" id="46i-MR-IeE"/>
+                            <constraint firstItem="cZZ-7J-sEH" firstAttribute="top" secondItem="Uvw-Ic-OVa" secondAttribute="top" constant="79" id="HGc-mL-Elh"/>
+                            <constraint firstAttribute="trailing" secondItem="cZZ-7J-sEH" secondAttribute="trailing" constant="15" id="Zub-b2-tkm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textfield" destination="cZZ-7J-sEH" id="ykh-ci-LSz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vaI-07-aZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="191"/>
+        </scene>
     </scenes>
 </document>

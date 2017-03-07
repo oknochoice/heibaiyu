@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; };
-		23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C961E6879B800BCD76D /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; };
-		23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C971E6879B800BCD76D /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; };
-		23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23317C981E6879B800BCD76D /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -353,14 +347,11 @@
 				23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */,
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
 				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
-				23317C9D1E6879B800BCD76D /* RxCocoa.framework in Embed Frameworks */,
 				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
-				23317C9B1E6879B800BCD76D /* RxBlocking.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
 				A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */,
 				A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
-				23317C9F1E6879B800BCD76D /* RxSwift.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
@@ -371,9 +362,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		23317C961E6879B800BCD76D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		23317C971E6879B800BCD76D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		23317C981E6879B800BCD76D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -969,11 +957,9 @@
 			files = (
 				A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */,
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
-				23317C9A1E6879B800BCD76D /* RxBlocking.framework in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
 				23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
-				23317C9C1E6879B800BCD76D /* RxCocoa.framework in Frameworks */,
 				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */,
@@ -983,7 +969,6 @@
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
 				23A8819D1E3673FF0023B421 /* SwiftProtobuf.framework in Frameworks */,
 				A4ACAD1D1E2F80EE00E7BE41 /* libmemenv.a in Frameworks */,
-				23317C9E1E6879B800BCD76D /* RxSwift.framework in Frameworks */,
 				23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */,
 				A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */,
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
@@ -1002,9 +987,6 @@
 			isa = PBXGroup;
 			children = (
 				A448F1C71E69849F00DCAB5D /* SnapKit.framework */,
-				23317C961E6879B800BCD76D /* RxBlocking.framework */,
-				23317C971E6879B800BCD76D /* RxCocoa.framework */,
-				23317C981E6879B800BCD76D /* RxSwift.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
@@ -1988,7 +1970,7 @@
 				TargetAttributes = {
 					A402B7331E2DF84200DA2C56 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = CCRDWC7H7F;
+						DevelopmentTeam = WXN2XA3VYP;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2477,7 +2459,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				DEVELOPMENT_TEAM = WXN2XA3VYP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2514,7 +2496,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2528,7 +2510,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CCRDWC7H7F;
+				DEVELOPMENT_TEAM = WXN2XA3VYP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2564,7 +2546,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "heibaiyu/bridging-header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
