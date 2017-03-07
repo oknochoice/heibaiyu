@@ -9,7 +9,6 @@
 import UIKit
 import Whisper
 import XCGLogger
-import SwiftyTimer
 import Reachability
 let blog = XCGLogger.default
 
