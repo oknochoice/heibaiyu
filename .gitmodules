@@ -1,42 +1,12 @@
-[submodule "submodule/injectionforxcode"]
-	path = submodule/injectionforxcode
-	url = https://github.com/johnno1962/injectionforxcode.git
-[submodule "submodule/Spring"]
-	path = submodule/Spring
-	url = https://github.com/MengTo/Spring.git
 [submodule "submodule/SwiftGen"]
 	path = submodule/SwiftGen
 	url = https://github.com/AliSoftware/SwiftGen.git
-[submodule "submodule/NMessenger"]
-	path = submodule/NMessenger
-	url = https://github.com/eBay/NMessenger.git
-[submodule "submodule/Blurable"]
-	path = submodule/Blurable
-	url = https://github.com/FlexMonkey/Blurable.git
-[submodule "submodule/Material"]
-	path = submodule/Material
-	url = https://github.com/CosmicMind/Material.git
-[submodule "submodule/EasyAnimation"]
-	path = submodule/EasyAnimation
-	url = https://github.com/icanzilb/EasyAnimation.git
 [submodule "submodule/SwiftTimer"]
 	path = submodule/SwiftTimer
 	url = https://github.com/100mango/SwiftTimer.git
-[submodule "submodule/RealCustomButton"]
-	path = submodule/RealCustomButton
-	url = https://github.com/liaoshaolim/RealCustomButton.git
-[submodule "submodule/FileMD5Hash"]
-	path = submodule/FileMD5Hash
-	url = https://github.com/JoeKun/FileMD5Hash.git
 [submodule "submodule/Fusuma"]
 	path = submodule/Fusuma
 	url = https://github.com/ytakzk/Fusuma.git
 [submodule "submodule/iOS_WebP"]
 	path = submodule/iOS_WebP
 	url = https://github.com/seanooi/iOS-WebP.git
-[submodule "submodule/ImagePickerKit"]
-	path = submodule/ImagePickerKit
-	url = https://github.com/Athlee/ImagePickerKit.git
-[submodule "submodule/IHKeyboardAvoiding"]
-	path = submodule/IHKeyboardAvoiding
-	url = https://github.com/IdleHandsApps/IHKeyboardAvoiding.git
