@@ -161,6 +161,7 @@ void netyi::put_map_send(std::vector<Buffer_SP> && sp_vec, CB_Func_Mutiple && fu
     bool isStop = true;
     std::string err_msg = "not reachable";
     func(-200, err_msg, &isStop);
+    return;
   }
   uint16_t temp_session;
   {
@@ -184,6 +185,7 @@ void netyi::put_map_send(const int32_t sessionid,
     bool isStop = true;
     std::string err_msg = "not reachable";
     func(-200, err_msg, &isStop);
+    return;
   }
   {
     std::unique_lock<std::mutex> ul(sessionid_map_mutex_);

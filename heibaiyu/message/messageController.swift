@@ -8,7 +8,7 @@
 
 import UIKit
 
-class messageController: baseViewController, UITableViewDelegate, UITableViewDataSource {
+class messageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableview: UITableView!
   override func viewDidLoad() {

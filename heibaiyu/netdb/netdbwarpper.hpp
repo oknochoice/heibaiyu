@@ -53,8 +53,8 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
       :(Net_CB)callback;
 /* db
  */
-- (nullable NSData*)getCurrentUser;
-- (nullable NSString*)getMediapath:(NSString*)md5;
+- (nullable NSData*)dbGetCurrentUser;
+- (nullable NSString*)dbGetMediapath:(NSString*)md5;
 
 @end
 NS_ASSUME_NONNULL_END

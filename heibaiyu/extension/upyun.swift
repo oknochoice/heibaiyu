@@ -49,7 +49,7 @@ public extension UpYun {
     var saveKey: String
     let webp_data = UIImage.image(toWebP: image, quality: 100)
     if let md5 = NSData.md5HexDigest(webp_data) {
-      if let path = netdbwarpper.sharedNetdb().getMediapath(md5) {
+      if let path = netdbwarpper.sharedNetdb().dbGetMediapath(md5) {
         saveKey = path
       }else {
         let date = DateInRegion();
@@ -61,7 +61,7 @@ public extension UpYun {
         DispatchQueue.main.async {
           self.upload(webp: webp_data!, saveKey: saveKey, success: {
             (response, responseData) in
-            if let key = netdbwarpper.sharedNetdb().getMediapath(md5) {
+            if let key = netdbwarpper.sharedNetdb().dbGetMediapath(md5) {
               blog.verbose(key)
               SDImageCache.shared().store(UIImage(data: webp_data!), forKey: key, toDisk: true, completion: nil)
               

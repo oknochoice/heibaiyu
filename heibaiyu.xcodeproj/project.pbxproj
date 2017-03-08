@@ -274,6 +274,7 @@
 		A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */; };
 		A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; };
 		A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A45101D81E7008A800086C62 /* userCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101D71E7008A800086C62 /* userCurrent.swift */; };
 		A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; };
 		A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; };
@@ -295,7 +296,6 @@
 		A49F7A851E5EBAA800C67730 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A49F7A831E5EBAA800C67730 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A49F7A891E5EC61B00C67730 /* imageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A881E5EC61B00C67730 /* imageScroll.swift */; };
 		A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */; };
-		A49F7A8D1E5EFB3C00C67730 /* baseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */; };
 		A49F7F6F1E6165DA00C67730 /* MeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49F7F6E1E6165DA00C67730 /* MeDetail.storyboard */; };
 		A49F80B51E6172AE00C67730 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A49F802C1E6172AE00C67730 /* Assets.xcassets */; };
 		A49F80B61E6172AE00C67730 /* FSAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F802D1E6172AE00C67730 /* FSAlbumView.swift */; };
@@ -788,6 +788,7 @@
 		A448F1BA1E681AC500DCAB5D /* meIconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meIconController.swift; sourceTree = "<group>"; };
 		A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meTextfieldController.swift; sourceTree = "<group>"; };
 		A448F1C71E69849F00DCAB5D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		A45101D71E7008A800086C62 /* userCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userCurrent.swift; sourceTree = "<group>"; };
 		A468CEF01E4845910017D266 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
@@ -816,7 +817,6 @@
 		A49F7A831E5EBAA800C67730 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		A49F7A881E5EC61B00C67730 /* imageScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageScroll.swift; sourceTree = "<group>"; };
 		A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseNavigationController.swift; sourceTree = "<group>"; };
-		A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseViewController.swift; sourceTree = "<group>"; };
 		A49F7F6E1E6165DA00C67730 /* MeDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MeDetail.storyboard; sourceTree = "<group>"; };
 		A49F802C1E6172AE00C67730 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A49F802D1E6172AE00C67730 /* FSAlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAlbumView.swift; sourceTree = "<group>"; };
@@ -1032,6 +1032,7 @@
 				238D43EA1E46329800DB9F03 /* whisper.swift */,
 				A47B03951E5AB74500F66C59 /* upyun.swift */,
 				A49F80DC1E64381200C67730 /* string.swift */,
+				A45101D71E7008A800086C62 /* userCurrent.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -1744,7 +1745,6 @@
 				A49F7F6E1E6165DA00C67730 /* MeDetail.storyboard */,
 				A4A6DE401E387A26003871B1 /* bridging-header.h */,
 				A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */,
-				A49F7A8C1E5EFB3C00C67730 /* baseViewController.swift */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -1988,7 +1988,7 @@
 				TargetAttributes = {
 					A402B7331E2DF84200DA2C56 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WXN2XA3VYP;
+						DevelopmentTeam = CCRDWC7H7F;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2255,7 +2255,6 @@
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A40FD3421E4C415F0044D2DA /* utility.cc in Sources */,
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
-				A49F7A8D1E5EFB3C00C67730 /* baseViewController.swift in Sources */,
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchController.swift in Sources */,
 				A40FD30D1E4C415F0044D2DA /* mathlimits.cc in Sources */,
@@ -2304,6 +2303,7 @@
 				A40FD3371E4C415F0044D2DA /* default_value_objectwriter.cc in Sources */,
 				23A881D71E3687270023B421 /* SignupController.swift in Sources */,
 				A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */,
+				A45101D81E7008A800086C62 /* userCurrent.swift in Sources */,
 				A4E75A831E4B206100C5FC66 /* settingSectionModel.swift in Sources */,
 				A40FD2CE1E4C415F0044D2DA /* descriptor.cc in Sources */,
 				A49F7A8B1E5EFAA200C67730 /* baseNavigationController.swift in Sources */,
@@ -2477,7 +2477,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2528,7 +2528,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXN2XA3VYP;
+				DEVELOPMENT_TEAM = CCRDWC7H7F;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

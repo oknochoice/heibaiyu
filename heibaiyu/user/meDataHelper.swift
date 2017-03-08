@@ -22,8 +22,8 @@ extension meModel {
       
       let me = meModel()
       me.isRoot = true
-      let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
-      let user = try! Chat_User(protobuf: userdata);
+      
+      let user = userCurrent.shared()!
       
       // section me
       let meSModel = settingSectionModel()
@@ -63,9 +63,8 @@ extension meModel {
       let me = meModel()
       me.title = L10n.userInfoTitle
       
-      let userdata = netdbwarpper.sharedNetdb().getCurrentUser()!
-      let user = try! Chat_User(protobuf: userdata);
-      
+      if var user = userCurrent.shared() {
+        
       // section me
       let meSModel = settingSectionModel()
       // cell me
@@ -88,6 +87,12 @@ extension meModel {
       realname.subTitle = user.realname
       realname.tap = {
         if let pushvc = vc {
+          let textfield = StoryboardScene.MeDetail.instantiateMeTextfieldController()
+          textfield.text = user.realname
+          textfield.save = {
+            user.realname = $0
+          }
+          pushvc.navigationController?.pushViewController(textfield, animated: true)
         }
       }
       
@@ -96,8 +101,10 @@ extension meModel {
       meSModel.cellModels = [meCModel, realname]
       
       me.sections = [meSModel]
+      }
       return me
     }
+    
     return reClosure
   }
   

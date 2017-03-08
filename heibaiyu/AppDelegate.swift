@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // root vc
     var rootvc: UIViewController?
-    if netdbwarpper.sharedNetdb().getCurrentUser() != nil {
+    if userCurrent.shared() != nil {
       rootvc = StoryboardScene.Main.instantiateTabbarController()
     }else {
       rootvc = StoryboardScene.Main.instantiateSigninController()

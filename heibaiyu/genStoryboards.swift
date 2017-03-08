@@ -112,6 +112,15 @@ struct StoryboardScene {
       }
       return vc
     }
+
+    case meTextfieldControllerScene = "meTextfieldController"
+    static func instantiateMeTextfieldController() -> heibaiyu.meTextfieldController {
+      guard let vc = StoryboardScene.MeDetail.meTextfieldControllerScene.viewController() as? heibaiyu.meTextfieldController
+      else {
+        fatalError("ViewController 'meTextfieldController' is not of the expected class heibaiyu.meTextfieldController.")
+      }
+      return vc
+    }
   }
 }
 

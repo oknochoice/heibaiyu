@@ -184,7 +184,7 @@ static leveldb_yi * db_ = nil;
  *
  */
 
-- (nullable NSData *)getCurrentUser {
+- (nullable NSData *)dbGetCurrentUser {
   try {
     auto string = db_->get(db_->userKey(db_->getCurrentUserid()));
     return [NSData dataWithBytes:string.data() length:string.size()];
@@ -194,7 +194,7 @@ static leveldb_yi * db_ = nil;
 }
 
 
-- (nullable NSString*)getMediapath:(NSString*)md5 {
+- (nullable NSString*)dbGetMediapath:(NSString*)md5 {
   try {
     auto path = db_->getMediaPath(std::string([md5 UTF8String]));
     return [NSString stringWithCString:path.data() encoding:NSUTF8StringEncoding];

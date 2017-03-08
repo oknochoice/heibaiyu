@@ -9,7 +9,7 @@
 import Foundation
 import Whisper
 
-class meIconController: baseViewController, FusumaDelegate{
+class meIconController: UIViewController, FusumaDelegate{
   var icon: UIImage?
   
   @IBOutlet weak var imageview: imageScroll!

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingBaseController: baseViewController, UITableViewDelegate, UITableViewDataSource {
+class settingBaseController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableview: UITableView!
   

@@ -15,12 +15,6 @@ class meController: settingBaseController {
   
   var isRootController: Bool = false
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    fresh()
-  }
-  
   func fresh() {
     var me: meModel?
     if let fc = memodelCluture {
@@ -43,6 +37,7 @@ class meController: settingBaseController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    fresh()
     if isRootController {
       self.tabBarController?.tabBar.isHidden = false
     }
