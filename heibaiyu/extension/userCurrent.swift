@@ -8,7 +8,7 @@
 
 import Foundation
 
-class userCurrent {
+public class userCurrent {
   fileprivate static var shared_: Chat_User?
   static func shared() -> Chat_User?{
     if nil != shared_ {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class settingField: settingCell {
+public class settingField: settingCell {
   
   @IBOutlet weak var field: UITextField!
   

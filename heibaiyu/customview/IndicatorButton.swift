@@ -10,13 +10,13 @@ import Foundation
 import SnapKit
 import UIKit
 
-class IndicatorButton: UIButton {
+public class IndicatorButton: UIButton {
   var indicator = UIActivityIndicatorView()
-  override func awakeFromNib() {
+  override public func awakeFromNib() {
     indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
     self.addSubview(indicator)
   }
-  override func setTitle(_ title: String?, for state: UIControlState) {
+  override public func setTitle(_ title: String?, for state: UIControlState) {
     if state == UIControlState.normal {
       super.setTitle(title, for: state)
       self.titleLabel?.sizeToFit()

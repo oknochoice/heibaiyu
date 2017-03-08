@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingSectionModel {
+public class settingSectionModel {
   var headerTitle: String?
   var fotterTitle: String?
   var cellModels: [settingCellModel]?

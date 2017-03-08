@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingCt: settingCell {
+public class settingCt: settingCell {
   @IBOutlet weak var titleLabel: UILabel!
   
   override var title: String? {

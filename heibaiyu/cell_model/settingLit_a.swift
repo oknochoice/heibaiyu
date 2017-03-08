@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingLit_a: settingCell {
+public class settingLit_a: settingCell {
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   override var icon: String? {

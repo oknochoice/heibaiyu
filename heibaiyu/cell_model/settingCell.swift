@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingCell: UITableViewCell {
+public class settingCell: UITableViewCell {
   var tap: ((Void) -> Void)?
   var title: String?
   var subTitle: String?
@@ -28,10 +28,10 @@ class settingCell: UITableViewCell {
     }
   }
   
-  override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+  override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
     super.setHighlighted(highlighted, animated: animated)
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {}
+  override public func setSelected(_ selected: Bool, animated: Bool) {}
   
 }

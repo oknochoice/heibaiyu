@@ -44,7 +44,7 @@ extension meModel {
       meCModel.tap = {
         if let pushvc = vc {
           let userinfovc = StoryboardScene.Main.instantiateMeController()
-          userinfovc.memodelCluture = userinfo(vc: pushvc)
+          userinfovc.modelGen = userinfo(vc: pushvc)
           pushvc.navigationController?.pushViewController(userinfovc, animated: true)
         }
       }
@@ -63,7 +63,8 @@ extension meModel {
       let me = meModel()
       me.title = L10n.userInfoTitle
       
-      if var user = userCurrent.shared() {
+      var user = userCurrent.shared()!
+      user.realname = "11"
         
       // section me
       let meSModel = settingSectionModel()
@@ -101,7 +102,6 @@ extension meModel {
       meSModel.cellModels = [meCModel, realname]
       
       me.sections = [meSModel]
-      }
       return me
     }
     

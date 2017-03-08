@@ -11,26 +11,23 @@ import NavigationStack
 
 class meController: settingBaseController {
   
-  var memodelCluture: (() -> meModel)?
+  var modelGen: (() -> meModel)?
   
   var isRootController: Bool = false
   
   func fresh() {
-    var me: meModel?
-    if let fc = memodelCluture {
-      me = fc()
+    var model: meModel?
+    if let gen = modelGen {
+      model = gen()
     }else {
-      me = meModel.me(vc: self)()
+      model = meModel.me(vc: self)()
     }
-    if let me = me {
-      me.reFreshList = {[weak self] in
-        self?.fresh()
-      }
-      isRootController = me.isRoot
+    if let model = model {
+      isRootController = model.isRoot
       if isRootController {
         navigationController!.interactivePopGestureRecognizer?.delegate = self
       }
-      self.tableDatas = me.sections
+      self.tableDatas = model.sections
       self.tableview.reloadData()
     }
   }

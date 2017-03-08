@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingCellModel {
+public class settingCellModel {
   var tap: ((Void) -> Void)?
   var title: String?
   var subTitle: String?

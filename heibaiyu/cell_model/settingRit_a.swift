@@ -10,7 +10,7 @@ import Foundation
 import SDWebImage
 import UIKit
 
-class settingRit_a: settingCell {
+public class settingRit_a: settingCell {
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   override var icon: String? {

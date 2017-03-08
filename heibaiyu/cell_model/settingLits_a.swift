@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingLits_a: settingCell {
+public class settingLits_a: settingCell {
   
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!

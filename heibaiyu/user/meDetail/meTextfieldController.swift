@@ -23,6 +23,8 @@ class meTextfieldController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    textfield.text = text
+    
     let rightButton = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil )
     self.navigationItem.rightBarButtonItem = rightButton
     rightButton.rx.tap.subscribe(onNext: {[weak self] in

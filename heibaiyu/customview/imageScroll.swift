@@ -8,7 +8,7 @@
 
 import Foundation
 
-class phMedia {
+public class phMedia {
   enum SourceType {
     case
     none,

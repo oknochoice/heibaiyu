@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class settingts: settingCell {
+public class settingts: settingCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   
