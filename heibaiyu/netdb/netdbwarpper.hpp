@@ -54,6 +54,7 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 /* db
  */
 - (nullable NSData*)dbGetCurrentUser;
+- (void)dbPutCurrentUser:(NSData*)user;
 - (nullable NSString*)dbGetMediapath:(NSString*)md5;
 
 @end

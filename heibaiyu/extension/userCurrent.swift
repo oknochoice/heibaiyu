@@ -9,21 +9,21 @@
 import Foundation
 
 public class userCurrent {
-  fileprivate static var shared_: Chat_User?
   static func shared() -> Chat_User?{
-    if nil != shared_ {
-      return shared_
-    }else {
-      if let data = netdbwarpper.sharedNetdb().dbGetCurrentUser() {
-        if let user = try? Chat_User(protobuf: data) {
-          shared_ = user
-          return shared_
-        }else {
-          return nil
-        }
+    if let data = netdbwarpper.sharedNetdb().dbGetCurrentUser() {
+      if let user = try? Chat_User(protobuf: data) {
+        return user
       }else {
         return nil
       }
+    }else {
+      return nil
+    }
+  }
+  
+  static func save(user: Chat_User) {
+    if let data = try? user.serializeProtobuf() {
+      netdbwarpper.sharedNetdb().dbPutCurrentUser(data)
     }
   }
 }

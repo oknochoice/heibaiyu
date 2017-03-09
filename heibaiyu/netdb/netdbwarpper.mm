@@ -193,6 +193,16 @@ static leveldb_yi * db_ = nil;
   }
 }
 
+- (void)dbPutCurrentUser:(NSData*)user {
+  try {
+    auto userl = chat::User();
+    auto users = std::string(static_cast<const char*>(user.bytes), user.length);
+    userl.ParseFromString(users);
+    db_->putUser(userl);
+  } catch (...) {
+    
+  }
+}
 
 - (nullable NSString*)dbGetMediapath:(NSString*)md5 {
   try {

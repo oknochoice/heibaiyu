@@ -63,9 +63,8 @@ extension meModel {
       let me = meModel()
       me.title = L10n.userInfoTitle
       
-      var user = userCurrent.shared()!
-      user.realname = "11"
-        
+      let user = userCurrent.shared()!
+      
       // section me
       let meSModel = settingSectionModel()
       // cell me
@@ -91,7 +90,9 @@ extension meModel {
           let textfield = StoryboardScene.MeDetail.instantiateMeTextfieldController()
           textfield.text = user.realname
           textfield.save = {
+            var user = userCurrent.shared()!
             user.realname = $0
+            userCurrent.save(user: user)
           }
           pushvc.navigationController?.pushViewController(textfield, animated: true)
         }
