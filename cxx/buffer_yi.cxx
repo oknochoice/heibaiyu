@@ -337,7 +337,9 @@ std::size_t buffer::socket_read(SSL * ssl, char * pos, std::size_t count) {
           "connection has been closed");
     }else if (error_l == SSL_ERROR_WANT_READ) {
       YILOG_TRACE("func: {}, SSL_ERROR_WANT_READ:", __func__);
-      readed = 0;
+      throw std::system_error(std::error_code(
+            20012, std::system_category()),
+          "read later");
     }else if (error_l == SSL_ERROR_WANT_CONNECT || 
         error_l == SSL_ERROR_WANT_ACCEPT) {
       YILOG_TRACE("func: {}, SSL_ERROR_WANT_CONNECT"
@@ -382,8 +384,7 @@ std::size_t buffer::socket_write(SSL * ssl, char * pos, std::size_t count) {
       YILOG_TRACE("func: {}, SSL_ERROR_WANT_READ:", __func__);
       throw std::system_error(std::error_code(
             20024, std::system_category()),
-          "read again now");
-      writed = 0;
+          "write again now");
     }else if (error_l == SSL_ERROR_WANT_CONNECT || 
         error_l == SSL_ERROR_WANT_ACCEPT) {
       YILOG_TRACE("func: {}, SSL_ERROR_WANT_CONNECT"
@@ -418,14 +419,12 @@ void buffer::makeReWrite() {
   
 void buffer::encoding(const uint8_t type, const std::string & data) {
   data_length_ = data.length();
-  /*
+  Assert(data_length_ > 0);
+  Assert(data_length_ <= 1024 - PADDING_LENGTH);
   if (unlikely(data_length_ > 1024 - PADDING_LENGTH || data_length_ == 0)) {
     throw std::system_error(std::error_code(20011, std::generic_category()),
         "Malformed Length");
   }
-   */
-  Assert(data_length_ > 0);
-  Assert(data_length_ <= 1024 - PADDING_LENGTH);
 
   current_pos_ += SESSIONID_LENGTH;
   memcpy(current_pos_, &type, 1);

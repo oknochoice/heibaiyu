@@ -613,13 +613,13 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingLits_a" rowHeight="88" id="p9g-k9-wRi" customClass="settingLits_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9g-k9-wRi" id="Ggo-3C-AfG">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dKh-1N-LyA">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="dKh-1N-LyA" customClass="placeholderimage">
                                                     <rect key="frame" x="15" y="5" width="77" height="77"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dKh-1N-LyA" secondAttribute="height" multiplier="1:1" id="277-PS-NRc"/>
@@ -659,7 +659,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingRit_a" rowHeight="66" id="liv-sI-AOn" customClass="settingRit_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="143.5" width="375" height="66"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liv-sI-AOn" id="5Lb-iZ-QhI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="65.5"/>
@@ -671,7 +671,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-I6-Dwf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-I6-Dwf">
                                                     <rect key="frame" x="297" y="10" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="pnw-I6-Dwf" secondAttribute="height" multiplier="1:1" id="rqQ-Tt-zkO"/>
@@ -693,7 +693,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingLit_a" id="yag-vy-SqL" customClass="settingLit_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="209.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="210" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yag-vy-SqL" id="aps-3z-ck1">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -728,7 +728,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingts_a" id="FBD-Dd-eTm" customClass="settingts_a" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="253.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="254" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FBD-Dd-eTm" id="WcI-SI-aTO">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -762,7 +762,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingts" id="jF0-Bd-1JF" customClass="settingts" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="297.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="298" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jF0-Bd-1JF" id="vhT-by-GHY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -796,7 +796,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCt" id="cpR-s0-VRP" customClass="settingCt" customModule="heibaiyu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="341.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="342" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cpR-s0-VRP" id="kG4-bz-XSN">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -863,7 +863,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholderIcon" width="100" height="100"/>
+        <image name="placeholderimage" width="156" height="156"/>
         <image name="placeholdersetting" width="110" height="110"/>
     </resources>
     <color key="tintColor" red="0.039215687662363052" green="0.63921570777893066" blue="0.26666668057441711" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

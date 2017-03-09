@@ -15,32 +15,19 @@ public class settingLits_a: settingCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   
-  override var icon: String? {
+  override var model: settingCellModel? {
     get {
-      return super.icon
+      return super.model
     }
-    set(newIcon) {
-      super.icon = newIcon
-    }
-  }
-  
-  override var title: String? {
-    get {
-      return super.title;
-    }
-    set(newTitle) {
-      super.title = newTitle
-      titleLabel.text = title
-    }
-  }
-  
-  override var subTitle: String? {
-    get {
-      return super.subTitle;
-    }
-    set(newSubTitle) {
-      super.subTitle = newSubTitle
-      subtitleLabel.text = subTitle
+    set (new) {
+      super.model = new
+      if let new = new {
+        titleLabel.text = new.title
+        subtitleLabel.text = new.subTitle
+        if let icon = new.icon {
+          iconImage.sd_setImage(with: URL(string: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
+        }
+      }
     }
   }
 }

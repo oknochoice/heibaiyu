@@ -13,25 +13,17 @@ import UIKit
 public class settingRit_a: settingCell {
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
-  override var icon: String? {
+  
+  override var model: settingCellModel? {
     get {
-      return super.icon
+      return super.model
     }
-    set(newIcon) {
-      super.icon = newIcon
-      if let icon = newIcon {
+    set (new) {
+      super.model = new
+      titleLabel.text = new?.title
+      if let icon = new?.icon {
         iconImage.sd_setImage(with: URL(string: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
       }
-    }
-  }
-  
-  override var title: String? {
-    get {
-      return super.title;
-    }
-    set(newTitle) {
-      super.title = newTitle
-      titleLabel.text = title
     }
   }
   

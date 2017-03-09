@@ -325,12 +325,13 @@ void netdb_yi::logout(CB_Func && callback) {
   logout.set_uuid(udid_);
   netyi_->logout(yijianBuffer(logout), [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop){
     callback(0, netdb_success_);
+    dbyi_->deleteCurrentUserid();
     if (ChatType::error == type) {
       auto err = chat::Error();
       err.ParseFromString(data);
       callback(err.errnum(), err.errmsg());
     }else if(ChatType::logoutres == type){
-      dbyi_->deleteCurrentUserid();
+    //  dbyi_->deleteCurrentUserid();
       callback(0, netdb_success_);
     }else {
       callback(type, data);

@@ -269,11 +269,13 @@ void connection_read_callback (struct ev_loop * loop,
         e.code().value() == 20007 ||
         e.code().value() == 20008) {
       // close node
+      isRunloopComplete_.store(false);
+      ev_timer_stop(loop, ping_timer_);
+      ev_io_stop(loop, rw);
+      outer_callback(60000, "system error need restart, and close first");
+    }else{
+      YILOG_INFO ("func: {}. unknow error in libev read callback", __func__);
     }
-    isRunloopComplete_.store(false);
-    ev_timer_stop(loop, ping_timer_);
-    ev_io_stop(loop, rw);
-    outer_callback(60000, "system error need restart, and close first");
   }catch(...) {
     printf("unknow error");
     isRunloopComplete_.store(false);

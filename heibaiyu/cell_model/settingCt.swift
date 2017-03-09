@@ -10,15 +10,16 @@ import Foundation
 import UIKit
 
 public class settingCt: settingCell {
+  
   @IBOutlet weak var titleLabel: UILabel!
   
-  override var title: String? {
+  override var model: settingCellModel? {
     get {
-      return super.title;
+      return super.model
     }
-    set(newTitle) {
-      super.title = newTitle
-      titleLabel.text = title
+    set (new) {
+      super.model = new
+      titleLabel.text = new?.title
     }
   }
   

@@ -49,6 +49,24 @@ class settingBaseController: UIViewController, UITableViewDelegate, UITableViewD
     return tableView.rowHeight
   }
   
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return UIView(frame: CGRect.zero)
+  }
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    return UIView(frame: CGRect.zero)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 15
+  }
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    if 0 == section {
+      return 15
+    }
+    return 1
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableview.tableHeaderView = UITableViewHeaderFooterView(frame: CGRect(x: 1, y: 1, width: 1, height: 1))

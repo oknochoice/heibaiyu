@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 public class settingCell: UITableViewCell {
-  var tap: ((Void) -> Void)?
-  var title: String?
-  var subTitle: String?
-  var icon: String?
+  
   private var _model: settingCellModel?
   var model: settingCellModel? {
     get {
@@ -21,10 +18,6 @@ public class settingCell: UITableViewCell {
     }
     set(newModel) {
       _model = newModel
-      title = model?.title
-      subTitle = model?.subTitle
-      icon = model?.icon
-      tap = model?.tap
     }
   }
   

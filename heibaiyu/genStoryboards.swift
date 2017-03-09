@@ -104,6 +104,15 @@ struct StoryboardScene {
   enum MeDetail: String, StoryboardSceneType {
     static let storyboardName = "MeDetail"
 
+    case genderControllerScene = "genderController"
+    static func instantiateGenderController() -> heibaiyu.genderController {
+      guard let vc = StoryboardScene.MeDetail.genderControllerScene.viewController() as? heibaiyu.genderController
+      else {
+        fatalError("ViewController 'genderController' is not of the expected class heibaiyu.genderController.")
+      }
+      return vc
+    }
+
     case meIconControllerScene = "meIconController"
     static func instantiateMeIconController() -> heibaiyu.meIconController {
       guard let vc = StoryboardScene.MeDetail.meIconControllerScene.viewController() as? heibaiyu.meIconController
@@ -118,6 +127,15 @@ struct StoryboardScene {
       guard let vc = StoryboardScene.MeDetail.meTextfieldControllerScene.viewController() as? heibaiyu.meTextfieldController
       else {
         fatalError("ViewController 'meTextfieldController' is not of the expected class heibaiyu.meTextfieldController.")
+      }
+      return vc
+    }
+
+    case meTextviewControllerScene = "meTextviewController"
+    static func instantiateMeTextviewController() -> heibaiyu.meTextviewController {
+      guard let vc = StoryboardScene.MeDetail.meTextviewControllerScene.viewController() as? heibaiyu.meTextviewController
+      else {
+        fatalError("ViewController 'meTextviewController' is not of the expected class heibaiyu.meTextviewController.")
       }
       return vc
     }

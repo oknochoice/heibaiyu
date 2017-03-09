@@ -13,23 +13,14 @@ public class settingts: settingCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   
-  override var title: String? {
+  override var model: settingCellModel? {
     get {
-      return super.title;
+      return super.model
     }
-    set(newTitle) {
-      super.title = newTitle
-      titleLabel.text = title
-    }
-  }
-  
-  override var subTitle: String? {
-    get {
-      return super.subTitle;
-    }
-    set(newSubTitle) {
-      super.subTitle = newSubTitle
-      subtitleLabel.text = subTitle
+    set (new) {
+      super.model = new
+      titleLabel.text = new?.title
+      subtitleLabel.text = new?.subTitle
     }
   }
 }

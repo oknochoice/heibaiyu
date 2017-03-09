@@ -45,7 +45,6 @@
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
 		A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FCFF1E651DA800292EDD /* meDataHelper.swift */; };
-		A402FD021E65512F00292EDD /* settingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FD011E65512F00292EDD /* settingField.swift */; };
 		A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A40FCDEA1E4C392D0044D2DA /* libz.tbd */; };
 		A40FD2731E4C415F0044D2DA /* .dirstamp in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F71E4C415E0044D2DA /* .dirstamp */; };
 		A40FD2741E4C415F0044D2DA /* any.pb.Plo in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F81E4C415E0044D2DA /* any.pb.Plo */; };
@@ -275,6 +274,12 @@
 		A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; };
 		A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A45101D81E7008A800086C62 /* userCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101D71E7008A800086C62 /* userCurrent.swift */; };
+		A45101DA1E70F33D00086C62 /* meTextviewConntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101D91E70F33D00086C62 /* meTextviewConntroller.swift */; };
+		A45101E21E7113EE00086C62 /* settingRadioCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E11E7113EE00086C62 /* settingRadioCellModel.swift */; };
+		A45101E41E71140300086C62 /* settingRadioSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E31E71140300086C62 /* settingRadioSectionModel.swift */; };
+		A45101E61E71280B00086C62 /* settingRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E51E71280B00086C62 /* settingRadio.swift */; };
+		A45101E81E7141B400086C62 /* genderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E71E7141B400086C62 /* genderController.swift */; };
+		A45101EA1E714B6000086C62 /* radioCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E91E714B6000086C62 /* radioCheckModel.swift */; };
 		A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; };
 		A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; };
@@ -408,7 +413,6 @@
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A402FCFF1E651DA800292EDD /* meDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meDataHelper.swift; sourceTree = "<group>"; };
-		A402FD011E65512F00292EDD /* settingField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingField.swift; sourceTree = "<group>"; };
 		A40FCDEA1E4C392D0044D2DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A40FD0F41E4C415E0044D2DA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A40FD0F71E4C415E0044D2DA /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
@@ -789,6 +793,12 @@
 		A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meTextfieldController.swift; sourceTree = "<group>"; };
 		A448F1C71E69849F00DCAB5D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		A45101D71E7008A800086C62 /* userCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userCurrent.swift; sourceTree = "<group>"; };
+		A45101D91E70F33D00086C62 /* meTextviewConntroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meTextviewConntroller.swift; sourceTree = "<group>"; };
+		A45101E11E7113EE00086C62 /* settingRadioCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingRadioCellModel.swift; sourceTree = "<group>"; };
+		A45101E31E71140300086C62 /* settingRadioSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingRadioSectionModel.swift; sourceTree = "<group>"; };
+		A45101E51E71280B00086C62 /* settingRadio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingRadio.swift; sourceTree = "<group>"; };
+		A45101E71E7141B400086C62 /* genderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genderController.swift; sourceTree = "<group>"; };
+		A45101E91E714B6000086C62 /* radioCheckModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radioCheckModel.swift; sourceTree = "<group>"; };
 		A468CEF01E4845910017D266 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
@@ -1616,6 +1626,9 @@
 			children = (
 				A448F1BA1E681AC500DCAB5D /* meIconController.swift */,
 				A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */,
+				A45101D91E70F33D00086C62 /* meTextviewConntroller.swift */,
+				A45101E71E7141B400086C62 /* genderController.swift */,
+				A45101E91E714B6000086C62 /* radioCheckModel.swift */,
 			);
 			path = meDetail;
 			sourceTree = "<group>";
@@ -1948,9 +1961,11 @@
 				A4E75A761E4B1FD800C5FC66 /* settingRit_a.swift */,
 				A4E75A771E4B1FD800C5FC66 /* settingts.swift */,
 				A4E75A781E4B1FD800C5FC66 /* settingts_a.swift */,
-				A402FD011E65512F00292EDD /* settingField.swift */,
+				A45101E51E71280B00086C62 /* settingRadio.swift */,
 				A4E75A801E4B1FED00C5FC66 /* settingCellModel.swift */,
+				A45101E11E7113EE00086C62 /* settingRadioCellModel.swift */,
 				A4E75A821E4B206100C5FC66 /* settingSectionModel.swift */,
+				A45101E31E71140300086C62 /* settingRadioSectionModel.swift */,
 			);
 			path = cell_model;
 			sourceTree = "<group>";
@@ -2190,6 +2205,7 @@
 				A448F1BB1E681AC500DCAB5D /* meIconController.swift in Sources */,
 				A40FD2C81E4C415F0044D2DA /* parser.cc in Sources */,
 				A40FD2BA1E4C415F0044D2DA /* cpp_extension.cc in Sources */,
+				A45101E41E71140300086C62 /* settingRadioSectionModel.swift in Sources */,
 				A40FD2D81E4C415F0044D2DA /* extension_set_heavy.cc in Sources */,
 				A40FD33E1E4C415F0044D2DA /* proto_writer.cc in Sources */,
 				A40FD2D41E4C415F0044D2DA /* dynamic_message.cc in Sources */,
@@ -2204,6 +2220,7 @@
 				A40FD33A1E4C415F0044D2DA /* json_escaping.cc in Sources */,
 				A40FD2CC1E4C415F0044D2DA /* subprocess.cc in Sources */,
 				A40FD2EF1E4C415F0044D2DA /* map_field.cc in Sources */,
+				A45101E81E7141B400086C62 /* genderController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A40FD2D11E4C415F0044D2DA /* descriptor_database.cc in Sources */,
 				A40FD3451E4C415F0044D2DA /* message_differencer.cc in Sources */,
@@ -2219,6 +2236,7 @@
 				2373E14F1E3E43870055136C /* genL10n.swift in Sources */,
 				A4E75A811E4B1FED00C5FC66 /* settingCellModel.swift in Sources */,
 				A40FD33F1E4C415F0044D2DA /* protostream_objectsource.cc in Sources */,
+				A45101DA1E70F33D00086C62 /* meTextviewConntroller.swift in Sources */,
 				A4E75A7F1E4B1FD800C5FC66 /* settingts_a.swift in Sources */,
 				A40FD3441E4C415F0044D2DA /* json_util.cc in Sources */,
 				A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */,
@@ -2248,7 +2266,6 @@
 				A47B038F1E5AAF1900F66C59 /* NSData+MD5Digest.m in Sources */,
 				A4E75A7B1E4B1FD800C5FC66 /* settingLit_a.swift in Sources */,
 				A49F80BD1E6172AE00C67730 /* FSImageCropView.swift in Sources */,
-				A402FD021E65512F00292EDD /* settingField.swift in Sources */,
 				A40FD2D71E4C415F0044D2DA /* extension_set.cc in Sources */,
 				A40FD3511E4C49310044D2DA /* netdb_yi.cpp in Sources */,
 				A47B03911E5AAF1900F66C59 /* UPHTTPBodyPart.m in Sources */,
@@ -2261,6 +2278,7 @@
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
 				A40FD2B81E4C415F0044D2DA /* cpp_enum.cc in Sources */,
 				A40FD3411E4C415F0044D2DA /* type_info.cc in Sources */,
+				A45101E61E71280B00086C62 /* settingRadio.swift in Sources */,
 				A40FD2D51E4C415F0044D2DA /* empty.pb.cc in Sources */,
 				2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */,
 				A40FD3261E4C415F0044D2DA /* field_mask_util.cc in Sources */,
@@ -2285,6 +2303,7 @@
 				A40FD31C1E4C415F0044D2DA /* unknown_field_set.cc in Sources */,
 				A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */,
 				A40FD30F1E4C415F0044D2DA /* status.cc in Sources */,
+				A45101EA1E714B6000086C62 /* radioCheckModel.swift in Sources */,
 				A40FD2C91E4C415F0044D2DA /* plugin.cc in Sources */,
 				A40FD2F21E4C415F0044D2DA /* reflection_ops.cc in Sources */,
 				A40FD2E81E4C415F0044D2DA /* gzip_stream.cc in Sources */,
@@ -2326,6 +2345,7 @@
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				A4E75A7E1E4B1FD800C5FC66 /* settingts.swift in Sources */,
 				A40FD30A1E4C415F0044D2DA /* atomicops_internals_x86_msvc.cc in Sources */,
+				A45101E21E7113EE00086C62 /* settingRadioCellModel.swift in Sources */,
 				A40FD34E1E4C41D00044D2DA /* bytestream.cc in Sources */,
 				A40FD29B1E4C415F0044D2DA /* arenastring.cc in Sources */,
 				A40FD2DC1E4C415F0044D2DA /* generated_message_util.cc in Sources */,

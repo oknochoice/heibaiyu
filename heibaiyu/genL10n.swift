@@ -45,18 +45,26 @@ enum L10n {
   static let signupSuccess = L10n.tr("signup_success")
   /// 验证码长度需>=4
   static let signupVerifiycoeLimit = L10n.tr("signup_verifiycoe_limit")
+  /// 成功
+  static let success = L10n.tr("success")
   /// 生日:
   static let userBirthday = L10n.tr("user_birthday")
   /// 个性签名:
   static let userDesc = L10n.tr("user_desc")
   /// 性别:
   static let userGender = L10n.tr("user_gender")
+  /// 女
+  static let userGenderFemale = L10n.tr("user_gender_female")
+  /// 男
+  static let userGenderMale = L10n.tr("user_gender_male")
   /// 头像:
   static let userIcon = L10n.tr("user_icon")
   /// 头像
   static let userIconTitle = L10n.tr("user_icon_title")
   /// 个人信息
   static let userInfoTitle = L10n.tr("user_info_title")
+  /// 退出
+  static let userLogout = L10n.tr("user_logout")
   /// 昵称:
   static let userNickname = L10n.tr("user_nickname")
   /// 姓名:
