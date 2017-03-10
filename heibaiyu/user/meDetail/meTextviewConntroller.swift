@@ -8,15 +8,11 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 class meTextviewController: UIViewController {
   var text: String?
   
   var save:((_ text: String, _ success: @escaping (() -> Void)) -> Void)?
-  
-  let disposeBag = DisposeBag()
   
   @IBOutlet weak var textview: UITextView!
   
@@ -30,26 +26,34 @@ class meTextviewController: UIViewController {
     textview.textContainerInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     textview.becomeFirstResponder()
     
-    let rightButton = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil )
+    let rightButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(rightTap))
     self.navigationItem.rightBarButtonItem = rightButton
-    rightButton.rx.tap.subscribe(onNext: {[weak self] in
-      if let save = self?.save {
-        save((self?.textview.text!)!, {
-          let _ = self?.navigationController?.popViewController(animated: true)
-        })
-      }
-    }).disposed(by: disposeBag)
     
-    textview.rx.text.orEmpty.map { (text) -> Bool in
-      return text.characters.count < 100 && text.characters.count > 0
-    }.map { (isLengthValid) -> Color in
-      return isLengthValid ? Color.black : Color.red
-    }.subscribe(onNext: {[weak self] (color) in
-      self?.textview.textColor = color
-    }).disposed(by: disposeBag)
+    NotificationCenter.default.addObserver(self, selector: #selector(changeColor), name: .UITextViewTextDidChange, object: textview)
+    
+  }
+  
+  func rightTap() {
+    if let save = self.save {
+      save((self.textview.text!), {
+        let _ = self.navigationController?.popViewController(animated: true)
+      })
+    }
+  }
+  
+  func changeColor() {
+    if let length = textview.text?.characters.count {
+      if length < 100 && length > 0 {
+        textview.textColor = Color.black
+      }else {
+        textview.textColor = Color.red
+      }
+    }
   }
   
   deinit {
     blog.verbose()
   }
 }
+
+

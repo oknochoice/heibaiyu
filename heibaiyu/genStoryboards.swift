@@ -83,15 +83,6 @@ struct StoryboardScene {
       return vc
     }
 
-    case searchControllerScene = "searchController"
-    static func instantiateSearchController() -> heibaiyu.searchController {
-      guard let vc = StoryboardScene.Main.searchControllerScene.viewController() as? heibaiyu.searchController
-      else {
-        fatalError("ViewController 'searchController' is not of the expected class heibaiyu.searchController.")
-      }
-      return vc
-    }
-
     case tabbarControllerScene = "tabbarController"
     static func instantiateTabbarController() -> UITabBarController {
       guard let vc = StoryboardScene.Main.tabbarControllerScene.viewController() as? UITabBarController
@@ -136,6 +127,27 @@ struct StoryboardScene {
       guard let vc = StoryboardScene.MeDetail.meTextviewControllerScene.viewController() as? heibaiyu.meTextviewController
       else {
         fatalError("ViewController 'meTextviewController' is not of the expected class heibaiyu.meTextviewController.")
+      }
+      return vc
+    }
+  }
+  enum Search: String, StoryboardSceneType {
+    static let storyboardName = "Search"
+
+    case friendInfoControllerScene = "friendInfoController"
+    static func instantiateFriendInfoController() -> heibaiyu.friendInfoController {
+      guard let vc = StoryboardScene.Search.friendInfoControllerScene.viewController() as? heibaiyu.friendInfoController
+      else {
+        fatalError("ViewController 'friendInfoController' is not of the expected class heibaiyu.friendInfoController.")
+      }
+      return vc
+    }
+
+    case searchResultControllerScene = "searchResultController"
+    static func instantiateSearchResultController() -> heibaiyu.searchResultController {
+      guard let vc = StoryboardScene.Search.searchResultControllerScene.viewController() as? heibaiyu.searchResultController
+      else {
+        fatalError("ViewController 'searchResultController' is not of the expected class heibaiyu.searchResultController.")
       }
       return vc
     }

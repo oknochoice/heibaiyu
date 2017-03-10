@@ -14,6 +14,7 @@ public class settingCellModel {
   var title: String?
   var subTitle: String?
   var icon: String?
+  var iconImage: UIImage?
   var cellIdentifier: String!
   var cellHeight: CGFloat?
 }

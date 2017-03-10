@@ -22,6 +22,8 @@ public class settingLit_a: settingCell {
       titleLabel.text = new?.title
       if let icon = new?.icon {
         iconImage.sd_setImage(with: URL(string: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
+      }else if let image = new?.iconImage {
+        iconImage.image = image
       }
     }
   }

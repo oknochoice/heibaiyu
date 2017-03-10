@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 class meTextfieldController: UIViewController {
   
@@ -16,7 +14,6 @@ class meTextfieldController: UIViewController {
   
   var save:((_ text: String, _ success: @escaping (() -> Void)) -> Void)?
   
-  let disposeBag = DisposeBag()
   @IBOutlet weak var textfield: UITextField!
   
   
@@ -26,23 +23,29 @@ class meTextfieldController: UIViewController {
     textfield.text = text
     textfield.becomeFirstResponder()
     
-    let rightButton = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil )
+    let rightButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(rightTap))
     self.navigationItem.rightBarButtonItem = rightButton
-    rightButton.rx.tap.subscribe(onNext: {[weak self] in
-      if let save = self?.save {
-        save((self?.textfield.text!)!, {
-          let _ = self?.navigationController?.popViewController(animated: true)
-        })
-      }
-    }).disposed(by: disposeBag)
     
-    textfield.rx.text.orEmpty.map { (text) -> Bool in
-      return text.characters.count < 15 && text.characters.count > 0
-    }.map { (isLengthValid) -> Color in
-      return isLengthValid ? Color.black : Color.red
-    }.subscribe(onNext: {[weak self] (color) in
-      self?.textfield.textColor = color
-    }).disposed(by: disposeBag)
+    NotificationCenter.default.addObserver(self, selector: #selector(changeColor), name: .UITextFieldTextDidChange, object: textfield)
+    
+  }
+  
+  func changeColor() {
+    if let length = textfield.text?.characters.count {
+      if length < 15 && length > 0 {
+        textfield.textColor = Color.black
+      }else {
+        textfield.textColor = Color.red
+      }
+    }
+  }
+  
+  func rightTap() {
+    if let save = self.save {
+      save((self.textfield.text!), {
+        let _ = self.navigationController?.popViewController(animated: true)
+      })
+    }
   }
   
   deinit {

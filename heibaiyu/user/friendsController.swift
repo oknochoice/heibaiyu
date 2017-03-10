@@ -10,10 +10,28 @@ import UIKit
 
 class friendsController: UIViewController {
 
+  @IBOutlet weak var tableview: UITableView!
+  
+  lazy var searchController: UISearchController = {
+    let search = UISearchController(searchResultsController: StoryboardScene.Search.instantiateSearchResultController())
+    search.searchResultsUpdater = self
+    search.dimsBackgroundDuringPresentation = true
+    search.hidesNavigationBarDuringPresentation = true
+    self.definesPresentationContext = true
+    return search
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
+    
+    let searchbar = searchController.searchBar
+    tableview.tableHeaderView = searchbar
+    searchbar.autocorrectionType = .no
+    searchbar.autocapitalizationType = .none
+    searchbar.spellCheckingType = .no
+    searchbar.sizeToFit()
+    searchbar.delegate = self
+    
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -21,13 +39,12 @@ class friendsController: UIViewController {
     self.tabBarController?.tabBar.isHidden = false
   }
   
-  @IBAction func addFriend(_ sender: UIBarButtonItem) {
-    self.navigationController?.pushViewController(StoryboardScene.Main.instantiateSearchController(), animated: true)
-  }
-    
-  //MARK: - delegate datasource
+}
+
+//MARK: - delegate datasource
+extension friendsController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return 0
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,19 +54,19 @@ class friendsController: UIViewController {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return UITableViewCell()
   }
+  
+}
 
-    /*
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+extension friendsController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    updateSearchResults(for: searchController)
   }
-  // MARK: - Navigation
+}
 
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+extension friendsController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    if let controller = searchController.searchResultsController as? searchResultController {
+      controller.load(keyword: searchController.searchBar.text)
+    }
   }
-  */
-
 }

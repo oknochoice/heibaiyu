@@ -29,6 +29,8 @@ enum L10n {
   static let photoUploadSuccess = L10n.tr("photo_upload_success")
   /// 添加好友
   static let searchAddFriend = L10n.tr("search_addFriend")
+  /// 网络查找手机号
+  static let searchFriendTip = L10n.tr("search_friend_tip")
   /// 登录
   static let signinSignin = L10n.tr("signin_signin")
   /// 获取验证码
