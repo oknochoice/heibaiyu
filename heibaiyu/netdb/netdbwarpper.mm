@@ -204,11 +204,39 @@ static leveldb_yi * db_ = nil;
   }
 }
 
+- (nullable NSData*)dbGetUser:(NSString*)userid {
+  try {
+    auto user = db_->get(db_->userKey(std::string([userid UTF8String])));
+    return [NSData dataWithBytes:user.data() length:user.size()];
+  } catch (...) {
+    return nil;
+  }
+}
+
+- (nullable NSString*)dbGetUserid:(NSString*)phoneno :(NSString*)countrycode {
+  try {
+    auto userid = db_->getUserid(std::string([countrycode UTF8String]), std::string([phoneno UTF8String]));
+    return [NSString stringWithCString:userid.data() encoding:NSUTF8StringEncoding];
+  } catch (...) {
+    return nil;
+  }
+  
+}
+
 - (nullable NSString*)dbGetMediapath:(NSString*)md5 {
   try {
     auto path = db_->getMediaPath(std::string([md5 UTF8String]));
     return [NSString stringWithCString:path.data() encoding:NSUTF8StringEncoding];
   } catch (...) {
+    return nil;
+  }
+}
+
+- (nullable NSData*)dbGetAddfriends {
+  try {
+    auto friends = db_->get(db_->addFriendInfoKey());
+    return [NSData dataWithBytes:friends.data() length:friends.size()];
+  }catch (...) {
     return nil;
   }
 }

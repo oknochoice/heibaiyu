@@ -32,8 +32,20 @@ class searchResultController: settingBaseController {
     search.title = L10n.searchFriendTip
     search.subTitle = keyword
     search.tap = {
-      let friendinfo = StoryboardScene.Search.instantiateFriendInfoController()
-      self.present(friendinfo, animated: true, completion: nil)
+      guard keyword != nil else {
+        return
+      }
+      netdbwarpper.sharedNetdb().getUser(keyword!, "86", { (errno, errmsg) in
+        DispatchQueue.main.async {
+          if 0 == errno {
+            let friendinfo = StoryboardScene.Search.instantiateFriendInfoController()
+            let nav = UINavigationController(rootViewController: friendinfo)
+            self.present(nav, animated: true, completion: nil)
+          }else {
+            errorLocal.error(err_no: errno, orMsg: errmsg)
+          }
+        }
+      })
     }
     
     section.cellModels = [search]

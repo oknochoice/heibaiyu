@@ -25,6 +25,8 @@ public:
   chat::User getUser(const std::string & id);
   chat::User getUser(const std::string & countrycode,
                const std::string & phoneno);
+  std::string getUserid(const std::string & countrycode,
+               const std::string & phoneno);
   chat::User getCurrentUser();
   
   void putCurrentUserid(const std::string & userid);

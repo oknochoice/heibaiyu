@@ -13,6 +13,16 @@ import Foundation
 enum L10n {
   /// 取消
   static let cancel = L10n.tr("cancel")
+  /// 已同意
+  static let friendAddAuthorized = L10n.tr("friend_add_authorized")
+  /// 添加请求已发送
+  static let friendAddQuerySended = L10n.tr("friend_add_query_sended")
+  /// 添加
+  static let friendStatusAdd = L10n.tr("friend_status_add")
+  /// 已添加
+  static let friendStatusAdded = L10n.tr("friend_status_added")
+  /// 同意
+  static let friendStatusAuthorize = L10n.tr("friend_status_authorize")
   /// 相册
   static let photoLocal = L10n.tr("photo_local")
   /// 保存至相册

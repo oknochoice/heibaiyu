@@ -95,6 +95,15 @@ struct StoryboardScene {
   enum MeDetail: String, StoryboardSceneType {
     static let storyboardName = "MeDetail"
 
+    case addFriendInfolistControllerScene = "addFriendInfolistController"
+    static func instantiateAddFriendInfolistController() -> heibaiyu.addFriendInfolistController {
+      guard let vc = StoryboardScene.MeDetail.addFriendInfolistControllerScene.viewController() as? heibaiyu.addFriendInfolistController
+      else {
+        fatalError("ViewController 'addFriendInfolistController' is not of the expected class heibaiyu.addFriendInfolistController.")
+      }
+      return vc
+    }
+
     case genderControllerScene = "genderController"
     static func instantiateGenderController() -> heibaiyu.genderController {
       guard let vc = StoryboardScene.MeDetail.genderControllerScene.viewController() as? heibaiyu.genderController

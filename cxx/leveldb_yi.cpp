@@ -57,17 +57,22 @@ chat::User leveldb_yi::getUser(const std::string & id) {
   return user;
 }
 
+std::string leveldb_yi::getUserid(const std::string & countrycode,
+                      const std::string & phoneno) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto key = userPhoneKey(countrycode, phoneno);
+  return get(key);
+}
 chat::User leveldb_yi::getUser(const std::string & countrycode,
                                const std::string & phoneno) {
   YILOG_TRACE ("func: {}", __func__);
-  auto key = userPhoneKey(countrycode, phoneno);
-  auto userid = get(key);
-  return getUser(userid);
+  return getUser(getUserid(countrycode, phoneno));
 }
 chat::User leveldb_yi::getCurrentUser() {
   YILOG_TRACE ("func: {}", __func__);
   return getUser(getCurrentUserid());
 }
+
 void leveldb_yi::putCurrentDevice(const chat::Device & device) {
   auto value = device.SerializeAsString();
   put("current_device", value);

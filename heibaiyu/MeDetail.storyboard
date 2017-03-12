@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -185,8 +186,90 @@
             </objects>
             <point key="canvasLocation" x="1939" y="190"/>
         </scene>
+        <!--Add Friend Infolist Controller-->
+        <scene sceneID="NV2-mr-ETr">
+            <objects>
+                <viewController storyboardIdentifier="addFriendInfolistController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ozS-QS-LXe" customClass="addFriendInfolistController" customModule="heibaiyu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B4h-xO-rd8"/>
+                        <viewControllerLayoutGuide type="bottom" id="OHL-uE-T35"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hps-M6-uCX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n4Z-ah-X82">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingAddfriendInfo" rowHeight="64" id="V8B-zP-nrp" customClass="settingAddfriendInfo" customModule="heibaiyu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V8B-zP-nrp" id="b4o-dj-Hem">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-Cb-Uap">
+                                                    <rect key="frame" x="15" y="5" width="53.5" height="53.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iHg-Cb-Uap" secondAttribute="height" multiplier="1:1" id="0Ho-cc-eZc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friend nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eN8-Pp-kXa">
+                                                    <rect key="frame" x="78.5" y="0.0" width="201.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aca-UG-ObX">
+                                                    <rect key="frame" x="280" y="0.0" width="80" height="63.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="tJI-dM-L3d"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="已邀请"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iHg-Cb-Uap" firstAttribute="top" secondItem="b4o-dj-Hem" secondAttribute="top" constant="5" id="4kD-GL-1B4"/>
+                                                <constraint firstItem="eN8-Pp-kXa" firstAttribute="leading" secondItem="iHg-Cb-Uap" secondAttribute="trailing" constant="10" id="6UB-lx-lt5"/>
+                                                <constraint firstAttribute="trailing" secondItem="aca-UG-ObX" secondAttribute="trailing" constant="15" id="9uf-oS-du2"/>
+                                                <constraint firstItem="eN8-Pp-kXa" firstAttribute="top" secondItem="b4o-dj-Hem" secondAttribute="top" id="D3j-fJ-NHp"/>
+                                                <constraint firstAttribute="bottom" secondItem="iHg-Cb-Uap" secondAttribute="bottom" constant="5" id="GGF-Fj-ywe"/>
+                                                <constraint firstItem="aca-UG-ObX" firstAttribute="leading" secondItem="eN8-Pp-kXa" secondAttribute="trailing" id="LzN-aK-g3e"/>
+                                                <constraint firstItem="iHg-Cb-Uap" firstAttribute="leading" secondItem="b4o-dj-Hem" secondAttribute="leading" constant="15" id="bEe-hH-590"/>
+                                                <constraint firstItem="aca-UG-ObX" firstAttribute="top" secondItem="b4o-dj-Hem" secondAttribute="top" id="bXD-ll-5R5"/>
+                                                <constraint firstAttribute="bottom" secondItem="eN8-Pp-kXa" secondAttribute="bottom" id="iiq-dN-A8v"/>
+                                                <constraint firstAttribute="bottom" secondItem="aca-UG-ObX" secondAttribute="bottom" id="q0f-qW-mGA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendStatus" destination="aca-UG-ObX" id="KkR-ra-RX5"/>
+                                            <outlet property="icon" destination="iHg-Cb-Uap" id="Luf-jW-h9G"/>
+                                            <outlet property="iconImage" destination="iHg-Cb-Uap" id="g3J-eA-83p"/>
+                                            <outlet property="title" destination="eN8-Pp-kXa" id="DWj-sJ-kgh"/>
+                                            <outlet property="titleLabel" destination="eN8-Pp-kXa" id="RwU-nc-11G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n4Z-ah-X82" firstAttribute="top" secondItem="hps-M6-uCX" secondAttribute="top" id="aTc-kg-F92"/>
+                            <constraint firstItem="OHL-uE-T35" firstAttribute="top" secondItem="n4Z-ah-X82" secondAttribute="bottom" id="beT-pB-sWF"/>
+                            <constraint firstAttribute="trailing" secondItem="n4Z-ah-X82" secondAttribute="trailing" id="cHT-qQ-SUP"/>
+                            <constraint firstItem="n4Z-ah-X82" firstAttribute="leading" secondItem="hps-M6-uCX" secondAttribute="leading" id="tij-7Z-x8r"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYu-ll-i9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2701.5999999999999" y="181.25937031484258"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="placeholderimage" width="156" height="156"/>
         <image name="successful" width="35" height="35"/>
     </resources>
 </document>

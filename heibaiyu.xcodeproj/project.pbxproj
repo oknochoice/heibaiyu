@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230D74C11E75243A00BD2F0A /* addFriendInfolistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C01E75243A00BD2F0A /* addFriendInfolistController.swift */; };
+		230D74C31E75250700BD2F0A /* settingAddfriendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C21E75250700BD2F0A /* settingAddfriendInfo.swift */; };
+		230D74C51E75A26500BD2F0A /* settingAddfriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C41E75A26500BD2F0A /* settingAddfriendModel.swift */; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -325,7 +328,6 @@
 		A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ACAD221E2F8E5C00E7BE41 /* libev.a */; };
 		A4B93D4D1E4D5FBA00E2B480 /* leveldb_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */; };
 		A4E75A4F1E49598700C5FC66 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A4E1E49598700C5FC66 /* error.swift */; };
-		A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A501E499A2C00C5FC66 /* addFriendController.swift */; };
 		A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */; };
 		A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A541E4AC7B700C5FC66 /* genColors.swift */; };
 		A4E75A591E4AE87500C5FC66 /* meController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A581E4AE87500C5FC66 /* meController.swift */; };
@@ -369,6 +371,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230D74C01E75243A00BD2F0A /* addFriendInfolistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addFriendInfolistController.swift; sourceTree = "<group>"; };
+		230D74C21E75250700BD2F0A /* settingAddfriendInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingAddfriendInfo.swift; sourceTree = "<group>"; };
+		230D74C41E75A26500BD2F0A /* settingAddfriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingAddfriendModel.swift; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -947,7 +952,6 @@
 		A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = leveldb_yi.cpp; sourceTree = "<group>"; };
 		A4B93D4C1E4D5FBA00E2B480 /* leveldb_yi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = leveldb_yi.hpp; sourceTree = "<group>"; };
 		A4E75A4E1E49598700C5FC66 /* error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
-		A4E75A501E499A2C00C5FC66 /* addFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addFriendController.swift; sourceTree = "<group>"; };
 		A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchResultController.swift; sourceTree = "<group>"; };
 		A4E75A541E4AC7B700C5FC66 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = "<group>"; };
 		A4E75A581E4AE87500C5FC66 /* meController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meController.swift; sourceTree = "<group>"; };
@@ -1079,7 +1083,6 @@
 				A4E75A6D1E4B160F00C5FC66 /* settingBaseController.swift */,
 				A4E75A581E4AE87500C5FC66 /* meController.swift */,
 				A402FCFF1E651DA800292EDD /* meDataHelper.swift */,
-				A4E75A501E499A2C00C5FC66 /* addFriendController.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -1616,6 +1619,7 @@
 				A45101D91E70F33D00086C62 /* meTextviewConntroller.swift */,
 				A45101E71E7141B400086C62 /* genderController.swift */,
 				A45101E91E714B6000086C62 /* radioCheckModel.swift */,
+				230D74C01E75243A00BD2F0A /* addFriendInfolistController.swift */,
 			);
 			path = meDetail;
 			sourceTree = "<group>";
@@ -1950,7 +1954,9 @@
 				A4E75A771E4B1FD800C5FC66 /* settingts.swift */,
 				A4E75A781E4B1FD800C5FC66 /* settingts_a.swift */,
 				A45101E51E71280B00086C62 /* settingRadio.swift */,
+				230D74C21E75250700BD2F0A /* settingAddfriendInfo.swift */,
 				A4E75A801E4B1FED00C5FC66 /* settingCellModel.swift */,
+				230D74C41E75A26500BD2F0A /* settingAddfriendModel.swift */,
 				A45101E11E7113EE00086C62 /* settingRadioCellModel.swift */,
 				A4E75A821E4B206100C5FC66 /* settingSectionModel.swift */,
 				A45101E31E71140300086C62 /* settingRadioSectionModel.swift */,
@@ -2210,6 +2216,7 @@
 				A40FD2CC1E4C415F0044D2DA /* subprocess.cc in Sources */,
 				A40FD2EF1E4C415F0044D2DA /* map_field.cc in Sources */,
 				A45101E81E7141B400086C62 /* genderController.swift in Sources */,
+				230D74C11E75243A00BD2F0A /* addFriendInfolistController.swift in Sources */,
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A40FD2D11E4C415F0044D2DA /* descriptor_database.cc in Sources */,
 				A40FD3451E4C415F0044D2DA /* message_differencer.cc in Sources */,
@@ -2262,6 +2269,7 @@
 				A4A66CF01E322B64001A25D7 /* lib_client.cpp in Sources */,
 				A40FD3421E4C415F0044D2DA /* utility.cc in Sources */,
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
+				230D74C51E75A26500BD2F0A /* settingAddfriendModel.swift in Sources */,
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */,
 				A40FD30D1E4C415F0044D2DA /* mathlimits.cc in Sources */,
@@ -2288,7 +2296,6 @@
 				A40FD3481E4C415F0044D2DA /* wire_format.cc in Sources */,
 				2373E1991E40A1C60055136C /* SwiftTimer.swift in Sources */,
 				A49F80BA1E6172AE00C67730 /* FSCameraView.swift in Sources */,
-				A4E75A511E499A2C00C5FC66 /* addFriendController.swift in Sources */,
 				A40FD30B1E4C415F0044D2DA /* common.cc in Sources */,
 				A40FD31C1E4C415F0044D2DA /* unknown_field_set.cc in Sources */,
 				A484AED91E5BF3DC006EBA06 /* libev_timer.cxx in Sources */,
@@ -2331,6 +2338,7 @@
 				A40FD2F11E4C415F0044D2DA /* message_lite.cc in Sources */,
 				A4E75A591E4AE87500C5FC66 /* meController.swift in Sources */,
 				A40FD3151E4C415F0044D2DA /* substitute.cc in Sources */,
+				230D74C31E75250700BD2F0A /* settingAddfriendInfo.swift in Sources */,
 				A40FD2991E4C415F0044D2DA /* arena.cc in Sources */,
 				A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */,
 				A4E75A7E1E4B1FD800C5FC66 /* settingts.swift in Sources */,
