@@ -49,8 +49,20 @@ extension meModel {
           pushvc.navigationController?.pushViewController(userinfovc, animated: true)
         }
       }
-      // add cell to section
       meSModel.cellModels = [meCModel]
+      
+      // friend add info  Section
+      let addfriendInfoSection = settingSectionModel()
+      let addfriendCell = settingCellModel()
+      addfriendCell.cellIdentifier = "settingLit_a"
+      addfriendCell.title = L10n.friendInfoQuerys
+      addfriendCell.tap = {
+        if let pushvc = vc {
+          let friendsQuerys = StoryboardScene.MeDetail.instantiateAddFriendInfolistController()
+          pushvc.navigationController?.pushViewController(friendsQuerys, animated: true)
+        }
+      }
+      addfriendInfoSection.cellModels = [addfriendCell]
       
       // quit section
       let quitSmodel = settingSectionModel()
@@ -66,10 +78,9 @@ extension meModel {
           }
         })
       }
-      
       quitSmodel.cellModels = [quit]
       
-      me.sections = [meSModel, quitSmodel]
+      me.sections = [meSModel, addfriendInfoSection, quitSmodel]
       return me
     }
     return reCluture

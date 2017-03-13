@@ -60,4 +60,5 @@
 "friend_status_authorize" = "同意";
 "friend_add_query_sended" = "添加请求已发送";
 "friend_add_authorized" = "已同意";
+"friend_info_querys" = "好友请求";
 

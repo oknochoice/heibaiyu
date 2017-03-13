@@ -129,8 +129,7 @@ bool buffer::socket_read(SSL * sfd) {
       YILOG_TRACE ("func: {}, type: {}, length: {}", 
           __func__, data_type_, pair.first);
 
-      long readed = PADDING_LENGTH - (pair.second - header_pos_);
-
+      long readed = current_pos_ - data_pos_;
       remain_data_length_ = pair.first - readed;
       isParseFinish_ = true;
 
@@ -323,6 +322,9 @@ std::size_t buffer::socket_write(int sfd, char * pos, std::size_t count) {
 
 std::size_t buffer::socket_read(SSL * ssl, char * pos, std::size_t count) {
   YILOG_TRACE("func: {}", __func__);
+  if (count == 0) {
+    return 0;
+  }
   int readed = SSL_read(ssl, pos, count);
   if (0 < readed) {
     YILOG_TRACE("func: {}, readed: {}", __func__, readed);

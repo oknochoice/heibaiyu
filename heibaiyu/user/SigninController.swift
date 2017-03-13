@@ -15,20 +15,28 @@ class SigninController: UIViewController {
   @IBOutlet weak var password: UITextField!
   
   @IBOutlet weak var signinButton: IndicatorButton!
-    override func viewDidLoad() {
-      super.viewDidLoad()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-      // Do any additional setup after loading the view.
-      signinButton.greenbackWhiteword()
-      signinButton.title(title: L10n.signinSignin)
-      let tap = UITapGestureRecognizer(target: self, action: #selector(resignFirstResponse))
-      self.view.addGestureRecognizer(tap)
-      if (self.phoneno.text?.isEmpty)! {
-        self.phoneno.becomeFirstResponder()
-      }else {
-        self.password.becomeFirstResponder()
-      }
+    // Do any additional setup after loading the view.
+    signinButton.greenbackWhiteword()
+    signinButton.title(title: L10n.signinSignin)
+    let tap = UITapGestureRecognizer(target: self, action: #selector(resignFirstResponse))
+    self.view.addGestureRecognizer(tap)
+    if (self.phoneno.text?.isEmpty)! {
+      self.phoneno.becomeFirstResponder()
+    }else {
+      self.password.becomeFirstResponder()
     }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    phoneno.resignFirstResponder()
+    password.resignFirstResponder()
+  }
+  
   func resignFirstResponse() {
     self.phoneno.resignFirstResponder()
     self.password.resignFirstResponder()

@@ -8,10 +8,8 @@
 
 import UIKit
 
-class friendsController: UIViewController {
+class friendsController: settingBaseController {
 
-  @IBOutlet weak var tableview: UITableView!
-  
   lazy var searchController: UISearchController = {
     let search = UISearchController(searchResultsController: StoryboardScene.Search.instantiateSearchResultController())
     search.searchResultsUpdater = self
@@ -32,6 +30,8 @@ class friendsController: UIViewController {
     searchbar.sizeToFit()
     searchbar.delegate = self
     
+    loadFriends()
+    
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -39,20 +39,8 @@ class friendsController: UIViewController {
     self.tabBarController?.tabBar.isHidden = false
   }
   
-}
-
-//MARK: - delegate datasource
-extension friendsController: UITableViewDelegate, UITableViewDataSource{
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 0
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+  func loadFriends() {
+    tableview.reloadData()
   }
   
 }

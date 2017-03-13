@@ -37,6 +37,13 @@ class SignupController: UIViewController {
       self.phoneno.becomeFirstResponder()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    phoneno.resignFirstResponder()
+    password.resignFirstResponder()
+    verifycode.resignFirstResponder()
+  }
+  
   @IBAction func dismiss(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -119,6 +126,8 @@ class SignupController: UIViewController {
     countdownTimer.reCountDown()
     countdownTimer.start()
   }
+  
+  
     /*
     // MARK: - Navigation
 

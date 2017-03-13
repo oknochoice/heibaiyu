@@ -13,36 +13,32 @@ class settingBaseController: UIViewController, UITableViewDelegate, UITableViewD
   
   @IBOutlet weak var tableview: UITableView!
   
-  var tableDatas: [settingSectionModel]?
+  var tableDatas: [settingSectionModel] = []
   
   //MARK: - delegate datasource
   func numberOfSections(in tableView: UITableView) -> Int {
-    if tableDatas != nil {
-      return tableDatas!.count
-    }else {
-      return 0
-    }
+    return tableDatas.count
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tableDatas![section].cellModels!.count
+    return tableDatas[section].cellModels.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let model = tableDatas![indexPath.section].cellModels![indexPath.row]
+    let model = tableDatas[indexPath.section].cellModels[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier!, for: indexPath)
     (cell as! settingCell).model = model
     return cell
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let action = tableDatas![indexPath.section].cellModels![indexPath.row].tap {
+    if let action = tableDatas[indexPath.section].cellModels[indexPath.row].tap {
       action()
     }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let model = tableDatas![indexPath.section].cellModels![indexPath.row]
+    let model = tableDatas[indexPath.section].cellModels[indexPath.row]
     if let height = model.cellHeight {
       return height
     }

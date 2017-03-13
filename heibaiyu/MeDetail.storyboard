@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -179,7 +179,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableview" destination="0ZY-3C-4Xc" id="myv-CE-eeA"/>
+                        <outlet property="tableview" destination="0ZY-3C-4Xc" id="nKT-ak-m9r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6C-Kg-1Gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingAddfriendInfo" rowHeight="64" id="V8B-zP-nrp" customClass="settingAddfriendInfo" customModule="heibaiyu" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="settingAddfriendInfo" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingAddfriendInfo" rowHeight="64" id="V8B-zP-nrp" customClass="settingAddfriendInfo" customModule="heibaiyu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V8B-zP-nrp" id="b4o-dj-Hem">
@@ -246,12 +246,14 @@
                                         <connections>
                                             <outlet property="friendStatus" destination="aca-UG-ObX" id="KkR-ra-RX5"/>
                                             <outlet property="icon" destination="iHg-Cb-Uap" id="Luf-jW-h9G"/>
-                                            <outlet property="iconImage" destination="iHg-Cb-Uap" id="g3J-eA-83p"/>
                                             <outlet property="title" destination="eN8-Pp-kXa" id="DWj-sJ-kgh"/>
-                                            <outlet property="titleLabel" destination="eN8-Pp-kXa" id="RwU-nc-11G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ozS-QS-LXe" id="hKy-bC-jT3"/>
+                                    <outlet property="delegate" destination="ozS-QS-LXe" id="PXY-aQ-bfk"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,6 +264,9 @@
                             <constraint firstItem="n4Z-ah-X82" firstAttribute="leading" secondItem="hps-M6-uCX" secondAttribute="leading" id="tij-7Z-x8r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableview" destination="n4Z-ah-X82" id="JVs-Ug-jSC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYu-ll-i9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,3 +10,6 @@
 [submodule "submodule/iOS_WebP"]
 	path = submodule/iOS_WebP
 	url = https://github.com/seanooi/iOS-WebP.git
+[submodule "submodule/IHKeyboardAvoiding"]
+	path = submodule/IHKeyboardAvoiding
+	url = https://github.com/IdleHandsApps/IHKeyboardAvoiding.git

@@ -279,6 +279,8 @@
 		A45101EA1E714B6000086C62 /* radioCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101E91E714B6000086C62 /* radioCheckModel.swift */; };
 		A45101FE1E72AA1700086C62 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45101FD1E72AA1700086C62 /* Search.storyboard */; };
 		A45102001E72BC0200086C62 /* friendInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45101FF1E72BC0200086C62 /* friendInfoController.swift */; };
+		A45102281E7686A200086C62 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45102181E7686A200086C62 /* KeyboardAvoiding.swift */; };
+		A45102291E7686A200086C62 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45102191E7686A200086C62 /* KeyboardDismissingView.swift */; };
 		A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; };
 		A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF01E4845910017D266 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A468CF011E488D0D0017D266 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468CEF61E484A440017D266 /* XCGLogger.framework */; };
@@ -796,6 +798,8 @@
 		A45101E91E714B6000086C62 /* radioCheckModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radioCheckModel.swift; sourceTree = "<group>"; };
 		A45101FD1E72AA1700086C62 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A45101FF1E72BC0200086C62 /* friendInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendInfoController.swift; path = meDetail/friendInfoController.swift; sourceTree = "<group>"; };
+		A45102181E7686A200086C62 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		A45102191E7686A200086C62 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
 		A468CEF01E4845910017D266 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A468CEF61E484A440017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		A468CF031E488D250017D266 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
@@ -1624,6 +1628,24 @@
 			path = meDetail;
 			sourceTree = "<group>";
 		};
+		A45102011E7686A200086C62 /* IHKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				A45102171E7686A200086C62 /* Sources */,
+			);
+			name = IHKeyboardAvoiding;
+			path = submodule/IHKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		A45102171E7686A200086C62 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A45102181E7686A200086C62 /* KeyboardAvoiding.swift */,
+				A45102191E7686A200086C62 /* KeyboardDismissingView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		A47A62DA1E37245E00E80F32 /* netdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -1724,6 +1746,7 @@
 		A4A303FE1E2E3D59004BF97E /* submodule */ = {
 			isa = PBXGroup;
 			children = (
+				A45102011E7686A200086C62 /* IHKeyboardAvoiding */,
 				A49F7F701E6172AE00C67730 /* Fusuma */,
 				2373E18D1E40A1AB0055136C /* SwiftTimer */,
 			);
@@ -2220,10 +2243,12 @@
 				23A881D61E3687270023B421 /* SigninController.swift in Sources */,
 				A40FD2D11E4C415F0044D2DA /* descriptor_database.cc in Sources */,
 				A40FD3451E4C415F0044D2DA /* message_differencer.cc in Sources */,
+				A45102281E7686A200086C62 /* KeyboardAvoiding.swift in Sources */,
 				A40FD33C1E4C415F0044D2DA /* json_stream_parser.cc in Sources */,
 				2373E1501E3E43870055136C /* genStoryboards.swift in Sources */,
 				A40FD30C1E4C415F0044D2DA /* int128.cc in Sources */,
 				A40FD3401E4C415F0044D2DA /* protostream_objectwriter.cc in Sources */,
+				A45102291E7686A200086C62 /* KeyboardDismissingView.swift in Sources */,
 				2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */,
 				2398D4521E53545400713FBB /* buffer_yi.cxx in Sources */,
 				234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */,

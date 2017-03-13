@@ -10,14 +10,12 @@ import Foundation
 
 class settingRadioSectionModel: settingSectionModel {
   func setRadioModel(selectedModel: settingRadioCellModel) -> Void {
-    if let models = self.cellModels {
-      for item in models {
-        let model = item as! settingRadioCellModel
-        if model !== selectedModel {
-          model.isRadioed = false
-        }else {
-          model.isRadioed = true
-        }
+    for item in self.cellModels {
+      let model = item as! settingRadioCellModel
+      if model !== selectedModel {
+        model.isRadioed = false
+      }else {
+        model.isRadioed = true
       }
     }
   }

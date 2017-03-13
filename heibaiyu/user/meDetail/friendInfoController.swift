@@ -19,8 +19,14 @@ class friendInfoController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    KeyboardAvoiding.avoidingView = self.view
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(backAction))
     addfriend.addTarget(self, action: #selector(queryadd), for: .touchUpInside)
     setUserinfo()
+  }
+  
+  func backAction() {
+    let _ = self.popoverPresentationController
   }
   
   func queryadd() {
@@ -54,3 +60,12 @@ class friendInfoController: UIViewController {
     }
   }
 }
+
+extension friendInfoController: UIScrollViewDelegate {
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    self.sendMsg.resignFirstResponder()
+  }
+}
+
+
+

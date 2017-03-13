@@ -12,5 +12,5 @@ import UIKit
 public class settingSectionModel {
   var headerTitle: String?
   var fotterTitle: String?
-  var cellModels: [settingCellModel]?
+  var cellModels: [settingCellModel] = []
 }

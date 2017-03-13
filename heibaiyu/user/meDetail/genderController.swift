@@ -33,7 +33,7 @@ class genderController: settingBaseController {
       DispatchQueue.main.async {
         if errno == 0 {
           errorLocal.success(msg: L10n.success)
-          if let cellmodel = self.tableDatas![0].cellModels![row] as? settingRadioCellModel {
+          if let cellmodel = self.tableDatas[0].cellModels[row] as? settingRadioCellModel {
             cellmodel.setRadioed()
           }
           

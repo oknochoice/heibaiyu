@@ -472,8 +472,8 @@ void netdb_yi::addFriend(const std::string & friendid, const std::string & msg, 
 void netdb_yi::addFriendAuthorize(const std::string & friendid, const bool isAgree, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::AddFriendAuthorize();
-  query.set_inviterid(dbyi_->getCurrentUserid());
-  query.set_inviteeid(friendid);
+  query.set_inviteeid(dbyi_->getCurrentUserid());
+  query.set_inviterid(friendid);
   if (isAgree) {
     query.set_isagree(chat::IsAgree::agree);
   }else {
@@ -562,7 +562,7 @@ void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
 void netdb_yi::getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::QueryUser();
-  query.set_userid(phone);
+  query.set_phoneno(phone);
   query.set_countrycode(countrycode);
   netyi_->send_buffer(yijianBuffer(query), nullptr, [this, callback = std::forward<CB_Func>(callback)](int16_t type, const std::string & data, bool * isStop){
     if (0 == type) {

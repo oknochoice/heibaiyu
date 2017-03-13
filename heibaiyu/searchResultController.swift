@@ -39,6 +39,7 @@ class searchResultController: settingBaseController {
         DispatchQueue.main.async {
           if 0 == errno {
             let friendinfo = StoryboardScene.Search.instantiateFriendInfoController()
+            friendinfo.userid = netdbwarpper.sharedNetdb().dbGetUserid(keyword!, "86")
             let nav = UINavigationController(rootViewController: friendinfo)
             self.present(nav, animated: true, completion: nil)
           }else {
@@ -49,6 +50,6 @@ class searchResultController: settingBaseController {
     }
     
     section.cellModels = [search]
-    self.tableDatas?.append(section)
+    self.tableDatas.append(section)
   }
 }
