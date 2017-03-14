@@ -40,6 +40,12 @@ class friendsController: settingBaseController {
   }
   
   func loadFriends() {
+    let user_data = netdbwarpper.sharedNetdb().dbGetCurrentUser()
+    if let data = user_data, let user = try? Chat_User(protobuf: data) {
+      for info in user.friends {
+        
+      }
+    }
     tableview.reloadData()
   }
   
