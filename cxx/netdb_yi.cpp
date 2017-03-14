@@ -10,7 +10,6 @@
 #include "buffer_yi_util.hpp"
 #include <openssl/sha.h>
 
-static const std::string netdb_success_ = "success";
 
 netdb_yi::netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion)
 :model_(phoneModel), udid_(phoneUDID), os_version_(osVersion), app_version_(appVersion), certpath_(certpath) {
@@ -214,7 +213,7 @@ void netdb_yi::registCheck(const std::string & phoneno, const std::string & coun
   auto signup = chat::Register();
   signup.set_phoneno(phoneno);
   signup.set_countrycode(countrycode);
-  netyi_->signup(yijianBuffer(signup), [callback = std::forward<CB_Func>(callback)](const int16_t type, const std::string & data, bool * const isStop) {
+  netyi_->signup(yijianBuffer(signup), [this, callback = std::forward<CB_Func>(callback)](const int16_t type, const std::string & data, bool * const isStop) {
     if (type == ChatType::registorres) {
       auto res = chat::RegisterRes();
       res.ParseFromString(data);
@@ -552,7 +551,7 @@ void netdb_yi::getUser(const std::string & userid, CB_Func && callback) {
           }
         });
       }else {
-        callback(0, netdb_success_);
+        callback(0, netdb_userAlreadyNewest);
       }
     }else {
       callback(type, data);
@@ -576,6 +575,31 @@ void netdb_yi::getUser(const std::string & phone, const std::string & countrycod
       callback(0, netdb_success_);
     }else {
       callback(type, data);
+    }
+  });
+}
+
+void netdb_yi::updateMeAndFriends(CB_Func && callback) {
+  YILOG_TRACE ("func: {}", __func__);
+  auto userid = dbyi_->getCurrentUserid();
+  getUser(userid, [this, callback = std::forward<CB_Func>(callback)](int err_no, const std::string & err_msg) {
+    if (0 == err_no) {
+      auto user = dbyi_->getCurrentUser();
+      auto shared_count = std::make_shared<std::atomic_int>();
+      shared_count->store(user.friends().size());
+      if (user.friends().size() == 0) {
+        callback(0, netdb_success_);
+        return ;
+      }
+      for (auto & info: user.friends()) {
+        this->getUser(info.userid(), [this, shared_count, callback](int err_no, const std::string & errmsg){
+          shared_count->fetch_sub(1);
+          if (shared_count->load() == 0) {
+            callback(0, netdb_success_);
+          }
+        });
+      }
+    }else {
     }
   });
 }

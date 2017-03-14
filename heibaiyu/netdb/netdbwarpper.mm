@@ -153,6 +153,11 @@ static leveldb_yi * db_ = nil;
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
   });
 }
+- (void)updateUserAndFriends:(Net_CB)callback {
+  netdb_yi_shared_->updateMeAndFriends([callback](const int err_no, const std::string & err_msg){
+    callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
+  });
+}
 - (void)setMediapath:(NSString*)md5 :(NSString*)path :(Net_CB)callback {
   netdb_yi_shared_->setMediaPath(std::string([md5 UTF8String]), std::string([path UTF8String]), [callback](const int err_no, const std::string & err_msg){
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
@@ -239,6 +244,28 @@ static leveldb_yi * db_ = nil;
   }catch (...) {
     return nil;
   }
+}
+- (nullable NSData*)dbGet:(NSString*)key {
+  try {
+    auto value = db_->get(std::string([key UTF8String]));
+    return [NSData dataWithBytes:value.c_str() length:value.size()];
+  }catch(...) {
+    return nil;
+  }
+}
+- (void)dbPut:(NSData*)data :(NSString*)key {
+  try {
+    db_->put(std::string([key UTF8String]), std::string(static_cast<const char*>(data.bytes), data.length));
+  }catch(...) {
+    
+  }
+}
+
+/* db keys
+ */
+- (NSString*)dbkeyTalklist {
+  auto key = db_->talklistKey();
+  return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
 }
 
 @end

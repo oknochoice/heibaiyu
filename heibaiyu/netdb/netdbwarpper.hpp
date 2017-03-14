@@ -44,6 +44,7 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 - (void)getAddfriendInfo:(Net_CB)callback;
 - (void)getUser:(NSString*)userid :(Net_CB)callback;
 - (void)getUser:(NSString*)phoneno :(NSString*)countrycode :(Net_CB)callback;
+- (void)updateUserAndFriends:(Net_CB)callback;
 // message media
 - (void)setMediapath:(NSString*)md5 :(NSString*)path :(Net_CB)callback;
 - (void)getMediapath:(NSString*)md5 :(Net_CB)callback;
@@ -53,12 +54,20 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
       :(Net_CB)callback;
 /* db
  */
+
 - (nullable NSData*)dbGetCurrentUser;
 - (void)dbPutCurrentUser:(NSData*)user;
 - (nullable NSString*)dbGetUserid:(NSString*)phoneno :(NSString*)countrycode;
 - (nullable NSData*)dbGetUser:(NSString*)userid;
 - (nullable NSString*)dbGetMediapath:(NSString*)md5;
 - (nullable NSData*)dbGetAddfriends;
+
+- (nullable NSData*)dbGet:(NSString*)key;
+- (void)dbPut:(NSData*)data :(NSString*)key;
+/*
+ * dbkeys
+ */
+- (NSString*)dbkeyTalklist;
 
 @end
 NS_ASSUME_NONNULL_END

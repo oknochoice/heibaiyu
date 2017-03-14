@@ -39,7 +39,7 @@ class settingAddfriendInfo: settingCell {
   }
   
   func addOrAuthorize() {
-    let friendModel = model as! settingAddfriendModel
+    let friendModel = model as! settingFriendModel
     if model?.subTitle == L10n.friendStatusAdd {
       netdbwarpper.sharedNetdb().addFiend(friendModel.userid!, "", { (errno, errmsg) in
         DispatchQueue.main.async {

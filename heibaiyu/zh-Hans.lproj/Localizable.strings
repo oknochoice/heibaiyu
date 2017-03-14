@@ -61,4 +61,6 @@
 "friend_add_query_sended" = "添加请求已发送";
 "friend_add_authorized" = "已同意";
 "friend_info_querys" = "好友请求";
+"friend_send_query" = "发送";
+"friend_send_msg" = "发消息";
 

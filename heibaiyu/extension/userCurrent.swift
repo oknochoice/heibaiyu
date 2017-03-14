@@ -26,4 +26,5 @@ public class userCurrent {
       netdbwarpper.sharedNetdb().dbPutCurrentUser(data)
     }
   }
+  
 }

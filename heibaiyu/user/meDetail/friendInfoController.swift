@@ -15,18 +15,29 @@ class friendInfoController: UIViewController {
   @IBOutlet weak var sendMsg: UITextField!
   @IBOutlet weak var addfriend: IndicatorButton!
   
+  var isNeedSendField = true
+  @IBOutlet weak var fieldHeight: NSLayoutConstraint!
+  
   var userid: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     KeyboardAvoiding.avoidingView = self.view
-    self.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(backAction))
-    addfriend.addTarget(self, action: #selector(queryadd), for: .touchUpInside)
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(backAction))]
+    if isNeedSendField {
+      fieldHeight.constant = 44
+      sendMsg.text = L10n.friendSendQuery
+      addfriend.addTarget(self, action: #selector(queryadd), for: .touchUpInside)
+    }else {
+      fieldHeight.constant = 0
+      sendMsg.text = L10n.friendSendMsg
+      addfriend.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
+    }
     setUserinfo()
   }
   
   func backAction() {
-    let _ = self.popoverPresentationController
+    self.dismiss(animated: true, completion: nil)
   }
   
   func queryadd() {
@@ -38,6 +49,12 @@ class friendInfoController: UIViewController {
           errorLocal.error(err_no: errno, orMsg: errmsg)
         }
       }
+    }
+  }
+  
+  func sendMessage() {
+    self.dismiss(animated: false) { [weak self] in
+      NotificationCenter.default.post(name: notificationName.talk2user, object: self, userInfo: [notificationName.talk2user_key_userid: self?.userid ?? ""])
     }
   }
   

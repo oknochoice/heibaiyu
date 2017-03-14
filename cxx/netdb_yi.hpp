@@ -16,8 +16,12 @@
 #include "net_yi.h"
 #include "leveldb_yi.hpp"
 
+
 class netdb_yi {
   
+public:
+  const std::string netdb_success_ = "success";
+  const std::string netdb_userAlreadyNewest = "db user already newest";
 public:
   
   // err_no == 0 success
@@ -66,6 +70,8 @@ public:
   
   void getUser(const std::string & userid, CB_Func && callback);
   void getUser(const std::string & phone, const std::string & countrycode, CB_Func && callback);
+  // main thread call
+  void updateMeAndFriends(CB_Func && callback);
   
   /*
    * media

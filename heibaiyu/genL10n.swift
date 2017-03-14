@@ -19,6 +19,10 @@ enum L10n {
   static let friendAddQuerySended = L10n.tr("friend_add_query_sended")
   /// 好友请求
   static let friendInfoQuerys = L10n.tr("friend_info_querys")
+  /// 发消息
+  static let friendSendMsg = L10n.tr("friend_send_msg")
+  /// 发送
+  static let friendSendQuery = L10n.tr("friend_send_query")
   /// 添加
   static let friendStatusAdd = L10n.tr("friend_status_add")
   /// 已添加

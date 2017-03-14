@@ -34,7 +34,7 @@ class addFriendInfolistController: settingBaseController {
                 if 0 == errno {
                   let section = settingSectionModel()
                   self?.tableDatas.append(section)
-                  let model = settingAddfriendModel()
+                  let model = settingFriendModel()
                   model.cellIdentifier = "settingAddfriendInfo"
                   let frdData = netdbwarpper.sharedNetdb().dbGetUser(friendid)
                   if let frd = try? Chat_User(protobuf: frdData!) {

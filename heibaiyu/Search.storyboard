@@ -145,7 +145,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Tez-z9-e6H"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="发送"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -185,6 +185,7 @@
                     </view>
                     <connections>
                         <outlet property="addfriend" destination="wtF-rf-tAc" id="be5-od-tcL"/>
+                        <outlet property="fieldHeight" destination="dew-nB-IYK" id="dTG-Qc-Adg"/>
                         <outlet property="icon" destination="XRV-fX-Oug" id="f6h-bB-DHX"/>
                         <outlet property="info" destination="oUB-uj-3Q8" id="sTm-P7-nzb"/>
                         <outlet property="sendMsg" destination="FeY-kR-Ljb" id="935-Fp-sjc"/>

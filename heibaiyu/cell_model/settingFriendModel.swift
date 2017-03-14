@@ -8,6 +8,7 @@
 
 import Foundation
 
-public class settingAddfriendModel: settingCellModel {
+public class settingFriendModel: settingCellModel {
   var userid: String?
+  var tonodeid: String?
 }
