@@ -30,7 +30,10 @@ class messageController: UIViewController {
           model.icon = String.http(relativePath: user.icon)
           model.name = String.getNonNil([user.nickname, user.realname, user.phoneNo])
         }else {
-          
+          if let data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyMsgNode(obj.toNodeId)),
+            let node = try? Chat_MessageNode(protobuf: data) {
+            model.name = String.getNonNil([node.nickname, node.id])
+          }
         }
         tabledatas.append(model)
       }

@@ -68,6 +68,7 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
  * dbkeys
  */
 - (NSString*)dbkeyTalklist;
+- (NSString*)dbkeyMsgNode:(NSString*)nodeid;
 
 @end
 NS_ASSUME_NONNULL_END
