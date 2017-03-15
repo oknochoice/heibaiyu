@@ -344,14 +344,14 @@ struct Chat_NodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   public var protoPackageName: String {return "chat"}
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "toNodeID", swift: "toNodeId"),
-    2: .same(proto: "maxIncrementid", swift: "maxIncrementid"),
+    2: .same(proto: "maxIncrementID", swift: "maxIncrementId"),
     3: .same(proto: "recentTimestamp", swift: "recentTimestamp"),
   ]
 
 
   var toNodeId: String = ""
 
-  var maxIncrementid: Int32 = 0
+  var maxIncrementId: Int32 = 0
 
   var recentTimestamp: Int32 = 0
 
@@ -360,7 +360,7 @@ struct Chat_NodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &toNodeId)
-    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &maxIncrementid)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &maxIncrementId)
     case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &recentTimestamp)
     default: break
     }
@@ -370,8 +370,8 @@ struct Chat_NodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     if toNodeId != "" {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: toNodeId, protoFieldNumber: 1)
     }
-    if maxIncrementid != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: maxIncrementid, protoFieldNumber: 2)
+    if maxIncrementId != 0 {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: maxIncrementId, protoFieldNumber: 2)
     }
     if recentTimestamp != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: recentTimestamp, protoFieldNumber: 3)
@@ -380,7 +380,7 @@ struct Chat_NodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
 
   public func _protoc_generated_isEqualTo(other: Chat_NodeInfo) -> Bool {
     if toNodeId != other.toNodeId {return false}
-    if maxIncrementid != other.maxIncrementid {return false}
+    if maxIncrementId != other.maxIncrementId {return false}
     if recentTimestamp != other.recentTimestamp {return false}
     return true
   }
@@ -393,13 +393,16 @@ struct Chat_TalkInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "toNodeID", swift: "toNodeId"),
     2: .same(proto: "readedIncrement", swift: "readedIncrement"),
-    3: .same(proto: "toUserID", swift: "toUserId"),
+    3: .same(proto: "recentTimestamp", swift: "recentTimestamp"),
+    4: .same(proto: "toUserID", swift: "toUserId"),
   ]
 
 
   var toNodeId: String = ""
 
   var readedIncrement: Int32 = 0
+
+  var recentTimestamp: Int32 = 0
 
   var toUserId: String = ""
 
@@ -409,7 +412,8 @@ struct Chat_TalkInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &toNodeId)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &readedIncrement)
-    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &toUserId)
+    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &recentTimestamp)
+    case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &toUserId)
     default: break
     }
   }
@@ -421,14 +425,18 @@ struct Chat_TalkInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     if readedIncrement != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: readedIncrement, protoFieldNumber: 2)
     }
+    if recentTimestamp != 0 {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: recentTimestamp, protoFieldNumber: 3)
+    }
     if toUserId != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: toUserId, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: toUserId, protoFieldNumber: 4)
     }
   }
 
   public func _protoc_generated_isEqualTo(other: Chat_TalkInfo) -> Bool {
     if toNodeId != other.toNodeId {return false}
     if readedIncrement != other.readedIncrement {return false}
+    if recentTimestamp != other.recentTimestamp {return false}
     if toUserId != other.toUserId {return false}
     return true
   }
@@ -439,29 +447,29 @@ struct Chat_TalkList: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   public var protoMessageName: String {return "TalkList"}
   public var protoPackageName: String {return "chat"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "talks", swift: "talks"),
+    1: .same(proto: "talkNodeIDs", swift: "talkNodeIds"),
   ]
 
 
-  var talks: [Chat_TalkInfo] = []
+  var talkNodeIds: [String] = []
 
   init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedMessageField(fieldType: Chat_TalkInfo.self, value: &talks)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &talkNodeIds)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    if !talks.isEmpty {
-      try visitor.visitRepeatedMessageField(value: talks, protoFieldNumber: 1)
+    if !talkNodeIds.isEmpty {
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: talkNodeIds, protoFieldNumber: 1)
     }
   }
 
   public func _protoc_generated_isEqualTo(other: Chat_TalkList) -> Bool {
-    if talks != other.talks {return false}
+    if talkNodeIds != other.talkNodeIds {return false}
     return true
   }
 }

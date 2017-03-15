@@ -12,9 +12,41 @@ class messageModel {
   var icon: String?
   var name: String?
   var lastMsg: String?
-  var timestamp: String?
+  var timestamp: Int32?
   
   var tonodeid:String?
   var userid:String?
-  var readedIncrement: Int32 = 0
+  var readedIncrementID: Int32 = 0
+  var maxIncrementID: Int32 = 0
+  
+  static func instance(tonodeid: String) -> messageModel? {
+    let msg = messageModel()
+    let talkinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyTalkinfo(tonodeid))
+    let nodeinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyNodeinfo(tonodeid))
+    guard talkinfo_data != nil && nodeinfo_data != nil else {
+      return nil
+    }
+    let talkinfo = try? Chat_TalkInfo(protobuf: talkinfo_data!)
+    let nodeinfo = try? Chat_NodeInfo(protobuf: nodeinfo_data!)
+    guard talkinfo != nil && nodeinfo != nil else {
+      return nil
+    }
+    let model = messageModel()
+    model.maxIncrementID = nodeinfo?.maxIncrementId ?? 0
+    model.tonodeid = talkinfo!.toNodeId
+    model.readedIncrementID = talkinfo!.readedIncrement
+    model.userid = talkinfo!.toUserId
+    model.timestamp = talkinfo!.recentTimestamp
+    if talkinfo!.toUserId != "", let data = netdbwarpper.sharedNetdb().dbGetUser(talkinfo!.toUserId),
+      let user = try? Chat_User(protobuf: data) {
+      model.icon = String.http(relativePath: user.icon)
+      model.name = String.getNonNil([user.nickname, user.realname, user.phoneNo])
+    }else {
+      if let data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyMsgNode(talkinfo!.toNodeId)),
+        let node = try? Chat_MessageNode(protobuf: data) {
+        model.name = String.getNonNil([node.nickname, node.id])
+      }
+    }
+    return msg
+  }
 }

@@ -32,7 +32,8 @@ class friendsController: settingBaseController {
     
     self.tableview.rowHeight = 64
     
-    loadFriends()
+    loadFriendsFromLocal()
+    loadFriendsFromNet()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -41,40 +42,44 @@ class friendsController: settingBaseController {
     
   }
   
-  func loadFriends() {
+  func loadFriendsFromLocal() {
     self.tableDatas = [];
-    netdbwarpper.sharedNetdb().updateUserAndFriends { [weak self] (errno, errmsg) in
-      DispatchQueue.main.async { [weak self] in
-        let user = userCurrent.shared()
-        if let friends = user?.friends {
-          self?.tableDatas.append(settingSectionModel())
-          for info in friends { 
-            let cellmodel = settingFriendModel()
-            cellmodel.cellIdentifier = "friendCell"
-            cellmodel.userid = info.userId
-            cellmodel.tonodeid = info.toNodeId
-            let friend_data = netdbwarpper.sharedNetdb().dbGetUser(info.userId)
-            if let data = friend_data, let friend = try? Chat_User(protobuf: data) {
-              cellmodel.title = String.getNonNil([friend.nickname, friend.realname, friend.phoneNo])
-              cellmodel.icon = String.http(relativePath: friend.icon)
-            }else {
-              cellmodel.title = info.userId
-            }
-            cellmodel.tap = {
-              let infoController = StoryboardScene.Search.instantiateFriendInfoController()
-              infoController.isNeedSendField = false
-              infoController.userid = info.userId
-              let nav = UINavigationController(rootViewController: infoController)
-              self?.present(nav, animated: true, completion: nil)
-            }
-            self?.tableDatas.first?.cellModels.append(cellmodel)
-          }
-          self?.tableview.reloadData()
+    let user = userCurrent.shared()
+    if let friends = user?.friends {
+      self.tableDatas.append(settingSectionModel())
+      for info in friends { 
+        let cellmodel = settingFriendModel()
+        cellmodel.cellIdentifier = "friendCell"
+        cellmodel.userid = info.userId
+        cellmodel.tonodeid = info.toNodeId
+        let friend_data = netdbwarpper.sharedNetdb().dbGetUser(info.userId)
+        if let data = friend_data, let friend = try? Chat_User(protobuf: data) {
+          cellmodel.title = String.getNonNil([friend.nickname, friend.realname, friend.phoneNo])
+          cellmodel.icon = String.http(relativePath: friend.icon)
+        }else {
+          cellmodel.title = info.userId
         }
+        cellmodel.tap = {
+          let infoController = StoryboardScene.Search.instantiateFriendInfoController()
+          infoController.isNeedSendField = false
+          infoController.userid = info.userId
+          let nav = UINavigationController(rootViewController: infoController)
+          self.present(nav, animated: true, completion: nil)
+        }
+        self.tableDatas.first?.cellModels.append(cellmodel)
       }
+      self.tableview.reloadData()
+    }
+
+}
+func loadFriendsFromNet() {
+  netdbwarpper.sharedNetdb().updateUserAndFriends { [weak self] (errno, errmsg) in
+    DispatchQueue.main.async { [weak self] in
+      self?.loadFriendsFromLocal()
     }
   }
-  
+}
+
 }
 
 extension friendsController: UISearchBarDelegate {

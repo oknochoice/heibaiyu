@@ -174,12 +174,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkInfo, tonodeid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkInfo, readedincrement_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkInfo, recenttimestamp_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkInfo, touserid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkList, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkList, talks_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TalkList, talknodeids_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Friends, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -592,66 +593,66 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 0, -1, sizeof(ErrorNth)},
   { 5, -1, sizeof(NodeInfo)},
   { 12, -1, sizeof(TalkInfo)},
-  { 19, -1, sizeof(TalkList)},
-  { 24, -1, sizeof(Friends)},
-  { 29, -1, sizeof(Ping)},
-  { 34, -1, sizeof(Pong)},
-  { 39, -1, sizeof(NodeSelfDevice)},
-  { 43, -1, sizeof(NodePeerServer)},
-  { 47, -1, sizeof(NodeSpecifiy)},
-  { 52, -1, sizeof(NodeUser)},
-  { 57, -1, sizeof(Error)},
-  { 63, -1, sizeof(Device)},
-  { 71, -1, sizeof(MessageNode)},
-  { 82, -1, sizeof(UserInfo)},
-  { 88, -1, sizeof(User)},
-  { 107, -1, sizeof(SetUserProperty)},
-  { 113, -1, sizeof(SetUserPropertyRes)},
-  { 119, -1, sizeof(QueryUser)},
-  { 126, -1, sizeof(QueryUserRes)},
-  { 132, -1, sizeof(QueryUserVersion)},
-  { 137, -1, sizeof(QueryUserVersionRes)},
-  { 143, -1, sizeof(QueryNode)},
-  { 148, -1, sizeof(QueryNodeRes)},
-  { 154, -1, sizeof(QueryNodeVersion)},
-  { 159, -1, sizeof(QueryNodeVersionRes)},
-  { 165, -1, sizeof(Register)},
-  { 174, -1, sizeof(RegisterRes)},
-  { 182, -1, sizeof(Login)},
-  { 190, -1, sizeof(LoginRes)},
-  { 199, -1, sizeof(LoginNoti)},
-  { 205, -1, sizeof(ClientConnect)},
-  { 215, -1, sizeof(ClientConnectRes)},
-  { 225, -1, sizeof(ClientDisConnect)},
-  { 231, -1, sizeof(ClientDisConnectRes)},
-  { 237, -1, sizeof(Logout)},
-  { 243, -1, sizeof(LogoutRes)},
-  { 249, -1, sizeof(AddFriendInfo)},
-  { 256, -1, sizeof(AddFriend)},
-  { 263, -1, sizeof(AddFriendRes)},
-  { 270, -1, sizeof(AddFriendNoti)},
-  { 275, -1, sizeof(AddFriendAuthorize)},
-  { 282, -1, sizeof(AddFriendAuthorizeRes)},
-  { 289, -1, sizeof(AddFriendAuthorizeNoti)},
-  { 294, -1, sizeof(QueryAddfriendInfo)},
-  { 299, -1, sizeof(QueryAddfriendInfoRes)},
-  { 304, -1, sizeof(CreateGroup)},
-  { 311, -1, sizeof(CreateGroupRes)},
-  { 318, -1, sizeof(GroupAddMember)},
-  { 324, -1, sizeof(GroupAddMemberRes)},
-  { 330, -1, sizeof(NodeMessage)},
-  { 342, -1, sizeof(NodeMessageRes)},
-  { 352, -1, sizeof(NodeMessageNoti)},
-  { 361, -1, sizeof(QueryMessage)},
-  { 368, -1, sizeof(QueryMessageRes)},
-  { 373, -1, sizeof(ServerConnect)},
-  { 379, -1, sizeof(ServerDisconnect)},
-  { 385, -1, sizeof(ConnectInfo)},
-  { 400, -1, sizeof(ConnectInfoLittle)},
-  { 408, -1, sizeof(Media)},
-  { 415, -1, sizeof(MediaRes)},
-  { 420, -1, sizeof(QueryMedia)},
-  { 425, -1, sizeof(QueryMediaRes)},
+  { 20, -1, sizeof(TalkList)},
+  { 25, -1, sizeof(Friends)},
+  { 30, -1, sizeof(Ping)},
+  { 35, -1, sizeof(Pong)},
+  { 40, -1, sizeof(NodeSelfDevice)},
+  { 44, -1, sizeof(NodePeerServer)},
+  { 48, -1, sizeof(NodeSpecifiy)},
+  { 53, -1, sizeof(NodeUser)},
+  { 58, -1, sizeof(Error)},
+  { 64, -1, sizeof(Device)},
+  { 72, -1, sizeof(MessageNode)},
+  { 83, -1, sizeof(UserInfo)},
+  { 89, -1, sizeof(User)},
+  { 108, -1, sizeof(SetUserProperty)},
+  { 114, -1, sizeof(SetUserPropertyRes)},
+  { 120, -1, sizeof(QueryUser)},
+  { 127, -1, sizeof(QueryUserRes)},
+  { 133, -1, sizeof(QueryUserVersion)},
+  { 138, -1, sizeof(QueryUserVersionRes)},
+  { 144, -1, sizeof(QueryNode)},
+  { 149, -1, sizeof(QueryNodeRes)},
+  { 155, -1, sizeof(QueryNodeVersion)},
+  { 160, -1, sizeof(QueryNodeVersionRes)},
+  { 166, -1, sizeof(Register)},
+  { 175, -1, sizeof(RegisterRes)},
+  { 183, -1, sizeof(Login)},
+  { 191, -1, sizeof(LoginRes)},
+  { 200, -1, sizeof(LoginNoti)},
+  { 206, -1, sizeof(ClientConnect)},
+  { 216, -1, sizeof(ClientConnectRes)},
+  { 226, -1, sizeof(ClientDisConnect)},
+  { 232, -1, sizeof(ClientDisConnectRes)},
+  { 238, -1, sizeof(Logout)},
+  { 244, -1, sizeof(LogoutRes)},
+  { 250, -1, sizeof(AddFriendInfo)},
+  { 257, -1, sizeof(AddFriend)},
+  { 264, -1, sizeof(AddFriendRes)},
+  { 271, -1, sizeof(AddFriendNoti)},
+  { 276, -1, sizeof(AddFriendAuthorize)},
+  { 283, -1, sizeof(AddFriendAuthorizeRes)},
+  { 290, -1, sizeof(AddFriendAuthorizeNoti)},
+  { 295, -1, sizeof(QueryAddfriendInfo)},
+  { 300, -1, sizeof(QueryAddfriendInfoRes)},
+  { 305, -1, sizeof(CreateGroup)},
+  { 312, -1, sizeof(CreateGroupRes)},
+  { 319, -1, sizeof(GroupAddMember)},
+  { 325, -1, sizeof(GroupAddMemberRes)},
+  { 331, -1, sizeof(NodeMessage)},
+  { 343, -1, sizeof(NodeMessageRes)},
+  { 353, -1, sizeof(NodeMessageNoti)},
+  { 362, -1, sizeof(QueryMessage)},
+  { 369, -1, sizeof(QueryMessageRes)},
+  { 374, -1, sizeof(ServerConnect)},
+  { 380, -1, sizeof(ServerDisconnect)},
+  { 386, -1, sizeof(ConnectInfo)},
+  { 401, -1, sizeof(ConnectInfoLittle)},
+  { 409, -1, sizeof(Media)},
+  { 416, -1, sizeof(MediaRes)},
+  { 421, -1, sizeof(QueryMedia)},
+  { 426, -1, sizeof(QueryMediaRes)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -972,132 +973,132 @@ void AddDescriptorsImpl() {
   static const char descriptor[] = {
       "\n\022chat_message.proto\022\004chat\"\032\n\010ErrorNth\022\016"
       "\n\006maxnth\030\001 \001(\005\"M\n\010NodeInfo\022\020\n\010toNodeID\030\001"
-      " \001(\t\022\026\n\016maxIncrementid\030\002 \001(\005\022\027\n\017recentTi"
-      "mestamp\030\003 \001(\005\"G\n\010TalkInfo\022\020\n\010toNodeID\030\001 "
-      "\001(\t\022\027\n\017readedIncrement\030\002 \001(\005\022\020\n\010toUserID"
-      "\030\003 \001(\t\")\n\010TalkList\022\035\n\005talks\030\001 \003(\0132\016.chat"
-      ".TalkInfo\"\031\n\007Friends\022\016\n\006userid\030\001 \003(\t\"\023\n\004"
-      "Ping\022\013\n\003msg\030\001 \001(\t\"\023\n\004Pong\022\013\n\003msg\030\001 \001(\t\"\020"
-      "\n\016NodeSelfDevice\"\020\n\016NodePeerServer\" \n\014No"
-      "deSpecifiy\022\020\n\010toNodeID\030\001 \001(\t\"\034\n\010NodeUser"
-      "\022\020\n\010toUserID\030\001 \001(\t\"\'\n\005Error\022\016\n\006errnum\030\001 "
-      "\001(\005\022\016\n\006errmsg\030\002 \001(\t\"\226\001\n\006Device\022(\n\002OS\030\001 \001"
-      "(\0162\034.chat.Device.OperatingSystem\022\023\n\013devi"
-      "ceModel\030\002 \001(\t\022\026\n\016deviceNickname\030\003 \001(\t\022\014\n"
-      "\004UUID\030\004 \001(\t\"\'\n\017OperatingSystem\022\007\n\003iOS\020\000\022"
-      "\013\n\007Android\020\001\"\341\001\n\013MessageNode\022\n\n\002id\030\001 \001(\t"
-      "\022.\n\tauthorize\030\002 \001(\0162\033.chat.MessageNode.A"
-      "uthorize\022\021\n\tcreatorID\030\003 \001(\t\022\020\n\010nickname\030"
-      "\004 \001(\t\022\017\n\007version\030\005 \001(\005\022\022\n\nmanagerIDs\030\006 \003"
-      "(\t\022\017\n\007members\030\007 \003(\t\";\n\tAuthorize\022\013\n\007crea"
-      "tor\020\000\022\013\n\007manager\020\001\022\n\n\006member\020\002\022\010\n\004peer\020\003"
-      "\",\n\010UserInfo\022\020\n\010toNodeID\030\001 \001(\t\022\016\n\006userID"
-      "\030\002 \001(\t\"\255\002\n\004User\022\n\n\002id\030\001 \001(\t\022\020\n\010realname\030"
-      "\002 \001(\t\022\020\n\010nickname\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\023\n"
-      "\013description\030\005 \001(\t\022\016\n\006isMale\030\006 \001(\010\022\017\n\007ph"
-      "oneNo\030\007 \001(\t\022\023\n\013countryCode\030\010 \001(\t\022\020\n\010pass"
-      "word\030\t \001(\t\022\020\n\010birthday\030\n \001(\005\022\017\n\007version\030"
-      "\013 \001(\005\022\037\n\007friends\030\014 \003(\0132\016.chat.UserInfo\022\021"
-      "\n\tblacklist\030\r \003(\t\022\024\n\014groupNodeIDs\030\016 \003(\t\022"
-      "\035\n\007devices\030\017 \003(\0132\014.chat.Device\"F\n\017SetUse"
-      "rProperty\022$\n\010property\030\001 \001(\0162\022.chat.UserP"
-      "roperty\022\r\n\005value\030\002 \001(\t\"I\n\022SetUserPropert"
-      "yRes\022$\n\010property\030\001 \001(\0162\022.chat.UserProper"
-      "ty\022\r\n\005value\030\002 \001(\t\"A\n\tQueryUser\022\016\n\006userID"
-      "\030\001 \001(\t\022\023\n\013countryCode\030\002 \001(\t\022\017\n\007phoneNo\030\003"
-      " \001(\t\"@\n\014QueryUserRes\022\026\n\016toUserID_outer\030\001"
-      " \001(\t\022\030\n\004user\030\002 \001(\0132\n.chat.User\"\"\n\020QueryU"
-      "serVersion\022\016\n\006userID\030\001 \001(\t\"6\n\023QueryUserV"
-      "ersionRes\022\016\n\006userID\030\001 \001(\t\022\017\n\007version\030\002 \001"
-      "(\005\"\035\n\tQueryNode\022\020\n\010toNodeID\030\001 \001(\t\"G\n\014Que"
-      "ryNodeRes\022\026\n\016toUserID_outer\030\001 \001(\t\022\037\n\004nod"
-      "e\030\002 \001(\0132\021.chat.MessageNode\"$\n\020QueryNodeV"
-      "ersion\022\020\n\010toNodeID\030\001 \001(\t\"8\n\023QueryNodeVer"
-      "sionRes\022\020\n\010toNodeID\030\001 \001(\t\022\017\n\007version\030\002 \001"
-      "(\005\"h\n\010Register\022\017\n\007phoneNo\030\001 \001(\t\022\023\n\013count"
-      "ryCode\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\020\n\010nickna"
-      "me\030\004 \001(\t\022\022\n\nverifycode\030\005 \001(\t\"M\n\013Register"
-      "Res\022\016\n\006userID\030\001 \001(\t\022\021\n\tisSuccess\030\002 \001(\010\022\r"
-      "\n\005e_msg\030\003 \001(\t\022\014\n\004e_no\030\004 \001(\005\"]\n\005Login\022\017\n\007"
-      "phoneNo\030\001 \001(\t\022\023\n\013countryCode\030\002 \001(\t\022\020\n\010pa"
-      "ssword\030\003 \001(\t\022\034\n\006device\030\004 \001(\0132\014.chat.Devi"
-      "ce\"X\n\010LoginRes\022\021\n\tisSuccess\030\001 \001(\010\022\016\n\006use"
-      "rID\030\002 \001(\t\022\014\n\004uuid\030\003 \001(\t\022\014\n\004e_no\030\004 \001(\005\022\r\n"
-      "\005e_msg\030\005 \001(\t\"1\n\tLoginNoti\022\026\n\016toUserID_ou"
-      "ter\030\001 \001(\t\022\014\n\004UUID\030\002 \001(\t\"\201\001\n\rClientConnec"
-      "t\022\016\n\006userID\030\001 \001(\t\022\014\n\004UUID\030\002 \001(\t\022\024\n\014isRec"
-      "iveNoti\030\003 \001(\010\022\021\n\tOSVersion\030\004 \001(\t\022\022\n\nappV"
-      "ersion\030\005 \001(\t\022\025\n\rclientVersion\030\006 \001(\t\"s\n\020C"
-      "lientConnectRes\022\014\n\004UUID\030\001 \001(\t\022\016\n\006userID\030"
-      "\002 \001(\t\022\021\n\tsessionid\030\003 \001(\005\022\021\n\tisSuccess\030\004 "
-      "\001(\010\022\r\n\005e_msg\030\005 \001(\t\022\014\n\004e_no\030\006 \001(\005\"0\n\020Clie"
-      "ntDisConnect\022\016\n\006userID\030\001 \001(\t\022\014\n\004UUID\030\002 \001"
-      "(\t\"3\n\023ClientDisConnectRes\022\014\n\004UUID\030\001 \001(\t\022"
-      "\016\n\006userID\030\002 \001(\t\"&\n\006Logout\022\016\n\006userID\030\001 \001("
-      "\t\022\014\n\004UUID\030\002 \001(\t\")\n\tLogoutRes\022\014\n\004UUID\030\001 \001"
-      "(\t\022\016\n\006userID\030\002 \001(\t\"C\n\rAddFriendInfo\022\017\n\007i"
-      "nviter\030\001 \001(\t\022\017\n\007invitee\030\002 \001(\t\022\020\n\010toNodeI"
-      "D\030\003 \001(\t\">\n\tAddFriend\022\021\n\tinviteeID\030\001 \001(\t\022"
-      "\021\n\tinviterID\030\002 \001(\t\022\013\n\003msg\030\003 \001(\t\"F\n\014AddFr"
-      "iendRes\022\021\n\tinviterID\030\001 \001(\t\022\021\n\tinviteeID\030"
-      "\002 \001(\t\022\020\n\010toNodeID\030\003 \001(\t\"5\n\rAddFriendNoti"
-      "\022$\n\010response\030\001 \001(\0132\022.chat.AddFriendRes\"Z"
-      "\n\022AddFriendAuthorize\022\021\n\tinviterID\030\001 \001(\t\022"
-      "\021\n\tinviteeID\030\002 \001(\t\022\036\n\007isAgree\030\003 \001(\0162\r.ch"
-      "at.IsAgree\"]\n\025AddFriendAuthorizeRes\022\021\n\ti"
+      " \001(\t\022\026\n\016maxIncrementID\030\002 \001(\005\022\027\n\017recentTi"
+      "mestamp\030\003 \001(\005\"`\n\010TalkInfo\022\020\n\010toNodeID\030\001 "
+      "\001(\t\022\027\n\017readedIncrement\030\002 \001(\005\022\027\n\017recentTi"
+      "mestamp\030\003 \001(\005\022\020\n\010toUserID\030\004 \001(\t\"\037\n\010TalkL"
+      "ist\022\023\n\013talkNodeIDs\030\001 \003(\t\"\031\n\007Friends\022\016\n\006u"
+      "serid\030\001 \003(\t\"\023\n\004Ping\022\013\n\003msg\030\001 \001(\t\"\023\n\004Pong"
+      "\022\013\n\003msg\030\001 \001(\t\"\020\n\016NodeSelfDevice\"\020\n\016NodeP"
+      "eerServer\" \n\014NodeSpecifiy\022\020\n\010toNodeID\030\001 "
+      "\001(\t\"\034\n\010NodeUser\022\020\n\010toUserID\030\001 \001(\t\"\'\n\005Err"
+      "or\022\016\n\006errnum\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\t\"\226\001\n\006D"
+      "evice\022(\n\002OS\030\001 \001(\0162\034.chat.Device.Operatin"
+      "gSystem\022\023\n\013deviceModel\030\002 \001(\t\022\026\n\016deviceNi"
+      "ckname\030\003 \001(\t\022\014\n\004UUID\030\004 \001(\t\"\'\n\017OperatingS"
+      "ystem\022\007\n\003iOS\020\000\022\013\n\007Android\020\001\"\341\001\n\013MessageN"
+      "ode\022\n\n\002id\030\001 \001(\t\022.\n\tauthorize\030\002 \001(\0162\033.cha"
+      "t.MessageNode.Authorize\022\021\n\tcreatorID\030\003 \001"
+      "(\t\022\020\n\010nickname\030\004 \001(\t\022\017\n\007version\030\005 \001(\005\022\022\n"
+      "\nmanagerIDs\030\006 \003(\t\022\017\n\007members\030\007 \003(\t\";\n\tAu"
+      "thorize\022\013\n\007creator\020\000\022\013\n\007manager\020\001\022\n\n\006mem"
+      "ber\020\002\022\010\n\004peer\020\003\",\n\010UserInfo\022\020\n\010toNodeID\030"
+      "\001 \001(\t\022\016\n\006userID\030\002 \001(\t\"\255\002\n\004User\022\n\n\002id\030\001 \001"
+      "(\t\022\020\n\010realname\030\002 \001(\t\022\020\n\010nickname\030\003 \001(\t\022\014"
+      "\n\004icon\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\016\n\006isM"
+      "ale\030\006 \001(\010\022\017\n\007phoneNo\030\007 \001(\t\022\023\n\013countryCod"
+      "e\030\010 \001(\t\022\020\n\010password\030\t \001(\t\022\020\n\010birthday\030\n "
+      "\001(\005\022\017\n\007version\030\013 \001(\005\022\037\n\007friends\030\014 \003(\0132\016."
+      "chat.UserInfo\022\021\n\tblacklist\030\r \003(\t\022\024\n\014grou"
+      "pNodeIDs\030\016 \003(\t\022\035\n\007devices\030\017 \003(\0132\014.chat.D"
+      "evice\"F\n\017SetUserProperty\022$\n\010property\030\001 \001"
+      "(\0162\022.chat.UserProperty\022\r\n\005value\030\002 \001(\t\"I\n"
+      "\022SetUserPropertyRes\022$\n\010property\030\001 \001(\0162\022."
+      "chat.UserProperty\022\r\n\005value\030\002 \001(\t\"A\n\tQuer"
+      "yUser\022\016\n\006userID\030\001 \001(\t\022\023\n\013countryCode\030\002 \001"
+      "(\t\022\017\n\007phoneNo\030\003 \001(\t\"@\n\014QueryUserRes\022\026\n\016t"
+      "oUserID_outer\030\001 \001(\t\022\030\n\004user\030\002 \001(\0132\n.chat"
+      ".User\"\"\n\020QueryUserVersion\022\016\n\006userID\030\001 \001("
+      "\t\"6\n\023QueryUserVersionRes\022\016\n\006userID\030\001 \001(\t"
+      "\022\017\n\007version\030\002 \001(\005\"\035\n\tQueryNode\022\020\n\010toNode"
+      "ID\030\001 \001(\t\"G\n\014QueryNodeRes\022\026\n\016toUserID_out"
+      "er\030\001 \001(\t\022\037\n\004node\030\002 \001(\0132\021.chat.MessageNod"
+      "e\"$\n\020QueryNodeVersion\022\020\n\010toNodeID\030\001 \001(\t\""
+      "8\n\023QueryNodeVersionRes\022\020\n\010toNodeID\030\001 \001(\t"
+      "\022\017\n\007version\030\002 \001(\005\"h\n\010Register\022\017\n\007phoneNo"
+      "\030\001 \001(\t\022\023\n\013countryCode\030\002 \001(\t\022\020\n\010password\030"
+      "\003 \001(\t\022\020\n\010nickname\030\004 \001(\t\022\022\n\nverifycode\030\005 "
+      "\001(\t\"M\n\013RegisterRes\022\016\n\006userID\030\001 \001(\t\022\021\n\tis"
+      "Success\030\002 \001(\010\022\r\n\005e_msg\030\003 \001(\t\022\014\n\004e_no\030\004 \001"
+      "(\005\"]\n\005Login\022\017\n\007phoneNo\030\001 \001(\t\022\023\n\013countryC"
+      "ode\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\034\n\006device\030\004 "
+      "\001(\0132\014.chat.Device\"X\n\010LoginRes\022\021\n\tisSucce"
+      "ss\030\001 \001(\010\022\016\n\006userID\030\002 \001(\t\022\014\n\004uuid\030\003 \001(\t\022\014"
+      "\n\004e_no\030\004 \001(\005\022\r\n\005e_msg\030\005 \001(\t\"1\n\tLoginNoti"
+      "\022\026\n\016toUserID_outer\030\001 \001(\t\022\014\n\004UUID\030\002 \001(\t\"\201"
+      "\001\n\rClientConnect\022\016\n\006userID\030\001 \001(\t\022\014\n\004UUID"
+      "\030\002 \001(\t\022\024\n\014isReciveNoti\030\003 \001(\010\022\021\n\tOSVersio"
+      "n\030\004 \001(\t\022\022\n\nappVersion\030\005 \001(\t\022\025\n\rclientVer"
+      "sion\030\006 \001(\t\"s\n\020ClientConnectRes\022\014\n\004UUID\030\001"
+      " \001(\t\022\016\n\006userID\030\002 \001(\t\022\021\n\tsessionid\030\003 \001(\005\022"
+      "\021\n\tisSuccess\030\004 \001(\010\022\r\n\005e_msg\030\005 \001(\t\022\014\n\004e_n"
+      "o\030\006 \001(\005\"0\n\020ClientDisConnect\022\016\n\006userID\030\001 "
+      "\001(\t\022\014\n\004UUID\030\002 \001(\t\"3\n\023ClientDisConnectRes"
+      "\022\014\n\004UUID\030\001 \001(\t\022\016\n\006userID\030\002 \001(\t\"&\n\006Logout"
+      "\022\016\n\006userID\030\001 \001(\t\022\014\n\004UUID\030\002 \001(\t\")\n\tLogout"
+      "Res\022\014\n\004UUID\030\001 \001(\t\022\016\n\006userID\030\002 \001(\t\"C\n\rAdd"
+      "FriendInfo\022\017\n\007inviter\030\001 \001(\t\022\017\n\007invitee\030\002"
+      " \001(\t\022\020\n\010toNodeID\030\003 \001(\t\">\n\tAddFriend\022\021\n\ti"
+      "nviteeID\030\001 \001(\t\022\021\n\tinviterID\030\002 \001(\t\022\013\n\003msg"
+      "\030\003 \001(\t\"F\n\014AddFriendRes\022\021\n\tinviterID\030\001 \001("
+      "\t\022\021\n\tinviteeID\030\002 \001(\t\022\020\n\010toNodeID\030\003 \001(\t\"5"
+      "\n\rAddFriendNoti\022$\n\010response\030\001 \001(\0132\022.chat"
+      ".AddFriendRes\"Z\n\022AddFriendAuthorize\022\021\n\ti"
       "nviterID\030\001 \001(\t\022\021\n\tinviteeID\030\002 \001(\t\022\036\n\007isA"
-      "gree\030\003 \001(\0162\r.chat.IsAgree\"G\n\026AddFriendAu"
-      "thorizeNoti\022-\n\010response\030\001 \001(\0132\033.chat.Add"
-      "FriendAuthorizeRes\"#\n\022QueryAddfriendInfo"
-      "\022\r\n\005count\030\001 \001(\005\":\n\025QueryAddfriendInfoRes"
-      "\022!\n\004info\030\001 \003(\0132\023.chat.AddFriendInfo\"B\n\013C"
-      "reateGroup\022\016\n\006userID\030\001 \001(\t\022\020\n\010nickname\030\002"
-      " \001(\t\022\021\n\tmembersID\030\003 \003(\t\"L\n\016CreateGroupRe"
-      "s\022\026\n\016toUserID_outer\030\001 \001(\t\022\020\n\010nickname\030\002 "
-      "\001(\t\022\020\n\010toNodeID\030\003 \001(\t\"5\n\016GroupAddMember\022"
-      "\020\n\010toNodeID\030\001 \001(\t\022\021\n\tmembersID\030\002 \003(\t\"=\n\021"
-      "GroupAddMemberRes\022\026\n\016toUserID_outer\030\001 \001("
-      "\t\022\020\n\010toNodeID\030\002 \001(\t\"\257\001\n\013NodeMessage\022\n\n\002i"
-      "d\030\001 \001(\t\022\022\n\nfromUserID\030\002 \001(\t\022\020\n\010toNodeID\030"
-      "\003 \001(\t\022\023\n\013incrementID\030\004 \001(\005\022\035\n\004type\030\005 \001(\016"
-      "2\017.chat.MediaType\022\017\n\007content\030\006 \001(\t\022\026\n\016to"
-      "UserID_outer\030\007 \001(\t\022\021\n\ttimestamp\030\010 \001(\005\"\202\001"
-      "\n\016NodeMessageRes\022\n\n\002id\030\001 \001(\t\022\023\n\013incremen"
-      "tID\030\002 \001(\005\022\022\n\nfromUserID\030\003 \001(\t\022\026\n\016toUserI"
-      "D_outer\030\004 \001(\t\022\020\n\010toNodeID\030\005 \001(\t\022\021\n\ttimes"
-      "tamp\030\006 \001(\005\"\201\001\n\017NodeMessageNoti\022\022\n\nfromUs"
-      "erID\030\001 \001(\t\022\026\n\016toUserID_outer\030\002 \001(\t\022\020\n\010to"
-      "NodeID\030\003 \001(\t\022\027\n\017readedIncrement\030\004 \001(\005\022\027\n"
-      "\017unreadIncrement\030\005 \001(\005\"P\n\014QueryMessage\022\020"
-      "\n\010toNodeID\030\001 \001(\t\022\027\n\017fromIncrementID\030\002 \001("
-      "\005\022\025\n\rtoIncrementID\030\003 \001(\005\"6\n\017QueryMessage"
-      "Res\022#\n\010messages\030\001 \003(\0132\021.chat.NodeMessage"
-      "\"5\n\rServerConnect\022\022\n\nserverName\030\001 \001(\t\022\020\n"
-      "\010serverIP\030\002 \001(\t\"8\n\020ServerDisconnect\022\022\n\ns"
-      "erverName\030\001 \001(\t\022\020\n\010serverIP\030\002 \001(\t\"\247\002\n\013Co"
-      "nnectInfo\022\014\n\004UUID\030\001 \001(\t\022\016\n\006userID\030\002 \001(\t\022"
-      "\017\n\007isLogin\030\003 \001(\010\022\023\n\013isConnected\030\004 \001(\010\022\024\n"
-      "\014isReciveNoti\030\005 \001(\010\022\022\n\nserverName\030\006 \001(\t\022"
-      "+\n\005users\030\010 \003(\0132\034.chat.ConnectInfo.UsersE"
-      "ntry\022\025\n\rclientVersion\030\t \001(\t\022\021\n\tOSVersion"
-      "\030\n \001(\t\022\022\n\nappVersion\030\013 \001(\t\022\021\n\ttimestamp\030"
-      "\014 \001(\t\032,\n\nUsersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
-      "e\030\002 \001(\005:\0028\001\"a\n\021ConnectInfoLittle\022\014\n\004UUID"
-      "\030\001 \001(\t\022\023\n\013isConnected\030\002 \001(\010\022\024\n\014isReciveN"
-      "oti\030\003 \001(\010\022\023\n\013nodepointor\030\004 \001(\003\"A\n\005Media\022"
-      "\013\n\003md5\030\001 \001(\t\022\014\n\004path\030\002 \001(\t\022\035\n\004type\030\003 \001(\016"
-      "2\017.chat.MediaType\"\035\n\010MediaRes\022\021\n\tisSucce"
-      "ss\030\001 \001(\010\"\031\n\nQueryMedia\022\013\n\003md5\030\001 \001(\t\"+\n\rQ"
-      "ueryMediaRes\022\032\n\005media\030\001 \001(\0132\013.chat.Media"
-      "*8\n\007IsAgree\022\n\n\006unknow\020\000\022\t\n\005agree\020\001\022\n\n\006re"
-      "fuse\020\002\022\n\n\006ignore\020\003*_\n\014UserProperty\022\014\n\010re"
-      "alname\020\000\022\014\n\010nickname\020\001\022\010\n\004icon\020\002\022\017\n\013desc"
-      "ription\020\003\022\n\n\006isMale\020\004\022\014\n\010birthday\020\005*3\n\tM"
-      "ediaType\022\n\n\006UNKNOW\020\000\022\010\n\004TEXT\020\001\022\007\n\003JPG\020\002\022"
-      "\007\n\003MP3\020\003B\003\370\001\000b\006proto3"
+      "gree\030\003 \001(\0162\r.chat.IsAgree\"]\n\025AddFriendAu"
+      "thorizeRes\022\021\n\tinviterID\030\001 \001(\t\022\021\n\tinvitee"
+      "ID\030\002 \001(\t\022\036\n\007isAgree\030\003 \001(\0162\r.chat.IsAgree"
+      "\"G\n\026AddFriendAuthorizeNoti\022-\n\010response\030\001"
+      " \001(\0132\033.chat.AddFriendAuthorizeRes\"#\n\022Que"
+      "ryAddfriendInfo\022\r\n\005count\030\001 \001(\005\":\n\025QueryA"
+      "ddfriendInfoRes\022!\n\004info\030\001 \003(\0132\023.chat.Add"
+      "FriendInfo\"B\n\013CreateGroup\022\016\n\006userID\030\001 \001("
+      "\t\022\020\n\010nickname\030\002 \001(\t\022\021\n\tmembersID\030\003 \003(\t\"L"
+      "\n\016CreateGroupRes\022\026\n\016toUserID_outer\030\001 \001(\t"
+      "\022\020\n\010nickname\030\002 \001(\t\022\020\n\010toNodeID\030\003 \001(\t\"5\n\016"
+      "GroupAddMember\022\020\n\010toNodeID\030\001 \001(\t\022\021\n\tmemb"
+      "ersID\030\002 \003(\t\"=\n\021GroupAddMemberRes\022\026\n\016toUs"
+      "erID_outer\030\001 \001(\t\022\020\n\010toNodeID\030\002 \001(\t\"\257\001\n\013N"
+      "odeMessage\022\n\n\002id\030\001 \001(\t\022\022\n\nfromUserID\030\002 \001"
+      "(\t\022\020\n\010toNodeID\030\003 \001(\t\022\023\n\013incrementID\030\004 \001("
+      "\005\022\035\n\004type\030\005 \001(\0162\017.chat.MediaType\022\017\n\007cont"
+      "ent\030\006 \001(\t\022\026\n\016toUserID_outer\030\007 \001(\t\022\021\n\ttim"
+      "estamp\030\010 \001(\005\"\202\001\n\016NodeMessageRes\022\n\n\002id\030\001 "
+      "\001(\t\022\023\n\013incrementID\030\002 \001(\005\022\022\n\nfromUserID\030\003"
+      " \001(\t\022\026\n\016toUserID_outer\030\004 \001(\t\022\020\n\010toNodeID"
+      "\030\005 \001(\t\022\021\n\ttimestamp\030\006 \001(\005\"\201\001\n\017NodeMessag"
+      "eNoti\022\022\n\nfromUserID\030\001 \001(\t\022\026\n\016toUserID_ou"
+      "ter\030\002 \001(\t\022\020\n\010toNodeID\030\003 \001(\t\022\027\n\017readedInc"
+      "rement\030\004 \001(\005\022\027\n\017unreadIncrement\030\005 \001(\005\"P\n"
+      "\014QueryMessage\022\020\n\010toNodeID\030\001 \001(\t\022\027\n\017fromI"
+      "ncrementID\030\002 \001(\005\022\025\n\rtoIncrementID\030\003 \001(\005\""
+      "6\n\017QueryMessageRes\022#\n\010messages\030\001 \003(\0132\021.c"
+      "hat.NodeMessage\"5\n\rServerConnect\022\022\n\nserv"
+      "erName\030\001 \001(\t\022\020\n\010serverIP\030\002 \001(\t\"8\n\020Server"
+      "Disconnect\022\022\n\nserverName\030\001 \001(\t\022\020\n\010server"
+      "IP\030\002 \001(\t\"\247\002\n\013ConnectInfo\022\014\n\004UUID\030\001 \001(\t\022\016"
+      "\n\006userID\030\002 \001(\t\022\017\n\007isLogin\030\003 \001(\010\022\023\n\013isCon"
+      "nected\030\004 \001(\010\022\024\n\014isReciveNoti\030\005 \001(\010\022\022\n\nse"
+      "rverName\030\006 \001(\t\022+\n\005users\030\010 \003(\0132\034.chat.Con"
+      "nectInfo.UsersEntry\022\025\n\rclientVersion\030\t \001"
+      "(\t\022\021\n\tOSVersion\030\n \001(\t\022\022\n\nappVersion\030\013 \001("
+      "\t\022\021\n\ttimestamp\030\014 \001(\t\032,\n\nUsersEntry\022\013\n\003ke"
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\"a\n\021ConnectInf"
+      "oLittle\022\014\n\004UUID\030\001 \001(\t\022\023\n\013isConnected\030\002 \001"
+      "(\010\022\024\n\014isReciveNoti\030\003 \001(\010\022\023\n\013nodepointor\030"
+      "\004 \001(\003\"A\n\005Media\022\013\n\003md5\030\001 \001(\t\022\014\n\004path\030\002 \001("
+      "\t\022\035\n\004type\030\003 \001(\0162\017.chat.MediaType\"\035\n\010Medi"
+      "aRes\022\021\n\tisSuccess\030\001 \001(\010\"\031\n\nQueryMedia\022\013\n"
+      "\003md5\030\001 \001(\t\"+\n\rQueryMediaRes\022\032\n\005media\030\001 \001"
+      "(\0132\013.chat.Media*8\n\007IsAgree\022\n\n\006unknow\020\000\022\t"
+      "\n\005agree\020\001\022\n\n\006refuse\020\002\022\n\n\006ignore\020\003*_\n\014Use"
+      "rProperty\022\014\n\010realname\020\000\022\014\n\010nickname\020\001\022\010\n"
+      "\004icon\020\002\022\017\n\013description\020\003\022\n\n\006isMale\020\004\022\014\n\010"
+      "birthday\020\005*3\n\tMediaType\022\n\n\006UNKNOW\020\000\022\010\n\004T"
+      "EXT\020\001\022\007\n\003JPG\020\002\022\007\n\003MP3\020\003B\003\370\001\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4981);
+      descriptor, 4996);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chat_message.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -1442,7 +1443,7 @@ void ErrorNth::set_maxnth(::google::protobuf::int32 value) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int NodeInfo::kToNodeIDFieldNumber;
-const int NodeInfo::kMaxIncrementidFieldNumber;
+const int NodeInfo::kMaxIncrementIDFieldNumber;
 const int NodeInfo::kRecentTimestampFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -1540,7 +1541,7 @@ bool NodeInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 maxIncrementid = 2;
+      // int32 maxIncrementID = 2;
       case 2: {
         if (tag == 16u) {
 
@@ -1600,7 +1601,7 @@ void NodeInfo::SerializeWithCachedSizes(
       1, this->tonodeid(), output);
   }
 
-  // int32 maxIncrementid = 2;
+  // int32 maxIncrementID = 2;
   if (this->maxincrementid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->maxincrementid(), output);
   }
@@ -1628,7 +1629,7 @@ void NodeInfo::SerializeWithCachedSizes(
         1, this->tonodeid(), target);
   }
 
-  // int32 maxIncrementid = 2;
+  // int32 maxIncrementID = 2;
   if (this->maxincrementid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->maxincrementid(), target);
   }
@@ -1653,7 +1654,7 @@ size_t NodeInfo::ByteSizeLong() const {
         this->tonodeid());
   }
 
-  // int32 maxIncrementid = 2;
+  // int32 maxIncrementID = 2;
   if (this->maxincrementid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1794,18 +1795,18 @@ void NodeInfo::set_allocated_tonodeid(::std::string* tonodeid) {
   // @@protoc_insertion_point(field_set_allocated:chat.NodeInfo.toNodeID)
 }
 
-// int32 maxIncrementid = 2;
+// int32 maxIncrementID = 2;
 void NodeInfo::clear_maxincrementid() {
   maxincrementid_ = 0;
 }
 ::google::protobuf::int32 NodeInfo::maxincrementid() const {
-  // @@protoc_insertion_point(field_get:chat.NodeInfo.maxIncrementid)
+  // @@protoc_insertion_point(field_get:chat.NodeInfo.maxIncrementID)
   return maxincrementid_;
 }
 void NodeInfo::set_maxincrementid(::google::protobuf::int32 value) {
   
   maxincrementid_ = value;
-  // @@protoc_insertion_point(field_set:chat.NodeInfo.maxIncrementid)
+  // @@protoc_insertion_point(field_set:chat.NodeInfo.maxIncrementID)
 }
 
 // int32 recentTimestamp = 3;
@@ -1829,6 +1830,7 @@ void NodeInfo::set_recenttimestamp(::google::protobuf::int32 value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int TalkInfo::kToNodeIDFieldNumber;
 const int TalkInfo::kReadedIncrementFieldNumber;
+const int TalkInfo::kRecentTimestampFieldNumber;
 const int TalkInfo::kToUserIDFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -1853,14 +1855,17 @@ TalkInfo::TalkInfo(const TalkInfo& from)
   if (from.touserid().size() > 0) {
     touserid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.touserid_);
   }
-  readedincrement_ = from.readedincrement_;
+  ::memcpy(&readedincrement_, &from.readedincrement_,
+    reinterpret_cast<char*>(&recenttimestamp_) -
+    reinterpret_cast<char*>(&readedincrement_) + sizeof(recenttimestamp_));
   // @@protoc_insertion_point(copy_constructor:chat.TalkInfo)
 }
 
 void TalkInfo::SharedCtor() {
   tonodeid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   touserid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  readedincrement_ = 0;
+  ::memset(&readedincrement_, 0, reinterpret_cast<char*>(&recenttimestamp_) -
+    reinterpret_cast<char*>(&readedincrement_) + sizeof(recenttimestamp_));
   _cached_size_ = 0;
 }
 
@@ -1901,7 +1906,8 @@ void TalkInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:chat.TalkInfo)
   tonodeid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   touserid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  readedincrement_ = 0;
+  ::memset(&readedincrement_, 0, reinterpret_cast<char*>(&recenttimestamp_) -
+    reinterpret_cast<char*>(&readedincrement_) + sizeof(recenttimestamp_));
 }
 
 bool TalkInfo::MergePartialFromCodedStream(
@@ -1942,9 +1948,22 @@ bool TalkInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // string toUserID = 3;
+      // int32 recentTimestamp = 3;
       case 3: {
-        if (tag == 26u) {
+        if (tag == 24u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &recenttimestamp_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string toUserID = 4;
+      case 4: {
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_touserid()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1996,14 +2015,19 @@ void TalkInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->readedincrement(), output);
   }
 
-  // string toUserID = 3;
+  // int32 recentTimestamp = 3;
+  if (this->recenttimestamp() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->recenttimestamp(), output);
+  }
+
+  // string toUserID = 4;
   if (this->touserid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->touserid().data(), this->touserid().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "chat.TalkInfo.toUserID");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->touserid(), output);
+      4, this->touserid(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:chat.TalkInfo)
@@ -2029,7 +2053,12 @@ void TalkInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->readedincrement(), target);
   }
 
-  // string toUserID = 3;
+  // int32 recentTimestamp = 3;
+  if (this->recenttimestamp() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->recenttimestamp(), target);
+  }
+
+  // string toUserID = 4;
   if (this->touserid().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->touserid().data(), this->touserid().length(),
@@ -2037,7 +2066,7 @@ void TalkInfo::SerializeWithCachedSizes(
       "chat.TalkInfo.toUserID");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->touserid(), target);
+        4, this->touserid(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:chat.TalkInfo)
@@ -2055,7 +2084,7 @@ size_t TalkInfo::ByteSizeLong() const {
         this->tonodeid());
   }
 
-  // string toUserID = 3;
+  // string toUserID = 4;
   if (this->touserid().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2067,6 +2096,13 @@ size_t TalkInfo::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->readedincrement());
+  }
+
+  // int32 recentTimestamp = 3;
+  if (this->recenttimestamp() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->recenttimestamp());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2106,6 +2142,9 @@ void TalkInfo::MergeFrom(const TalkInfo& from) {
   if (from.readedincrement() != 0) {
     set_readedincrement(from.readedincrement());
   }
+  if (from.recenttimestamp() != 0) {
+    set_recenttimestamp(from.recenttimestamp());
+  }
 }
 
 void TalkInfo::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2134,6 +2173,7 @@ void TalkInfo::InternalSwap(TalkInfo* other) {
   tonodeid_.Swap(&other->tonodeid_);
   touserid_.Swap(&other->touserid_);
   std::swap(readedincrement_, other->readedincrement_);
+  std::swap(recenttimestamp_, other->recenttimestamp_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
@@ -2211,7 +2251,21 @@ void TalkInfo::set_readedincrement(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:chat.TalkInfo.readedIncrement)
 }
 
-// string toUserID = 3;
+// int32 recentTimestamp = 3;
+void TalkInfo::clear_recenttimestamp() {
+  recenttimestamp_ = 0;
+}
+::google::protobuf::int32 TalkInfo::recenttimestamp() const {
+  // @@protoc_insertion_point(field_get:chat.TalkInfo.recentTimestamp)
+  return recenttimestamp_;
+}
+void TalkInfo::set_recenttimestamp(::google::protobuf::int32 value) {
+  
+  recenttimestamp_ = value;
+  // @@protoc_insertion_point(field_set:chat.TalkInfo.recentTimestamp)
+}
+
+// string toUserID = 4;
 void TalkInfo::clear_touserid() {
   touserid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2268,7 +2322,7 @@ void TalkInfo::set_allocated_touserid(::std::string* touserid) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int TalkList::kTalksFieldNumber;
+const int TalkList::kTalkNodeIDsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 TalkList::TalkList()
@@ -2282,7 +2336,7 @@ TalkList::TalkList()
 TalkList::TalkList(const TalkList& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      talks_(from.talks_),
+      talknodeids_(from.talknodeids_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:chat.TalkList)
@@ -2325,7 +2379,7 @@ TalkList* TalkList::New(::google::protobuf::Arena* arena) const {
 
 void TalkList::Clear() {
 // @@protoc_insertion_point(message_clear_start:chat.TalkList)
-  talks_.Clear();
+  talknodeids_.Clear();
 }
 
 bool TalkList::MergePartialFromCodedStream(
@@ -2338,16 +2392,19 @@ bool TalkList::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .chat.TalkInfo talks = 1;
+      // repeated string talkNodeIDs = 1;
       case 1: {
         if (tag == 10u) {
-          DO_(input->IncrementRecursionDepth());
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
-                input, add_talks()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_talknodeids()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->talknodeids(this->talknodeids_size() - 1).data(),
+            this->talknodeids(this->talknodeids_size() - 1).length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "chat.TalkList.talkNodeIDs"));
         } else {
           goto handle_unusual;
         }
-        input->UnsafeDecrementRecursionDepth();
         break;
       }
 
@@ -2375,10 +2432,14 @@ failure:
 void TalkList::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:chat.TalkList)
-  // repeated .chat.TalkInfo talks = 1;
-  for (unsigned int i = 0, n = this->talks_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->talks(i), output);
+  // repeated string talkNodeIDs = 1;
+  for (int i = 0; i < this->talknodeids_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->talknodeids(i).data(), this->talknodeids(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "chat.TalkList.talkNodeIDs");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->talknodeids(i), output);
   }
 
   // @@protoc_insertion_point(serialize_end:chat.TalkList)
@@ -2388,11 +2449,14 @@ void TalkList::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:chat.TalkList)
-  // repeated .chat.TalkInfo talks = 1;
-  for (unsigned int i = 0, n = this->talks_size(); i < n; i++) {
+  // repeated string talkNodeIDs = 1;
+  for (int i = 0; i < this->talknodeids_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->talknodeids(i).data(), this->talknodeids(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "chat.TalkList.talkNodeIDs");
     target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        1, this->talks(i), false, target);
+      WriteStringToArray(1, this->talknodeids(i), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:chat.TalkList)
@@ -2403,15 +2467,12 @@ size_t TalkList::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:chat.TalkList)
   size_t total_size = 0;
 
-  // repeated .chat.TalkInfo talks = 1;
-  {
-    unsigned int count = this->talks_size();
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->talks(i));
-    }
+  // repeated string talkNodeIDs = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->talknodeids_size());
+  for (int i = 0; i < this->talknodeids_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->talknodeids(i));
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2440,7 +2501,7 @@ void TalkList::MergeFrom(const TalkList& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:chat.TalkList)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  talks_.MergeFrom(from.talks_);
+  talknodeids_.MergeFrom(from.talknodeids_);
 }
 
 void TalkList::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2466,7 +2527,7 @@ void TalkList::Swap(TalkList* other) {
   InternalSwap(other);
 }
 void TalkList::InternalSwap(TalkList* other) {
-  talks_.UnsafeArenaSwap(&other->talks_);
+  talknodeids_.UnsafeArenaSwap(&other->talknodeids_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
@@ -2478,34 +2539,59 @@ void TalkList::InternalSwap(TalkList* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TalkList
 
-// repeated .chat.TalkInfo talks = 1;
-int TalkList::talks_size() const {
-  return talks_.size();
+// repeated string talkNodeIDs = 1;
+int TalkList::talknodeids_size() const {
+  return talknodeids_.size();
 }
-void TalkList::clear_talks() {
-  talks_.Clear();
+void TalkList::clear_talknodeids() {
+  talknodeids_.Clear();
 }
-const ::chat::TalkInfo& TalkList::talks(int index) const {
-  // @@protoc_insertion_point(field_get:chat.TalkList.talks)
-  return talks_.Get(index);
+const ::std::string& TalkList::talknodeids(int index) const {
+  // @@protoc_insertion_point(field_get:chat.TalkList.talkNodeIDs)
+  return talknodeids_.Get(index);
 }
-::chat::TalkInfo* TalkList::mutable_talks(int index) {
-  // @@protoc_insertion_point(field_mutable:chat.TalkList.talks)
-  return talks_.Mutable(index);
+::std::string* TalkList::mutable_talknodeids(int index) {
+  // @@protoc_insertion_point(field_mutable:chat.TalkList.talkNodeIDs)
+  return talknodeids_.Mutable(index);
 }
-::chat::TalkInfo* TalkList::add_talks() {
-  // @@protoc_insertion_point(field_add:chat.TalkList.talks)
-  return talks_.Add();
+void TalkList::set_talknodeids(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:chat.TalkList.talkNodeIDs)
+  talknodeids_.Mutable(index)->assign(value);
 }
-::google::protobuf::RepeatedPtrField< ::chat::TalkInfo >*
-TalkList::mutable_talks() {
-  // @@protoc_insertion_point(field_mutable_list:chat.TalkList.talks)
-  return &talks_;
+void TalkList::set_talknodeids(int index, const char* value) {
+  talknodeids_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:chat.TalkList.talkNodeIDs)
 }
-const ::google::protobuf::RepeatedPtrField< ::chat::TalkInfo >&
-TalkList::talks() const {
-  // @@protoc_insertion_point(field_list:chat.TalkList.talks)
-  return talks_;
+void TalkList::set_talknodeids(int index, const char* value, size_t size) {
+  talknodeids_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:chat.TalkList.talkNodeIDs)
+}
+::std::string* TalkList::add_talknodeids() {
+  // @@protoc_insertion_point(field_add_mutable:chat.TalkList.talkNodeIDs)
+  return talknodeids_.Add();
+}
+void TalkList::add_talknodeids(const ::std::string& value) {
+  talknodeids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:chat.TalkList.talkNodeIDs)
+}
+void TalkList::add_talknodeids(const char* value) {
+  talknodeids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:chat.TalkList.talkNodeIDs)
+}
+void TalkList::add_talknodeids(const char* value, size_t size) {
+  talknodeids_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:chat.TalkList.talkNodeIDs)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+TalkList::talknodeids() const {
+  // @@protoc_insertion_point(field_list:chat.TalkList.talkNodeIDs)
+  return talknodeids_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+TalkList::mutable_talknodeids() {
+  // @@protoc_insertion_point(field_mutable_list:chat.TalkList.talkNodeIDs)
+  return &talknodeids_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

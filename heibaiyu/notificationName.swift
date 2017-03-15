@@ -9,6 +9,10 @@
 import Foundation
 
 public class notificationName {
-  static let talk2user = Notification.Name(rawValue: "talk2user")
+  // push user talk
+  static let talk2user = Notification.Name("talk2user")
   static let talk2user_key_userid = "talk2user_key_userid"
+  // update recent message
+  static let updateOneMsg = Notification.Name("updateOneMsg")
+  static let updateOneMsg_key_nodeid = "updateOneMsg_key_nodeid"
 }

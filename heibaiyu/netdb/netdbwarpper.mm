@@ -271,5 +271,13 @@ static leveldb_yi * db_ = nil;
   auto key = db_->nodeKey(std::string([nodeid UTF8String]));
   return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
 }
+- (NSString*)dbkeyNodeinfo:(NSString*)nodeid {
+  auto key = db_->nodeinfoKey(std::string([nodeid UTF8String]));
+  return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
+}
+- (NSString*)dbkeyTalkinfo:(NSString*)nodeid {
+  auto key = db_->talkinfoKey(std::string([nodeid UTF8String]));
+  return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
+}
 
 @end

@@ -95,6 +95,8 @@ public:
       const int32_t incrementid);
   // t_$userid
   std::string talklistKey();
+  // t_$userid_$tonodeid
+  std::string talkinfoKey(const std::string & tonodeid);
   /*
    * error key
    * */

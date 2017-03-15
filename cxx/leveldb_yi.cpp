@@ -254,6 +254,10 @@ std::string leveldb_yi::talklistKey() {
   YILOG_TRACE ("func: {}", __func__);
   return "t_" + getCurrentUserid();
 }
+std::string leveldb_yi::talkinfoKey(const std::string & tonodeid) {
+  YILOG_TRACE ("func: {}", __func__);
+  return "t_" + getCurrentUserid() + tonodeid;
+}
 
 /* media key
  */
