@@ -7,7 +7,26 @@
 //
 
 import Foundation
+import Chatto
+import ChattoAdditions
 
-class textMsgModel {
+public class textMsgModel:  TextMessageModel<MessageModel> {
+  public override init(messageModel: MessageModel, text: String) {
+    super.init(messageModel: messageModel, text: text)
+  }
   
+  public var status: MessageStatus {
+    get {
+      return self._messageModel.status
+    }
+    set {
+      self._messageModel.status = newValue
+    }
+  }
+}
+
+extension textMsgModel {
+  static var chatItemType: ChatItemType {
+    return "text"
+  }
 }

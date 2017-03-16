@@ -18,13 +18,23 @@ class chatController: BaseChatViewController {
       self.chatDataSourceDidUpdate(self.dataSource)
     }
   }
+  
+  var msgSender: msgSender!
+  lazy private var baseMsgHandler: baseMessageHandler = {
+    return baseMessageHandler(msgSender: self.msgSender)
+  }()
 
   // chat message prensenter
-  /*
   override func createPresenterBuilders() -> [ChatItemType : [ChatItemPresenterBuilderProtocol]] {
-    let textMessagePresenter = TextMessagePresenterBuilder(viewModelBuilder: <#T##ViewModelBuilderT#>, interactionHandler: <#T##InteractionHandlerT?#>)
+    let textMessagePresenter = TextMessagePresenterBuilder(viewModelBuilder: textMsgViewModelBuilder(), interactionHandler: textMsgHandler(baseHandler: self.baseMsgHandler))
+    textMessagePresenter.baseMessageStyle = BaseMessageCollectionViewCellDefaultStyle()
+    
+    return [
+      textMsgModel.chatItemType: [
+        textMessagePresenter
+      ]
+    ]
   }
- */
   
 //  chat input presenter
   var chatInputPresenter: BasicChatInputBarPresenter!
@@ -40,7 +50,6 @@ class chatController: BaseChatViewController {
   func createChatInputItems() -> [ChatInputItemProtocol] {
     var items = [ChatInputItemProtocol]()
     items.append(self.createTextInputItem())
-    items.append(self.createPhotoInputItem())
     return items
   }
   private func createTextInputItem() -> TextChatInputItem {
@@ -51,6 +60,7 @@ class chatController: BaseChatViewController {
     return item
   }
 
+  /*
   private func createPhotoInputItem() -> PhotosChatInputItem {
     let item = PhotosChatInputItem(presentingController: self)
     item.photoInputHandler = { [weak self] image in
@@ -58,5 +68,6 @@ class chatController: BaseChatViewController {
     }
     return item
   }
+ */
 }
 

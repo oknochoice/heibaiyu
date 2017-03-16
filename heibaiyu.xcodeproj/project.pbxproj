@@ -10,6 +10,8 @@
 		230D74C11E75243A00BD2F0A /* addFriendInfolistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C01E75243A00BD2F0A /* addFriendInfolistController.swift */; };
 		230D74C31E75250700BD2F0A /* settingAddfriendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C21E75250700BD2F0A /* settingAddfriendInfo.swift */; };
 		230D74C51E75A26500BD2F0A /* settingFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D74C41E75A26500BD2F0A /* settingFriendModel.swift */; };
+		2336BC071E7ADDB10076AA1D /* baseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336BC061E7ADDB10076AA1D /* baseMessageHandler.swift */; };
+		2336BC091E7ADFFB0076AA1D /* msgSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336BC081E7ADFFB0076AA1D /* msgSender.swift */; };
 		234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */; };
 		2344E4851E313A6B00867A71 /* chat_message.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344E4841E313A6B00867A71 /* chat_message.pb.swift */; };
 		2373E1451E3DE4080055136C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2373E1471E3DE4080055136C /* Localizable.strings */; };
@@ -338,9 +340,6 @@
 		A4C974771E7A436700831614 /* textMsgViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974761E7A436700831614 /* textMsgViewModel.swift */; };
 		A4C974791E7A437000831614 /* textMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974781E7A437000831614 /* textMsgModel.swift */; };
 		A4C9747B1E7A437F00831614 /* textMsgHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747A1E7A437F00831614 /* textMsgHandler.swift */; };
-		A4C9747D1E7A439700831614 /* photoMsgViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */; };
-		A4C9747F1E7A43A100831614 /* photoMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747E1E7A43A100831614 /* photoMsgModel.swift */; };
-		A4C974811E7A43BA00831614 /* photoMsgHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974801E7A43BA00831614 /* photoMsgHandler.swift */; };
 		A4E75A4F1E49598700C5FC66 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A4E1E49598700C5FC66 /* error.swift */; };
 		A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */; };
 		A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A541E4AC7B700C5FC66 /* genColors.swift */; };
@@ -388,6 +387,8 @@
 		230D74C01E75243A00BD2F0A /* addFriendInfolistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addFriendInfolistController.swift; sourceTree = "<group>"; };
 		230D74C21E75250700BD2F0A /* settingAddfriendInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingAddfriendInfo.swift; sourceTree = "<group>"; };
 		230D74C41E75A26500BD2F0A /* settingFriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingFriendModel.swift; sourceTree = "<group>"; };
+		2336BC061E7ADDB10076AA1D /* baseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseMessageHandler.swift; sourceTree = "<group>"; };
+		2336BC081E7ADFFB0076AA1D /* msgSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = msgSender.swift; sourceTree = "<group>"; };
 		2344916E1E4F5DC9005B7FC1 /* netdbwarpper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = netdbwarpper.mm; sourceTree = "<group>"; };
 		2344916F1E4F5DC9005B7FC1 /* netdbwarpper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = netdbwarpper.hpp; sourceTree = "<group>"; };
 		2344E4811E2FDAE900867A71 /* typemap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemap.h; sourceTree = "<group>"; };
@@ -976,9 +977,6 @@
 		A4C974761E7A436700831614 /* textMsgViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgViewModel.swift; sourceTree = "<group>"; };
 		A4C974781E7A437000831614 /* textMsgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgModel.swift; sourceTree = "<group>"; };
 		A4C9747A1E7A437F00831614 /* textMsgHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgHandler.swift; sourceTree = "<group>"; };
-		A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgViewModel.swift; sourceTree = "<group>"; };
-		A4C9747E1E7A43A100831614 /* photoMsgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgModel.swift; sourceTree = "<group>"; };
-		A4C974801E7A43BA00831614 /* photoMsgHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgHandler.swift; sourceTree = "<group>"; };
 		A4E75A4E1E49598700C5FC66 /* error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
 		A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchResultController.swift; sourceTree = "<group>"; };
 		A4E75A541E4AC7B700C5FC66 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = "<group>"; };
@@ -1098,12 +1096,11 @@
 				23A881D11E3687270023B421 /* messageController.swift */,
 				A4C974721E7A2C7700831614 /* chatController.swift */,
 				A4C974741E7A314900831614 /* chatItemDataSource.swift */,
+				2336BC081E7ADFFB0076AA1D /* msgSender.swift */,
+				2336BC061E7ADDB10076AA1D /* baseMessageHandler.swift */,
 				A4C974761E7A436700831614 /* textMsgViewModel.swift */,
 				A4C974781E7A437000831614 /* textMsgModel.swift */,
 				A4C9747A1E7A437F00831614 /* textMsgHandler.swift */,
-				A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */,
-				A4C9747E1E7A43A100831614 /* photoMsgModel.swift */,
-				A4C974801E7A43BA00831614 /* photoMsgHandler.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -2267,7 +2264,9 @@
 				238D43EB1E46329800DB9F03 /* whisper.swift in Sources */,
 				A40FD2E91E4C415F0044D2DA /* printer.cc in Sources */,
 				A40FD2A81E4C415F0044D2DA /* command_line_interface.cc in Sources */,
+				2336BC071E7ADDB10076AA1D /* baseMessageHandler.swift in Sources */,
 				A40FD2C51E4C415F0044D2DA /* importer.cc in Sources */,
+				2336BC091E7ADFFB0076AA1D /* msgSender.swift in Sources */,
 				A4E75A6E1E4B160F00C5FC66 /* settingBaseController.swift in Sources */,
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				A40FD2BC1E4C415F0044D2DA /* cpp_file.cc in Sources */,
@@ -2291,7 +2290,6 @@
 				234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */,
 				A45102001E72BC0200086C62 /* friendInfoController.swift in Sources */,
 				2373E15E1E3F4EB80055136C /* image.swift in Sources */,
-				A4C974811E7A43BA00831614 /* photoMsgHandler.swift in Sources */,
 				A40FD2C01E4C415F0044D2DA /* cpp_message.cc in Sources */,
 				2373E14F1E3E43870055136C /* genL10n.swift in Sources */,
 				A4638D071E77DE0600C302B0 /* notificationName.swift in Sources */,
@@ -2302,7 +2300,6 @@
 				A40FD3441E4C415F0044D2DA /* json_util.cc in Sources */,
 				A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */,
 				A40FD2EA1E4C415F0044D2DA /* strtod.cc in Sources */,
-				A4C9747D1E7A439700831614 /* photoMsgViewModel.swift in Sources */,
 				238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */,
 				A40FD2F01E4C415F0044D2DA /* message.cc in Sources */,
 				A40FD3101E4C415F0044D2DA /* statusor.cc in Sources */,
@@ -2383,7 +2380,6 @@
 				A40FD3471E4C415F0044D2DA /* type_resolver_util.cc in Sources */,
 				A40FD30E1E4C415F0044D2DA /* once.cc in Sources */,
 				A40FD3131E4C415F0044D2DA /* structurally_valid.cc in Sources */,
-				A4C9747F1E7A43A100831614 /* photoMsgModel.swift in Sources */,
 				A40FD3141E4C415F0044D2DA /* strutil.cc in Sources */,
 				A40FD2F41E4C415F0044D2DA /* service.cc in Sources */,
 				A40FD2F71E4C415F0044D2DA /* struct.pb.cc in Sources */,
