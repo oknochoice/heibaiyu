@@ -37,10 +37,6 @@
 		23A881D51E3687270023B421 /* messageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D11E3687270023B421 /* messageController.swift */; };
 		23A881D61E3687270023B421 /* SigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D31E3687270023B421 /* SigninController.swift */; };
 		23A881D71E3687270023B421 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D41E3687270023B421 /* SignupController.swift */; };
-		23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; };
-		23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D81E368B340023B421 /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; };
-		23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A881D91E368B340023B421 /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC65991E5D160E0062FF59 /* WebP.framework */; };
 		23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
@@ -266,6 +262,10 @@
 		A40FD34E1E4C41D00044D2DA /* bytestream.cc in Sources */ = {isa = PBXBuildFile; fileRef = A40FD34C1E4C41D00044D2DA /* bytestream.cc */; };
 		A40FD3511E4C49310044D2DA /* netdb_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A40FD34F1E4C49310044D2DA /* netdb_yi.cpp */; };
 		A40FD3541E4C4A550044D2DA /* chat_message.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = A40FD3521E4C4A550044D2DA /* chat_message.pb.cc */; };
+		A42A0B3F1E7A92CD001D499E /* Chatto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42A0B3D1E7A92CD001D499E /* Chatto.framework */; };
+		A42A0B401E7A92CD001D499E /* Chatto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42A0B3D1E7A92CD001D499E /* Chatto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A42A0B411E7A92CD001D499E /* ChattoAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42A0B3E1E7A92CD001D499E /* ChattoAdditions.framework */; };
+		A42A0B421E7A92CD001D499E /* ChattoAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42A0B3E1E7A92CD001D499E /* ChattoAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A448F1BB1E681AC500DCAB5D /* meIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F1BA1E681AC500DCAB5D /* meIconController.swift */; };
 		A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */; };
 		A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A448F1C71E69849F00DCAB5D /* SnapKit.framework */; };
@@ -333,6 +333,14 @@
 		A4B93D4D1E4D5FBA00E2B480 /* leveldb_yi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A4B93D4B1E4D5FBA00E2B480 /* leveldb_yi.cpp */; };
 		A4C9746F1E77E9B100831614 /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9746E1E77E9B100831614 /* messageCell.swift */; };
 		A4C974711E77EA9700831614 /* messageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974701E77EA9700831614 /* messageModel.swift */; };
+		A4C974731E7A2C7700831614 /* chatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974721E7A2C7700831614 /* chatController.swift */; };
+		A4C974751E7A314900831614 /* chatItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974741E7A314900831614 /* chatItemDataSource.swift */; };
+		A4C974771E7A436700831614 /* textMsgViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974761E7A436700831614 /* textMsgViewModel.swift */; };
+		A4C974791E7A437000831614 /* textMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974781E7A437000831614 /* textMsgModel.swift */; };
+		A4C9747B1E7A437F00831614 /* textMsgHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747A1E7A437F00831614 /* textMsgHandler.swift */; };
+		A4C9747D1E7A439700831614 /* photoMsgViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */; };
+		A4C9747F1E7A43A100831614 /* photoMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9747E1E7A43A100831614 /* photoMsgModel.swift */; };
+		A4C974811E7A43BA00831614 /* photoMsgHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C974801E7A43BA00831614 /* photoMsgHandler.swift */; };
 		A4E75A4F1E49598700C5FC66 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A4E1E49598700C5FC66 /* error.swift */; };
 		A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */; };
 		A4E75A551E4AC7B700C5FC66 /* genColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E75A541E4AC7B700C5FC66 /* genColors.swift */; };
@@ -361,11 +369,11 @@
 				A49F7A851E5EBAA800C67730 /* SDWebImage.framework in Embed Frameworks */,
 				23A881841E3673FF0023B421 /* Device.framework in Embed Frameworks */,
 				23A8819E1E3673FF0023B421 /* SwiftProtobuf.framework in Embed Frameworks */,
-				23A881DD1E368B340023B421 /* ChattoAdditions.framework in Embed Frameworks */,
-				23A881DB1E368B340023B421 /* Chatto.framework in Embed Frameworks */,
 				A4F826CB1E5AC873008D8826 /* SwiftDate.framework in Embed Frameworks */,
 				A468CEF31E4845910017D266 /* Reachability.framework in Embed Frameworks */,
 				A448F1C91E69849F00DCAB5D /* SnapKit.framework in Embed Frameworks */,
+				A42A0B401E7A92CD001D499E /* Chatto.framework in Embed Frameworks */,
+				A42A0B421E7A92CD001D499E /* ChattoAdditions.framework in Embed Frameworks */,
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
@@ -406,8 +414,6 @@
 		23A881D11E3687270023B421 /* messageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageController.swift; sourceTree = "<group>"; };
 		23A881D31E3687270023B421 /* SigninController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
 		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
-		23A881D81E368B340023B421 /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
-		23A881D91E368B340023B421 /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
 		23EC65991E5D160E0062FF59 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDecoder.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -790,6 +796,8 @@
 		A40FD3521E4C4A550044D2DA /* chat_message.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chat_message.pb.cc; sourceTree = "<group>"; };
 		A40FD3531E4C4A550044D2DA /* chat_message.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chat_message.pb.h; sourceTree = "<group>"; };
 		A40FD3581E4C61270044D2DA /* typemapre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typemapre.h; sourceTree = "<group>"; };
+		A42A0B3D1E7A92CD001D499E /* Chatto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chatto.framework; path = Carthage/Build/iOS/Chatto.framework; sourceTree = "<group>"; };
+		A42A0B3E1E7A92CD001D499E /* ChattoAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChattoAdditions.framework; path = Carthage/Build/iOS/ChattoAdditions.framework; sourceTree = "<group>"; };
 		A448F1BA1E681AC500DCAB5D /* meIconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meIconController.swift; sourceTree = "<group>"; };
 		A448F1BC1E681D4700DCAB5D /* meTextfieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meTextfieldController.swift; sourceTree = "<group>"; };
 		A448F1C71E69849F00DCAB5D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -963,6 +971,14 @@
 		A4B93D4C1E4D5FBA00E2B480 /* leveldb_yi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = leveldb_yi.hpp; sourceTree = "<group>"; };
 		A4C9746E1E77E9B100831614 /* messageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageCell.swift; sourceTree = "<group>"; };
 		A4C974701E77EA9700831614 /* messageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageModel.swift; sourceTree = "<group>"; };
+		A4C974721E7A2C7700831614 /* chatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatController.swift; sourceTree = "<group>"; };
+		A4C974741E7A314900831614 /* chatItemDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatItemDataSource.swift; sourceTree = "<group>"; };
+		A4C974761E7A436700831614 /* textMsgViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgViewModel.swift; sourceTree = "<group>"; };
+		A4C974781E7A437000831614 /* textMsgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgModel.swift; sourceTree = "<group>"; };
+		A4C9747A1E7A437F00831614 /* textMsgHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textMsgHandler.swift; sourceTree = "<group>"; };
+		A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgViewModel.swift; sourceTree = "<group>"; };
+		A4C9747E1E7A43A100831614 /* photoMsgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgModel.swift; sourceTree = "<group>"; };
+		A4C974801E7A43BA00831614 /* photoMsgHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoMsgHandler.swift; sourceTree = "<group>"; };
 		A4E75A4E1E49598700C5FC66 /* error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
 		A4E75A521E49BB7B00C5FC66 /* searchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchResultController.swift; sourceTree = "<group>"; };
 		A4E75A541E4AC7B700C5FC66 /* genColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genColors.swift; sourceTree = "<group>"; };
@@ -988,12 +1004,13 @@
 				A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */,
 				A4A6DE451E388B74003871B1 /* libstdc++.tbd in Frameworks */,
 				A4ACAD1C1E2F80EE00E7BE41 /* libleveldb.a in Frameworks */,
+				A42A0B411E7A92CD001D499E /* ChattoAdditions.framework in Frameworks */,
 				23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */,
 				A468CF041E488D250017D266 /* XCGLogger.framework in Frameworks */,
 				A49F7A841E5EBAA800C67730 /* SDWebImage.framework in Frameworks */,
+				A42A0B3F1E7A92CD001D499E /* Chatto.framework in Frameworks */,
 				A4ACAD231E2F8E5C00E7BE41 /* libev.a in Frameworks */,
 				A448F1C81E69849F00DCAB5D /* SnapKit.framework in Frameworks */,
-				23A881DC1E368B340023B421 /* ChattoAdditions.framework in Frameworks */,
 				23A881871E3673FF0023B421 /* DynamicColor.framework in Frameworks */,
 				A4ACAD021E2F7DC300E7BE41 /* libssl.a in Frameworks */,
 				23A881831E3673FF0023B421 /* Device.framework in Frameworks */,
@@ -1004,7 +1021,6 @@
 				23A881931E3673FF0023B421 /* NavigationStack.framework in Frameworks */,
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
-				23A881DA1E368B340023B421 /* Chatto.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
 				23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */,
 			);
@@ -1016,13 +1032,13 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				A42A0B3D1E7A92CD001D499E /* Chatto.framework */,
+				A42A0B3E1E7A92CD001D499E /* ChattoAdditions.framework */,
 				A448F1C71E69849F00DCAB5D /* SnapKit.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
 				A468CF031E488D250017D266 /* XCGLogger.framework */,
 				A468CEF01E4845910017D266 /* Reachability.framework */,
-				23A881D81E368B340023B421 /* Chatto.framework */,
-				23A881D91E368B340023B421 /* ChattoAdditions.framework */,
 				23A8816D1E3673FF0023B421 /* Device.framework */,
 				23A8816F1E3673FF0023B421 /* DynamicColor.framework */,
 				23A881751E3673FF0023B421 /* NavigationStack.framework */,
@@ -1080,6 +1096,14 @@
 			isa = PBXGroup;
 			children = (
 				23A881D11E3687270023B421 /* messageController.swift */,
+				A4C974721E7A2C7700831614 /* chatController.swift */,
+				A4C974741E7A314900831614 /* chatItemDataSource.swift */,
+				A4C974761E7A436700831614 /* textMsgViewModel.swift */,
+				A4C974781E7A437000831614 /* textMsgModel.swift */,
+				A4C9747A1E7A437F00831614 /* textMsgHandler.swift */,
+				A4C9747C1E7A439700831614 /* photoMsgViewModel.swift */,
+				A4C9747E1E7A43A100831614 /* photoMsgModel.swift */,
+				A4C974801E7A43BA00831614 /* photoMsgHandler.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -2267,6 +2291,7 @@
 				234491701E4F5DC9005B7FC1 /* netdbwarpper.mm in Sources */,
 				A45102001E72BC0200086C62 /* friendInfoController.swift in Sources */,
 				2373E15E1E3F4EB80055136C /* image.swift in Sources */,
+				A4C974811E7A43BA00831614 /* photoMsgHandler.swift in Sources */,
 				A40FD2C01E4C415F0044D2DA /* cpp_message.cc in Sources */,
 				2373E14F1E3E43870055136C /* genL10n.swift in Sources */,
 				A4638D071E77DE0600C302B0 /* notificationName.swift in Sources */,
@@ -2277,6 +2302,7 @@
 				A40FD3441E4C415F0044D2DA /* json_util.cc in Sources */,
 				A448F1BD1E681D4700DCAB5D /* meTextfieldController.swift in Sources */,
 				A40FD2EA1E4C415F0044D2DA /* strtod.cc in Sources */,
+				A4C9747D1E7A439700831614 /* photoMsgViewModel.swift in Sources */,
 				238D43F51E47538C00DB9F03 /* typemap.cxx in Sources */,
 				A40FD2F01E4C415F0044D2DA /* message.cc in Sources */,
 				A40FD3101E4C415F0044D2DA /* statusor.cc in Sources */,
@@ -2314,6 +2340,7 @@
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */,
 				A40FD30D1E4C415F0044D2DA /* mathlimits.cc in Sources */,
+				A4C974751E7A314900831614 /* chatItemDataSource.swift in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
 				A40FD2B81E4C415F0044D2DA /* cpp_enum.cc in Sources */,
 				A40FD3411E4C415F0044D2DA /* type_info.cc in Sources */,
@@ -2323,6 +2350,7 @@
 				A40FD3261E4C415F0044D2DA /* field_mask_util.cc in Sources */,
 				A40FD34A1E4C415F0044D2DA /* wrappers.pb.cc in Sources */,
 				A40FD3361E4C415F0044D2DA /* datapiece.cc in Sources */,
+				A4C9747B1E7A437F00831614 /* textMsgHandler.swift in Sources */,
 				A40FD2C21E4C415F0044D2DA /* cpp_primitive_field.cc in Sources */,
 				A47B03901E5AAF1900F66C59 /* NSString+NSHash.m in Sources */,
 				A47B03921E5AAF1900F66C59 /* UPHTTPClient.m in Sources */,
@@ -2345,6 +2373,7 @@
 				A40FD2C91E4C415F0044D2DA /* plugin.cc in Sources */,
 				A40FD2F21E4C415F0044D2DA /* reflection_ops.cc in Sources */,
 				A40FD2E81E4C415F0044D2DA /* gzip_stream.cc in Sources */,
+				A4C974731E7A2C7700831614 /* chatController.swift in Sources */,
 				A40FD2EC1E4C415F0044D2DA /* zero_copy_stream.cc in Sources */,
 				A40FD3111E4C415F0044D2DA /* stringpiece.cc in Sources */,
 				A40FD2BF1E4C415F0044D2DA /* cpp_map_field.cc in Sources */,
@@ -2354,6 +2383,7 @@
 				A40FD3471E4C415F0044D2DA /* type_resolver_util.cc in Sources */,
 				A40FD30E1E4C415F0044D2DA /* once.cc in Sources */,
 				A40FD3131E4C415F0044D2DA /* structurally_valid.cc in Sources */,
+				A4C9747F1E7A43A100831614 /* photoMsgModel.swift in Sources */,
 				A40FD3141E4C415F0044D2DA /* strutil.cc in Sources */,
 				A40FD2F41E4C415F0044D2DA /* service.cc in Sources */,
 				A40FD2F71E4C415F0044D2DA /* struct.pb.cc in Sources */,
@@ -2387,10 +2417,12 @@
 				A45101E21E7113EE00086C62 /* settingRadioCellModel.swift in Sources */,
 				A40FD34E1E4C41D00044D2DA /* bytestream.cc in Sources */,
 				A40FD29B1E4C415F0044D2DA /* arenastring.cc in Sources */,
+				A4C974771E7A436700831614 /* textMsgViewModel.swift in Sources */,
 				A40FD2DC1E4C415F0044D2DA /* generated_message_util.cc in Sources */,
 				A40FD3381E4C415F0044D2DA /* error_listener.cc in Sources */,
 				A40FD33D1E4C415F0044D2DA /* object_writer.cc in Sources */,
 				A49F80C01E6172AE00C67730 /* FusumaViewController.swift in Sources */,
+				A4C974791E7A437000831614 /* textMsgModel.swift in Sources */,
 				A40FD2A71E4C415F0044D2DA /* code_generator.cc in Sources */,
 				A40FD3491E4C415F0044D2DA /* wire_format_lite.cc in Sources */,
 				A49F80B81E6172AE00C67730 /* FSAlbumViewCell.swift in Sources */,

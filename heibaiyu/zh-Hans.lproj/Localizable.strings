@@ -64,3 +64,8 @@
 "friend_send_query" = "发送";
 "friend_send_msg" = "发消息";
 
+/* message
+ */
+"message_chat_input_send" = "发送";
+"message_chat_input_placeholdertext" = "输入一条消息";
+

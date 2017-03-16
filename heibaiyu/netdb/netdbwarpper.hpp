@@ -24,6 +24,8 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 - (void)openNet:(Net_CB)callback;
 - (void)closeNet;
 - (void)setNetIsReachable:(BOOL)isReachable;
+- (void)messageNoti:(Net_CB)callback;
+- (void)userNoti:(Net_CB)login :(Net_CB)addfriend :(Net_CB)addfriendAuthorize;
 // login
 - (void)registCheck:(NSString*)phoneno :(NSString*)countrycode :(Net_CB)callback;
 - (void)regist:(NSString*)phoneno :(NSString*)countrycode :(NSString*)password :(NSString*)verifycode :(Net_CB)callback;

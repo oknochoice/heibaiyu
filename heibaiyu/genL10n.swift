@@ -29,6 +29,10 @@ enum L10n {
   static let friendStatusAdded = L10n.tr("friend_status_added")
   /// 同意
   static let friendStatusAuthorize = L10n.tr("friend_status_authorize")
+  /// 输入一条消息
+  static let messageChatInputPlaceholdertext = L10n.tr("message_chat_input_placeholdertext")
+  /// 发送
+  static let messageChatInputSend = L10n.tr("message_chat_input_send")
   /// 相册
   static let photoLocal = L10n.tr("photo_local")
   /// 保存至相册

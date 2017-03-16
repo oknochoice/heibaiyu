@@ -56,6 +56,22 @@ static leveldb_yi * db_ = nil;
   netdb_yi_shared_->closeNet();
 }
 
+- (void)messageNoti:(Net_CB)callback {
+  netdb_yi_shared_->messageNoti([callback](const int err_no, const std::string & err_msg) {
+    callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
+  });
+}
+- (void)userNoti:(Net_CB)login :(Net_CB)addfriend :(Net_CB)addfriendAuthorize {
+  netdb_yi_shared_->userNoti([login](const int err_no, const std::string & err_msg) {
+    login(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
+  }, [addfriend](const int err_no, const std::string & err_msg) {
+    addfriend(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
+  }, [addfriendAuthorize](const int err_no, const std::string & err_msg) {
+    addfriendAuthorize(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
+  });
+}
+
+// user
 - (void)registCheck:(NSString *)phoneno :(NSString *)countrycode :(Net_CB)callback {
   netdb_yi_shared_->registCheck(std::string([phoneno UTF8String]), std::string([countrycode UTF8String]), [callback](const int err_no, const std::string & err_msg){
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
