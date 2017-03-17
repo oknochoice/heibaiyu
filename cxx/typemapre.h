@@ -110,11 +110,9 @@ constexpr uint8_t dispatchType(const chat::NodeMessageNoti & ) {
 constexpr uint8_t dispatchType(const chat::QueryMessage & ) {
   return ChatType::querymessage;
 }
-/*
 constexpr uint8_t dispatchType(const chat::QueryOneMessage & ) {
   return ChatType::queryonemessage;
 }
-*/
 constexpr uint8_t dispatchType(const chat::QueryMessageRes & ) {
   return ChatType::querymessageres;
 }
@@ -152,4 +150,6 @@ constexpr uint8_t dispatchType(const chat::SetUserPropertyRes & ) {
 #ifdef __cpluscplus
 }
 #endif
+
 #endif
+

@@ -23,18 +23,23 @@ class baseMessageHandler {
   
   
   func userDidTapOnFailIcon(viewModel: msgViewModelProtocol) {
+    blog.verbose()
     //self.messageSender.sendMessage(viewModel.messageModel)
   }
 
   func userDidTapOnAvatar(viewModel: MessageViewModelProtocol) {
+    blog.verbose()
   }
 
   func userDidTapOnBubble(viewModel: msgViewModelProtocol) {
+    blog.verbose()
   }
 
   func userDidBeginLongPressOnBubble(viewModel: msgViewModelProtocol) {
+    blog.verbose()
   }
 
   func userDidEndLongPressOnBubble(viewModel: msgViewModelProtocol) {
+    blog.verbose()
   }
 }

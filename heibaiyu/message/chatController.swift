@@ -12,6 +12,13 @@ import ChattoAdditions
 
 class chatController: BaseChatViewController {
   
+  var node: messageModel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.dataSource = chatItemDataSource(node: node)
+  }
+  
   var dataSource: chatItemDataSource! {
     didSet {
       self.chatDataSource = self.dataSource

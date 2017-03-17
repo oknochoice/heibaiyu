@@ -84,7 +84,7 @@ public:
    */
   void sendMessage(const std::string & tonodeid, const int32_t type,
                    const std::string & content, CB_Func && callback);
-  //void queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback);
+  void queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback);
   void getMessage(const std::string & tonodeid, const int32_t fromIncrement,
                     const int32_t toIncrement, CB_Func && callback);
   void getNode(const std::string & nodeid, CB_Func && callback);

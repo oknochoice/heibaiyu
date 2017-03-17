@@ -1,8 +1,7 @@
 #include "typemap.h"
 #include <unordered_map>
 
-static std::unordered_map<int32_t, bool>
-
+static std::unordered_map<int32_t, bool> 
 check_map_ = {
   {ChatType::clientdisconnect, true},
   {ChatType::logout, true},
@@ -15,11 +14,11 @@ check_map_ = {
   {ChatType::groupaddmember, true},
   {ChatType::nodemessage, true},
   {ChatType::querymessage, true},
+  {ChatType::queryonemessage, true},
   {ChatType::media, true},
   {ChatType::querymedia, true},
   {ChatType::setuserproterty, true},
 };
-
 bool missing_check(int32_t type) {
   return check_map_.find(type) != check_map_.end();
 }

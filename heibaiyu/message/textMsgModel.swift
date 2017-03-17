@@ -25,7 +25,7 @@ public class textMsgModel:  TextMessageModel<MessageModel> {
   }
 }
 
-extension textMsgModel {
+extension TextMessageModel {
   static var chatItemType: ChatItemType {
     return "text"
   }

@@ -45,7 +45,7 @@ enum ChatType: UInt8 {
   nodemessagenoti = 32,
   querymessage = 33,
   querymessageres = 34,
-  //queryonemessage = 35,
+  queryonemessage = 35,
   media = 36,
   mediares = 37,
   querymedia = 38,

@@ -9,6 +9,7 @@
 #include "netdb_yi.hpp"
 #include "buffer_yi_util.hpp"
 #include <openssl/sha.h>
+#include <map>
 
 
 netdb_yi::netdb_yi(const std::string & certpath, const std::string & dbpath, const std::string & phoneModel, const std::string & phoneUDID, const std::string & osVersion, const std::string & appVersion)
@@ -676,7 +677,7 @@ void netdb_yi::sendMessage(const std::string & toNodeID, const int32_t type,
     }
   });
 }
-/*
+
 void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::QueryOneMessage();
@@ -699,7 +700,7 @@ void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t incre
     }
   });
 }
- */
+
 void netdb_yi::getMessage(const std::string & tonodeid, const int32_t fromIncrement,
                             const int32_t toIncrement, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);

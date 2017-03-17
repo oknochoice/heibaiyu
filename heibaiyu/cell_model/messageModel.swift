@@ -12,12 +12,13 @@ class messageModel {
   var icon: String?
   var name: String?
   var lastMsg: String?
-  var timestamp: Int32?
   
   var tonodeid:String?
   var userid:String?
   var readedIncrementID: Int32 = 0
+  var readedIncTs: Int32 = 0
   var maxIncrementID: Int32 = 0
+  var maxIncTs: Int32 = 0
   
   static func instance(tonodeid: String) -> messageModel? {
     let msg = messageModel()
@@ -36,7 +37,8 @@ class messageModel {
     model.tonodeid = talkinfo!.toNodeId
     model.readedIncrementID = talkinfo!.readedIncrement
     model.userid = talkinfo!.toUserId
-    model.timestamp = talkinfo!.recentTimestamp
+    model.maxIncTs = nodeinfo!.recentTimestamp
+    model.readedIncTs = talkinfo!.recentTimestamp
     if talkinfo!.toUserId != "", let data = netdbwarpper.sharedNetdb().dbGetUser(talkinfo!.toUserId),
       let user = try? Chat_User(protobuf: data) {
       model.icon = String.http(relativePath: user.icon)

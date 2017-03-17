@@ -77,25 +77,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       } else {
         blog.debug("Reachable via Cellular")
       }
-      netdbwarpper.sharedNetdb().userNoti({ (errno, key) in
-        blog.verbose((errno, key))
-      }, { (errno, key) in
-        blog.verbose((errno, key))
-      }, { (errno, key) in
-        blog.verbose((errno, key))
-      })
-      netdbwarpper.sharedNetdb().messageNoti({ (errno, nodeid) in
-        blog.verbose((errno, nodeid))
-        DispatchQueue.main.async {
-          NotificationCenter.default.post(name: notificationName.updateOneMsg, object: self,
-                                          userInfo: [notificationName.updateOneMsg_key_nodeid: nodeid])
-        }
-      })
       netdbwarpper.sharedNetdb().openNet({ (errNo, errMsg) in
         blog.debug((errNo, errMsg));
         if (0 == errNo) {
           DispatchQueue.main.async {[weak self] in
             NotificationCenter.default.post(name: (self?.netopened)!, object: self)
+            netdbwarpper.sharedNetdb().userNoti({ (errno, key) in
+              blog.verbose((errno, key))
+            }, { (errno, key) in
+              blog.verbose((errno, key))
+            }, { (errno, key) in
+              blog.verbose((errno, key))
+            })
+            netdbwarpper.sharedNetdb().messageNoti({ (errno, nodeid) in
+              blog.verbose((errno, nodeid))
+              DispatchQueue.main.async {
+                NotificationCenter.default.post(name: notificationName.updateOneMsg, object: self,
+                                                userInfo: [notificationName.updateOneMsg_key_nodeid: nodeid])
+              }
+            })
           }
         }
       })
