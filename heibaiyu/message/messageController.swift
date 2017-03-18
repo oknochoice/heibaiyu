@@ -66,6 +66,19 @@ class messageController: UIViewController {
     self.tabBarController?.selectedIndex = 0
     if let userid = noti.userInfo?[notificationName.talk2user_key_userid] as? String {
       blog.verbose("push to userid " + userid)
+      let user = userCurrent.shared()
+      var tonodeid: String?
+      for info in (user?.friends)! {
+        if info.userId == userid {
+          tonodeid = info.toNodeId
+        }
+      }
+      if let id = tonodeid {
+        let model = messageModel.instance(tonodeid: id)
+        let controller = chatController()
+        controller.node = model
+        self.navigationController?.pushViewController(controller, animated: true)
+      }
     }
   }
   
@@ -121,4 +134,10 @@ extension messageController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let model = tabledatas[indexPath.row]
+    let controller = chatController()
+    controller.node = model
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
 }

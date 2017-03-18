@@ -295,5 +295,9 @@ static leveldb_yi * db_ = nil;
   auto key = db_->talkinfoKey(std::string([nodeid UTF8String]));
   return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
 }
+- (NSString*)dbkeyMessage:(NSString*)nodeid :(NSString*)incrementid {
+  auto key = db_->msgKey(std::string([nodeid UTF8String]), std::string([incrementid UTF8String]));
+  return [NSString stringWithCString:key.data() encoding:NSUTF8StringEncoding];
+}
 
 @end

@@ -521,25 +521,25 @@ class NodeInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_tonodeid();
   void set_allocated_tonodeid(::std::string* tonodeid);
 
-  // int32 maxIncrementID = 2;
-  void clear_maxincrementid();
-  static const int kMaxIncrementIDFieldNumber = 2;
-  ::google::protobuf::int32 maxincrementid() const;
-  void set_maxincrementid(::google::protobuf::int32 value);
-
-  // int32 recentTimestamp = 3;
+  // int32 recentTimestamp = 2;
   void clear_recenttimestamp();
-  static const int kRecentTimestampFieldNumber = 3;
+  static const int kRecentTimestampFieldNumber = 2;
   ::google::protobuf::int32 recenttimestamp() const;
   void set_recenttimestamp(::google::protobuf::int32 value);
+
+  // int32 maxIncrementID = 3;
+  void clear_maxincrementid();
+  static const int kMaxIncrementIDFieldNumber = 3;
+  ::google::protobuf::int32 maxincrementid() const;
+  void set_maxincrementid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:chat.NodeInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr tonodeid_;
-  ::google::protobuf::int32 maxincrementid_;
   ::google::protobuf::int32 recenttimestamp_;
+  ::google::protobuf::int32 maxincrementid_;
   mutable int _cached_size_;
   friend struct  protobuf_chat_5fmessage_2eproto::TableStruct;
 };
@@ -7695,21 +7695,7 @@ inline void NodeInfo::set_allocated_tonodeid(::std::string* tonodeid) {
   // @@protoc_insertion_point(field_set_allocated:chat.NodeInfo.toNodeID)
 }
 
-// int32 maxIncrementID = 2;
-inline void NodeInfo::clear_maxincrementid() {
-  maxincrementid_ = 0;
-}
-inline ::google::protobuf::int32 NodeInfo::maxincrementid() const {
-  // @@protoc_insertion_point(field_get:chat.NodeInfo.maxIncrementID)
-  return maxincrementid_;
-}
-inline void NodeInfo::set_maxincrementid(::google::protobuf::int32 value) {
-  
-  maxincrementid_ = value;
-  // @@protoc_insertion_point(field_set:chat.NodeInfo.maxIncrementID)
-}
-
-// int32 recentTimestamp = 3;
+// int32 recentTimestamp = 2;
 inline void NodeInfo::clear_recenttimestamp() {
   recenttimestamp_ = 0;
 }
@@ -7721,6 +7707,20 @@ inline void NodeInfo::set_recenttimestamp(::google::protobuf::int32 value) {
   
   recenttimestamp_ = value;
   // @@protoc_insertion_point(field_set:chat.NodeInfo.recentTimestamp)
+}
+
+// int32 maxIncrementID = 3;
+inline void NodeInfo::clear_maxincrementid() {
+  maxincrementid_ = 0;
+}
+inline ::google::protobuf::int32 NodeInfo::maxincrementid() const {
+  // @@protoc_insertion_point(field_get:chat.NodeInfo.maxIncrementID)
+  return maxincrementid_;
+}
+inline void NodeInfo::set_maxincrementid(::google::protobuf::int32 value) {
+  
+  maxincrementid_ = value;
+  // @@protoc_insertion_point(field_set:chat.NodeInfo.maxIncrementID)
 }
 
 // -------------------------------------------------------------------
