@@ -19,10 +19,12 @@ class chatCollectionCell: UICollectionViewCell {
       if model.isIncoming {
         contentLeft.constant = 5
         contentRight.constant = 60
+        contentLabel.textAlignment = .left
         self.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
       }else {
         contentLeft.constant = 60
         contentRight.constant = 5
+        contentLabel.textAlignment = .right
         self.backgroundColor = #colorLiteral(red: 0, green: 0.978394568, blue: 0.3484907448, alpha: 1)
       }
       self.layoutIfNeeded()

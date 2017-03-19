@@ -17,7 +17,6 @@ class chatController: UIViewController {
   
   @IBOutlet weak var growingviewHeight: NSLayoutConstraint!
   @IBOutlet weak var bottomdis: NSLayoutConstraint!
-  @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
   
   @IBAction func sendMsg(_ sender: UIButton) {
     let text = self.growingtext.text
@@ -40,10 +39,6 @@ class chatController: UIViewController {
     configKeyboard()
     configGrowingtext()
     loaddatas()
-    if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
-      flowLayout.estimatedItemSize = CGSize(
-        width: self.view.frame.size.width, height: 100)
-    }
   }
   
   func loaddatas() {

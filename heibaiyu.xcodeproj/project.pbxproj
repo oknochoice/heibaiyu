@@ -44,6 +44,7 @@
 		23B5B1691E7E60EB0038B357 /* Typist.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23B5B1671E7E60EB0038B357 /* Typist.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23B5B16B1E7E8A7F0038B357 /* chatCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */; };
 		23B5B16D1E7E8BE00038B357 /* chatCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */; };
+		23B5B16F1E7EDEEB0038B357 /* chatLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5B16E1E7EDEEB0038B357 /* chatLayout.swift */; };
 		23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC65991E5D160E0062FF59 /* WebP.framework */; };
 		23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
@@ -415,6 +416,7 @@
 		23B5B1671E7E60EB0038B357 /* Typist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typist.framework; path = Carthage/Build/iOS/Typist.framework; sourceTree = "<group>"; };
 		23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionCell.swift; sourceTree = "<group>"; };
 		23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionModel.swift; sourceTree = "<group>"; };
+		23B5B16E1E7EDEEB0038B357 /* chatLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatLayout.swift; sourceTree = "<group>"; };
 		23EC65991E5D160E0062FF59 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDecoder.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1090,6 +1092,7 @@
 				A4C974721E7A2C7700831614 /* chatController.swift */,
 				23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */,
 				23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */,
+				23B5B16E1E7EDEEB0038B357 /* chatLayout.swift */,
 				23A881D11E3687270023B421 /* messageController.swift */,
 			);
 			path = message;
@@ -2326,6 +2329,7 @@
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
 				230D74C51E75A26500BD2F0A /* settingFriendModel.swift in Sources */,
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
+				23B5B16F1E7EDEEB0038B357 /* chatLayout.swift in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */,
 				A40FD30D1E4C415F0044D2DA /* mathlimits.cc in Sources */,
 				A4A66CF11E322B64001A25D7 /* net_yi.cpp in Sources */,
