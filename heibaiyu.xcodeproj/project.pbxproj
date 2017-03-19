@@ -37,6 +37,13 @@
 		23A881D51E3687270023B421 /* messageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D11E3687270023B421 /* messageController.swift */; };
 		23A881D61E3687270023B421 /* SigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D31E3687270023B421 /* SigninController.swift */; };
 		23A881D71E3687270023B421 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A881D41E3687270023B421 /* SignupController.swift */; };
+		23B5B1611E7E56730038B357 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B5B1601E7E56730038B357 /* Chat.storyboard */; };
+		23B5B1631E7E5D3E0038B357 /* NextGrowingTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B5B1621E7E5D3E0038B357 /* NextGrowingTextView.framework */; };
+		23B5B1641E7E5D3E0038B357 /* NextGrowingTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23B5B1621E7E5D3E0038B357 /* NextGrowingTextView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23B5B1681E7E60EB0038B357 /* Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B5B1671E7E60EB0038B357 /* Typist.framework */; };
+		23B5B1691E7E60EB0038B357 /* Typist.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23B5B1671E7E60EB0038B357 /* Typist.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23B5B16B1E7E8A7F0038B357 /* chatCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */; };
+		23B5B16D1E7E8BE00038B357 /* chatCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */; };
 		23EC659B1E5D160E0062FF59 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC65991E5D160E0062FF59 /* WebP.framework */; };
 		23EC659C1E5D160E0062FF59 /* WebPDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */; };
 		A402B7381E2DF84200DA2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402B7371E2DF84200DA2C56 /* AppDelegate.swift */; };
@@ -364,7 +371,9 @@
 				23A881941E3673FF0023B421 /* NavigationStack.framework in Embed Frameworks */,
 				23A881881E3673FF0023B421 /* DynamicColor.framework in Embed Frameworks */,
 				23A881A61E3673FF0023B421 /* Whisper.framework in Embed Frameworks */,
+				23B5B1691E7E60EB0038B357 /* Typist.framework in Embed Frameworks */,
 				A468CF021E488D0D0017D266 /* XCGLogger.framework in Embed Frameworks */,
+				23B5B1641E7E5D3E0038B357 /* NextGrowingTextView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +410,11 @@
 		23A881D11E3687270023B421 /* messageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageController.swift; sourceTree = "<group>"; };
 		23A881D31E3687270023B421 /* SigninController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
 		23A881D41E3687270023B421 /* SignupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		23B5B1601E7E56730038B357 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		23B5B1621E7E5D3E0038B357 /* NextGrowingTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NextGrowingTextView.framework; path = Carthage/Build/iOS/NextGrowingTextView.framework; sourceTree = "<group>"; };
+		23B5B1671E7E60EB0038B357 /* Typist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typist.framework; path = Carthage/Build/iOS/Typist.framework; sourceTree = "<group>"; };
+		23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionCell.swift; sourceTree = "<group>"; };
+		23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionModel.swift; sourceTree = "<group>"; };
 		23EC65991E5D160E0062FF59 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		23EC659A1E5D160E0062FF59 /* WebPDecoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDecoder.framework; sourceTree = "<group>"; };
 		A402B7341E2DF84200DA2C56 /* heibaiyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heibaiyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -998,7 +1012,9 @@
 				A4F826CA1E5AC873008D8826 /* SwiftDate.framework in Frameworks */,
 				A468CEF21E4845910017D266 /* Reachability.framework in Frameworks */,
 				A4ACAD011E2F7DC300E7BE41 /* libcrypto.a in Frameworks */,
+				23B5B1631E7E5D3E0038B357 /* NextGrowingTextView.framework in Frameworks */,
 				23A881A51E3673FF0023B421 /* Whisper.framework in Frameworks */,
+				23B5B1681E7E60EB0038B357 /* Typist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1024,8 @@
 		2344E5211E314B6900867A71 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				23B5B1671E7E60EB0038B357 /* Typist.framework */,
+				23B5B1621E7E5D3E0038B357 /* NextGrowingTextView.framework */,
 				A448F1C71E69849F00DCAB5D /* SnapKit.framework */,
 				A49F7A831E5EBAA800C67730 /* SDWebImage.framework */,
 				A4F826C91E5AC873008D8826 /* SwiftDate.framework */,
@@ -1069,8 +1087,10 @@
 		23A881D01E3687270023B421 /* message */ = {
 			isa = PBXGroup;
 			children = (
-				23A881D11E3687270023B421 /* messageController.swift */,
 				A4C974721E7A2C7700831614 /* chatController.swift */,
+				23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */,
+				23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */,
+				23A881D11E3687270023B421 /* messageController.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -1770,6 +1790,7 @@
 				A402B73B1E2DF84200DA2C56 /* Main.storyboard */,
 				A45101FD1E72AA1700086C62 /* Search.storyboard */,
 				A49F7F6E1E6165DA00C67730 /* MeDetail.storyboard */,
+				23B5B1601E7E56730038B357 /* Chat.storyboard */,
 				A4A6DE401E387A26003871B1 /* bridging-header.h */,
 				A49F7A8A1E5EFAA200C67730 /* baseNavigationController.swift */,
 				A4638D061E77DE0600C302B0 /* notificationName.swift */,
@@ -2123,6 +2144,7 @@
 				A40FD2801E4C415F0044D2DA /* extension_set_heavy.Plo in Resources */,
 				2373E1451E3DE4080055136C /* Localizable.strings in Resources */,
 				A40FD2D31E4C415F0044D2DA /* duration.proto in Resources */,
+				23B5B1611E7E56730038B357 /* Chat.storyboard in Resources */,
 				A40FD3431E4C415F0044D2DA /* json_format_proto3.proto in Resources */,
 				A40FD32D1E4C415F0044D2DA /* json_objectwriter.Plo in Resources */,
 				A40FD2911E4C415F0044D2DA /* wire_format_lite.Plo in Resources */,
@@ -2226,6 +2248,7 @@
 				A448F1BB1E681AC500DCAB5D /* meIconController.swift in Sources */,
 				A40FD2C81E4C415F0044D2DA /* parser.cc in Sources */,
 				A40FD2BA1E4C415F0044D2DA /* cpp_extension.cc in Sources */,
+				23B5B16B1E7E8A7F0038B357 /* chatCollectionCell.swift in Sources */,
 				A45101E41E71140300086C62 /* settingRadioSectionModel.swift in Sources */,
 				A40FD2D81E4C415F0044D2DA /* extension_set_heavy.cc in Sources */,
 				A40FD33E1E4C415F0044D2DA /* proto_writer.cc in Sources */,
@@ -2311,6 +2334,7 @@
 				A45101E61E71280B00086C62 /* settingRadio.swift in Sources */,
 				A40FD2D51E4C415F0044D2DA /* empty.pb.cc in Sources */,
 				2373E1A01E4175E40055136C /* IndicatorButton.swift in Sources */,
+				23B5B16D1E7E8BE00038B357 /* chatCollectionModel.swift in Sources */,
 				A40FD3261E4C415F0044D2DA /* field_mask_util.cc in Sources */,
 				A40FD34A1E4C415F0044D2DA /* wrappers.pb.cc in Sources */,
 				A40FD3361E4C415F0044D2DA /* datapiece.cc in Sources */,

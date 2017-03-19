@@ -75,8 +75,8 @@ class messageController: UIViewController {
       }
       if let id = tonodeid {
         let model = messageModel.instance(tonodeid: id)
-        let controller = chatController()
-        controller.node = model
+        let controller = StoryboardScene.Chat.instantiateChatController()
+        controller.model = model
         self.navigationController?.pushViewController(controller, animated: true)
       }
     }
@@ -136,8 +136,8 @@ extension messageController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let model = tabledatas[indexPath.row]
-    let controller = chatController()
-    controller.node = model
+    let controller = StoryboardScene.Chat.instantiateChatController()
+    controller.model = model
     self.navigationController?.pushViewController(controller, animated: true)
   }
 }

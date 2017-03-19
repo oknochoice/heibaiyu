@@ -43,6 +43,18 @@ extension UIViewController {
 }
 
 struct StoryboardScene {
+  enum Chat: String, StoryboardSceneType {
+    static let storyboardName = "Chat"
+
+    case chatControllerScene = "chatController"
+    static func instantiateChatController() -> heibaiyu.chatController {
+      guard let vc = StoryboardScene.Chat.chatControllerScene.viewController() as? heibaiyu.chatController
+      else {
+        fatalError("ViewController 'chatController' is not of the expected class heibaiyu.chatController.")
+      }
+      return vc
+    }
+  }
   enum LaunchScreen: StoryboardSceneType {
     static let storyboardName = "LaunchScreen"
   }
