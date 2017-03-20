@@ -21,7 +21,6 @@ class messageModel {
   var maxIncTs: Int32 = 0
   
   static func instance(tonodeid: String) -> messageModel {
-    let msg = messageModel()
     let talkinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyTalkinfo(tonodeid))
     let nodeinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyNodeinfo(tonodeid))
     guard talkinfo_data != nil && nodeinfo_data != nil else {
@@ -54,6 +53,6 @@ class messageModel {
         model.name = String.getNonNil([node.nickname, node.id])
       }
     }
-    return msg
+    return model
   }
 }
