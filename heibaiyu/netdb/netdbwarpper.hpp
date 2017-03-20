@@ -51,7 +51,7 @@ typedef void (^Net_CB)(int err_no, const NSString * err_msg);
 - (void)setMediapath:(NSString*)md5 :(NSString*)path :(Net_CB)callback;
 - (void)getMediapath:(NSString*)md5 :(Net_CB)callback;
 - (void)getNode:(NSString*)nodeid :(Net_CB)callback;
-- (void)sendMessage:(NSString*)tonodeid :(int32_t)type :(NSString*)content :(Net_CB)callback;
+- (void)sendMessage:(NSString*)tonodeid :(NSString*)touserid :(int32_t)type :(NSString*)content :(Net_CB)callback;
 - (void)getMessage:(NSString*)tonodeid :(int32_t)fromIncid :(int32_t)toIncid
       :(Net_CB)callback;
 /* db

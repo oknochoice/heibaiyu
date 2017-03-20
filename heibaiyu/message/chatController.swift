@@ -12,23 +12,41 @@ import NextGrowingTextView
 
 class chatController: UIViewController {
   
+  class Delegates {
+    var addNodeid2Talk: ((String) -> Void)?
+  }
+  
+  var delegates: Delegates = Delegates()
+  
   @IBOutlet weak var collectionview: UICollectionView!
   @IBOutlet weak var growingtext: NextGrowingTextView!
   
   @IBOutlet weak var growingviewHeight: NSLayoutConstraint!
   @IBOutlet weak var bottomdis: NSLayoutConstraint!
+  @IBOutlet weak var chatlayout: chatLayout!
   
   @IBAction func sendMsg(_ sender: UIButton) {
     let text = self.growingtext.text
     self.growingtext.text = ""
     let chatModel = chatCollectionModel()
     chatModel.isIncoming = false
-    chatModel.status = chatCollectionModel.Status.sending
+    chatModel.cellIdentifier = "chatCollectionCellMe";
+    chatModel.status = chatCollectionModel.Status.prepare
     chatModel.text = text!
-    self.items.append(chatModel)
-    self.collectionview.insertItems(at: [IndexPath(item: self.items.count - 1, section: 0)])
+    chatModel.msgmodel = self.model
+    self.collectionview.performBatchUpdates({ [weak self] in
+      if let ss = self {
+        ss.items.append(chatModel)
+        ss.chatlayout.appendItem(item: chatModel)
+        ss.collectionview.insertItems(at: [IndexPath(item: ss.items.count - 1, section: 0)])
+      }
+    }, completion: { [weak self] (isComplete) in
+      if let ss = self, let callback = ss.delegates.addNodeid2Talk {
+        callback(ss.model.tonodeid!)
+      }
+    })
   }
-  var model: messageModel?
+  var model: messageModel!
   
   let keyboard = Typist.shared
   
@@ -46,19 +64,26 @@ class chatController: UIViewController {
       var count: Int = 0
       var incrementid: Int32 = model.maxIncrementID
       let meid = userCurrent.shared()?.id
-      while count >= 50 || incrementid <= 1 {
+      while count <= 50 && incrementid >= 1 {
         let data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyMessage(model.tonodeid!, String(incrementid)))
         if let data = data {
           let msg = try! Chat_NodeMessage(protobuf: data)
-          let chatModle = chatCollectionModel()
-          chatModle.status = chatCollectionModel.Status.success
-          chatModle.isIncoming = msg.fromUserId == meid ? false : true
-          chatModle.text = msg.content
-          self.items.append(chatModle)
+          let chatModel = chatCollectionModel()
+          chatModel.status = chatCollectionModel.Status.success
+          chatModel.isIncoming = msg.fromUserId == meid ? false : true
+          if chatModel.isIncoming {
+            chatModel.cellIdentifier = "chatCollectionCellIncoming";
+          }else {
+            chatModel.cellIdentifier = "chatCollectionCellMe";
+          }
+          chatModel.text = msg.content
+          chatModel.msgmodel = self.model
+          self.items.append(chatModel)
+          count += 1
         }
-        count += 1
         incrementid -= 1
       }
+      self.chatlayout.resetItems(items: self.items)
       self.collectionview.reloadData()
     }
   }
@@ -112,9 +137,13 @@ extension chatController: UICollectionViewDelegate, UICollectionViewDataSource {
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let model = items[indexPath.row]
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatCollectionCell", for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.cellIdentifier, for: indexPath)
     if let cell = cell as? chatCollectionCell {
-      cell.model = model
+      let model = cell.setModel(model: model)
+      if model.status == chatCollectionModel.Status.prepare {
+        model.status = .sending
+        model.send()
+      }
     }
     return cell
   }

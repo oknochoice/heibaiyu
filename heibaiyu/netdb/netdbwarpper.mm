@@ -189,8 +189,8 @@ static leveldb_yi * db_ = nil;
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
   });
 }
-- (void)sendMessage:(NSString*)tonodeid :(int32_t)type :(NSString*)content :(Net_CB)callback {
-  netdb_yi_shared_->sendMessage(std::string([tonodeid UTF8String]), type, std::string([content UTF8String]), [callback](const int err_no, const std::string & err_msg){
+- (void)sendMessage:(NSString*)tonodeid :(NSString*)touserid :(int32_t)type :(NSString*)content :(Net_CB)callback {
+  netdb_yi_shared_->sendMessage(std::string([tonodeid UTF8String]), std::string([touserid UTF8String]), type, std::string([content UTF8String]), [callback](const int err_no, const std::string & err_msg){
     callback(err_no, [NSString stringWithCString:err_msg.data() encoding:NSUTF8StringEncoding]);
   });
 }

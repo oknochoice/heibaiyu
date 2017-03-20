@@ -26,5 +26,36 @@ public class userCurrent {
       netdbwarpper.sharedNetdb().dbPutCurrentUser(data)
     }
   }
+  fileprivate static var talklist_ = NSMutableOrderedSet()
+  static func getTalklist() -> [String] {
+    let talklist_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyTalklist())
+    if let data = talklist_data, let talklist = try? Chat_TalkList(protobuf: data) {
+      for obj in talklist.talkNodeIds {
+        talklist_.add(obj)
+      }
+    }
+    return talklist_.array as! [String]
+  }
+  
+  fileprivate static func addTalknodeid(nodeid: String) {
+    talklist_.add(nodeid)
+    saveTalklist()
+  }
+  
+  fileprivate static func saveTalklist() {
+    var talklist = Chat_TalkList()
+    for obj in talklist_ {
+      let nodeid = obj as! String
+      talklist.talkNodeIds.append(nodeid)
+    }
+    netdbwarpper.sharedNetdb().dbPut(try! talklist.serializeProtobuf(), netdbwarpper.sharedNetdb().dbkeyTalklist())
+  }
+  
+  static func putTalkinfo(info: Chat_TalkInfo) {
+    if let data = try? info.serializeProtobuf() {
+      addTalknodeid(nodeid: info.toNodeId)
+      netdbwarpper.sharedNetdb().dbPut(data, netdbwarpper.sharedNetdb().dbkeyTalkinfo(info.toNodeId))
+    }
+  }
   
 }

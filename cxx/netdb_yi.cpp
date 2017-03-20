@@ -653,24 +653,27 @@ void netdb_yi::getMediaPath(const std::string & md5, CB_Func &&callback) {
 /*
  * message
  */
-void netdb_yi::sendMessage(const std::string & toNodeID, const int32_t type,
+void netdb_yi::sendMessage(const std::string & toNodeID, 
+                           const std::string & touserid, const int32_t type,
                            const std::string & content, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  auto message = chat::NodeMessage();
-  message.set_fromuserid(dbyi_->getCurrentUserid());
-  message.set_tonodeid(toNodeID);
-  message.set_type(static_cast<chat::MediaType>(type));
-  message.set_content(content);
-  netyi_->send_buffer(yijianBuffer(message), nullptr, [this, callback = std::forward<CB_Func>(callback), &message](int16_t type, const std::string & data, bool * isStop) {
+  auto message = std::make_shared<chat::NodeMessage>();
+  message->set_fromuserid(dbyi_->getCurrentUserid());
+  message->set_tonodeid(toNodeID);
+  message->set_type(static_cast<chat::MediaType>(type));
+  message->set_content(content);
+  message->set_touserid_outer(touserid);
+  netyi_->send_buffer(yijianBuffer(*message), nullptr, [this, callback = std::forward<CB_Func>(callback), message](int16_t type, const std::string & data, bool * isStop) {
     if (0 == type) {
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else if (type == ChatType::queryuserres) {
+    }else if (type == ChatType::nodemessageres) {
       auto res = chat::NodeMessageRes();
-      message.set_id(res.id());
-      message.set_incrementid(res.incrementid());
-      dbyi_->putMessage(message);
+      res.ParseFromString(data);
+      message->set_id(res.id());
+      message->set_incrementid(res.incrementid());
+      dbyi_->putMessage(*message);
       callback(0, netdb_success_);
     }else {
       callback(type, data);
@@ -678,7 +681,7 @@ void netdb_yi::sendMessage(const std::string & toNodeID, const int32_t type,
   });
 }
 
-void netdb_yi::queryOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback) {
+void netdb_yi::getOneMessage(const std::string & tonodeid, const int32_t increment, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
   auto query = chat::QueryOneMessage();
   query.set_tonodeid(tonodeid);

@@ -20,12 +20,20 @@ class messageModel {
   var maxIncrementID: Int32 = 0
   var maxIncTs: Int32 = 0
   
-  static func instance(tonodeid: String) -> messageModel? {
+  static func instance(tonodeid: String) -> messageModel {
     let msg = messageModel()
     let talkinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyTalkinfo(tonodeid))
     let nodeinfo_data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyNodeinfo(tonodeid))
     guard talkinfo_data != nil && nodeinfo_data != nil else {
-      return nil
+      let model = messageModel()
+      model.tonodeid = tonodeid
+      let user = userCurrent.shared()!
+      for info in user.friends {
+        if info.toNodeId == tonodeid {
+          model.userid = info.userId
+        }
+      }
+      return model
     }
     let talkinfo = try! Chat_TalkInfo(protobuf: talkinfo_data!)
     let nodeinfo = try! Chat_NodeInfo(protobuf: nodeinfo_data!)

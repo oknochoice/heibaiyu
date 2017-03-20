@@ -52,6 +52,8 @@
 		A402B73F1E2DF84200DA2C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A402B73E1E2DF84200DA2C56 /* Assets.xcassets */; };
 		A402B7421E2DF84200DA2C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A402B7401E2DF84200DA2C56 /* LaunchScreen.storyboard */; };
 		A402FD001E651DA800292EDD /* meDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A402FCFF1E651DA800292EDD /* meDataHelper.swift */; };
+		A407C50E1E7FC1B100259205 /* chatCollectionCellIncoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A407C50D1E7FC1B100259205 /* chatCollectionCellIncoming.swift */; };
+		A407C5101E7FC1BD00259205 /* chatCollectionCellMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A407C50F1E7FC1BD00259205 /* chatCollectionCellMe.swift */; };
 		A40FCDEB1E4C392D0044D2DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A40FCDEA1E4C392D0044D2DA /* libz.tbd */; };
 		A40FD2731E4C415F0044D2DA /* .dirstamp in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F71E4C415E0044D2DA /* .dirstamp */; };
 		A40FD2741E4C415F0044D2DA /* any.pb.Plo in Resources */ = {isa = PBXBuildFile; fileRef = A40FD0F81E4C415E0044D2DA /* any.pb.Plo */; };
@@ -426,6 +428,8 @@
 		A402B7411E2DF84200DA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A402B7431E2DF84200DA2C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A402FCFF1E651DA800292EDD /* meDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meDataHelper.swift; sourceTree = "<group>"; };
+		A407C50D1E7FC1B100259205 /* chatCollectionCellIncoming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionCellIncoming.swift; sourceTree = "<group>"; };
+		A407C50F1E7FC1BD00259205 /* chatCollectionCellMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatCollectionCellMe.swift; sourceTree = "<group>"; };
 		A40FCDEA1E4C392D0044D2DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A40FD0F41E4C415E0044D2DA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A40FD0F71E4C415E0044D2DA /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
@@ -1091,6 +1095,8 @@
 			children = (
 				A4C974721E7A2C7700831614 /* chatController.swift */,
 				23B5B16A1E7E8A7F0038B357 /* chatCollectionCell.swift */,
+				A407C50D1E7FC1B100259205 /* chatCollectionCellIncoming.swift */,
+				A407C50F1E7FC1BD00259205 /* chatCollectionCellMe.swift */,
 				23B5B16C1E7E8BE00038B357 /* chatCollectionModel.swift */,
 				23B5B16E1E7EDEEB0038B357 /* chatLayout.swift */,
 				23A881D11E3687270023B421 /* messageController.swift */,
@@ -2264,6 +2270,7 @@
 				A4E75A6E1E4B160F00C5FC66 /* settingBaseController.swift in Sources */,
 				A47A62D71E36F50500E80F32 /* friendsController.swift in Sources */,
 				A40FD2BC1E4C415F0044D2DA /* cpp_file.cc in Sources */,
+				A407C50E1E7FC1B100259205 /* chatCollectionCellIncoming.swift in Sources */,
 				A40FD2971E4C415F0044D2DA /* api.pb.cc in Sources */,
 				A40FD33A1E4C415F0044D2DA /* json_escaping.cc in Sources */,
 				A40FD2CC1E4C415F0044D2DA /* subprocess.cc in Sources */,
@@ -2328,6 +2335,7 @@
 				A40FD3421E4C415F0044D2DA /* utility.cc in Sources */,
 				A40FD3121E4C415F0044D2DA /* stringprintf.cc in Sources */,
 				230D74C51E75A26500BD2F0A /* settingFriendModel.swift in Sources */,
+				A407C5101E7FC1BD00259205 /* chatCollectionCellMe.swift in Sources */,
 				A484AEE01E5D22CB006EBA06 /* UIImage+webp.m in Sources */,
 				23B5B16F1E7EDEEB0038B357 /* chatLayout.swift in Sources */,
 				A4E75A531E49BB7B00C5FC66 /* searchResultController.swift in Sources */,
