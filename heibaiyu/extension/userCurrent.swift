@@ -37,9 +37,17 @@ public class userCurrent {
     return talklist_.array as! [String]
   }
   
-  fileprivate static func addTalknodeid(nodeid: String) {
+  fileprivate static func addTalknodeid(nodeid: String) -> Bool{
+    let re = talklist_.first(where: { (lnodeid) -> Bool in
+      let id = lnodeid as! String
+      return id == nodeid
+    })
+    guard re != nil else {
+      return false
+    }
     talklist_.add(nodeid)
     saveTalklist()
+    return true
   }
   
   fileprivate static func saveTalklist() {

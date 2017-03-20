@@ -37,6 +37,11 @@ class chatCollectionModel {
       text) { [weak self] (errno, errmsg) in
         DispatchQueue.main.async {
           if let ss = self, let callback = ss.delegates.sendMsgCallback {
+            if 0 == errno {
+              ss.status = .success
+            }else {
+              ss.status = .failure
+            }
             callback(errno, errmsg)
           }
         }

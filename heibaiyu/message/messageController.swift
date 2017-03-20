@@ -25,6 +25,7 @@ class messageController: UIViewController {
   
   func loadmessages() {
     // load data
+    tabledatas = []
     for obj in userCurrent.getTalklist() {
       let model = messageModel.instance(tonodeid: obj)
       tabledatas.append(model)

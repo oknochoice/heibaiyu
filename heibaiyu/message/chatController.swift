@@ -24,6 +24,7 @@ class chatController: UIViewController {
   @IBOutlet weak var growingviewHeight: NSLayoutConstraint!
   @IBOutlet weak var bottomdis: NSLayoutConstraint!
   @IBOutlet weak var chatlayout: chatLayout!
+  fileprivate var isAddCalled: Bool = false
   
   @IBAction func sendMsg(_ sender: UIButton) {
     let text = self.growingtext.text
@@ -41,8 +42,15 @@ class chatController: UIViewController {
         ss.collectionview.insertItems(at: [IndexPath(item: ss.items.count - 1, section: 0)])
       }
     }, completion: { [weak self] (isComplete) in
-      if let ss = self, let callback = ss.delegates.addNodeid2Talk {
-        callback(ss.model.tonodeid!)
+      if let ss = self {
+        if let callback = ss.delegates.addNodeid2Talk {
+          if ss.isAddCalled {
+          }else {
+            callback(ss.model.tonodeid!)
+            ss.isAddCalled = true
+          }
+        }
+        ss.collectionview.scrollToItem(at: IndexPath(item: ss.items.count - 1, section: 0), at: .bottom, animated: true)
       }
     })
   }
@@ -78,7 +86,7 @@ class chatController: UIViewController {
           }
           chatModel.text = msg.content
           chatModel.msgmodel = self.model
-          self.items.append(chatModel)
+          self.items.insert(chatModel, at: 0)
           count += 1
         }
         incrementid -= 1
