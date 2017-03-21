@@ -17,7 +17,8 @@ class messageController: UIViewController {
   
   var tabledatas:[messageModel] = []
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
+    tableview.rowHeight = 64
     NotificationCenter.default.addObserver(self, selector: #selector(push2user(noti:)), name: notificationName.talk2user, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(push2nodeids(noti:)), name: notificationName.updateOneMsg, object: nil)
     loadmessages()
@@ -147,4 +148,6 @@ extension messageController: UITableViewDelegate, UITableViewDataSource {
     controller.model = model
     self.navigationController?.pushViewController(controller, animated: true)
   }
+  
+  
 }

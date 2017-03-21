@@ -92,8 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             netdbwarpper.sharedNetdb().messageNoti({ (errno, nodeid) in
               blog.verbose((errno, nodeid))
               DispatchQueue.main.async {
-                NotificationCenter.default.post(name: notificationName.updateOneMsg, object: self,
-                                                userInfo: [notificationName.updateOneMsg_key_nodeid: nodeid])
+                NotificationCenter.default.post(
+                  name: notificationName.updateOneMsg,
+                  object: self,userInfo:
+                  [notificationName.updateOneMsg_key_nodeid: nodeid])
               }
             })
           }

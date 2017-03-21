@@ -21,8 +21,14 @@ class messageCell: UITableViewCell {
     get {
       return model_
     }
-    set (new) {
-      model_ = new
+    set {
+      model_ = newValue
+      nameLabel.text = newValue?.name
+      if let icon = newValue?.icon {
+        iconimage.sd_setImage(with: URL(string: icon), placeholderImage: #imageLiteral(resourceName: "placeholderimage"))
+      //}else if let image = newValue?.iconImage {
+       // iconimage.image = image
+      }
     }
   }
   

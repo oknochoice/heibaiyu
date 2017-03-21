@@ -21,18 +21,21 @@ class chatCollectionModel {
     sending,
     prepare
   }
+  
   var msgmodel: messageModel!
   var cellIdentifier: String = ""
   var isIncoming: Bool = true
   var status: Status = .success
   var text: String = "no content"
+  
   func clearDelegates() {
     delegates.sendMsgCallback = nil
   }
+  
   func send() {
     netdbwarpper.sharedNetdb().sendMessage(
       msgmodel.tonodeid ?? "",
-      msgmodel.tonodeid ?? "",
+      msgmodel.userid ?? "",
       Int32(Chat_MediaType.text.rawValue),
       text) { [weak self] (errno, errmsg) in
         DispatchQueue.main.async {
@@ -46,5 +49,28 @@ class chatCollectionModel {
           }
         }
     }
+  }
+  
+  static func instance(meid: String, tonodeid: String, incrementid: Int32) -> chatCollectionModel? {
+    
+    let data = netdbwarpper.sharedNetdb().dbGet(
+      netdbwarpper.sharedNetdb().dbkeyMessage(
+        tonodeid, String(incrementid)))
+    if let data = data {
+      let msg = try! Chat_NodeMessage(protobuf: data)
+      let chatModel = chatCollectionModel()
+      chatModel.status = chatCollectionModel.Status.success
+      chatModel.isIncoming = msg.fromUserId == meid ? false : true
+      if chatModel.isIncoming {
+        chatModel.cellIdentifier = "chatCollectionCellIncoming";
+      }else {
+        chatModel.cellIdentifier = "chatCollectionCellMe";
+      }
+      chatModel.text = msg.content
+      return chatModel
+    }else {
+      return nil
+    }
+    
   }
 }

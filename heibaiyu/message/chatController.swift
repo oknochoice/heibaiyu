@@ -62,17 +62,47 @@ class chatController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    NotificationCenter.default.addObserver(self, selector: #selector(appendMsg(noti:)), name: notificationName.updateOneMsg, object: nil)
     configKeyboard()
     configGrowingtext()
     loaddatas()
   }
   
+  func appendMsg(noti: NSNotification) {
+    if let tonodeid = noti.userInfo?[notificationName.updateOneMsg_key_nodeid] as? String{
+      if tonodeid == model.tonodeid! {
+        let meid = userCurrent.shared()?.id
+        var chatmodel = chatCollectionModel.instance(
+          meid: meid!, tonodeid: tonodeid, incrementid: nextIncrementid)
+        while nil != chatmodel {
+          chatmodel?.msgmodel = model
+          self.collectionview.performBatchUpdates({ [weak self] in
+            if let ss = self {
+              ss.items.append(chatmodel!)
+              ss.chatlayout.appendItem(item: chatmodel!)
+              ss.collectionview.insertItems(at: [IndexPath(item: ss.items.count - 1, section: 0)])
+            }
+          }, completion: { [weak self] (isComplete) in
+            if let ss = self {
+             ss.collectionview.scrollToItem(at: IndexPath(item: ss.items.count - 1, section: 0), at: .bottom, animated: true)
+            }
+          })
+          nextIncrementid += 1
+          chatmodel = chatCollectionModel.instance(meid: meid!, tonodeid: tonodeid, incrementid: nextIncrementid)
+        }
+      }
+    }
+  }
+  
+  fileprivate var nextIncrementid: Int32 = 0
   func loaddatas() {
     if let model = model {
       var count: Int = 0
       var incrementid: Int32 = model.maxIncrementID
+      nextIncrementid = incrementid + 1
       let meid = userCurrent.shared()?.id
       while count <= 50 && incrementid >= 1 {
+        /*
         let data = netdbwarpper.sharedNetdb().dbGet(netdbwarpper.sharedNetdb().dbkeyMessage(model.tonodeid!, String(incrementid)))
         if let data = data {
           let msg = try! Chat_NodeMessage(protobuf: data)
@@ -87,6 +117,12 @@ class chatController: UIViewController {
           chatModel.text = msg.content
           chatModel.msgmodel = self.model
           self.items.insert(chatModel, at: 0)
+          count += 1
+        }
+        */
+        if let model = chatCollectionModel.instance(meid: meid!, tonodeid: model.tonodeid!, incrementid: incrementid) {
+          model.msgmodel = self.model
+          self.items.insert(model, at: 0)
           count += 1
         }
         incrementid -= 1
@@ -132,6 +168,7 @@ class chatController: UIViewController {
   
   deinit {
     keyboard.stop()
+    NotificationCenter.default.removeObserver(self)
   }
   
 }

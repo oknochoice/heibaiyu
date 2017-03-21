@@ -156,7 +156,7 @@ void netdb_yi::messageNoti(CB_Func && callback) {
       auto noti = chat::NodeMessageNoti();
       noti.ParseFromString(data);
       auto tonodeid = noti.tonodeid();
-      this->getMessage(tonodeid, 0, noti.unreadincrement() + 1, [tonodeid, callback](const int err_no, const std::string & err_msg){
+      this->getMessage(tonodeid, noti.unreadincrement(), 0, [tonodeid, callback](const int err_no, const std::string & err_msg){
         if (0 == err_no) {
           callback(0, tonodeid);
         }else{
@@ -707,7 +707,7 @@ void netdb_yi::getOneMessage(const std::string & tonodeid, const int32_t increme
 void netdb_yi::getMessage(const std::string & tonodeid, const int32_t fromIncrement,
                             const int32_t toIncrement, CB_Func && callback) {
   YILOG_TRACE ("func: {}", __func__);
-  Assert(toIncrement >= fromIncrement);
+  Assert(toIncrement >= fromIncrement || toIncrement == 0);
   
   int32_t newFromIncrement = fromIncrement;
   if (toIncrement - fromIncrement > 50) {
@@ -726,7 +726,7 @@ void netdb_yi::getMessage(const std::string & tonodeid, const int32_t fromIncrem
       auto error = chat::Error();
       error.ParseFromString(data);
       callback(error.errnum(), error.errmsg());
-    }else if (type == ChatType::queryuserres) {
+    }else if (type == ChatType::querymessageres) {
       auto res = chat::QueryMessageRes();
       res.ParseFromString(data);
       for (auto & msg: res.messages()) {
