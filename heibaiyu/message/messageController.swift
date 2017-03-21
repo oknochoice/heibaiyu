@@ -20,7 +20,7 @@ class messageController: UIViewController {
     super.viewDidLoad()
     tableview.rowHeight = 64
     NotificationCenter.default.addObserver(self, selector: #selector(push2user(noti:)), name: notificationName.talk2user, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(push2nodeids(noti:)), name: notificationName.updateOneMsg, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(push2nodeids(noti:)), name: notificationName.incomingMsg, object: nil)
     loadmessages()
   }
   
@@ -42,7 +42,7 @@ class messageController: UIViewController {
   }
   
   func push2nodeids(noti: Notification) {
-    if let nodeid = noti.userInfo?[notificationName.updateOneMsg_key_nodeid] as? String {
+    if let nodeid = noti.userInfo?[notificationName.incomingMsg_key_nodeid] as? String {
       nodeids_waiting.append(nodeid)
       updateMsg()
     }

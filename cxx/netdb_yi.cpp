@@ -674,7 +674,7 @@ void netdb_yi::sendMessage(const std::string & toNodeID,
       message->set_id(res.id());
       message->set_incrementid(res.incrementid());
       dbyi_->putMessage(*message);
-      callback(0, netdb_success_);
+      callback(0, std::to_string(res.incrementid()));
     }else {
       callback(type, data);
     }

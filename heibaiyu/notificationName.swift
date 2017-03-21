@@ -13,6 +13,9 @@ public class notificationName {
   static let talk2user = Notification.Name("talk2user")
   static let talk2user_key_userid = "talk2user_key_userid"
   // update recent message
-  static let updateOneMsg = Notification.Name("updateOneMsg")
-  static let updateOneMsg_key_nodeid = "updateOneMsg_key_nodeid"
+  static let incomingMsg = Notification.Name("incomingMsg")
+  static let incomingMsg_key_nodeid = "incomingMsg_key_nodeid"
+  // update send message
+  static let updateSendMsg = Notification.Name("updateSendMsg")
+  static let updateSendMsg_key_nodeid = "updateSendMsg_key_nodeid"
 }

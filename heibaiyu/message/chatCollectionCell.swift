@@ -30,7 +30,7 @@ class chatCollectionCell: UICollectionViewCell {
         if let ss = self {
           if 0 == errno {
             ss.backgroundColor = #colorLiteral(red: 0, green: 0.978394568, blue: 0.3484907448, alpha: 1)
-            NotificationCenter.default.post(name: notificationName.updateOneMsg, object: ss, userInfo: [notificationName.updateOneMsg_key_nodeid: ss.model.msgmodel.tonodeid!])
+            NotificationCenter.default.post(name: notificationName.updateSendMsg, object: ss, userInfo: [notificationName.updateSendMsg_key_nodeid: ss.model.msgmodel.tonodeid!])
           }else {
             ss.backgroundColor = #colorLiteral(red: 0.9877519011, green: 0.3219017982, blue: 0.2846495807, alpha: 1)
           }

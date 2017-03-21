@@ -62,31 +62,33 @@ class chatController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NotificationCenter.default.addObserver(self, selector: #selector(appendMsg(noti:)), name: notificationName.updateOneMsg, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(appendMsg(noti:)), name: notificationName.incomingMsg, object: nil)
     configKeyboard()
     configGrowingtext()
     loaddatas()
   }
   
   func appendMsg(noti: NSNotification) {
-    if let tonodeid = noti.userInfo?[notificationName.updateOneMsg_key_nodeid] as? String{
+    if let tonodeid = noti.userInfo?[notificationName.incomingMsg_key_nodeid] as? String{
       if tonodeid == model.tonodeid! {
         let meid = userCurrent.shared()?.id
         var chatmodel = chatCollectionModel.instance(
           meid: meid!, tonodeid: tonodeid, incrementid: nextIncrementid)
         while nil != chatmodel {
           chatmodel?.msgmodel = model
-          self.collectionview.performBatchUpdates({ [weak self] in
-            if let ss = self {
-              ss.items.append(chatmodel!)
-              ss.chatlayout.appendItem(item: chatmodel!)
-              ss.collectionview.insertItems(at: [IndexPath(item: ss.items.count - 1, section: 0)])
-            }
-          }, completion: { [weak self] (isComplete) in
-            if let ss = self {
-             ss.collectionview.scrollToItem(at: IndexPath(item: ss.items.count - 1, section: 0), at: .bottom, animated: true)
-            }
-          })
+          if (chatmodel?.incrementid)! > (self.items.last?.incrementid)! {
+            self.collectionview.performBatchUpdates({ [weak self] in
+              if let ss = self {
+                ss.items.append(chatmodel!)
+                ss.chatlayout.appendItem(item: chatmodel!)
+                ss.collectionview.insertItems(at: [IndexPath(item: ss.items.count - 1, section: 0)])
+              }
+            }, completion: { [weak self] (isComplete) in
+              if let ss = self {
+               ss.collectionview.scrollToItem(at: IndexPath(item: ss.items.count - 1, section: 0), at: .bottom, animated: true)
+              }
+            })
+          }
           nextIncrementid += 1
           chatmodel = chatCollectionModel.instance(meid: meid!, tonodeid: tonodeid, incrementid: nextIncrementid)
         }

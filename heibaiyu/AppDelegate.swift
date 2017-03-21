@@ -93,9 +93,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               blog.verbose((errno, nodeid))
               DispatchQueue.main.async {
                 NotificationCenter.default.post(
-                  name: notificationName.updateOneMsg,
+                  name: notificationName.incomingMsg,
                   object: self,userInfo:
-                  [notificationName.updateOneMsg_key_nodeid: nodeid])
+                  [notificationName.incomingMsg_key_nodeid: nodeid])
               }
             })
           }

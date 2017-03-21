@@ -23,6 +23,7 @@ class chatCollectionModel {
   }
   
   var msgmodel: messageModel!
+  var incrementid: Int32 = 0
   var cellIdentifier: String = ""
   var isIncoming: Bool = true
   var status: Status = .success
@@ -42,6 +43,7 @@ class chatCollectionModel {
           if let ss = self, let callback = ss.delegates.sendMsgCallback {
             if 0 == errno {
               ss.status = .success
+              ss.incrementid = Int32(errmsg)!
             }else {
               ss.status = .failure
             }
@@ -67,6 +69,7 @@ class chatCollectionModel {
         chatModel.cellIdentifier = "chatCollectionCellMe";
       }
       chatModel.text = msg.content
+      chatModel.incrementid = incrementid
       return chatModel
     }else {
       return nil
